@@ -1,0 +1,36 @@
+\begin{thebibliography}{6}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Bazin et~al.()Bazin, Hadjeres, Esling, and Malt]{bazin2021}
+Bazin, T., Hadjeres, G., Esling, P., and Malt, M.
+\newblock URL \url{http://dx.doi.org/10.30746/978-91-519-5560-5}.
+
+\bibitem[Choi et~al.(2021)Choi, Kim, Jeong, Gwon, and Yoon]{choi2021ilvr}
+Choi, J., Kim, S., Jeong, Y., Gwon, Y., and Yoon, S.
+\newblock Ilvr: Conditioning method for denoising diffusion probabilistic
+  models, 2021.
+
+\bibitem[Ho et~al.(2020)Ho, Jain, and Abbeel]{ho2020denoising}
+Ho, J., Jain, A., and Abbeel, P.
+\newblock Denoising diffusion probabilistic models, 2020.
+
+\bibitem[Meng et~al.(2021)Meng, Song, Song, Wu, Zhu, and Ermon]{meng2021sdedit}
+Meng, C., Song, Y., Song, J., Wu, J., Zhu, J.-Y., and Ermon, S.
+\newblock Sdedit: Image synthesis and editing with stochastic differential
+  equations, 2021.
+
+\bibitem[Mittal et~al.(2021)Mittal, Engel, Hawthorne, and Simon]{mittal}
+Mittal, G., Engel, J.~H., Hawthorne, C., and Simon, I.
+\newblock Symbolic music generation with diffusion models.
+\newblock \emph{CoRR}, abs/2103.16091, 2021.
+\newblock URL \url{https://arxiv.org/abs/2103.16091}.
+
+\bibitem[Song et~al.(2020)Song, Meng, and Ermon]{song2020denoising}
+Song, J., Meng, C., and Ermon, S.
+\newblock Denoising diffusion implicit models, 2020.
+
+\end{thebibliography}
