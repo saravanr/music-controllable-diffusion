@@ -3,54 +3,55 @@ Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: project_proposal.aux
 The style file: icml2021.bst
 Database file #1: project.bib
-I was expecting a `,' or a `}'---line 56 of file project.bib
- :    
- :    DOI={10.30746/978-91-519-5560-5},
-(Error may have been on previous line)
-I'm skipping whatever remains of this entry
+Warning--entry type for "colinlmd" isn't style-file defined
+--line 36 of file project.bib
+Warning--entry type for "walker" isn't style-file defined
+--line 44 of file project.bib
+Warning--entry type for "gretton12" isn't style-file defined
+--line 78 of file project.bib
 Warning--empty title in bazin2021
 Warning--empty journal in bazin2021
-Warning--empty year in bazin2021
-Warning--empty year in bazin2021
-You've used 6 entries,
+Warning--empty year in colinlmd
+Warning--empty year in walker
+You've used 10 entries,
             2773 wiz_defined-function locations,
-            617 strings with 5708 characters,
-and the built_in function-call counts, 2826 in all, are:
-= -- 215
-> -- 243
-< -- 0
-+ -- 81
-- -- 75
-* -- 252
-:= -- 449
-add.period$ -- 14
-call.type$ -- 6
-change.case$ -- 42
-chr.to.int$ -- 6
-cite$ -- 16
-duplicate$ -- 104
-empty$ -- 195
-format.name$ -- 81
-if$ -- 566
+            636 strings with 6323 characters,
+and the built_in function-call counts, 4443 in all, are:
+= -- 347
+> -- 359
+< -- 2
++ -- 121
+- -- 111
+* -- 370
+:= -- 701
+add.period$ -- 27
+call.type$ -- 10
+change.case$ -- 66
+chr.to.int$ -- 10
+cite$ -- 24
+duplicate$ -- 166
+empty$ -- 325
+format.name$ -- 121
+if$ -- 902
 int.to.chr$ -- 1
 int.to.str$ -- 1
 missing$ -- 2
-newline$ -- 34
-num.names$ -- 24
-pop$ -- 106
+newline$ -- 55
+num.names$ -- 40
+pop$ -- 165
 preamble$ -- 1
-purify$ -- 37
+purify$ -- 57
 quote$ -- 0
-skip$ -- 99
+skip$ -- 167
 stack$ -- 0
-substring$ -- 12
-swap$ -- 5
+substring$ -- 20
+swap$ -- 9
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 66
+type$ -- 110
 warning$ -- 4
-while$ -- 18
+while$ -- 30
 width$ -- 0
-write$ -- 71
-(There was 1 error message)
+write$ -- 119
+(There were 7 warnings)

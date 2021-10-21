@@ -82,71 +82,33 @@ SUNet ID: & 06512865 \\
 \begin{abstract}
 Diffusion based generative models can be used to generate music in a controllable way. Generating long music sequences from raw audio waveforms can be very compute intensive. MIDI format gives a much more compressed representation of a subset of Music which may give us a tractable way to generate melodies.
 \end{abstract}
-
 \section{Motivation}
 \label{submission}
 Composing music is a skill that is acquired by many years of practice. The music itself is the result of the life experiences of the musician, their state of mind, their unconcious and concious thoughts. Their creative talent is subjective and difficult to generalize. Recent advances in Generative models for Music generation have shown impressive results where the focus has been to replace the creative process. Learning the distribution of music creation may be an intractable problem at the moment. However one approach we can take is to build tools that serve as an aid in the creative process.  If a musician already has a few ideas in mind on how a song or melody should start, can the problem be modelled as a conditional generative process where given the start and style of the song, can a model generate multiple possibilities of how the song can proceed? 
 
 In such a generative system, the inputs to the model would be a short MIDI sequence. The system would generate a bunch of sequences that may serve as suggested next sequences and so on. By conditioning on the input and letting the musician choose the path to take, the model can help in the creative process.
 
-Such a tool can help naive music enthusiasts to try creating music. Consider the spectrum of music creation tools, on one end are very sophisticated tools like Abelton Live, FL Studio which are used by trained musicians. Then there are tools in the middle like Garage band for casual users. With conditional music generation we can build a tool that lies at the other end of the spectrum, enabling anybody to try music creation.
-
 \section{Related Works}
 
 There has been a lot of good work in the area of Music creation. Google's Magenta project explores the role of machine learning in the creative process. In a recent papers \citep{mittal} built a multi-stage non autoregressive generative model that enabled using diffusion models on discrete data. They generated both unconditional music as well as conditional in-filling. They used a Denoising Diffusion Probabilistic Model \cite{ho2020denoising} on top of a MusicVAE model that generated the continuous time latent embeddings. Similarly \cite{choi2021ilvr} proposed an Iterative Latent Variable Refinement (ILVR) method to guide the DDPM to generate high quality images based on a given reference image. Also \cite{song2020denoising}  produced a way to accelerate sampling process of a DDPM which can make generation process of sequences faster. In another beautiful apprach, \cite{bazin2021} built an interactive web interface that transforms sound by inpainting. This approach is similar to what \cite{meng2021sdedit} built with SDEdit that adapts to editing tasks at test time, without the need for re-training the model.
 
-\begin{itemize}
-\item Submissions must be in PDF\@.
-\item Submitted papers can be up to eight pages long, not including references, plus unlimited space for references. Accepted papers can be up to nine pages long, not including references, to allow authors to address reviewer comments. Any paper exceeding this length will automatically be rejected. 
-\item \textbf{Do not include author information or acknowledgements} in your
-    initial submission.
-\item Your paper should be in \textbf{10 point Times font}.
-\item Make sure your PDF file only uses Type-1 fonts.
-\item Place figure captions \emph{under} the figure (and omit titles from inside
-    the graphic file itself). Place table captions \emph{over} the table.
-\item References must include page numbers whenever possible and be as complete
-    as possible. Place multiple citations in chronological order.
-\item Do not alter the style template; in particular, do not compress the paper
-    format by reducing the vertical spaces.
-\item Keep your abstract brief and self-contained, one paragraph and roughly
-    4--6 sentences. Gross violations will require correction at the
-    camera-ready phase. The title should have content words capitalized.
-\end{itemize}
+\section{Dataset}
 
-
+The dataset for the project is the Lakh MIDI Dataset v0.1 \cite{colinlmd}. This is a collection of 176, 581 unique MIDI files out of which 45, 129 have equivalent songs in the Million Song Dataset. I have used \cite{walker} to convert the MIDI sequences to Pandas Pickle format and built a PyTorch DataLoader on top. 
 
 % In the unusual situation where you want a paper to appear in the
 % references without citing it in the main text, use \nocite
 
+\section{Methodology}
+
+Initially the plan is to build a unconditional MusicVAE and see its performance on the LMD dataset. Following which I plan to adopt a similar approach to \citep{mittal} to build a DDPM model that has the ability to inpaint music in a manner similar to SDEdit \cite{meng2021sdedit}.
+
+\section{Evaluation}
+
+The music evaluation is a qualitative process however in related works authors have used Fréchet distance (FD) \cite{heusel2018gans} and Maximum Mean Discrepancy (MMD) \cite{gretton12} to measure distance between the models continuous output distribution and the original data distribution in latent space.
 
 \bibliography{project}
 \bibliographystyle{icml2021}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% DELETE THIS PART. DO NOT PLACE CONTENT AFTER THE REFERENCES!
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\appendix
-\section{Do \emph{not} have an appendix here}
-
-\textbf{\emph{Do not put content after the references.}}
-%
-Put anything that you might normally include after the references in a separate
-supplementary file.
-
-We recommend that you build supplementary material in a separate document.
-If you must create one PDF and cut it up, please be careful to use a tool that
-doesn't alter the margins, and that doesn't aggressively rewrite the PDF file.
-pdftk usually works fine. 
-
-\textbf{Please do not use Apple's preview to cut off supplementary material.} In
-previous years it has altered margins, and created headaches at the camera-ready
-stage. 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 
 \end{document}
 
