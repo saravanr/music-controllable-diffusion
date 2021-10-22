@@ -1,6 +1,27 @@
 import numpy as np
 from note_seq.protobuf import music_pb2
+import note_seq
 from note_seq import midi_io
+from note_seq import play_sequence
+
+
+def save_as_midi_file(note_sequence_object, output_file_path):
+    """
+    Save the note sequence to Midi file
+    :param note_sequence_object: The note seq
+    :param output_file_path: The file path
+    :return:
+    """
+    midi_io.note_sequence_to_midi_file(note_sequence_object, output_file_path)
+
+
+def play_note_seq(note_sequence_object):
+    """
+    Play the note sequence
+    :param note_sequence_object: The note sequence object
+    :return:
+    """
+    play_sequence(note_sequence_object, synth=note_seq.fluidsynth)
 
 
 class MidiConverter(object):
@@ -72,7 +93,7 @@ class MidiConverter(object):
             raise RuntimeError(f"Please load nd array")
         note_array = self._nd_array.T
 
-        note_seq = music_pb2.NoteSequence()
+        note_seq_object = music_pb2.NoteSequence()
         for i in range(0, note_array.shape[1]):
             note = music_pb2.NoteSequence.Note()
             note.pitch = int(note_array[0][i])
@@ -81,6 +102,12 @@ class MidiConverter(object):
             note.program = int(note_array[3][i])
             note.start_time = note_array[4][i]
             note.end_time = note_array[5][i]
-            note_seq.notes.append(note)
+            note_seq_object.notes.append(note)
 
-        return note_seq
+        return note_seq_object
+
+
+if __name__ == "__main__":
+    nd_array = MidiConverter().load_file("/home/joy/midi/lmd_full/d/d9ef4f22e5bf77cae6bda79c50887267.mid").to_nd_array()
+    note_seq = MidiConverter().load_nd_array(nd_array).to_note_seq()
+    play_note_seq(note_seq)
