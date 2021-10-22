@@ -1,10 +1,9 @@
 import torch
-import numpy as np
-import pandas as pd
 from torch.utils.data import Dataset, DataLoader
+from torchvision import transforms
+
 from utils.file_utils import get_files_in_path
 from utils.midi_utils import MidiConverter
-from torchvision import transforms
 
 
 def data_loader_collate_fn(batch):
