@@ -5,6 +5,7 @@ import pytorch_lightning as pl
 from torchvision import transforms
 from pytorch_lightning.utilities.types import TRAIN_DATALOADERS, EVAL_DATALOADERS
 from torch.utils.data import DataLoader
+
 from data.midi_dataset import MidiDataset, Reshape, data_loader_collate_fn
 
 
@@ -14,7 +15,7 @@ class MidiDataModule(pl.LightningDataModule):
                  data_dir,
                  batch_size=4,
                  shuffle=True,
-                 data_shape = (245, 286),
+                 data_shape=(245, 286),
                  ):
         super().__init__()
         self._data_dir = data_dir
@@ -30,9 +31,10 @@ class MidiDataModule(pl.LightningDataModule):
         data_set = MidiDataset(self._data_dir,
                                transform=transforms.Compose([Reshape(self._data_shape)]))
         train_size = int(0.7 * len(data_set))
-        test_size = int((len(data_set) - train_size)/2.0)
+        test_size = int((len(data_set) - train_size) / 2.0)
         val_size = len(data_set) - train_size - test_size
-        train_dataset, val_dataset, test_dataset = torch.utils.data.random_split(data_set, [train_size, val_size, test_size])
+        train_dataset, val_dataset, test_dataset = torch.utils.data.random_split(data_set,
+                                                                                 [train_size, val_size, test_size])
         self._train_dataset = train_dataset
         self._test_dataset = test_dataset
         self._val_dataset = val_dataset
@@ -66,10 +68,3 @@ class MidiDataModule(pl.LightningDataModule):
 
     def teardown(self, stage: Optional[str] = None) -> None:
         pass
-
-
-
-
-
-
-
