@@ -122,15 +122,19 @@ class SimpleVae(BaseModel):
         kl = self._kl(pm, pv)
         loss = recon_loss + kl
         logs = {
-            "recon_loss": recon_loss,
-            "kl_loss": kl,
-            "loss": loss
+            # Detach before appending to reduce memory consumption
+            "recon_loss": recon_loss.detach().item(),
+            "kl_loss": kl.detach().item(),
+            "loss": loss.detach().item()
         }
         return loss, logs
 
     def training_step(self, batch, batch_idx) -> STEP_OUTPUT:
         loss, logs = self.step(batch, batch_idx)
         print(f"Training Reconstruction Loss={logs['recon_loss']} KL Loss={logs['kl_loss']} Total Loss={logs['loss']}")
+        if self.global_step % 1000 == 0:
+            print(f"Saving model @ {self.global_step}...")
+            self.trainer.save_checkpoint(f"simplevae.chkpoint.{self.global_step}")
         return loss
 
     def configure_optimizers(self):
@@ -143,6 +147,8 @@ if __name__ == "__main__":
     z_dim = 200
     input_shape = (245, 286)
     model = SimpleVae(z_dim=z_dim, input_shape=input_shape)
+    device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+    model.to(device)
     dm = MidiDataModule(
         data_dir=os.path.expanduser("~/midi/"),
         batch_size=40,

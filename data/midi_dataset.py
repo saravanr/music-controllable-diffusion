@@ -4,7 +4,7 @@ import os
 import shutil
 from torch.utils.data import Dataset, DataLoader
 from torchvision import transforms
-
+import tqdm
 from utils.file_utils import get_files_in_path
 from utils.midi_utils import MidiConverter
 
@@ -40,6 +40,7 @@ class MidiDataset(Dataset):
         self.data_dir = data_dir
         self.transform = transform
         self.junk_dir = junk_dir
+        self._converter = MidiConverter()
         os.makedirs(junk_dir, exist_ok=True)
         self.data_files = get_files_in_path(data_dir, matching_pattern="*.mid")
 
@@ -51,11 +52,14 @@ class MidiDataset(Dataset):
             raise NotImplementedError(f"Torch indexes are not implemented")
         midi_file_name = self.data_files[index]
         numpy_file_name = f"{midi_file_name}.npy"
+        sample = None
         try:
             if os.path.exists(numpy_file_name):
                 sample = np.load(numpy_file_name)
-            else:
-                sample = MidiConverter().load_file(midi_file_name).to_nd_array()
+                if sample.shape != (245, 286):
+                    sample = None
+            if sample is None:
+                sample, _ = self._converter.load_file(midi_file_name)
                 np.save(numpy_file_name, sample)
         except Exception as _:
             sample = None
@@ -81,10 +85,13 @@ if __name__ == "__main__":
     _dataloader = DataLoader(_data_set,
                              batch_size=4,
                              shuffle=True,
-                             num_workers=8,
+                             num_workers=12,
+                             pin_memory=True,
                              collate_fn=data_loader_collate_fn,
-
                              )
 
-    for _batch, _sample in enumerate(_dataloader):
-        print(f"_batch={_batch} _sample_shape={_sample.shape}")
+    for _batch, _sample in tqdm.tqdm(enumerate(_dataloader)):
+        if _batch % 100 == 0:
+            import gc
+            print('.')
+            gc.collect()
