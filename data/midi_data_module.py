@@ -14,7 +14,7 @@ class MidiDataModule(pl.LightningDataModule):
     def __init__(self,
                  data_dir,
                  batch_size=4,
-                 shuffle=True,
+                 shuffle=False,
                  data_shape=(245, 286),
                  ):
         super().__init__()
@@ -24,7 +24,7 @@ class MidiDataModule(pl.LightningDataModule):
         self._val_dataset = None
         self._test_dataset = None
         self._data_shape = data_shape
-        self._num_workers = mp.cpu_count() - 1
+        self._num_workers = mp.cpu_count()//2
         self._shuffle = shuffle
 
     def setup(self, stage: Optional[str] = None) -> None:

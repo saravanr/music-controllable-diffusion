@@ -1,4 +1,7 @@
 import torch
+import numpy as np
+import os
+import shutil
 from torch.utils.data import Dataset, DataLoader
 from torchvision import transforms
 
@@ -33,9 +36,11 @@ class Reshape(object):
 
 class MidiDataset(Dataset):
 
-    def __init__(self, data_dir, transform=None):
+    def __init__(self, data_dir, transform=None, junk_dir=os.path.expanduser("~/midi_junk")):
         self.data_dir = data_dir
         self.transform = transform
+        self.junk_dir = junk_dir
+        os.makedirs(junk_dir, exist_ok=True)
         self.data_files = get_files_in_path(data_dir, matching_pattern="*.mid")
 
     def __len__(self):
@@ -45,12 +50,17 @@ class MidiDataset(Dataset):
         if torch.is_tensor(index):
             raise NotImplementedError(f"Torch indexes are not implemented")
         midi_file_name = self.data_files[index]
-
+        numpy_file_name = f"{midi_file_name}.npy"
         try:
-            sample = MidiConverter().load_file(midi_file_name).to_nd_array()
-        except Exception as e:
-            print(f"Unable to load {midi_file_name} possibly corrupt? - {e}")
+            if os.path.exists(numpy_file_name):
+                sample = np.load(numpy_file_name)
+            else:
+                sample = MidiConverter().load_file(midi_file_name).to_nd_array()
+                np.save(numpy_file_name, sample)
+        except Exception as _:
             sample = None
+            base_name = os.path.basename(midi_file_name)
+            shutil.move(midi_file_name, os.path.join(self.junk_dir, base_name))
 
         if sample is not None and self.transform:
             sample = self.transform(sample)
@@ -71,7 +81,7 @@ if __name__ == "__main__":
     _dataloader = DataLoader(_data_set,
                              batch_size=4,
                              shuffle=True,
-                             num_workers=15,
+                             num_workers=8,
                              collate_fn=data_loader_collate_fn,
 
                              )
