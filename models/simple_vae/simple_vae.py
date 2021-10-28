@@ -161,8 +161,8 @@ if __name__ == "__main__":
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     model.to(device)
     dm = MidiDataModule(
-        data_dir=os.path.expanduser("~/midi/"),
-        batch_size=40,
+        data_dir=os.path.expanduser("~/midi_processed/"),
+        batch_size=256,
     )
     trainer = Trainer(auto_scale_batch_size="power",
                       gpus=1)

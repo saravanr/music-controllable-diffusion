@@ -14,7 +14,7 @@ def data_loader_collate_fn(batch):
     :param batch: The batch
     :return: Collate Fun
     """
-    batch = list(filter(lambda x: x is not None, batch))
+    batch = list(filter(lambda x: x is not None and len(x) != 0, batch))
     return torch.utils.data.dataloader.default_collate(batch)
 
 
@@ -25,7 +25,19 @@ class Normalize(object):
     [Time Sig, Tempo, Bar, Position, Instrument, Pitch, Duration, Velocity]
     The corresponding number of variations are:
     [254, [16-256], [256], [256], [128], 128, 128, 128]
+
+    Min - tensor([0., 0., 0., 0., 0., 0., 0., 0.], device='cuda:0')
+    Max - tensor(
     """
+
+    def __init__(self, max_values=np.array([9280., 127., 128., 255., 127., 31., 157., 48.])):
+        self._max_values = max_values
+
+    def __call__(self, sample):
+        if sample is None or len(sample) == 0:
+            return sample
+        sample = np.divide(sample, self._max_values).astype(np.float32)
+        return sample
 
 
 class Trim(object):
@@ -37,7 +49,7 @@ class Trim(object):
         self._max_rows = max_rows
 
     def __call__(self, sample):
-        if sample is None:
+        if sample is None or len(sample)==0:
             return None
         diff_rows = self._max_rows - sample.shape[0]
         if diff_rows > 0:

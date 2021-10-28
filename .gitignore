@@ -1,7 +1,7 @@
 .idea/*
 **/__pycache__/**
 *.pyc
-lightning_logs/*
+**/lightning_logs/*
 *.swp
-*/runs/*
-*.chkpoint
+**/runs/*
+*.chkpoint.*
