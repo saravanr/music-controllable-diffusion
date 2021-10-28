@@ -7,6 +7,7 @@ from models.base.base_model import BaseModel
 from torch import nn
 from torch.nn import functional as func
 from pytorch_lightning import Trainer
+from torch.utils.tensorboard import SummaryWriter
 
 class Encoder(nn.Module):
     """
@@ -17,7 +18,6 @@ class Encoder(nn.Module):
         super().__init__()
         self._z_dim = z_dim
         flattened_input = (input_shape[0] * input_shape[1]) // 10
-
         self._net = nn.Sequential(
             nn.Linear(input_shape[0] * input_shape[1], flattened_input // 2),
             nn.LeakyReLU(),
@@ -68,6 +68,7 @@ class Decoder(nn.Module):
 class SimpleVae(BaseModel):
     def __init__(self, z_dim, input_shape):
         super().__init__()
+        self.writer = SummaryWriter()
         self._encoder = Encoder(z_dim, input_shape=input_shape)
         self._decoder = Decoder(z_dim, output_shape=input_shape)
         self.z_prior_m = torch.nn.Parameter(torch.zeros(1), requires_grad=False)
@@ -80,6 +81,9 @@ class SimpleVae(BaseModel):
         q = torch.distributions.Normal(mean, std)
         z = q.rsample()
         return z
+
+    def from_pretrained(self, checkpoint_path, z_dim, input_shape):
+        return self.load_from_checkpoint(checkpoint_path, z_dim, input_shape)
 
     @staticmethod
     def _kl_normal(qm, qv, pm, pv):
@@ -121,18 +125,25 @@ class SimpleVae(BaseModel):
         recon_loss = func.mse_loss(x_hat, x, reduction='mean')
         kl = self._kl(pm, pv)
         loss = recon_loss + kl
+        recon_loss_scalar = recon_loss.detach().item()
+        kl_loss_scalar = kl.detach().item()
+        loss_scalar = loss.detach().item()
         logs = {
             # Detach before appending to reduce memory consumption
-            "recon_loss": recon_loss.detach().item(),
-            "kl_loss": kl.detach().item(),
-            "loss": loss.detach().item()
+            "recon_loss": recon_loss_scalar,
+            "kl_loss": kl_loss_scalar,
+            "loss": loss_scalar
         }
+        self.writer.add_scalar("Loss/train/recon", recon_loss_scalar, self.current_epoch)
+        self.writer.add_scalar("Loss/train/kl", kl_loss_scalar, self.current_epoch)
+        self.writer.add_scalar("Loss/train/loss", loss_scalar, self.current_epoch)
+
         return loss, logs
 
     def training_step(self, batch, batch_idx) -> STEP_OUTPUT:
         loss, logs = self.step(batch, batch_idx)
         print(f"Training Reconstruction Loss={logs['recon_loss']} KL Loss={logs['kl_loss']} Total Loss={logs['loss']}")
-        if self.global_step % 1000 == 0:
+        if self.global_step % 20000 == 0:
             print(f"Saving model @ {self.global_step}...")
             self.trainer.save_checkpoint(f"simplevae.chkpoint.{self.global_step}")
         return loss
