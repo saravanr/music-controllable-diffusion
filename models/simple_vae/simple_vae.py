@@ -8,6 +8,7 @@ from torch import nn
 from torch.nn import functional as func
 from pytorch_lightning import Trainer
 from torch.utils.tensorboard import SummaryWriter
+from utils.midi_utils import save_decoder_output_as_midi
 
 class Encoder(nn.Module):
     """
@@ -63,6 +64,10 @@ class Decoder(nn.Module):
         output = self._net(z)
         output = output.reshape((-1, self._output_shape[0], self._output_shape[1]))
         return output
+
+    @property
+    def z_dim(self):
+        return self._z_dim
 
 
 class SimpleVae(BaseModel):
@@ -151,6 +156,14 @@ class SimpleVae(BaseModel):
         if self.global_step > 0 and self.global_step % 1000 == 0:
             print(f"Saving model @ {self.global_step}...")
             self.trainer.save_checkpoint(f"simplevae.chkpoint.{self.global_step}")
+        if self.global_step % 200 == 0:
+            with torch.no_grad():
+                sample_file_name = f"simplevae-{self.global_step}.midi"
+                device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+                rand_z = torch.rand(self._decoder.z_dim).to(device)
+                sample = model._decoder(rand_z).detach().numpy()
+                save_decoder_output_as_midi(sample, sample_file_name)
+                print(f"Generating midi sample --> {sample_file_name}")
         return loss
 
     def configure_optimizers(self):

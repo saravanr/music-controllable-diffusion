@@ -19,9 +19,29 @@ def get_encoding(midi_file_path):
     return nd_array
 
 
+def save_decoder_output_as_midi(decoder_output, midi_file_name):
+    encoding = get_encoding_from_decoder_output(decoder_output)
+    save_as_midi(encoding, midi_file_name)
+
+
+def get_encoding_from_decoder_output(decoder_output):
+    output = decoder_output.detach().numpy()
+    generated_midi_npy = output[0]
+    # Usually the negative values are very close to zero, zero them out
+    generated_midi_npy[generated_midi_npy < 0] = 0
+    weights = get_normalization_weights()
+    encoding = np.multiply(generated_midi_npy, weights.T).astype(int)
+    return encoding
+
+
 def save_as_midi(encoding, midi_file_name):
     midi_obj = encoding_to_MIDI(encoding)
     midi_obj.dump(midi_file_name)
+
+
+def get_normalization_weights():
+    weights = np.array([9280., 127., 128., 255., 127., 31., 157., 48.])
+    return weights
 
 
 if __name__ == "__main__":
