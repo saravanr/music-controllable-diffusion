@@ -73,6 +73,7 @@ class SimpleVae(BaseModel):
         self._decoder = Decoder(z_dim, output_shape=input_shape)
         self.z_prior_m = torch.nn.Parameter(torch.zeros(1), requires_grad=False)
         self.z_prior_v = torch.nn.Parameter(torch.ones(1), requires_grad=False)
+        self._alpha = 0.001
 
     @staticmethod
     def sample(mean, log_var):
@@ -100,8 +101,11 @@ class SimpleVae(BaseModel):
         Return:
             kl: tensor: (batch,): kl between each sample
         """
+        eps = 1e-8
+        qv = qv + eps
         element_wise = 0.5 * (torch.log(pv) - torch.log(qv) + qv / pv + (qm - pm).pow(2) / pv - 1)
         kl = element_wise.sum(-1)
+        kl = torch.mean(kl)
         return kl
 
     def _kl(self, mean, var):
@@ -120,11 +124,12 @@ class SimpleVae(BaseModel):
 
     def step(self, batch, batch_idx):
         x = batch
-        z, x_hat, pm, pv = self.forward(x)
-
+        z, x_hat, qm, qv = self.forward(x)
+        pm = self.z_prior_m
+        pv = self.z_prior_v
         recon_loss = func.mse_loss(x_hat, x, reduction='mean')
-        kl = self._kl(pm, pv)
-        loss = recon_loss + kl
+        kl = self._kl_normal(qm, qv, pm, pv)
+        loss = recon_loss + self._alpha * kl
         recon_loss_scalar = recon_loss.detach().item()
         kl_loss_scalar = kl.detach().item()
         loss_scalar = loss.detach().item()
@@ -143,7 +148,7 @@ class SimpleVae(BaseModel):
     def training_step(self, batch, batch_idx) -> STEP_OUTPUT:
         loss, logs = self.step(batch, batch_idx)
         print(f"Training Reconstruction Loss={logs['recon_loss']} KL Loss={logs['kl_loss']} Total Loss={logs['loss']}")
-        if self.global_step % 20000 == 0:
+        if self.global_step > 0 and self.global_step % 1000 == 0:
             print(f"Saving model @ {self.global_step}...")
             self.trainer.save_checkpoint(f"simplevae.chkpoint.{self.global_step}")
         return loss
@@ -162,7 +167,7 @@ if __name__ == "__main__":
     model.to(device)
     dm = MidiDataModule(
         data_dir=os.path.expanduser("~/midi_processed/"),
-        batch_size=256,
+        batch_size=2048,
     )
     trainer = Trainer(auto_scale_batch_size="power",
                       gpus=1)
