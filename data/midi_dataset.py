@@ -8,6 +8,7 @@ import tqdm
 from utils.file_utils import get_files_in_path
 from utils.midi_utils import get_encoding
 
+
 def data_loader_collate_fn(batch):
     """
     Custom collate function to remove Nones without throwing exceptions
