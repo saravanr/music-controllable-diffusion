@@ -25,8 +25,7 @@ def save_decoder_output_as_midi(decoder_output, midi_file_name):
 
 
 def get_encoding_from_decoder_output(decoder_output):
-    output = decoder_output.detach().numpy()
-    generated_midi_npy = output[0]
+    generated_midi_npy = decoder_output[0]
     # Usually the negative values are very close to zero, zero them out
     generated_midi_npy[generated_midi_npy < 0] = 0
     weights = get_normalization_weights()

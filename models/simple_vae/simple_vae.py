@@ -161,7 +161,7 @@ class SimpleVae(BaseModel):
                 sample_file_name = f"simplevae-{self.global_step}.midi"
                 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
                 rand_z = torch.rand(self._decoder.z_dim).to(device)
-                sample = model._decoder(rand_z).detach().numpy()
+                sample = model._decoder(rand_z).to("cpu").detach().numpy()
                 save_decoder_output_as_midi(sample, sample_file_name)
                 print(f"Generating midi sample --> {sample_file_name}")
         return loss
