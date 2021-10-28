@@ -2,8 +2,7 @@ import torch
 import numpy as np
 import os
 import shutil
-from torch.utils.data import Dataset, DataLoader
-from torchvision import transforms
+from torch.utils.data import Dataset
 import tqdm
 from utils.file_utils import get_files_in_path
 from utils.midi_utils import get_encoding
@@ -17,6 +16,16 @@ def data_loader_collate_fn(batch):
     """
     batch = list(filter(lambda x: x is not None, batch))
     return torch.utils.data.dataloader.default_collate(batch)
+
+
+class Normalize(object):
+    """
+    Normalizes the input to a range of [-1.0 to 1.0]
+    The Octuple Token in OctupleMIDI encoding using the following scheme:
+    [Time Sig, Tempo, Bar, Position, Instrument, Pitch, Duration, Velocity]
+    The corresponding number of variations are:
+    [254, [16-256], [256], [256], [128], 128, 128, 128]
+    """
 
 
 class Trim(object):
@@ -116,15 +125,36 @@ def process(files):
                 pass
 
 
-if __name__ == "__main__":
+def generate_numpy_files():
     import os
     import multiprocessing as mp
-    _data_dir = os.path.expanduser("~/midi/")
-    _output_dir = os.path.expanduser("~/midi_processed")
-    os.makedirs(_output_dir, exist_ok=True)
-    _files = get_files_in_path(_data_dir, matching_pattern="*.mid")
+    output_dir = os.path.expanduser("~/midi_processed")
+    os.makedirs(output_dir, exist_ok=True)
+    files = get_files_in_path(_data_dir, matching_pattern="*.mid")
     num_proc = mp.cpu_count() - 1
-    parts = [_files[i:i + num_proc] for i in range(0, len(_files), num_proc)]
+    parts = [files[i:i + num_proc] for i in range(0, len(files), num_proc)]
     p = mp.Pool(num_proc)
     p.map(process, parts)
-    p.join()
+
+
+if __name__ == "__main__":
+    _data_dir = os.path.expanduser("~/midi_processed/")
+    _files = get_files_in_path(_data_dir, matching_pattern="*.npy")
+    print(f"Number of files - {len(_files)}")
+    device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+    _global_min = torch.Tensor(np.zeros(8)).to(device)
+    _global_max = torch.Tensor(np.zeros(8)).to(device)
+    for _file in tqdm.tqdm(_files):
+        _sample = np.load(_file)
+        try:
+            _sample = torch.Tensor(_sample).to(device)
+
+            _min = torch.min(_sample, dim=-2).values
+            _max = torch.max(_sample, dim=-2).values
+            _global_min = torch.minimum(_min, _global_min)
+            _global_max = torch.maximum(_max, _global_max)
+        except IndexError as _e:
+            print(f"Unable to process {_file} with shape {_sample.shape} -> {_e}")
+
+    print(f"Min - {_global_min}")
+    print(f"Max - {_global_max}")

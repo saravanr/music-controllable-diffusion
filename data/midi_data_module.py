@@ -1,3 +1,4 @@
+import os.path
 from typing import Optional
 import multiprocessing as mp
 import torch
@@ -6,16 +7,18 @@ from torchvision import transforms
 from pytorch_lightning.utilities.types import TRAIN_DATALOADERS, EVAL_DATALOADERS
 from torch.utils.data import DataLoader
 
-from data.midi_dataset import MidiDataset, Reshape, data_loader_collate_fn
+from data.midi_dataset import MidiDataset, Trim, Reshape, data_loader_collate_fn
+
+MAX_MIDI_ENCODING_ROWS = 10000
 
 
 class MidiDataModule(pl.LightningDataModule):
 
     def __init__(self,
                  data_dir,
-                 batch_size=4,
-                 shuffle=False,
-                 data_shape=(245, 286),
+                 batch_size=10,
+                 shuffle=True,
+                 data_shape=(MAX_MIDI_ENCODING_ROWS, 8),
                  ):
         super().__init__()
         self._data_dir = data_dir
@@ -24,12 +27,13 @@ class MidiDataModule(pl.LightningDataModule):
         self._val_dataset = None
         self._test_dataset = None
         self._data_shape = data_shape
-        self._num_workers = 12
+        self._num_workers = 14
         self._shuffle = shuffle
 
     def setup(self, stage: Optional[str] = None) -> None:
         data_set = MidiDataset(self._data_dir,
-                               transform=transforms.Compose([Reshape(self._data_shape)]))
+                               transform=transforms.Compose(
+                                   [Trim(max_rows=MAX_MIDI_ENCODING_ROWS), Reshape(self._data_shape)]))
         train_size = int(0.7 * len(data_set))
         test_size = int((len(data_set) - train_size) / 2.0)
         val_size = len(data_set) - train_size - test_size
@@ -71,3 +75,40 @@ class MidiDataModule(pl.LightningDataModule):
 
     def teardown(self, stage: Optional[str] = None) -> None:
         pass
+
+
+if __name__ == "__main__":
+    import tqdm
+    import numpy as np
+
+    # Gathers stats on the data loader
+    _midi_module = MidiDataModule(data_dir=os.path.expanduser("~/midi"),
+                                  batch_size=40)
+    _midi_module.setup()
+    _train = _midi_module.train_dataloader()
+    _test = _midi_module.test_dataloader()
+    _val = _midi_module.val_dataloader()
+
+    _global_min = None
+    _global_max = None
+
+    def _find_min_max(_data_set, _global_min, _global_max):
+        for sample in tqdm.tqdm(_data_set):
+            _min = torch.min(sample, dim=2).values
+            _max = torch.max(sample, dim=2).values
+            if _global_min is None:
+                _global_min = _min
+
+            if _global_max is None:
+                _global_max = _max
+            _global_min = torch.minimum(_min, _global_min)
+            _global_max = torch.maximum(_max, _global_max)
+        return _global_min, _global_max
+
+    with torch.no_grad():
+        _global_min, _global_max = _find_min_max(_train, _global_min, _global_max)
+        _global_min, _global_max = _find_min_max(_test, _global_min, _global_max)
+        _global_min, _global_max = _find_min_max(_val, _global_min, _global_max)
+
+    print(f"Global mins = {_global_min}")
+    print(f"Global max = {_global_max}")

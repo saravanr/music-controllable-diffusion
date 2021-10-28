@@ -4,3 +4,4 @@
 lightning_logs/*
 *.swp
 */runs/*
+*.chkpoint

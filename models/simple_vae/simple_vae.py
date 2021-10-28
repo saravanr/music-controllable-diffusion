@@ -155,8 +155,8 @@ class SimpleVae(BaseModel):
 if __name__ == "__main__":
     print(f"Training simple VAE")
     # torch.autograd.set_detect_anomaly(True)
-    z_dim = 200
-    input_shape = (245, 286)
+    z_dim = 256
+    input_shape = (10000, 8)
     model = SimpleVae(z_dim=z_dim, input_shape=input_shape)
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     model.to(device)
