@@ -79,6 +79,7 @@ class SimpleVae(BaseModel):
         self.z_prior_m = torch.nn.Parameter(torch.zeros(1), requires_grad=False)
         self.z_prior_v = torch.nn.Parameter(torch.ones(1), requires_grad=False)
         self._alpha = 0.001
+        self._debug = False
 
     @staticmethod
     def sample(mean, log_var):
@@ -144,9 +145,11 @@ class SimpleVae(BaseModel):
             "kl_loss": kl_loss_scalar,
             "loss": loss_scalar
         }
-        self.writer.add_scalar("Loss/train/recon", recon_loss_scalar, self.current_epoch)
-        self.writer.add_scalar("Loss/train/kl", kl_loss_scalar, self.current_epoch)
-        self.writer.add_scalar("Loss/train/loss", loss_scalar, self.current_epoch)
+
+        if self._debug:
+            self.writer.add_scalar("Loss/train/recon", recon_loss_scalar, self.current_epoch)
+            self.writer.add_scalar("Loss/train/kl", kl_loss_scalar, self.current_epoch)
+            self.writer.add_scalar("Loss/train/loss", loss_scalar, self.current_epoch)
 
         return loss, logs
 
@@ -173,14 +176,14 @@ class SimpleVae(BaseModel):
 if __name__ == "__main__":
     print(f"Training simple VAE")
     # torch.autograd.set_detect_anomaly(True)
-    z_dim = 256
+    z_dim = 64
     input_shape = (10000, 8)
     model = SimpleVae(z_dim=z_dim, input_shape=input_shape)
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     model.to(device)
     dm = MidiDataModule(
         data_dir=os.path.expanduser("~/midi_processed/"),
-        batch_size=2048,
+        batch_size=1024,
     )
     trainer = Trainer(auto_scale_batch_size="power",
                       gpus=1)
