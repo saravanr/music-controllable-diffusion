@@ -26,8 +26,11 @@ class MidiDataModule(pl.LightningDataModule):
         self._train_dataset = None
         self._val_dataset = None
         self._test_dataset = None
+        self._train_dataloader = None
+        self._test_dataloader = None
+        self._val_dataloader = None
         self._data_shape = data_shape
-        self._num_workers = 14
+        self._num_workers = 12
         self._shuffle = shuffle
 
     def setup(self, stage: Optional[str] = None) -> None:
@@ -42,36 +45,37 @@ class MidiDataModule(pl.LightningDataModule):
         self._train_dataset = train_dataset
         self._test_dataset = test_dataset
         self._val_dataset = val_dataset
+        self._train_dataloader = DataLoader(self._train_dataset,
+                                            batch_size=self._batch_size,
+                                            shuffle=self._shuffle,
+                                            num_workers=self._num_workers,
+                                            pin_memory=True,
+                                            collate_fn=data_loader_collate_fn
+                                            )
+        self._test_dataloader = DataLoader(self._test_dataset,
+                                           batch_size=self._batch_size,
+                                           shuffle=self._shuffle,
+                                           num_workers=self._num_workers,
+                                           pin_memory=True,
+                                           collate_fn=data_loader_collate_fn,
+                                           )
+
+        self._val_dataloader = DataLoader(self._val_dataset,
+                                          batch_size=self._batch_size,
+                                          shuffle=self._shuffle,
+                                          num_workers=self._num_workers,
+                                          pin_memory=True,
+                                          collate_fn=data_loader_collate_fn,
+                                          )
 
     def train_dataloader(self) -> TRAIN_DATALOADERS:
-        _dataloader = DataLoader(self._train_dataset,
-                                 batch_size=self._batch_size,
-                                 shuffle=self._shuffle,
-                                 num_workers=self._num_workers,
-                                 pin_memory=True,
-                                 collate_fn=data_loader_collate_fn,
-                                 )
-        return _dataloader
+        return self._train_dataloader
 
     def test_dataloader(self) -> EVAL_DATALOADERS:
-        _dataloader = DataLoader(self._test_dataset,
-                                 batch_size=self._batch_size,
-                                 shuffle=self._shuffle,
-                                 num_workers=self._num_workers,
-                                 pin_memory=True,
-                                 collate_fn=data_loader_collate_fn,
-                                 )
-        return _dataloader
+        return self._test_dataloader
 
     def val_dataloader(self) -> EVAL_DATALOADERS:
-        _dataloader = DataLoader(self._val_dataset,
-                                 batch_size=self._batch_size,
-                                 shuffle=self._shuffle,
-                                 num_workers=self._num_workers,
-                                 pin_memory=True,
-                                 collate_fn=data_loader_collate_fn,
-                                 )
-        return _dataloader
+        return self._val_dataloader
 
     def teardown(self, stage: Optional[str] = None) -> None:
         pass
@@ -91,6 +95,7 @@ if __name__ == "__main__":
     _global_min = None
     _global_max = None
 
+
     def _find_min_max(_data_set, _global_min, _global_max):
         for sample in tqdm.tqdm(_data_set):
             _min = torch.min(sample, dim=2).values
@@ -103,6 +108,7 @@ if __name__ == "__main__":
             _global_min = torch.minimum(_min, _global_min)
             _global_max = torch.maximum(_max, _global_max)
         return _global_min, _global_max
+
 
     with torch.no_grad():
         _global_min, _global_max = _find_min_max(_train, _global_min, _global_max)

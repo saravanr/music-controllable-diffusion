@@ -18,7 +18,7 @@ class Encoder(nn.Module):
     def __init__(self, z_dim, input_shape):
         super().__init__()
         self._z_dim = z_dim
-        flattened_input = (input_shape[0] * input_shape[1]) // 10
+        flattened_input = (input_shape[0] * input_shape[1]) // 100
         self._net = nn.Sequential(
             nn.Linear(input_shape[0] * input_shape[1], flattened_input // 2),
             nn.LeakyReLU(),
@@ -49,7 +49,7 @@ class Decoder(nn.Module):
         super().__init__()
         self._z_dim = z_dim
         self._output_shape = output_shape
-        flattened_output = (output_shape[0] * output_shape[1]) // 10
+        flattened_output = (output_shape[0] * output_shape[1]) // 100
         self._net = nn.Sequential(
             nn.Linear(z_dim, flattened_output // 4),
             nn.LeakyReLU(),
@@ -57,7 +57,7 @@ class Decoder(nn.Module):
             nn.LeakyReLU(),
             nn.Linear(flattened_output // 2, flattened_output // 2),
             nn.LeakyReLU(),
-            nn.Linear(flattened_output // 2, flattened_output * 10)
+            nn.Linear(flattened_output // 2, flattened_output * 100)
         )
 
     def forward(self, z):
@@ -71,7 +71,7 @@ class Decoder(nn.Module):
 
 
 class SimpleVae(BaseModel):
-    def __init__(self, z_dim, input_shape):
+    def __init__(self, z_dim=64, input_shape=(10000, 8)):
         super().__init__()
         self.writer = SummaryWriter()
         self._encoder = Encoder(z_dim, input_shape=input_shape)
@@ -79,7 +79,7 @@ class SimpleVae(BaseModel):
         self.z_prior_m = torch.nn.Parameter(torch.zeros(1), requires_grad=False)
         self.z_prior_v = torch.nn.Parameter(torch.ones(1), requires_grad=False)
         self._alpha = 0.001
-        self._debug = False
+        self._debug = True
 
     @staticmethod
     def sample(mean, log_var):
@@ -89,8 +89,8 @@ class SimpleVae(BaseModel):
         z = q.rsample()
         return z
 
-    def from_pretrained(self, checkpoint_path, z_dim, input_shape):
-        return self.load_from_checkpoint(checkpoint_path, z_dim, input_shape)
+    def from_pretrained(self, checkpoint_path):
+        return self.load_from_checkpoint(checkpoint_path)
 
     @staticmethod
     def _kl_normal(qm, qv, pm, pv):
@@ -158,15 +158,19 @@ class SimpleVae(BaseModel):
         print(f"Training Reconstruction Loss={logs['recon_loss']} KL Loss={logs['kl_loss']} Total Loss={logs['loss']}")
         if self.global_step > 0 and self.global_step % 1000 == 0:
             print(f"Saving model @ {self.global_step}...")
-            self.trainer.save_checkpoint(f"simplevae.chkpoint.{self.global_step}")
+            self.trainer.save_checkpoint(f"simplevae-take-2-smaller.chkpoint.{self.global_step}")
         if self.global_step % 200 == 0:
             with torch.no_grad():
-                sample_file_name = f"simplevae-{self.global_step}.midi"
-                device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
-                rand_z = torch.rand(self._decoder.z_dim).to(device)
-                sample = model._decoder(rand_z).to("cpu").detach().numpy()
-                save_decoder_output_as_midi(sample, sample_file_name)
-                print(f"Generating midi sample --> {sample_file_name}")
+                try:
+                    sample_file_name = f"simplevae-take-2-smaller-{self.global_step}.midi"
+                    device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+                    rand_z = torch.rand(self._decoder.z_dim).to(device)
+                    logits = model._decoder(rand_z)
+                    sample = logits.to("cpu").detach().numpy()
+                    save_decoder_output_as_midi(sample, sample_file_name)
+                    print(f"Generating midi sample --> {sample_file_name}")
+                except Exception as _e:
+                    print(f"Hit exception - {_e}")
         return loss
 
     def configure_optimizers(self):
@@ -176,9 +180,8 @@ class SimpleVae(BaseModel):
 if __name__ == "__main__":
     print(f"Training simple VAE")
     # torch.autograd.set_detect_anomaly(True)
-    z_dim = 64
-    input_shape = (10000, 8)
-    model = SimpleVae(z_dim=z_dim, input_shape=input_shape)
+    model = SimpleVae()
+    model = model.from_pretrained("artifacts-4/simplevae-take-2-smaller.chkpoint.38000")
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     model.to(device)
     dm = MidiDataModule(
@@ -188,7 +191,7 @@ if __name__ == "__main__":
     trainer = Trainer(auto_scale_batch_size="power",
                       gpus=1)
     trainer.fit(model, dm)
-    trainer.save_checkpoint("simplevae.chkpoint")
+    trainer.save_checkpoint("simplevae-take-2.chkpoint-final")
 
 
 

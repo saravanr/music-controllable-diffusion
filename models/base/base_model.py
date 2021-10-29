@@ -11,7 +11,7 @@ class BaseModel(LightningModule):
     Base model class that will be inherited by all model types
     """
 
-    def __init__(self, lr=1e-1, *args: Any, **kwargs: Any):
+    def __init__(self, lr=1e-4, *args: Any, **kwargs: Any):
         super().__init__(*args, **kwargs)
         data_dir = os.path.expanduser("~/midi/")
         self._lr = lr
