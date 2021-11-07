@@ -2,13 +2,13 @@ import os.path
 
 import torch
 from pytorch_lightning.utilities.types import STEP_OUTPUT
-from data.midi_data_module import MidiDataModule
-from models.base.base_model import BaseModel
 from torch import nn
 from torch.nn import functional as func
-from pytorch_lightning import Trainer
 from torch.utils.tensorboard import SummaryWriter
+
+from models.base.base_model import BaseModel
 from utils.midi_utils import save_decoder_output_as_midi
+
 
 class Encoder(nn.Module):
     """
@@ -76,49 +76,10 @@ class SimpleVae(BaseModel):
         self.writer = SummaryWriter()
         self._encoder = Encoder(z_dim, input_shape=input_shape)
         self._decoder = Decoder(z_dim, output_shape=input_shape)
-        self.z_prior_m = torch.nn.Parameter(torch.zeros(1), requires_grad=False)
-        self.z_prior_v = torch.nn.Parameter(torch.ones(1), requires_grad=False)
-        self._alpha = 0.001
-        self._debug = True
-
-    @staticmethod
-    def sample(mean, log_var):
-        # Set all small values to epsilon
-        std = func.softplus(log_var) + 1e-8
-        q = torch.distributions.Normal(mean, std)
-        z = q.rsample()
-        return z
-
-    def from_pretrained(self, checkpoint_path):
-        return self.load_from_checkpoint(checkpoint_path)
-
-    @staticmethod
-    def _kl_normal(qm, qv, pm, pv):
-        """
-        Computes the elem-wise KL divergence between two normal distributions KL(q || p) and
-        sum over the last dimension
-
-        Args:
-            qm: tensor: (batch, dim): q mean
-            qv: tensor: (batch, dim): q variance
-            pm: tensor: (batch, dim): p mean
-            pv: tensor: (batch, dim): p variance
-
-        Return:
-            kl: tensor: (batch,): kl between each sample
-        """
-        eps = 1e-8
-        qv = qv + eps
-        element_wise = 0.5 * (torch.log(pv) - torch.log(qv) + qv / pv + (qm - pm).pow(2) / pv - 1)
-        kl = element_wise.sum(-1)
-        kl = torch.mean(kl)
-        return kl
-
-    def _kl(self, mean, var):
-        eps = 1e-8
-        kl_loss = -0.5 * torch.sum(1 + torch.log(var + eps) - torch.square(mean) - var, axis=-1)
-        kl_loss = torch.mean(kl_loss)
-        return kl_loss
+        self._z_prior_m = torch.nn.Parameter(torch.zeros(1), requires_grad=False)
+        self._z_prior_v = torch.nn.Parameter(torch.ones(1), requires_grad=False)
+        self._alpha = 3
+        self._model_prefix = "SimpleVae"
 
     def forward(self, x):
         mean, var = self._encoder.forward(x)
@@ -135,7 +96,7 @@ class SimpleVae(BaseModel):
         pv = self.z_prior_v
         recon_loss = func.mse_loss(x_hat, x, reduction='mean')
         kl = self._kl_normal(qm, qv, pm, pv)
-        loss = recon_loss + self._alpha * kl
+        loss = recon_loss - self._alpha * kl
         recon_loss_scalar = recon_loss.detach().item()
         kl_loss_scalar = kl.detach().item()
         loss_scalar = loss.detach().item()
@@ -146,31 +107,35 @@ class SimpleVae(BaseModel):
             "loss": loss_scalar
         }
 
-        if self._debug:
+        if self._emit_tensorboard_scalars:
             self.writer.add_scalar("Loss/train/recon", recon_loss_scalar, self.current_epoch)
             self.writer.add_scalar("Loss/train/kl", kl_loss_scalar, self.current_epoch)
             self.writer.add_scalar("Loss/train/loss", loss_scalar, self.current_epoch)
 
         return loss, logs
 
+    def sample_output(self):
+        try:
+            sample_file_name = os.path.join(self._output_dir, f"{self._model_prefix}-{self.global_step}.midi")
+            device = self.get_device()
+            rand_z = torch.rand(self._decoder.z_dim).to(device)
+            logits = model._decoder(rand_z)
+            sample = logits.to("cpu").detach().numpy()
+            print(f"Generating midi sample file://{sample_file_name}")
+            save_decoder_output_as_midi(sample, sample_file_name)
+        except Exception as _e:
+            print(f"Hit exception - {_e}")
+
     def training_step(self, batch, batch_idx) -> STEP_OUTPUT:
         loss, logs = self.step(batch, batch_idx)
         print(f"Training Reconstruction Loss={logs['recon_loss']} KL Loss={logs['kl_loss']} Total Loss={logs['loss']}")
-        if self.global_step > 0 and self.global_step % 1000 == 0:
+        if self.global_step > 0 and self.global_step % self._save_checkpoint_every == 0:
             print(f"Saving model @ {self.global_step}...")
-            self.trainer.save_checkpoint(f"simplevae-take-2-smaller.chkpoint.{self.global_step}")
-        if self.global_step % 200 == 0:
+            model_path = os.path.join(self._output_dir, f"{self._model_prefix}-{self.global_step}.checkpoint")
+            self.trainer.save_checkpoint(model_path)
+        if self.global_step % self._sample_output_step == 0:
             with torch.no_grad():
-                try:
-                    sample_file_name = f"simplevae-take-2-smaller-{self.global_step}.midi"
-                    device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
-                    rand_z = torch.rand(self._decoder.z_dim).to(device)
-                    logits = model._decoder(rand_z)
-                    sample = logits.to("cpu").detach().numpy()
-                    save_decoder_output_as_midi(sample, sample_file_name)
-                    print(f"Generating midi sample --> {sample_file_name}")
-                except Exception as _e:
-                    print(f"Hit exception - {_e}")
+                self.sample_output()
         return loss
 
     def configure_optimizers(self):
@@ -179,19 +144,5 @@ class SimpleVae(BaseModel):
 
 if __name__ == "__main__":
     print(f"Training simple VAE")
-    # torch.autograd.set_detect_anomaly(True)
     model = SimpleVae()
-    model = model.from_pretrained("artifacts-4/simplevae-take-2-smaller.chkpoint.38000")
-    device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-    model.to(device)
-    dm = MidiDataModule(
-        data_dir=os.path.expanduser("~/midi_processed/"),
-        batch_size=1024,
-    )
-    trainer = Trainer(auto_scale_batch_size="power",
-                      gpus=1)
-    trainer.fit(model, dm)
-    trainer.save_checkpoint("simplevae-take-2.chkpoint-final")
-
-
-
+    model.fit()
