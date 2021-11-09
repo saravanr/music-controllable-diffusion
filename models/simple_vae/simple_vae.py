@@ -92,8 +92,8 @@ class SimpleVae(BaseModel):
     def step(self, batch, batch_idx):
         x = batch
         z, x_hat, qm, qv = self.forward(x)
-        pm = self.z_prior_m
-        pv = self.z_prior_v
+        pm = self._z_prior_m
+        pv = self._z_prior_v
         recon_loss = func.mse_loss(x_hat, x, reduction='mean')
         kl = self._kl_normal(qm, qv, pm, pv)
         loss = recon_loss - self._alpha * kl

@@ -14,8 +14,8 @@ class BaseModel(LightningModule):
     """
 
     def __init__(self, lr=1e-4,
-                 data_dir=os.path.expanduser("~/midi_processed"),
-                 output_dir=os.path.expanduser("~/model-archive"),
+                 data_dir=os.path.expanduser("~/midi_processed/"),
+                 output_dir=os.path.expanduser("~/model-archive/"),
                  num_gpus=1,
                  sample_output_step=200,
                  save_checkpoint_every=1000,

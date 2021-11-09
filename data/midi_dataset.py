@@ -8,6 +8,7 @@ from utils.file_utils import get_files_in_path
 from utils.midi_utils import get_encoding
 from cachetools import cached, LRUCache, TTLCache
 
+
 def data_loader_collate_fn(batch):
     """
     Custom collate function to remove Nones without throwing exceptions
@@ -16,6 +17,21 @@ def data_loader_collate_fn(batch):
     """
     batch = list(filter(lambda x: x is not None and len(x) != 0, batch))
     return torch.utils.data.dataloader.default_collate(batch)
+
+class Filter(object):
+    """
+    Filter invalid time series values
+    """
+    def __init__(self):
+        pass
+
+    def __call__(self, sample):
+        if sample is None or len(sample) == 0:
+            return sample
+
+        if np.max(sample.T[0]) > 254.0:
+            return None
+        return sample
 
 
 class Normalize(object):
@@ -30,7 +46,7 @@ class Normalize(object):
     Max - tensor(
     """
 
-    def __init__(self, max_values=np.array([9280., 127., 128., 255., 127., 31., 157., 48.])):
+    def __init__(self, max_values=np.array([254., 127., 128., 255., 127., 31., 157., 48.])):
         self._max_values = max_values
 
     def __call__(self, sample):
@@ -49,7 +65,7 @@ class Trim(object):
         self._max_rows = max_rows
 
     def __call__(self, sample):
-        if sample is None or len(sample)==0:
+        if sample is None or len(sample) == 0:
             return None
         diff_rows = self._max_rows - sample.shape[0]
         if diff_rows > 0:
