@@ -4,6 +4,7 @@ import torch
 import os
 from datetime import datetime
 from pytorch_lightning import LightningModule, Trainer
+from pl_bolts.datamodules import MNISTDataModule
 from data.midi_data_module import MidiDataModule
 import torch.nn.functional as F
 
@@ -17,9 +18,11 @@ class BaseModel(LightningModule):
                  data_dir=os.path.expanduser("~/midi_processed/"),
                  output_dir=os.path.expanduser("~/model-archive/"),
                  num_gpus=1,
+                 batch_size = 30,
                  sample_output_step=200,
                  save_checkpoint_every=1000,
                  emit_tensorboard_scalars=True,
+                 use_mnist_dms=False,
                  *args: Any, **kwargs: Any):
         super().__init__(*args, **kwargs)
         now = datetime.now()
@@ -28,12 +31,16 @@ class BaseModel(LightningModule):
         self._output_dir = os.path.join(output_dir, now_str)
         os.makedirs(self._output_dir)
         self._lr = lr
-        self._dms = MidiDataModule(data_dir)
+        if use_mnist_dms:
+            self._dms = MNISTDataModule()
+        else:
+            self._dms = MidiDataModule(data_dir)
         self._model_prefix = "base-model"
         self._num_gpus = num_gpus
         self._sample_output_step = sample_output_step
         self._save_checkpoint_every = save_checkpoint_every
         self._emit_tensorboard_scalars = emit_tensorboard_scalars
+        self.batch_size = batch_size
 
     @staticmethod
     def sample(mean, log_var):
@@ -82,6 +89,7 @@ class BaseModel(LightningModule):
     def get_device(self):
         if self._num_gpus > 0:
             device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+            return device
         else:
             return 'cpu'
 
@@ -89,6 +97,7 @@ class BaseModel(LightningModule):
         device = self.get_device()
         self.to(device)
 
-        trainer = Trainer(auto_scale_batch_size="power", gpus=self._num_gpus)
+        trainer = Trainer(auto_scale_batch_size="binsearch", gpus=self._num_gpus)
+        trainer.tune(self, self._dms)
         trainer.fit(self, self._dms)
         trainer.save_checkpoint(os.path.join(self._output_dir, f"{self._model_prefix}-final.checkpoint"))
