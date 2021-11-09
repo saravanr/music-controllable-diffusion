@@ -63,7 +63,7 @@ class Decoder(nn.Module):
         else:
             scale = 100
 
-        output_dim = (output_shape[0] * output_shape[1])//scale
+        output_dim = (output_shape[0] * output_shape[1]) // scale
         self._net = nn.Sequential(
             nn.Linear(z_dim, output_dim // 4),
             nn.LeakyReLU(),
@@ -86,7 +86,7 @@ class Decoder(nn.Module):
 
 
 class SimpleVae(BaseModel):
-    def __init__(self, z_dim=64, input_shape=(10000, 8),  alpha=1.0, *args: Any, **kwargs: Any):
+    def __init__(self, z_dim=64, input_shape=(10000, 8), alpha=1.0, *args: Any, **kwargs: Any):
         super().__init__(*args, **kwargs)
         self.writer = SummaryWriter()
         self._encoder = Encoder(z_dim, input_shape=input_shape)
@@ -104,42 +104,39 @@ class SimpleVae(BaseModel):
         x_hat = self._decoder(z)
         return z, x_hat, mean, var
 
+    def loss_function(self, x_hat, x, qm, qv):
+        pm = self._z_prior_m
+        pv = self._z_prior_v
+        output = torch.sigmoid(x_hat)
+        recon_loss = func.mse_loss(output, x, reduction='mean')
+        kl = self._kl_normal(qm, qv, pm, pv)
+        loss = recon_loss - self._alpha * kl
+        logs = {
+            # Detach before appending to reduce memory consumption
+            "recon_loss": recon_loss,
+            "kl_loss": kl,
+            "loss": loss
+        }
+        return loss, logs
+
     def step(self, batch, batch_idx):
         if type(batch) == list:
             x = batch[0]
         else:
             x = batch
         z, x_hat, qm, qv = self.forward(x)
-        pm = self._z_prior_m
-        pv = self._z_prior_v
-        recon_loss = func.mse_loss(x_hat, x, reduction='mean')
-        kl = self._kl_normal(qm, qv, pm, pv)
-        loss = recon_loss - self._alpha * kl
-        recon_loss_scalar = recon_loss.detach().item()
-        kl_loss_scalar = kl.detach().item()
-        loss_scalar = loss.detach().item()
-        logs = {
-            # Detach before appending to reduce memory consumption
-            "recon_loss": recon_loss_scalar,
-            "kl_loss": kl_loss_scalar,
-            "loss": loss_scalar
-        }
-
-        if self._emit_tensorboard_scalars:
-            self.writer.add_scalar("Loss/train/recon", recon_loss_scalar, self.current_epoch)
-            self.writer.add_scalar("Loss/train/kl", kl_loss_scalar, self.current_epoch)
-            self.writer.add_scalar("Loss/train/loss", loss_scalar, self.current_epoch)
-
+        loss, logs = self.loss_function(x_hat, x, qm, qv)
         return loss, logs
 
-    def sample_output(self):
+    def sample_output(self, epoch):
         try:
-            sample_file_name = os.path.join(self._output_dir, f"{self._model_prefix}-{self.global_step}.midi")
+            sample_file_name = os.path.join(self._output_dir, f"{self._model_prefix}-{epoch}.midi")
             device = self.get_device()
             rand_z = torch.rand(self._decoder.z_dim).to(device)
             rand_z.to(device)
             logits = model._decoder(rand_z)
-            sample = logits.to("cpu").detach().numpy()
+            output = torch.sigmoid(logits)
+            sample = output.to("cpu").detach().numpy()
             if sample.shape[2] < 100:
                 # TODO
                 import matplotlib.pyplot as plt
@@ -151,28 +148,20 @@ class SimpleVae(BaseModel):
         except Exception as _e:
             print(f"Hit exception during sample_output - {_e}")
 
-    def training_step(self, batch, batch_idx) -> STEP_OUTPUT:
-        loss, logs = self.step(batch, batch_idx)
-        print(f"Training Reconstruction Loss={logs['recon_loss']} KL Loss={logs['kl_loss']} Total Loss={logs['loss']}")
-        if self.global_step > 0 and self.global_step % self._save_checkpoint_every == 0:
-            print(f"Saving model @ {self.global_step}...")
-            model_path = os.path.join(self._output_dir, f"{self._model_prefix}-{self.global_step}.checkpoint")
-            self.trainer.save_checkpoint(model_path)
-        if self.global_step % self._sample_output_step == 0:
-            with torch.no_grad():
-                self.sample_output()
-        return loss
-
-    def configure_optimizers(self):
-        return torch.optim.Adam(self.parameters(), lr=self._lr)
-
 
 if __name__ == "__main__":
     print(f"Training simple VAE")
     model = SimpleVae(
+        z_dim=2,
         input_shape=(28, 28),
         use_mnist_dms=True,
         sample_output_step=10,
+        batch_size=100000
     )
     print(f"Training --> {model}")
-    model.fit()
+    for epoch in range(1, 51):
+        model.fit(epoch)
+        if epoch % 10 == 0:
+            model.test()
+            model.sample_output(epoch)
+            model.save(epoch)
