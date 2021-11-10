@@ -1,0 +1,161 @@
+
+Training simple VAE
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [2,0,0], thread: [0,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [2,0,0], thread: [1,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [2,0,0], thread: [2,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [2,0,0], thread: [3,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [2,0,0], thread: [4,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [2,0,0], thread: [5,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [2,0,0], thread: [6,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [2,0,0], thread: [7,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [2,0,0], thread: [8,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [2,0,0], thread: [9,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [2,0,0], thread: [10,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [2,0,0], thread: [11,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [2,0,0], thread: [12,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [2,0,0], thread: [13,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [2,0,0], thread: [14,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [2,0,0], thread: [15,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [2,0,0], thread: [16,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [2,0,0], thread: [17,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [2,0,0], thread: [18,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [2,0,0], thread: [19,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [2,0,0], thread: [20,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [2,0,0], thread: [21,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [2,0,0], thread: [22,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [2,0,0], thread: [23,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [2,0,0], thread: [24,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [2,0,0], thread: [25,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [2,0,0], thread: [26,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [2,0,0], thread: [27,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [2,0,0], thread: [28,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [2,0,0], thread: [29,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [2,0,0], thread: [30,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [2,0,0], thread: [31,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [127,0,0], thread: [32,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [127,0,0], thread: [33,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [127,0,0], thread: [34,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [127,0,0], thread: [35,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [127,0,0], thread: [36,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [127,0,0], thread: [37,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [127,0,0], thread: [38,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [127,0,0], thread: [39,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [127,0,0], thread: [40,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [127,0,0], thread: [41,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [127,0,0], thread: [42,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [127,0,0], thread: [43,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [127,0,0], thread: [44,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [127,0,0], thread: [45,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [127,0,0], thread: [46,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [127,0,0], thread: [47,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [127,0,0], thread: [48,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [127,0,0], thread: [49,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [127,0,0], thread: [50,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [127,0,0], thread: [51,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [127,0,0], thread: [52,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [127,0,0], thread: [53,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [127,0,0], thread: [54,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [127,0,0], thread: [55,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [127,0,0], thread: [56,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [127,0,0], thread: [57,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [127,0,0], thread: [58,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [127,0,0], thread: [59,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [127,0,0], thread: [60,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [127,0,0], thread: [61,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [127,0,0], thread: [62,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [127,0,0], thread: [63,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+Traceback (most recent call last):
+  File "/home/joy/.local/share/JetBrains/Toolbox/apps/PyCharm-P/ch-0/212.5457.59/plugins/python/helpers/pydev/pydevd.py", line 1483, in _exec
+    pydev_imports.execfile(file, globals, locals)  # execute the script
+  File "/home/joy/.local/share/JetBrains/Toolbox/apps/PyCharm-P/ch-0/212.5457.59/plugins/python/helpers/pydev/_pydev_imps/_pydev_execfile.py", line 18, in execfile
+    exec(compile(contents+"\n", file, 'exec'), glob, loc)
+  File "/home/joy/projects/music-controllable-diffusion/models/simple_vae/simple_vae.py", line 184, in <module>
+    model.fit(epoch, _optimizer)
+  File "/home/joy/projects/music-controllable-diffusion/models/base/base_model.py", line 102, in fit
+    batch_loss = loss.detach().item()
+RuntimeError: CUDA error: device-side assert triggered
+CUDA kernel errors might be asynchronously reported at some other API call,so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [247,0,0], thread: [0,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [247,0,0], thread: [1,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [247,0,0], thread: [2,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [247,0,0], thread: [3,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [247,0,0], thread: [4,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [247,0,0], thread: [5,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [247,0,0], thread: [6,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [247,0,0], thread: [7,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [247,0,0], thread: [8,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [247,0,0], thread: [9,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [247,0,0], thread: [10,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [247,0,0], thread: [11,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [247,0,0], thread: [12,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [247,0,0], thread: [13,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [247,0,0], thread: [14,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [247,0,0], thread: [15,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [247,0,0], thread: [16,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [247,0,0], thread: [17,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [247,0,0], thread: [18,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [247,0,0], thread: [19,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [247,0,0], thread: [20,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [247,0,0], thread: [21,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [247,0,0], thread: [22,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [247,0,0], thread: [23,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [247,0,0], thread: [24,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [247,0,0], thread: [25,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [247,0,0], thread: [26,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [247,0,0], thread: [27,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [247,0,0], thread: [28,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [247,0,0], thread: [29,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [247,0,0], thread: [30,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [247,0,0], thread: [31,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+Training --> SimpleVae(
+  (_encoder): Encoder(
+    (_net): Sequential(
+      (0): Linear(in_features=784, out_features=392, bias=True)
+      (1): ReLU()
+      (2): Dropout(p=0.5, inplace=False)
+      (3): Linear(in_features=392, out_features=98, bias=True)
+    )
+    (_fc_mean): Sequential(
+      (0): Linear(in_features=98, out_features=20, bias=True)
+    )
+    (_fc_log_var): Sequential(
+      (0): Linear(in_features=98, out_features=20, bias=True)
+    )
+  )
+  (_decoder): Decoder(
+    (_net): Sequential(
+      (0): Linear(in_features=20, out_features=196, bias=True)
+      (1): ReLU()
+      (2): Dropout(p=0.5, inplace=False)
+      (3): Linear(in_features=196, out_features=784, bias=True)
+      (4): Sigmoid()
+    )
+  )
+)
+====> Train Loss = 2.2740071036322676e+27 Epoch = 1
+====> Train Loss = 2.4654016519006182e+33 Epoch = 2
+====> Train Loss = 2.767211602451875e+28 Epoch = 3
+====> Train Loss = 2.1675197918200766e+24 Epoch = 4
+====> Train Loss = 7.390652164131696e+26 Epoch = 5
+====> Train Loss = 9.751147084310818e+25 Epoch = 6
+====> Train Loss = 6.499352066634628e+27 Epoch = 7
+====> Train Loss = 1.1527295915289785e+30 Epoch = 8
+====> Train Loss = 1.724875150698964e+28 Epoch = 9
+====> Train Loss = 2.0222298172355367e+28 Epoch = 10
+====> Train Loss = 1.1771865315395894e+24 Epoch = 11
+====> Train Loss = 2.607434527565288e+27 Epoch = 12
+====> Train Loss = 2.9517709926909845e+32 Epoch = 13
+====> Train Loss = 1.7014364183327693e+30 Epoch = 14
+====> Train Loss = 1.2233218616519752e+24 Epoch = 15
+====> Train Loss = 3.095705503219755e+27 Epoch = 16
+====> Train Loss = 1.3806472452243188e+26 Epoch = 17
+====> Train Loss = 1.919135313178592e+27 Epoch = 18
+====> Train Loss = 3.292934507233976e+25 Epoch = 19
+====> Train Loss = 1.12957834860398e+27 Epoch = 20
+====> Train Loss = 1.305738516428769e+28 Epoch = 21
+====> Train Loss = 6.0696182695464785e+26 Epoch = 22
+====> Train Loss = 1.872284961736323e+30 Epoch = 23
+====> Train Loss = 4.14888830314238e+25 Epoch = 24
+====> Train Loss = 5.980954950656503e+26 Epoch = 25
+====> Train Loss = 1.8335197313181715e+30 Epoch = 26

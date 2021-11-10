@@ -1,0 +1,283 @@
+
+Training simple VAE
+Training --> SimpleVae(
+  (_encoder): Encoder(
+    (_net): Sequential(
+      (0): Linear(in_features=784, out_features=392, bias=True)
+      (1): ReLU()
+      (2): Linear(in_features=392, out_features=196, bias=True)
+      (3): ReLU()
+      (4): Linear(in_features=196, out_features=98, bias=True)
+    )
+    (_fc_mean): Sequential(
+      (0): Linear(in_features=98, out_features=20, bias=True)
+    )
+    (_fc_log_var): Sequential(
+      (0): Linear(in_features=98, out_features=20, bias=True)
+    )
+  )
+  (_decoder): Decoder(
+    (_net): Sequential(
+      (0): Linear(in_features=20, out_features=196, bias=True)
+      (1): ReLU()
+      (2): Linear(in_features=196, out_features=392, bias=True)
+      (3): ReLU()
+      (4): Linear(in_features=392, out_features=784, bias=True)
+      (5): Sigmoid()
+    )
+  )
+)
+====> Train Loss = 77507349.33333333 Epoch = 1
+====> Train Loss = 2711093.3333333335 Epoch = 2
+====> Train Loss = -5112466.0 Epoch = 3
+====> Train Loss = -12327066.666666666 Epoch = 4
+====> Train Loss = -19265341.333333332 Epoch = 5
+====>  Test Loss = -37176960.0
+====> Train Loss = -23582165.333333332 Epoch = 6
+====> Train Loss = -30501053.333333332 Epoch = 7
+====> Train Loss = -37455173.333333336 Epoch = 8
+====> Train Loss = -48087898.666666664 Epoch = 9
+====> Train Loss = -64973088.0 Epoch = 10
+====>  Test Loss = -150119856.0
+====> Train Loss = -86980821.33333333 Epoch = 11
+====> Train Loss = -139972778.66666666 Epoch = 12
+====> Train Loss = -234082261.33333334 Epoch = 13
+====> Train Loss = -214812330.66666666 Epoch = 14
+====> Train Loss = -265698176.0 Epoch = 15
+====>  Test Loss = -525030976.0
+====> Train Loss = -356983189.3333333 Epoch = 16
+====> Train Loss = -497843968.0 Epoch = 17
+====> Train Loss = -726884352.0 Epoch = 18
+====> Train Loss = -659690666.6666666 Epoch = 19
+====> Train Loss = -674445909.3333334 Epoch = 20
+====>  Test Loss = -1427558016.0
+====> Train Loss = -842836565.3333334 Epoch = 21
+====> Train Loss = -1298310570.6666667 Epoch = 22
+====> Train Loss = -1427019861.3333333 Epoch = 23
+====> Train Loss = -1936036864.0 Epoch = 24
+====> Train Loss = -2051058688.0 Epoch = 25
+====>  Test Loss = -3414772736.0
+====> Train Loss = -2052138154.6666667 Epoch = 26
+====> Train Loss = -2573200725.3333335 Epoch = 27
+====> Train Loss = -3136166912.0 Epoch = 28
+====> Train Loss = -3126143658.6666665 Epoch = 29
+====> Train Loss = -3818315093.3333335 Epoch = 30
+====>  Test Loss = -7251103744.0
+====> Train Loss = -4512270677.333333 Epoch = 31
+====> Train Loss = -5144618325.333333 Epoch = 32
+====> Train Loss = -4624971434.666667 Epoch = 33
+====> Train Loss = -5096424448.0 Epoch = 34
+====> Train Loss = -6335782912.0 Epoch = 35
+====>  Test Loss = -10870051840.0
+====> Train Loss = -6857852928.0 Epoch = 36
+====> Train Loss = -7142679893.333333 Epoch = 37
+====> Train Loss = -7006818304.0 Epoch = 38
+====> Train Loss = -8158800554.666667 Epoch = 39
+====> Train Loss = -9074776064.0 Epoch = 40
+====>  Test Loss = -13677645824.0
+====> Train Loss = -8665625941.333334 Epoch = 41
+====> Train Loss = -8969347754.666666 Epoch = 42
+====> Train Loss = -10073201322.666666 Epoch = 43
+====> Train Loss = -10169101653.333334 Epoch = 44
+====> Train Loss = -10785364650.666666 Epoch = 45
+====>  Test Loss = -16872846336.0
+====> Train Loss = -11011681621.333334 Epoch = 46
+====> Train Loss = -11266009770.666666 Epoch = 47
+====> Train Loss = -11404290048.0 Epoch = 48
+====> Train Loss = -11978103466.666666 Epoch = 49
+====> Train Loss = -12591824896.0 Epoch = 50
+====>  Test Loss = -19415396352.0
+====> Train Loss = -12831881898.666666 Epoch = 51
+====> Train Loss = -12783183189.333334 Epoch = 52
+====> Train Loss = -13050116778.666666 Epoch = 53
+====> Train Loss = -13133331114.666666 Epoch = 54
+====> Train Loss = -13495767040.0 Epoch = 55
+====>  Test Loss = -21503844352.0
+====> Train Loss = -14117975381.333334 Epoch = 56
+====> Train Loss = -14335071573.333334 Epoch = 57
+====> Train Loss = -14306222080.0 Epoch = 58
+====> Train Loss = -14878984874.666666 Epoch = 59
+====> Train Loss = -14735167488.0 Epoch = 60
+====>  Test Loss = -23211368448.0
+====> Train Loss = -15192853162.666666 Epoch = 61
+====> Train Loss = -15444070400.0 Epoch = 62
+====> Train Loss = -15706341376.0 Epoch = 63
+====> Train Loss = -16050399914.666666 Epoch = 64
+====> Train Loss = -16132943872.0 Epoch = 65
+====>  Test Loss = -24850180096.0
+====> Train Loss = -16302066346.666666 Epoch = 66
+====> Train Loss = -16447187626.666666 Epoch = 67
+====> Train Loss = -16372557141.333334 Epoch = 68
+====> Train Loss = -16464766293.333334 Epoch = 69
+====> Train Loss = -16529892693.333334 Epoch = 70
+====>  Test Loss = -25527840768.0
+====> Train Loss = -16787307178.666666 Epoch = 71
+====> Train Loss = -16923435008.0 Epoch = 72
+====> Train Loss = -16959122090.666666 Epoch = 73
+====> Train Loss = -16980193280.0 Epoch = 74
+====> Train Loss = -16914041514.666666 Epoch = 75
+====>  Test Loss = -25729222656.0
+====> Train Loss = -16931363498.666666 Epoch = 76
+====> Train Loss = -16944764245.333334 Epoch = 77
+====> Train Loss = -17042882560.0 Epoch = 78
+====> Train Loss = -17048728917.333334 Epoch = 79
+====> Train Loss = -17054617600.0 Epoch = 80
+====>  Test Loss = -25781811200.0
+====> Train Loss = -16970928128.0 Epoch = 81
+====> Train Loss = -16777203712.0 Epoch = 82
+====> Train Loss = -16976117760.0 Epoch = 83
+====> Train Loss = -16975701333.333334 Epoch = 84
+====> Train Loss = -16775701845.333334 Epoch = 85
+====>  Test Loss = -25780574208.0
+====> Train Loss = -17056681984.0 Epoch = 86
+====> Train Loss = -16772083712.0 Epoch = 87
+====> Train Loss = -16965352106.666666 Epoch = 88
+====> Train Loss = -16964180650.666666 Epoch = 89
+====> Train Loss = -17043525632.0 Epoch = 90
+====>  Test Loss = -25759205376.0
+====> Train Loss = -17038480725.333334 Epoch = 91
+====> Train Loss = -17030449834.666666 Epoch = 92
+====> Train Loss = -17023862101.333334 Epoch = 93
+====> Train Loss = -16930417322.666666 Epoch = 94
+====> Train Loss = -16918369621.333334 Epoch = 95
+====>  Test Loss = -25703643136.0
+====> Train Loss = -16710122154.666666 Epoch = 96
+====> Train Loss = -16987157845.333334 Epoch = 97
+====> Train Loss = -16978949461.333334 Epoch = 98
+====> Train Loss = -16673423360.0 Epoch = 99
+====> Train Loss = -16953004032.0 Epoch = 100
+====>  Test Loss = -25635377152.0
+====> Train Loss = -16942658901.333334 Epoch = 101
+====> Train Loss = -16639939925.333334 Epoch = 102
+====> Train Loss = -16629485568.0 Epoch = 103
+====> Train Loss = -16912034474.666666 Epoch = 104
+====> Train Loss = -16801771520.0 Epoch = 105
+====>  Test Loss = -25569497088.0
+====> Train Loss = -16897545557.333334 Epoch = 106
+====> Train Loss = -16789587285.333334 Epoch = 107
+====> Train Loss = -16882479104.0 Epoch = 108
+====> Train Loss = -16881280341.333334 Epoch = 109
+====> Train Loss = -16587449685.333334 Epoch = 110
+====>  Test Loss = -25546532864.0
+====> Train Loss = -16586571776.0 Epoch = 111
+====> Train Loss = -16584604330.666666 Epoch = 112
+====> Train Loss = -16882932394.666666 Epoch = 113
+====> Train Loss = -16787774122.666666 Epoch = 114
+====> Train Loss = -16791183360.0 Epoch = 115
+====>  Test Loss = -25577533440.0
+====> Train Loss = -16903076522.666666 Epoch = 116
+====> Train Loss = -16805025109.333334 Epoch = 117
+====> Train Loss = -16914673664.0 Epoch = 118
+====> Train Loss = -16818911914.666666 Epoch = 119
+====> Train Loss = -16931416746.666666 Epoch = 120
+====>  Test Loss = -25624737792.0
+====> Train Loss = -16640740010.666666 Epoch = 121
+====> Train Loss = -16944179882.666666 Epoch = 122
+====> Train Loss = -16656665258.666666 Epoch = 123
+====> Train Loss = -16663620266.666666 Epoch = 124
+====> Train Loss = -16673609045.333334 Epoch = 125
+====>  Test Loss = -25674893312.0
+====> Train Loss = -16967884800.0 Epoch = 126
+====> Train Loss = -16683565056.0 Epoch = 127
+====> Train Loss = -16689104213.333334 Epoch = 128
+====> Train Loss = -16694430378.666666 Epoch = 129
+====> Train Loss = -16697643008.0 Epoch = 130
+====>  Test Loss = -25701705728.0
+====> Train Loss = -16699848021.333334 Epoch = 131
+====> Train Loss = -16997086549.333334 Epoch = 132
+====> Train Loss = -16909321557.333334 Epoch = 133
+====> Train Loss = -16714095274.666666 Epoch = 134
+====> Train Loss = -17005397333.333334 Epoch = 135
+====>  Test Loss = -25720909824.0
+====> Train Loss = -17004163072.0 Epoch = 136
+====> Train Loss = -16716954282.666666 Epoch = 137
+====> Train Loss = -17010018986.666666 Epoch = 138
+====> Train Loss = -16921632768.0 Epoch = 139
+====> Train Loss = -16721772544.0 Epoch = 140
+====>  Test Loss = -25732282368.0
+====> Train Loss = -16721403904.0 Epoch = 141
+====> Train Loss = -16923101866.666666 Epoch = 142
+====> Train Loss = -16722354176.0 Epoch = 143
+====> Train Loss = -17010954240.0 Epoch = 144
+====> Train Loss = -16719865173.333334 Epoch = 145
+====>  Test Loss = -25735561216.0
+====> Train Loss = -16919008597.333334 Epoch = 146
+====> Train Loss = -16722182144.0 Epoch = 147
+====> Train Loss = -16723856042.666666 Epoch = 148
+====> Train Loss = -17012822016.0 Epoch = 149
+====> Train Loss = -16920133632.0 Epoch = 150
+====>  Test Loss = -25728563200.0
+====> Train Loss = -17011058005.333334 Epoch = 151
+====> Train Loss = -16921808896.0 Epoch = 152
+====> Train Loss = -16724351658.666666 Epoch = 153
+====> Train Loss = -17012427434.666666 Epoch = 154
+====> Train Loss = -16924594176.0 Epoch = 155
+====>  Test Loss = -25737359360.0
+====> Train Loss = -16723297621.333334 Epoch = 156
+====> Train Loss = -17013522432.0 Epoch = 157
+====> Train Loss = -17015312384.0 Epoch = 158
+====> Train Loss = -16728469504.0 Epoch = 159
+====> Train Loss = -16731986602.666666 Epoch = 160
+====>  Test Loss = -25740527616.0
+====> Train Loss = -17022402560.0 Epoch = 161
+====> Train Loss = -17021427712.0 Epoch = 162
+====> Train Loss = -16934042282.666666 Epoch = 163
+====> Train Loss = -17023795200.0 Epoch = 164
+====> Train Loss = -16734433280.0 Epoch = 165
+====>  Test Loss = -25747802112.0
+====> Train Loss = -17024326314.666666 Epoch = 166
+====> Train Loss = -16935307946.666666 Epoch = 167
+====> Train Loss = -16739986090.666666 Epoch = 168
+====> Train Loss = -16936951808.0 Epoch = 169
+====> Train Loss = -17028055040.0 Epoch = 170
+====>  Test Loss = -25759672320.0
+====> Train Loss = -17031471104.0 Epoch = 171
+====> Train Loss = -17034317824.0 Epoch = 172
+====> Train Loss = -17035739136.0 Epoch = 173
+====> Train Loss = -16746511018.666666 Epoch = 174
+====> Train Loss = -16747091285.333334 Epoch = 175
+====>  Test Loss = -25763860480.0
+====> Train Loss = -16949474645.333334 Epoch = 176
+====> Train Loss = -16749701802.666666 Epoch = 177
+====> Train Loss = -17041315157.333334 Epoch = 178
+====> Train Loss = -16751121749.333334 Epoch = 179
+====> Train Loss = -16955591338.666666 Epoch = 180
+====>  Test Loss = -25765591040.0
+====> Train Loss = -17045409792.0 Epoch = 181
+====> Train Loss = -16958965077.333334 Epoch = 182
+====> Train Loss = -16756382378.666666 Epoch = 183
+====> Train Loss = -16761040896.0 Epoch = 184
+====> Train Loss = -17044671146.666666 Epoch = 185
+====>  Test Loss = -25775239168.0
+====> Train Loss = -16759279616.0 Epoch = 186
+====> Train Loss = -16758968320.0 Epoch = 187
+====> Train Loss = -16761621162.666666 Epoch = 188
+====> Train Loss = -17050498389.333334 Epoch = 189
+====> Train Loss = -16965641557.333334 Epoch = 190
+====>  Test Loss = -25782757376.0
+====> Train Loss = -17054871552.0 Epoch = 191
+====> Train Loss = -17050441045.333334 Epoch = 192
+====> Train Loss = -16968936106.666666 Epoch = 193
+====> Train Loss = -17052312917.333334 Epoch = 194
+====> Train Loss = -17057402880.0 Epoch = 195
+====>  Test Loss = -25782181888.0
+====> Train Loss = -16972402688.0 Epoch = 196
+====> Train Loss = -16970433877.333334 Epoch = 197
+====> Train Loss = -17055242922.666666 Epoch = 198
+====> Train Loss = -16771850240.0 Epoch = 199
+====> Train Loss = -16773115904.0 Epoch = 200
+====>  Test Loss = -25791653888.0
+Python 3.8.10 (default, Sep 28 2021, 16:10:42)
+Type 'copyright', 'credits' or 'license' for more information
+IPython 7.27.0 -- An enhanced Interactive Python. Type '?' for help.
+PyDev console: using IPython 7.27.0
+Python 3.8.10 (default, Sep 28 2021, 16:10:42)
+[GCC 9.3.0] on linux
+Traceback (most recent call last):
+  File "/home/joy/.local/share/JetBrains/Toolbox/apps/PyCharm-P/ch-0/212.5457.59/plugins/python/helpers/pydev/pydevd.py", line 2173, in <module>
+    main()
+  File "/home/joy/.local/share/JetBrains/Toolbox/apps/PyCharm-P/ch-0/212.5457.59/plugins/python/helpers/pydev/pydevd.py", line 2170, in main
+    debugger.wait_for_commands(globals)
+  File "/home/joy/.local/share/JetBrains/Toolbox/apps/PyCharm-P/ch-0/212.5457.59/plugins/python/helpers/pydev/pydevd.py", line 1538, in wait_for_commands
+    time.sleep(0.01)
+KeyboardInterrupt

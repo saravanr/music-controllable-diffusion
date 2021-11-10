@@ -1,0 +1,29 @@
+
+Training simple VAE
+/home/joy/.venv/lib/python3.8/site-packages/torchvision/datasets/mnist.py:498: UserWarning: The given NumPy array is not writeable, and PyTorch does not support non-writeable tensors. This means you can write to the underlying (supposedly non-writeable) NumPy array using the tensor. You may want to copy the array to protect its data or make it writeable before converting it to a tensor. This type of warning will be suppressed for the rest of this program. (Triggered internally at  ../torch/csrc/utils/tensor_numpy.cpp:180.)
+  return torch.from_numpy(parsed.astype(m[2], copy=False)).view(*s)
+Traceback (most recent call last):
+  File "/home/joy/.local/share/JetBrains/Toolbox/apps/PyCharm-P/ch-0/212.5457.59/plugins/python/helpers/pydev/pydevd.py", line 1483, in _exec
+    pydev_imports.execfile(file, globals, locals)  # execute the script
+  File "/home/joy/.local/share/JetBrains/Toolbox/apps/PyCharm-P/ch-0/212.5457.59/plugins/python/helpers/pydev/_pydev_imps/_pydev_execfile.py", line 18, in execfile
+    exec(compile(contents+"\n", file, 'exec'), glob, loc)
+  File "/home/joy/projects/music-controllable-diffusion/models/simple_vae/simple_vae.py", line 165, in <module>
+    model = SimpleVae(
+  File "/home/joy/projects/music-controllable-diffusion/models/simple_vae/simple_vae.py", line 95, in __init__
+    super(SimpleVae, self).__init__(*args, **kwargs)
+  File "/home/joy/projects/music-controllable-diffusion/models/base/base_model.py", line 48, in __init__
+    self._dms.setup()
+  File "/home/joy/.venv/lib/python3.8/site-packages/pytorch_lightning/core/datamodule.py", line 428, in wrapped_fn
+    fn(*args, **kwargs)
+  File "/home/joy/projects/music-controllable-diffusion/data/mnist_data_module.py", line 51, in setup
+    test_data_set = TensorDataset(test_x)
+  File "/home/joy/.venv/lib/python3.8/site-packages/torch/utils/data/dataset.py", line 205, in __init__
+    assert all(tensors[0].size(0) == tensor.size(0) for tensor in tensors), "Size mismatch between tensors"
+  File "/home/joy/.venv/lib/python3.8/site-packages/torch/utils/data/dataset.py", line 205, in <genexpr>
+    assert all(tensors[0].size(0) == tensor.size(0) for tensor in tensors), "Size mismatch between tensors"
+TypeError: 'int' object is not callable
+Python 3.8.10 (default, Sep 28 2021, 16:10:42)
+Type 'copyright', 'credits' or 'license' for more information
+IPython 7.27.0 -- An enhanced Interactive Python. Type '?' for help.
+PyDev console: using IPython 7.27.0
+Out[1]: array([7., 2., 1., ..., 4., 5., 6.], dtype=float32)

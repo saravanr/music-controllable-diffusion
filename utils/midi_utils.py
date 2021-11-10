@@ -4,7 +4,6 @@ import numpy as np
 from note_seq import play_sequence
 import miditoolkit
 import note_seq
-from muzic.musicbert.preprocess import MIDI_to_encoding, encoding_to_MIDI
 
 
 def play_midi_file(midi_file_name):
@@ -13,6 +12,7 @@ def play_midi_file(midi_file_name):
 
 
 def get_encoding(midi_file_path):
+    from muzic.musicbert.preprocess import MIDI_to_encoding, encoding_to_MIDI
     midi_obj = miditoolkit.midi.parser.MidiFile(midi_file_path)
     encoding = MIDI_to_encoding(midi_obj)
     nd_array = np.array(encoding)
@@ -34,6 +34,7 @@ def get_encoding_from_decoder_output(decoder_output):
 
 
 def save_as_midi(encoding, midi_file_name):
+    from muzic.musicbert.preprocess import MIDI_to_encoding, encoding_to_MIDI
     midi_obj = encoding_to_MIDI(encoding)
     midi_obj.dump(midi_file_name)
 

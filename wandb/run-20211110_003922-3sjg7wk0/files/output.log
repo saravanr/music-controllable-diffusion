@@ -1,0 +1,131 @@
+
+Training simple VAE
+/home/joy/.venv/lib/python3.8/site-packages/torchvision/datasets/mnist.py:498: UserWarning: The given NumPy array is not writeable, and PyTorch does not support non-writeable tensors. This means you can write to the underlying (supposedly non-writeable) NumPy array using the tensor. You may want to copy the array to protect its data or make it writeable before converting it to a tensor. This type of warning will be suppressed for the rest of this program. (Triggered internally at  ../torch/csrc/utils/tensor_numpy.cpp:180.)
+  return torch.from_numpy(parsed.astype(m[2], copy=False)).view(*s)
+Training --> SimpleVae(
+  (_encoder): Encoder(
+    (_net): Sequential(
+      (0): Linear(in_features=784, out_features=392, bias=True)
+      (1): ReLU()
+      (2): Linear(in_features=392, out_features=196, bias=True)
+      (3): ReLU()
+      (4): Linear(in_features=196, out_features=98, bias=True)
+    )
+    (_fc_mean): Sequential(
+      (0): Linear(in_features=98, out_features=20, bias=True)
+    )
+    (_fc_log_var): Sequential(
+      (0): Linear(in_features=98, out_features=20, bias=True)
+    )
+  )
+  (_decoder): Decoder(
+    (_net): Sequential(
+      (0): Linear(in_features=20, out_features=196, bias=True)
+      (1): ReLU()
+      (2): Linear(in_features=196, out_features=392, bias=True)
+      (3): ReLU()
+      (4): Linear(in_features=392, out_features=784, bias=True)
+      (5): Sigmoid()
+    )
+  )
+)
+====> Train Loss = 543.3573333333334 Epoch = 1
+====> Train Loss = 539.0324166666667 Epoch = 2
+====> Train Loss = 534.59965 Epoch = 3
+====> Train Loss = 529.9711833333333 Epoch = 4
+====> Train Loss = 524.8870666666667 Epoch = 5
+====>  Test Loss = 5213629.5
+====> Train Loss = 519.3044 Epoch = 6
+====> Train Loss = 512.9380666666667 Epoch = 7
+====> Train Loss = 505.5292666666667 Epoch = 8
+====> Train Loss = 496.8824333333333 Epoch = 9
+====> Train Loss = 486.65091666666666 Epoch = 10
+====>  Test Loss = 4789137.0
+====> Train Loss = 474.2937166666667 Epoch = 11
+====> Train Loss = 458.9349833333333 Epoch = 12
+====> Train Loss = 440.2710666666667 Epoch = 13
+====> Train Loss = 417.955075 Epoch = 14
+====> Train Loss = 392.79138333333333 Epoch = 15
+====>  Test Loss = 3757601.75
+====> Train Loss = 368.0120333333333 Epoch = 16
+====> Train Loss = 348.6582916666667 Epoch = 17
+====> Train Loss = 334.2255333333333 Epoch = 18
+====> Train Loss = 318.80135 Epoch = 19
+====> Train Loss = 302.933075 Epoch = 20
+====>  Test Loss = 2935889.0
+====> Train Loss = 289.54793333333333 Epoch = 21
+====> Train Loss = 278.88254166666667 Epoch = 22
+====> Train Loss = 270.1840583333333 Epoch = 23
+====> Train Loss = 262.8371583333333 Epoch = 24
+====> Train Loss = 256.4938916666667 Epoch = 25
+====>  Test Loss = 2528501.25
+====> Train Loss = 251.34966666666668 Epoch = 26
+====> Train Loss = 247.18459166666668 Epoch = 27
+====> Train Loss = 243.4393 Epoch = 28
+====> Train Loss = 240.13376666666667 Epoch = 29
+====> Train Loss = 237.344925 Epoch = 30
+====>  Test Loss = 2356601.0
+====> Train Loss = 235.02749166666666 Epoch = 31
+====> Train Loss = 232.973925 Epoch = 32
+====> Train Loss = 231.02634166666667 Epoch = 33
+====> Train Loss = 229.29813333333334 Epoch = 34
+====> Train Loss = 227.78695833333333 Epoch = 35
+====>  Test Loss = 2269292.5
+====> Train Loss = 226.464725 Epoch = 36
+====> Train Loss = 225.22144166666666 Epoch = 37
+====> Train Loss = 224.08415 Epoch = 38
+====> Train Loss = 223.06421666666665 Epoch = 39
+====> Train Loss = 222.17833333333334 Epoch = 40
+====>  Test Loss = 2212562.75
+====> Train Loss = 221.17050833333334 Epoch = 41
+====> Train Loss = 220.42589166666667 Epoch = 42
+====> Train Loss = 219.698775 Epoch = 43
+====> Train Loss = 218.9496 Epoch = 44
+====> Train Loss = 218.35289166666666 Epoch = 45
+====>  Test Loss = 2177915.75
+====> Train Loss = 217.65475833333332 Epoch = 46
+====> Train Loss = 217.087075 Epoch = 47
+====> Train Loss = 216.522125 Epoch = 48
+====> Train Loss = 215.94781666666665 Epoch = 49
+====> Train Loss = 215.49540833333333 Epoch = 50
+====>  Test Loss = 2149765.5
+====> Train Loss = 215.00414166666667 Epoch = 51
+====> Train Loss = 214.509475 Epoch = 52
+====> Train Loss = 214.10700833333334 Epoch = 53
+====> Train Loss = 213.68620833333333 Epoch = 54
+====> Train Loss = 213.27043333333333 Epoch = 55
+====>  Test Loss = 2129369.5
+====> Train Loss = 212.8743 Epoch = 56
+====> Train Loss = 212.53353333333334 Epoch = 57
+====> Train Loss = 212.21825833333332 Epoch = 58
+====> Train Loss = 211.86866666666666 Epoch = 59
+====> Train Loss = 211.52086666666668 Epoch = 60
+====>  Test Loss = 2110927.5
+====> Train Loss = 211.19229166666668 Epoch = 61
+====> Train Loss = 210.9034 Epoch = 62
+====> Train Loss = 210.607325 Epoch = 63
+====> Train Loss = 210.36200833333334 Epoch = 64
+====> Train Loss = 210.10808333333333 Epoch = 65
+====>  Test Loss = 2098368.0
+====> Train Loss = 209.821775 Epoch = 66
+====> Train Loss = 209.52459583333334 Epoch = 67
+====> Train Loss = 209.36320416666666 Epoch = 68
+====> Train Loss = 209.1155 Epoch = 69
+====> Train Loss = 208.85311666666666 Epoch = 70
+====>  Test Loss = 2087107.25
+====> Train Loss = 208.65527083333333 Epoch = 71
+====> Train Loss = 208.38214166666666 Epoch = 72
+====> Train Loss = 208.20821666666666 Epoch = 73
+====> Train Loss = 207.95765833333334 Epoch = 74
+====> Train Loss = 207.78078333333335 Epoch = 75
+====>  Test Loss = 2075957.0
+====> Train Loss = 207.55525416666666 Epoch = 76
+====> Train Loss = 207.36097083333334 Epoch = 77
+====> Train Loss = 207.17474166666668 Epoch = 78
+====> Train Loss = 206.88990416666667 Epoch = 79
+====> Train Loss = 206.681475 Epoch = 80
+====>  Test Loss = 2065260.5
+====> Train Loss = 206.53357083333333 Epoch = 81
+====> Train Loss = 206.285775 Epoch = 82
+====> Train Loss = 206.04724166666668 Epoch = 83
+====> Train Loss = 205.86260416666667 Epoch = 84

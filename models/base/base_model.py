@@ -8,6 +8,7 @@ import torch.nn.functional as F
 import wandb
 
 from data.mnist_data_module import MNISTDataModule
+from utils.cuda_utils import get_device
 
 
 class BaseModel(torch.nn.Module):
@@ -75,13 +76,6 @@ class BaseModel(torch.nn.Module):
     def enable_debugging():
         torch.autograd.set_detect_anomaly(True)
 
-    def get_device(self):
-        if self._num_gpus > 0:
-            device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-            return device
-        else:
-            return 'cpu'
-
     def loss_function(self, x_hat, x, qm, qv):
         raise NotImplementedError(f"Please implement loss_function()")
 
@@ -95,12 +89,13 @@ class BaseModel(torch.nn.Module):
         raise NotImplementedError(f"Please implement sample_output()")
 
     def fit(self, epoch, optimizer):
-        device = self.get_device()
+        device = get_device()
         self.to(device)
         self.train()
         train_loss = 0
 
-        for batch_idx, (batch, _) in enumerate(self._dms.train_dataloader()):
+        for batch_idx, batch in enumerate(self._dms.train_dataloader()):
+            batch = batch.reshape(-1, 28, 28)
             batch = batch.to(device)
             optimizer.zero_grad()
             loss = self.step(batch, batch_idx)
@@ -119,11 +114,13 @@ class BaseModel(torch.nn.Module):
 
     def test(self):
         self.eval()
+        device = get_device()
         test_loss = 0
         with torch.no_grad():
-            for batch_idx, (batch, _) in enumerate(self._dms.test_dataloader()):
-                batch = batch.cuda()
-                loss, logs = self.step(batch, batch_idx)
+            for batch_idx, batch in enumerate(self._dms.test_dataloader()):
+                batch = batch.reshape(-1, 28, 28)
+                batch = batch.to(device)
+                loss = self.step(batch, batch_idx)
                 batch_loss = loss.detach().item()
                 test_loss += batch_loss
 
@@ -134,4 +131,3 @@ class BaseModel(torch.nn.Module):
     @property
     def lr(self):
         return self._lr
-

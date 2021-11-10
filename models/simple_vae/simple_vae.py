@@ -8,6 +8,7 @@ from torch.nn import functional as func
 from torch.utils.tensorboard import SummaryWriter
 import torch.nn.functional as F
 from models.base.base_model import BaseModel
+from utils.cuda_utils import get_device
 from utils.midi_utils import save_decoder_output_as_midi
 import matplotlib.pyplot as plt
 
@@ -108,7 +109,7 @@ class SimpleVae(BaseModel):
     def loss_function(self, x_hat, x, mu, q_log_var):
         recon_loss = func.binary_cross_entropy(x_hat, x.view(-1, 784), reduction='sum')
         kl = self._kl_simple(mu, q_log_var)
-        loss = recon_loss + kl
+        loss = recon_loss + self.alpha * kl
         return loss
 
     def step(self, batch, batch_idx):
@@ -134,7 +135,7 @@ class SimpleVae(BaseModel):
     def sample_output(self, epoch):
         try:
             with torch.no_grad():
-                device = self.get_device()
+                device = get_device()
                 if True:
                     #TODO
                     rand_z = torch.randn(16, self._decoder.z_dim).to(device)
@@ -161,7 +162,7 @@ class SimpleVae(BaseModel):
 
 if __name__ == "__main__":
     print(f"Training simple VAE")
-    batch_size = 4000
+    batch_size = 100
     model = SimpleVae(
         alpha=1,
         z_dim=20,
@@ -172,7 +173,7 @@ if __name__ == "__main__":
     )
     print(f"Training --> {model}")
 
-    max_epochs = 200
+    max_epochs = 10000
     wandb.config = {
         "learning_rate" : model.lr,
         "epochs":  max_epochs,
@@ -183,7 +184,7 @@ if __name__ == "__main__":
     _optimizer = model.configure_optimizers()
     for epoch in range(1, max_epochs + 1):
         model.fit(epoch, _optimizer)
-        if epoch % 5 == 0:
-            #model.test()
+        if epoch % 100 == 0:
+            model.test()
             model.sample_output(epoch)
             model.save(epoch)

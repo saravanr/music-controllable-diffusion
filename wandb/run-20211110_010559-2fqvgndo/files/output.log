@@ -1,0 +1,98 @@
+/home/joy/.venv/lib/python3.8/site-packages/torchvision/datasets/mnist.py:498: UserWarning: The given NumPy array is not writeable, and PyTorch does not support non-writeable tensors. This means you can write to the underlying (supposedly non-writeable) NumPy array using the tensor. You may want to copy the array to protect its data or make it writeable before converting it to a tensor. This type of warning will be suppressed for the rest of this program. (Triggered internally at  ../torch/csrc/utils/tensor_numpy.cpp:180.)
+  return torch.from_numpy(parsed.astype(m[2], copy=False)).view(*s)
+Training simple VAE
+Training --> SimpleVae(
+  (_encoder): Encoder(
+    (_net): Sequential(
+      (0): Linear(in_features=784, out_features=392, bias=True)
+      (1): ReLU()
+      (2): Linear(in_features=392, out_features=196, bias=True)
+      (3): ReLU()
+      (4): Linear(in_features=196, out_features=98, bias=True)
+    )
+    (_fc_mean): Sequential(
+      (0): Linear(in_features=98, out_features=20, bias=True)
+    )
+    (_fc_log_var): Sequential(
+      (0): Linear(in_features=98, out_features=20, bias=True)
+    )
+  )
+  (_decoder): Decoder(
+    (_net): Sequential(
+      (0): Linear(in_features=20, out_features=196, bias=True)
+      (1): ReLU()
+      (2): Linear(in_features=196, out_features=392, bias=True)
+      (3): ReLU()
+      (4): Linear(in_features=392, out_features=784, bias=True)
+      (5): Sigmoid()
+    )
+  )
+)
+Python 3.8.10 (default, Sep 28 2021, 16:10:42)
+Type 'copyright', 'credits' or 'license' for more information
+IPython 7.27.0 -- An enhanced Interactive Python. Type '?' for help.
+PyDev console: using IPython 7.27.0
+Traceback (most recent call last):
+  File "/home/joy/.venv/lib/python3.8/site-packages/IPython/core/interactiveshell.py", line 3441, in run_code
+    exec(code_obj, self.user_global_ns, self.user_ns)
+  File "<ipython-input-1-080872c1a249>", line 1, in <module>
+    tensor[index]
+NameError: name 'tensor' is not defined
+Out[2]:
+Traceback (most recent call last):
+  File "/home/joy/.venv/lib/python3.8/site-packages/IPython/core/formatters.py", line 224, in catch_format_error
+    r = method(self, *args, **kwargs)
+  File "/home/joy/.venv/lib/python3.8/site-packages/IPython/core/formatters.py", line 702, in __call__
+    printer.pretty(obj)
+  File "/home/joy/.venv/lib/python3.8/site-packages/IPython/lib/pretty.py", line 377, in pretty
+    return self.type_pprinters[cls](obj, self, cycle)
+  File "/home/joy/.venv/lib/python3.8/site-packages/IPython/lib/pretty.py", line 555, in inner
+    p.pretty(x)
+  File "/home/joy/.venv/lib/python3.8/site-packages/IPython/lib/pretty.py", line 394, in pretty
+    return _repr_pprint(obj, self, cycle)
+  File "/home/joy/.venv/lib/python3.8/site-packages/IPython/lib/pretty.py", line 700, in _repr_pprint
+    output = repr(obj)
+  File "/home/joy/.venv/lib/python3.8/site-packages/torch/_tensor.py", line 203, in __repr__
+    return torch._tensor_str._str(self)
+  File "/home/joy/.venv/lib/python3.8/site-packages/torch/_tensor_str.py", line 406, in _str
+    return _str_intern(self)
+  File "/home/joy/.venv/lib/python3.8/site-packages/torch/_tensor_str.py", line 381, in _str_intern
+    tensor_str = _tensor_str(self, indent)
+  File "/home/joy/.venv/lib/python3.8/site-packages/torch/_tensor_str.py", line 242, in _tensor_str
+    formatter = _Formatter(get_summarized_data(self) if summarize else self)
+  File "/home/joy/.venv/lib/python3.8/site-packages/torch/_tensor_str.py", line 271, in get_summarized_data
+    start = [self[i] for i in range(0, PRINT_OPTS.edgeitems)]
+  File "/home/joy/.venv/lib/python3.8/site-packages/torch/_tensor_str.py", line 271, in <listcomp>
+    start = [self[i] for i in range(0, PRINT_OPTS.edgeitems)]
+RuntimeError: CUDA error: initialization error
+CUDA kernel errors might be asynchronously reported at some other API call,so the stacktrace below might be incorrect.
+
+Out[2]: Out[3]:
+Traceback (most recent call last):
+  File "/home/joy/.venv/lib/python3.8/site-packages/IPython/core/formatters.py", line 224, in catch_format_error
+    r = method(self, *args, **kwargs)
+  File "/home/joy/.venv/lib/python3.8/site-packages/IPython/core/formatters.py", line 702, in __call__
+    printer.pretty(obj)
+  File "/home/joy/.venv/lib/python3.8/site-packages/IPython/lib/pretty.py", line 377, in pretty
+    return self.type_pprinters[cls](obj, self, cycle)
+  File "/home/joy/.venv/lib/python3.8/site-packages/IPython/lib/pretty.py", line 555, in inner
+    p.pretty(x)
+  File "/home/joy/.venv/lib/python3.8/site-packages/IPython/lib/pretty.py", line 394, in pretty
+    return _repr_pprint(obj, self, cycle)
+  File "/home/joy/.venv/lib/python3.8/site-packages/IPython/lib/pretty.py", line 700, in _repr_pprint
+    output = repr(obj)
+  File "/home/joy/.venv/lib/python3.8/site-packages/torch/_tensor.py", line 203, in __repr__
+    return torch._tensor_str._str(self)
+  File "/home/joy/.venv/lib/python3.8/site-packages/torch/_tensor_str.py", line 406, in _str
+    return _str_intern(self)
+  File "/home/joy/.venv/lib/python3.8/site-packages/torch/_tensor_str.py", line 381, in _str_intern
+    tensor_str = _tensor_str(self, indent)
+  File "/home/joy/.venv/lib/python3.8/site-packages/torch/_tensor_str.py", line 242, in _tensor_str
+    formatter = _Formatter(get_summarized_data(self) if summarize else self)
+  File "/home/joy/.venv/lib/python3.8/site-packages/torch/_tensor_str.py", line 271, in get_summarized_data
+    start = [self[i] for i in range(0, PRINT_OPTS.edgeitems)]
+  File "/home/joy/.venv/lib/python3.8/site-packages/torch/_tensor_str.py", line 271, in <listcomp>
+    start = [self[i] for i in range(0, PRINT_OPTS.edgeitems)]
+RuntimeError: CUDA error: initialization error
+CUDA kernel errors might be asynchronously reported at some other API call,so the stacktrace below might be incorrect.
+

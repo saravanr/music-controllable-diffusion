@@ -1,0 +1,47 @@
+
+Training simple VAE
+/home/joy/.venv/lib/python3.8/site-packages/torchvision/datasets/mnist.py:498: UserWarning: The given NumPy array is not writeable, and PyTorch does not support non-writeable tensors. This means you can write to the underlying (supposedly non-writeable) NumPy array using the tensor. You may want to copy the array to protect its data or make it writeable before converting it to a tensor. This type of warning will be suppressed for the rest of this program. (Triggered internally at  ../torch/csrc/utils/tensor_numpy.cpp:180.)
+  return torch.from_numpy(parsed.astype(m[2], copy=False)).view(*s)
+Traceback (most recent call last):
+  File "/home/joy/.local/share/JetBrains/Toolbox/apps/PyCharm-P/ch-0/212.5457.59/plugins/python/helpers/pydev/pydevd.py", line 1483, in _exec
+    pydev_imports.execfile(file, globals, locals)  # execute the script
+  File "/home/joy/.local/share/JetBrains/Toolbox/apps/PyCharm-P/ch-0/212.5457.59/plugins/python/helpers/pydev/_pydev_imps/_pydev_execfile.py", line 18, in execfile
+    exec(compile(contents+"\n", file, 'exec'), glob, loc)
+  File "/home/joy/projects/music-controllable-diffusion/models/simple_vae/simple_vae.py", line 165, in <module>
+    model = SimpleVae(
+  File "/home/joy/projects/music-controllable-diffusion/models/simple_vae/simple_vae.py", line 95, in __init__
+    super(SimpleVae, self).__init__(*args, **kwargs)
+  File "/home/joy/projects/music-controllable-diffusion/models/base/base_model.py", line 48, in __init__
+    self._dms.setup()
+  File "/home/joy/.venv/lib/python3.8/site-packages/pytorch_lightning/core/datamodule.py", line 428, in wrapped_fn
+    fn(*args, **kwargs)
+  File "/home/joy/projects/music-controllable-diffusion/data/mnist_data_module.py", line 37, in setup
+    train_data_set = TensorDataset(torch.tensor(train_x))
+TypeError: can't convert np.ndarray of type numpy.object_. The only supported types are: float64, float32, float16, complex64, complex128, int64, int32, int16, int8, uint8, and bool.
+Python 3.8.10 (default, Sep 28 2021, 16:10:42)
+Type 'copyright', 'credits' or 'license' for more information
+IPython 7.27.0 -- An enhanced Interactive Python. Type '?' for help.
+PyDev console: using IPython 7.27.0
+<ipython-input-1-139c61c81d87>:1: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  torch.tensor([torch.tensor(x).to(device) for x in train_x])
+Traceback (most recent call last):
+  File "/home/joy/.venv/lib/python3.8/site-packages/IPython/core/interactiveshell.py", line 3400, in run_code
+    async def run_code(self, code_obj, result=None, *, async_=False):
+  File "<ipython-input-1-139c61c81d87>", line 1, in <module>
+    torch.tensor([torch.tensor(x).to(device) for x in train_x])
+ValueError: only one element tensors can be converted to Python scalars
+<ipython-input-2-5402ad6ca8d6>:1: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  torch.cat([torch.tensor(x).to(device) for x in train_x])
+Out[2]:
+tensor([[0., 0., 0.,  ..., 0., 0., 0.],
+        [0., 0., 0.,  ..., 0., 0., 0.],
+        [0., 0., 0.,  ..., 0., 0., 0.],
+        ...,
+        [0., 0., 0.,  ..., 0., 0., 0.],
+        [0., 0., 0.,  ..., 0., 0., 0.],
+        [0., 0., 0.,  ..., 0., 0., 0.]], device='cuda:0')
+<ipython-input-3-54c642907bdd>:1: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  torch.cat([torch.tensor(x).to(device) for x in train_x]).shape
+Out[3]: torch.Size([1680000, 28])
+<ipython-input-4-944796a14385>:1: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  torch.stack([torch.tensor(x).to(device) for x in train_x]).shape

@@ -1,0 +1,46 @@
+2021-11-10 09:36:00,887 INFO    MainThread:526874 [internal.py:wandb_internal():87] W&B internal server running at pid: 526874, started at: 2021-11-10 09:36:00.887555
+2021-11-10 09:36:00,890 DEBUG   HandlerThread:526874 [handler.py:handle_request():130] handle_request: check_version
+2021-11-10 09:36:00,890 INFO    WriterThread:526874 [datastore.py:open_for_write():77] open: /home/joy/projects/music-controllable-diffusion/wandb/run-20211110_093559-cyogoldq/run-cyogoldq.wandb
+2021-11-10 09:36:00,890 DEBUG   SenderThread:526874 [sender.py:send():238] send: header
+2021-11-10 09:36:00,891 DEBUG   SenderThread:526874 [sender.py:send_request():252] send_request: check_version
+2021-11-10 09:36:00,971 DEBUG   SenderThread:526874 [sender.py:send():238] send: run
+2021-11-10 09:36:01,160 INFO    SenderThread:526874 [dir_watcher.py:__init__():169] watching files in: /home/joy/projects/music-controllable-diffusion/wandb/run-20211110_093559-cyogoldq/files
+2021-11-10 09:36:01,160 INFO    SenderThread:526874 [sender.py:_start_run_threads():825] run started: cyogoldq with start time 1636565759
+2021-11-10 09:36:01,161 DEBUG   SenderThread:526874 [sender.py:send():238] send: summary
+2021-11-10 09:36:01,161 INFO    SenderThread:526874 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-10 09:36:01,168 DEBUG   HandlerThread:526874 [handler.py:handle_request():130] handle_request: run_start
+2021-11-10 09:36:02,160 INFO    Thread-8  :526874 [dir_watcher.py:_on_file_created():217] file/dir created: /home/joy/projects/music-controllable-diffusion/wandb/run-20211110_093559-cyogoldq/files/wandb-summary.json
+2021-11-10 09:36:02,453 DEBUG   HandlerThread:526874 [meta.py:__init__():40] meta init
+2021-11-10 09:36:02,453 DEBUG   HandlerThread:526874 [meta.py:__init__():54] meta init done
+2021-11-10 09:36:02,454 DEBUG   HandlerThread:526874 [meta.py:probe():214] probe
+2021-11-10 09:36:02,459 DEBUG   HandlerThread:526874 [meta.py:_setup_git():204] setup git
+2021-11-10 09:36:02,485 DEBUG   HandlerThread:526874 [meta.py:_setup_git():211] setup git done
+2021-11-10 09:36:02,485 DEBUG   HandlerThread:526874 [meta.py:_save_pip():58] save pip
+2021-11-10 09:36:02,486 DEBUG   HandlerThread:526874 [meta.py:_save_pip():72] save pip done
+2021-11-10 09:36:02,486 DEBUG   HandlerThread:526874 [meta.py:probe():252] probe done
+2021-11-10 09:36:02,488 DEBUG   SenderThread:526874 [sender.py:send():238] send: files
+2021-11-10 09:36:02,488 INFO    SenderThread:526874 [sender.py:_save_file():960] saving file wandb-metadata.json with policy now
+2021-11-10 09:36:02,494 DEBUG   HandlerThread:526874 [handler.py:handle_request():130] handle_request: stop_status
+2021-11-10 09:36:02,495 DEBUG   SenderThread:526874 [sender.py:send_request():252] send_request: stop_status
+2021-11-10 09:36:02,958 INFO    Thread-11 :526874 [upload_job.py:push():137] Uploaded file /tmp/tmph7qo1ph9wandb/iaj88hvg-wandb-metadata.json
+2021-11-10 09:36:03,159 INFO    Thread-8  :526874 [dir_watcher.py:_on_file_created():217] file/dir created: /home/joy/projects/music-controllable-diffusion/wandb/run-20211110_093559-cyogoldq/files/wandb-metadata.json
+2021-11-10 09:36:03,160 INFO    Thread-8  :526874 [dir_watcher.py:_on_file_created():217] file/dir created: /home/joy/projects/music-controllable-diffusion/wandb/run-20211110_093559-cyogoldq/files/output.log
+2021-11-10 09:36:03,160 INFO    Thread-8  :526874 [dir_watcher.py:_on_file_created():217] file/dir created: /home/joy/projects/music-controllable-diffusion/wandb/run-20211110_093559-cyogoldq/files/requirements.txt
+2021-11-10 09:36:05,160 INFO    Thread-8  :526874 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/wandb/run-20211110_093559-cyogoldq/files/output.log
+2021-11-10 09:36:12,961 DEBUG   SenderThread:526874 [sender.py:send():238] send: history
+2021-11-10 09:36:12,961 DEBUG   SenderThread:526874 [sender.py:send():238] send: summary
+2021-11-10 09:36:12,962 INFO    SenderThread:526874 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-10 09:36:13,162 INFO    Thread-8  :526874 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/wandb/run-20211110_093559-cyogoldq/files/output.log
+2021-11-10 09:36:13,163 INFO    Thread-8  :526874 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/wandb/run-20211110_093559-cyogoldq/files/wandb-summary.json
+2021-11-10 09:36:15,122 DEBUG   SenderThread:526874 [sender.py:send():238] send: history
+2021-11-10 09:36:15,123 DEBUG   SenderThread:526874 [sender.py:send():238] send: summary
+2021-11-10 09:36:15,123 INFO    SenderThread:526874 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-10 09:36:15,164 INFO    Thread-8  :526874 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/wandb/run-20211110_093559-cyogoldq/files/output.log
+2021-11-10 09:36:15,164 INFO    Thread-8  :526874 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/wandb/run-20211110_093559-cyogoldq/files/wandb-summary.json
+2021-11-10 09:36:17,165 INFO    Thread-8  :526874 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/wandb/run-20211110_093559-cyogoldq/files/output.log
+2021-11-10 09:36:17,495 DEBUG   SenderThread:526874 [sender.py:send():238] send: history
+2021-11-10 09:36:17,495 DEBUG   SenderThread:526874 [sender.py:send():238] send: summary
+2021-11-10 09:36:17,496 INFO    SenderThread:526874 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-10 09:36:17,678 DEBUG   HandlerThread:526874 [handler.py:handle_request():130] handle_request: stop_status
+2021-11-10 09:36:17,678 DEBUG   SenderThread:526874 [sender.py:send_request():252] send_request: stop_status
+2021-11-10 09:36:17,938 WARNING MainThread:526874 [internal.py:wandb_internal():146] Internal process interrupt: 1

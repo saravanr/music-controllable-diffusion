@@ -1,0 +1,314 @@
+
+Training simple VAE
+Training --> SimpleVae(
+  (_encoder): Encoder(
+    (_net): Sequential(
+      (0): Linear(in_features=784, out_features=392, bias=True)
+      (1): ReLU()
+      (2): Linear(in_features=392, out_features=196, bias=True)
+      (3): ReLU()
+      (4): Linear(in_features=196, out_features=98, bias=True)
+    )
+    (_fc_mean): Sequential(
+      (0): Linear(in_features=98, out_features=20, bias=True)
+    )
+    (_fc_log_var): Sequential(
+      (0): Linear(in_features=98, out_features=20, bias=True)
+    )
+  )
+  (_decoder): Decoder(
+    (_net): Sequential(
+      (0): Linear(in_features=20, out_features=196, bias=True)
+      (1): ReLU()
+      (2): Linear(in_features=196, out_features=392, bias=True)
+      (3): ReLU()
+      (4): Linear(in_features=392, out_features=784, bias=True)
+      (5): Sigmoid()
+    )
+  )
+)
+====> Train Loss = 49203309226.666664 Epoch = 1
+====> Train Loss = 413923754.6666667 Epoch = 2
+====> Train Loss = 61579221.333333336 Epoch = 3
+====> Train Loss = -18785408.0 Epoch = 4
+====> Train Loss = -56171306.666666664 Epoch = 5
+====>  Test Loss = -135174752.0
+Hit exception during sample_output - 'SimpleVae' object has no attribute 'get_device'
+====> Train Loss = -81581642.66666667 Epoch = 6
+====> Train Loss = -104651221.33333333 Epoch = 7
+====> Train Loss = -114242752.0 Epoch = 8
+====> Train Loss = -137779402.66666666 Epoch = 9
+====> Train Loss = -136633813.33333334 Epoch = 10
+====>  Test Loss = -245633568.0
+Hit exception during sample_output - 'SimpleVae' object has no attribute 'get_device'
+====> Train Loss = -157100554.66666666 Epoch = 11
+====> Train Loss = -165171797.33333334 Epoch = 12
+====> Train Loss = -171154368.0 Epoch = 13
+====> Train Loss = -186266048.0 Epoch = 14
+====> Train Loss = -209119232.0 Epoch = 15
+====>  Test Loss = -319705280.0
+Hit exception during sample_output - 'SimpleVae' object has no attribute 'get_device'
+====> Train Loss = -205021546.66666666 Epoch = 16
+====> Train Loss = -239046677.33333334 Epoch = 17
+====> Train Loss = -253275370.66666666 Epoch = 18
+====> Train Loss = -270900437.3333333 Epoch = 19
+====> Train Loss = -284198080.0 Epoch = 20
+====>  Test Loss = -480627712.0
+Hit exception during sample_output - 'SimpleVae' object has no attribute 'get_device'
+====> Train Loss = -298518570.6666667 Epoch = 21
+====> Train Loss = -340293440.0 Epoch = 22
+====> Train Loss = -363222485.3333333 Epoch = 23
+====> Train Loss = -397515648.0 Epoch = 24
+====> Train Loss = -439682133.3333333 Epoch = 25
+====>  Test Loss = -721917824.0
+Hit exception during sample_output - 'SimpleVae' object has no attribute 'get_device'
+====> Train Loss = -484089216.0 Epoch = 26
+====> Train Loss = -535502933.3333333 Epoch = 27
+====> Train Loss = -592543061.3333334 Epoch = 28
+====> Train Loss = -646488234.6666666 Epoch = 29
+====> Train Loss = -725519104.0 Epoch = 30
+====>  Test Loss = -1244893312.0
+Hit exception during sample_output - 'SimpleVae' object has no attribute 'get_device'
+====> Train Loss = -788694613.3333334 Epoch = 31
+====> Train Loss = -921812138.6666666 Epoch = 32
+====> Train Loss = -950877952.0 Epoch = 33
+====> Train Loss = -1173950634.6666667 Epoch = 34
+====> Train Loss = -1220990208.0 Epoch = 35
+====>  Test Loss = -2298764288.0
+Hit exception during sample_output - 'SimpleVae' object has no attribute 'get_device'
+====> Train Loss = -1400338858.6666667 Epoch = 36
+====> Train Loss = -1698630997.3333333 Epoch = 37
+====> Train Loss = -1767475541.3333333 Epoch = 38
+====> Train Loss = -2158000469.3333335 Epoch = 39
+====> Train Loss = -2418143914.6666665 Epoch = 40
+====>  Test Loss = -4129090304.0
+Hit exception during sample_output - 'SimpleVae' object has no attribute 'get_device'
+====> Train Loss = -2706211498.6666665 Epoch = 41
+====> Train Loss = -3020668586.6666665 Epoch = 42
+====> Train Loss = -3304190293.3333335 Epoch = 43
+====> Train Loss = -3593717077.3333335 Epoch = 44
+====> Train Loss = -3523982336.0 Epoch = 45
+====>  Test Loss = -6313554432.0
+Hit exception during sample_output - 'SimpleVae' object has no attribute 'get_device'
+====> Train Loss = -3791046997.3333335 Epoch = 46
+====> Train Loss = -4089420458.6666665 Epoch = 47
+====> Train Loss = -4406887424.0 Epoch = 48
+====> Train Loss = -5136373077.333333 Epoch = 49
+====> Train Loss = -5404584618.666667 Epoch = 50
+====>  Test Loss = -8860717056.0
+Hit exception during sample_output - 'SimpleVae' object has no attribute 'get_device'
+====> Train Loss = -5396079957.333333 Epoch = 51
+====> Train Loss = -6138770090.666667 Epoch = 52
+====> Train Loss = -6034865493.333333 Epoch = 53
+====> Train Loss = -6869000874.666667 Epoch = 54
+====> Train Loss = -7211988992.0 Epoch = 55
+====>  Test Loss = -11529450496.0
+Hit exception during sample_output - 'SimpleVae' object has no attribute 'get_device'
+====> Train Loss = -7609169237.333333 Epoch = 56
+====> Train Loss = -7470648661.333333 Epoch = 57
+====> Train Loss = -7900022101.333333 Epoch = 58
+====> Train Loss = -8315535360.0 Epoch = 59
+====> Train Loss = -8723473749.333334 Epoch = 60
+====>  Test Loss = -14747508736.0
+Hit exception during sample_output - 'SimpleVae' object has no attribute 'get_device'
+====> Train Loss = -9671721642.666666 Epoch = 61
+====> Train Loss = -10025979904.0 Epoch = 62
+====> Train Loss = -9878037845.333334 Epoch = 63
+====> Train Loss = -10679451648.0 Epoch = 64
+====> Train Loss = -10927176362.666666 Epoch = 65
+====>  Test Loss = -16991623168.0
+Hit exception during sample_output - 'SimpleVae' object has no attribute 'get_device'
+====> Train Loss = -10715856896.0 Epoch = 66
+====> Train Loss = -11427463850.666666 Epoch = 67
+====> Train Loss = -11544614229.333334 Epoch = 68
+====> Train Loss = -11880286890.666666 Epoch = 69
+====> Train Loss = -12038941354.666666 Epoch = 70
+====>  Test Loss = -18606399488.0
+Hit exception during sample_output - 'SimpleVae' object has no attribute 'get_device'
+====> Train Loss = -11810912938.666666 Epoch = 71
+====> Train Loss = -12506046464.0 Epoch = 72
+====> Train Loss = -12725690368.0 Epoch = 73
+====> Train Loss = -12937463125.333334 Epoch = 74
+====> Train Loss = -13154698581.333334 Epoch = 75
+====>  Test Loss = -20386080768.0
+Hit exception during sample_output - 'SimpleVae' object has no attribute 'get_device'
+====> Train Loss = -13410108757.333334 Epoch = 76
+====> Train Loss = -13237676714.666666 Epoch = 77
+====> Train Loss = -13800336042.666666 Epoch = 78
+====> Train Loss = -13936727381.333334 Epoch = 79
+====> Train Loss = -14172864512.0 Epoch = 80
+====>  Test Loss = -21795014656.0
+Hit exception during sample_output - 'SimpleVae' object has no attribute 'get_device'
+====> Train Loss = -14014726144.0 Epoch = 81
+====> Train Loss = -14583420245.333334 Epoch = 82
+====> Train Loss = -14619004928.0 Epoch = 83
+====> Train Loss = -14809221802.666666 Epoch = 84
+====> Train Loss = -15049254229.333334 Epoch = 85
+====>  Test Loss = -23077601280.0
+Hit exception during sample_output - 'SimpleVae' object has no attribute 'get_device'
+====> Train Loss = -15211204608.0 Epoch = 86
+====> Train Loss = -15230611456.0 Epoch = 87
+====> Train Loss = -15462070954.666666 Epoch = 88
+====> Train Loss = -15481495552.0 Epoch = 89
+====> Train Loss = -15632059050.666666 Epoch = 90
+====>  Test Loss = -23977836544.0
+Hit exception during sample_output - 'SimpleVae' object has no attribute 'get_device'
+====> Train Loss = -15821388458.666666 Epoch = 91
+====> Train Loss = -15812998485.333334 Epoch = 92
+====> Train Loss = -16018127530.666666 Epoch = 93
+====> Train Loss = -16100012032.0 Epoch = 94
+====> Train Loss = -16089888085.333334 Epoch = 95
+====>  Test Loss = -24574433280.0
+Hit exception during sample_output - 'SimpleVae' object has no attribute 'get_device'
+====> Train Loss = -15922027178.666666 Epoch = 96
+====> Train Loss = -16318653781.333334 Epoch = 97
+====> Train Loss = -16261544618.666666 Epoch = 98
+====> Train Loss = -16338172586.666666 Epoch = 99
+====> Train Loss = -16361459712.0 Epoch = 100
+====>  Test Loss = -25020213248.0
+Hit exception during sample_output - 'SimpleVae' object has no attribute 'get_device'
+====> Train Loss = -16510939136.0 Epoch = 101
+====> Train Loss = -16553351850.666666 Epoch = 102
+====> Train Loss = -16513309354.666666 Epoch = 103
+====> Train Loss = -16340484096.0 Epoch = 104
+====> Train Loss = -16384226645.333334 Epoch = 105
+====>  Test Loss = -25254492160.0
+Hit exception during sample_output - 'SimpleVae' object has no attribute 'get_device'
+====> Train Loss = -16608814421.333334 Epoch = 106
+====> Train Loss = -16644149248.0 Epoch = 107
+====> Train Loss = -16749079210.666666 Epoch = 108
+====> Train Loss = -16778189482.666666 Epoch = 109
+====> Train Loss = -16700532053.333334 Epoch = 110
+====>  Test Loss = -25452228608.0
+Hit exception during sample_output - 'SimpleVae' object has no attribute 'get_device'
+====> Train Loss = -16528543744.0 Epoch = 111
+====> Train Loss = -16742110549.333334 Epoch = 112
+====> Train Loss = -16757019989.333334 Epoch = 113
+====> Train Loss = -16586941781.333334 Epoch = 114
+====> Train Loss = -16587478357.333334 Epoch = 115
+====>  Test Loss = -25562994688.0
+Hit exception during sample_output - 'SimpleVae' object has no attribute 'get_device'
+====> Train Loss = -16807346176.0 Epoch = 116
+====> Train Loss = -16908658005.333334 Epoch = 117
+====> Train Loss = -16829048149.333334 Epoch = 118
+====> Train Loss = -16640064170.666666 Epoch = 119
+====> Train Loss = -16644683093.333334 Epoch = 120
+====>  Test Loss = -25626163200.0
+Hit exception during sample_output - 'SimpleVae' object has no attribute 'get_device'
+====> Train Loss = -16851827370.666666 Epoch = 121
+====> Train Loss = -16953447765.333334 Epoch = 122
+====> Train Loss = -16953502378.666666 Epoch = 123
+====> Train Loss = -16882252458.666666 Epoch = 124
+====> Train Loss = -16688573098.666666 Epoch = 125
+====>  Test Loss = -25679386624.0
+Hit exception during sample_output - 'SimpleVae' object has no attribute 'get_device'
+====> Train Loss = -16980581034.666666 Epoch = 126
+====> Train Loss = -16694667946.666666 Epoch = 127
+====> Train Loss = -16906660522.666666 Epoch = 128
+====> Train Loss = -16702457173.333334 Epoch = 129
+====> Train Loss = -17001127936.0 Epoch = 130
+====>  Test Loss = -25715363840.0
+Hit exception during sample_output - 'SimpleVae' object has no attribute 'get_device'
+====> Train Loss = -16997563050.666666 Epoch = 131
+====> Train Loss = -16917497173.333334 Epoch = 132
+====> Train Loss = -16923900586.666666 Epoch = 133
+====> Train Loss = -16733048832.0 Epoch = 134
+====> Train Loss = -16728104960.0 Epoch = 135
+====>  Test Loss = -25734995968.0
+Hit exception during sample_output - 'SimpleVae' object has no attribute 'get_device'
+====> Train Loss = -17019138048.0 Epoch = 136
+====> Train Loss = -17021083648.0 Epoch = 137
+====> Train Loss = -17025968810.666666 Epoch = 138
+====> Train Loss = -17019334656.0 Epoch = 139
+====> Train Loss = -17026129920.0 Epoch = 140
+====>  Test Loss = -25757655040.0
+Hit exception during sample_output - 'SimpleVae' object has no attribute 'get_device'
+====> Train Loss = -17029337088.0 Epoch = 141
+====> Train Loss = -16745293141.333334 Epoch = 142
+====> Train Loss = -17033935530.666666 Epoch = 143
+====> Train Loss = -16950114986.666666 Epoch = 144
+====> Train Loss = -16756259498.666666 Epoch = 145
+====>  Test Loss = -25782745088.0
+Hit exception during sample_output - 'SimpleVae' object has no attribute 'get_device'
+====> Train Loss = -17038716928.0 Epoch = 146
+====> Train Loss = -16760430592.0 Epoch = 147
+====> Train Loss = -16766029824.0 Epoch = 148
+====> Train Loss = -16966567253.333334 Epoch = 149
+====> Train Loss = -16766186837.333334 Epoch = 150
+====>  Test Loss = -25791690752.0
+Hit exception during sample_output - 'SimpleVae' object has no attribute 'get_device'
+====> Train Loss = -16768161109.333334 Epoch = 151
+====> Train Loss = -17052004352.0 Epoch = 152
+====> Train Loss = -17050838357.333334 Epoch = 153
+====> Train Loss = -17054325418.666666 Epoch = 154
+====> Train Loss = -16776302592.0 Epoch = 155
+====>  Test Loss = -25792423936.0
+Hit exception during sample_output - 'SimpleVae' object has no attribute 'get_device'
+====> Train Loss = -16770262357.333334 Epoch = 156
+====> Train Loss = -16978292736.0 Epoch = 157
+====> Train Loss = -17058643968.0 Epoch = 158
+====> Train Loss = -16977104896.0 Epoch = 159
+====> Train Loss = -16777913685.333334 Epoch = 160
+====>  Test Loss = -25807341568.0
+Hit exception during sample_output - 'SimpleVae' object has no attribute 'get_device'
+====> Train Loss = -16982813354.666666 Epoch = 161
+====> Train Loss = -17068410197.333334 Epoch = 162
+====> Train Loss = -17069877930.666666 Epoch = 163
+====> Train Loss = -16987354453.333334 Epoch = 164
+====> Train Loss = -16989754709.333334 Epoch = 165
+====>  Test Loss = -25816068096.0
+Hit exception during sample_output - 'SimpleVae' object has no attribute 'get_device'
+====> Train Loss = -16991809536.0 Epoch = 166
+====> Train Loss = -16988648789.333334 Epoch = 167
+====> Train Loss = -16985329664.0 Epoch = 168
+====> Train Loss = -16995536896.0 Epoch = 169
+====> Train Loss = -16791565653.333334 Epoch = 170
+====>  Test Loss = -25825892352.0
+Hit exception during sample_output - 'SimpleVae' object has no attribute 'get_device'
+====> Train Loss = -16793808896.0 Epoch = 171
+====> Train Loss = -17075378858.666666 Epoch = 172
+====> Train Loss = -17071308800.0 Epoch = 173
+====> Train Loss = -16796266496.0 Epoch = 174
+====> Train Loss = -17076734634.666666 Epoch = 175
+====>  Test Loss = -25827936256.0
+Hit exception during sample_output - 'SimpleVae' object has no attribute 'get_device'
+====> Train Loss = -16796456277.333334 Epoch = 176
+====> Train Loss = -17002833237.333334 Epoch = 177
+====> Train Loss = -16796800341.333334 Epoch = 178
+====> Train Loss = -17000327850.666666 Epoch = 179
+====> Train Loss = -17079362901.333334 Epoch = 180
+====>  Test Loss = -25838063616.0
+Hit exception during sample_output - 'SimpleVae' object has no attribute 'get_device'
+====> Train Loss = -17005419178.666666 Epoch = 181
+====> Train Loss = -17003816277.333334 Epoch = 182
+====> Train Loss = -17001519786.666666 Epoch = 183
+====> Train Loss = -17084921173.333334 Epoch = 184
+====> Train Loss = -17082290176.0 Epoch = 185
+====>  Test Loss = -25847605248.0
+Hit exception during sample_output - 'SimpleVae' object has no attribute 'get_device'
+====> Train Loss = -16802476032.0 Epoch = 186
+====> Train Loss = -17008661845.333334 Epoch = 187
+====> Train Loss = -16802941610.666666 Epoch = 188
+====> Train Loss = -17085366272.0 Epoch = 189
+====> Train Loss = -17008687786.666666 Epoch = 190
+====>  Test Loss = -25836740608.0
+Hit exception during sample_output - 'SimpleVae' object has no attribute 'get_device'
+====> Train Loss = -16808469845.333334 Epoch = 191
+====> Train Loss = -17089481386.666666 Epoch = 192
+====> Train Loss = -17090639189.333334 Epoch = 193
+====> Train Loss = -17009823744.0 Epoch = 194
+====> Train Loss = -17088636245.333334 Epoch = 195
+====>  Test Loss = -25845907456.0
+Hit exception during sample_output - 'SimpleVae' object has no attribute 'get_device'
+====> Train Loss = -17091168938.666666 Epoch = 196
+====> Train Loss = -17011370666.666666 Epoch = 197
+====> Train Loss = -16812123477.333334 Epoch = 198
+====> Train Loss = -16810338986.666666 Epoch = 199
+====> Train Loss = -17017028608.0 Epoch = 200
+====>  Test Loss = -25846777856.0
+Hit exception during sample_output - 'SimpleVae' object has no attribute 'get_device'
+Python 3.8.10 (default, Sep 28 2021, 16:10:42)
+Type 'copyright', 'credits' or 'license' for more information
+IPython 7.27.0 -- An enhanced Interactive Python. Type '?' for help.
+PyDev console: using IPython 7.27.0
+Python 3.8.10 (default, Sep 28 2021, 16:10:42)
