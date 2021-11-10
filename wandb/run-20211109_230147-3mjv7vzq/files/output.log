@@ -1,0 +1,96 @@
+Training simple VAE
+Downloading http://yann.lecun.com/exdb/mnist/train-images-idx3-ubyte.gz
+Downloading http://yann.lecun.com/exdb/mnist/train-images-idx3-ubyte.gz to /home/joy/midi_processed/MNIST/raw/train-images-idx3-ubyte.gz
+Extracting /home/joy/midi_processed/MNIST/raw/train-images-idx3-ubyte.gz to /home/joy/midi_processed/MNIST/raw
+Downloading http://yann.lecun.com/exdb/mnist/train-labels-idx1-ubyte.gz
+Downloading http://yann.lecun.com/exdb/mnist/train-labels-idx1-ubyte.gz to /home/joy/midi_processed/MNIST/raw/train-labels-idx1-ubyte.gz
+Extracting /home/joy/midi_processed/MNIST/raw/train-labels-idx1-ubyte.gz to /home/joy/midi_processed/MNIST/raw
+Downloading http://yann.lecun.com/exdb/mnist/t10k-images-idx3-ubyte.gz
+Downloading http://yann.lecun.com/exdb/mnist/t10k-images-idx3-ubyte.gz to /home/joy/midi_processed/MNIST/raw/t10k-images-idx3-ubyte.gz
+Extracting /home/joy/midi_processed/MNIST/raw/t10k-images-idx3-ubyte.gz to /home/joy/midi_processed/MNIST/raw
+Downloading http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ubyte.gz
+Downloading http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ubyte.gz to /home/joy/midi_processed/MNIST/raw/t10k-labels-idx1-ubyte.gz
+Extracting /home/joy/midi_processed/MNIST/raw/t10k-labels-idx1-ubyte.gz to /home/joy/midi_processed/MNIST/raw
+9913344it [00:00, 57540749.30it/s]
+29696it [00:00, 8475947.71it/s]
+1649664it [00:00, 20342548.27it/s]
+5120it [00:00, 19504846.94it/s]
+/home/joy/.venv/lib/python3.8/site-packages/torchvision/datasets/mnist.py:498: UserWarning: The given NumPy array is not writeable, and PyTorch does not support non-writeable tensors. This means you can write to the underlying (supposedly non-writeable) NumPy array using the tensor. You may want to copy the array to protect its data or make it writeable before converting it to a tensor. This type of warning will be suppressed for the rest of this program. (Triggered internally at  ../torch/csrc/utils/tensor_numpy.cpp:180.)
+  return torch.from_numpy(parsed.astype(m[2], copy=False)).view(*s)
+Training --> SimpleVae(
+  (_encoder): Encoder(
+    (_net): Sequential(
+      (0): Linear(in_features=784, out_features=392, bias=True)
+      (1): LeakyReLU(negative_slope=0.01)
+      (2): Linear(in_features=392, out_features=392, bias=True)
+      (3): LeakyReLU(negative_slope=0.01)
+      (4): Linear(in_features=392, out_features=196, bias=True)
+      (5): LeakyReLU(negative_slope=0.01)
+      (6): Linear(in_features=196, out_features=98, bias=True)
+    )
+    (_fc_mean): Sequential(
+      (0): Linear(in_features=98, out_features=4, bias=True)
+    )
+    (_fc_log_var): Sequential(
+      (0): Linear(in_features=98, out_features=4, bias=True)
+    )
+  )
+  (_decoder): Decoder(
+    (_net): Sequential(
+      (0): Linear(in_features=4, out_features=196, bias=True)
+      (1): LeakyReLU(negative_slope=0.01)
+      (2): Linear(in_features=196, out_features=392, bias=True)
+      (3): LeakyReLU(negative_slope=0.01)
+      (4): Linear(in_features=392, out_features=392, bias=True)
+      (5): LeakyReLU(negative_slope=0.01)
+      (6): Linear(in_features=392, out_features=784, bias=True)
+      (7): Sigmoid()
+    )
+  )
+)
+Python 3.8.10 (default, Sep 28 2021, 16:10:42)
+Type 'copyright', 'credits' or 'license' for more information
+IPython 7.27.0 -- An enhanced Interactive Python. Type '?' for help.
+PyDev console: using IPython 7.27.0
+Out[1]: 6
+Out[2]: 10000
+====> Train Loss = 0.677283356587092 Epoch = 1
+====> Train Loss = 0.6572530468304952 Epoch = 2
+====> Train Loss = 0.614787737528483 Epoch = 3
+====> Train Loss = 0.501839205622673 Epoch = 4
+====> Train Loss = 0.1621309518814087 Epoch = 5
+====>  Test Loss = -0.28911352157592773
+====> Train Loss = -0.9495659172534943 Epoch = 6
+====> Train Loss = -4.745566685994466 Epoch = 7
+====> Train Loss = -19.360795974731445 Epoch = 8
+====> Train Loss = -176.4897378285726 Epoch = 9
+====> Train Loss = -26920.745971679688 Epoch = 10
+====>  Test Loss = -256713.96875
+====> Train Loss = -32698067.53125 Epoch = 11
+====> Train Loss = -276276260096.0 Epoch = 12
+====> Train Loss = -1.915070892420272e+20 Epoch = 13
+====> Train Loss = -5.993553091547595e+21 Epoch = 14
+====> Train Loss = -6.69467708468205e+21 Epoch = 15
+====>  Test Loss = -2.782010159122088e+18
+====> Train Loss = -7.620687885215623e+21 Epoch = 16
+====> Train Loss = -8.526043899899145e+21 Epoch = 17
+====> Train Loss = -8.818008889706892e+21 Epoch = 18
+====> Train Loss = -1.0155581097227999e+22 Epoch = 19
+====> Train Loss = -1.0899124372725832e+22 Epoch = 20
+====>  Test Loss = -2.298405912563417e+19
+====> Train Loss = -1.199196318196607e+22 Epoch = 21
+====> Train Loss = -1.354348930600882e+22 Epoch = 22
+====> Train Loss = -1.4327016614023032e+22 Epoch = 23
+====> Train Loss = -1.597902375590571e+22 Epoch = 24
+====> Train Loss = -1.815932612816562e+22 Epoch = 25
+====>  Test Loss = -1.5790302870379482e+20
+====> Train Loss = -1.958854213876957e+22 Epoch = 26
+====> Train Loss = -2.0914391017437434e+22 Epoch = 27
+====> Train Loss = -2.306046845823523e+22 Epoch = 28
+====> Train Loss = -2.3676462725976667e+22 Epoch = 29
+====> Train Loss = -2.599532934670077e+22 Epoch = 30
+====>  Test Loss = -3.8206340215355736e+20
+====> Train Loss = -2.736443986844359e+22 Epoch = 31
+====> Train Loss = -2.9753761271962755e+22 Epoch = 32
+====> Train Loss = -3.0660434071037378e+22 Epoch = 33
+====> Train Loss = -3.2076490387241786e+22 Epoch = 34

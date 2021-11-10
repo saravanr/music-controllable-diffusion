@@ -1,0 +1,39 @@
+
+Training simple VAE
+Training --> SimpleVae(
+  (_encoder): Encoder(
+    (_net): Sequential(
+      (0): Linear(in_features=784, out_features=392, bias=True)
+      (1): ReLU()
+      (2): Linear(in_features=392, out_features=196, bias=True)
+      (3): ReLU()
+      (4): Linear(in_features=196, out_features=98, bias=True)
+    )
+    (_fc_mean): Sequential(
+      (0): Linear(in_features=98, out_features=20, bias=True)
+    )
+    (_fc_log_var): Sequential(
+      (0): Linear(in_features=98, out_features=20, bias=True)
+    )
+  )
+  (_decoder): Decoder(
+    (_net): Sequential(
+      (0): Linear(in_features=20, out_features=196, bias=True)
+      (1): ReLU()
+      (2): Linear(in_features=196, out_features=392, bias=True)
+      (3): ReLU()
+      (4): Linear(in_features=392, out_features=784, bias=True)
+      (5): Sigmoid()
+    )
+  )
+)
+Traceback (most recent call last):
+  File "/home/joy/.local/share/JetBrains/Toolbox/apps/PyCharm-P/ch-0/212.5457.59/plugins/python/helpers/pydev/pydevd.py", line 1483, in _exec
+    pydev_imports.execfile(file, globals, locals)  # execute the script
+  File "/home/joy/.local/share/JetBrains/Toolbox/apps/PyCharm-P/ch-0/212.5457.59/plugins/python/helpers/pydev/_pydev_imps/_pydev_execfile.py", line 18, in execfile
+    exec(compile(contents+"\n", file, 'exec'), glob, loc)
+  File "/home/joy/projects/music-controllable-diffusion/models/simple_vae/simple_vae.py", line 185, in <module>
+    model.fit(epoch, _optimizer)
+  File "/home/joy/projects/music-controllable-diffusion/models/base/base_model.py", line 102, in fit
+    for batch_idx, (batch, _) in enumerate(self._dms.train_dataloader()):
+ValueError: too many values to unpack (expected 2)

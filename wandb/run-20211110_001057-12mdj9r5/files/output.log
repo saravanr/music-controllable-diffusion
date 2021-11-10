@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "/home/joy/.local/share/JetBrains/Toolbox/apps/PyCharm-P/ch-0/212.5457.59/plugins/python/helpers/pydev/pydevd.py", line 1483, in _exec
+    pydev_imports.execfile(file, globals, locals)  # execute the script
+  File "/home/joy/.local/share/JetBrains/Toolbox/apps/PyCharm-P/ch-0/212.5457.59/plugins/python/helpers/pydev/_pydev_imps/_pydev_execfile.py", line 18, in execfile
+    exec(compile(contents+"\n", file, 'exec'), glob, loc)
+  File "/home/joy/projects/music-controllable-diffusion/models/simple_vae/simple_vae.py", line 165, in <module>
+    model = SimpleVae(
+  File "/home/joy/projects/music-controllable-diffusion/models/simple_vae/simple_vae.py", line 97, in __init__
+    self._encoder = Encoder(z_dim, input_shape=input_shape)
+  File "/home/joy/.venv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1159, in __setattr__
+    raise AttributeError(
+AttributeError: cannot assign module before Module.__init__() call

@@ -1,0 +1,94 @@
+
+Training simple VAE
+/home/joy/.venv/lib/python3.8/site-packages/torchvision/datasets/mnist.py:498: UserWarning: The given NumPy array is not writeable, and PyTorch does not support non-writeable tensors. This means you can write to the underlying (supposedly non-writeable) NumPy array using the tensor. You may want to copy the array to protect its data or make it writeable before converting it to a tensor. This type of warning will be suppressed for the rest of this program. (Triggered internally at  ../torch/csrc/utils/tensor_numpy.cpp:180.)
+  return torch.from_numpy(parsed.astype(m[2], copy=False)).view(*s)
+Training --> SimpleVae(
+  (_encoder): Encoder(
+    (_net): Sequential(
+      (0): Linear(in_features=784, out_features=392, bias=True)
+      (1): LeakyReLU(negative_slope=0.01)
+      (2): Linear(in_features=392, out_features=392, bias=True)
+      (3): LeakyReLU(negative_slope=0.01)
+      (4): Linear(in_features=392, out_features=196, bias=True)
+      (5): LeakyReLU(negative_slope=0.01)
+      (6): Linear(in_features=196, out_features=98, bias=True)
+    )
+    (_fc_mean): Sequential(
+      (0): Linear(in_features=98, out_features=20, bias=True)
+    )
+    (_fc_log_var): Sequential(
+      (0): Linear(in_features=98, out_features=20, bias=True)
+    )
+  )
+  (_decoder): Decoder(
+    (_net): Sequential(
+      (0): Linear(in_features=20, out_features=196, bias=True)
+      (1): LeakyReLU(negative_slope=0.01)
+      (2): Linear(in_features=196, out_features=392, bias=True)
+      (3): LeakyReLU(negative_slope=0.01)
+      (4): Linear(in_features=392, out_features=392, bias=True)
+      (5): LeakyReLU(negative_slope=0.01)
+      (6): Linear(in_features=392, out_features=784, bias=True)
+      (7): Sigmoid()
+    )
+  )
+)
+====> Train Loss = 5422729.25 Epoch = 1
+====> Train Loss = 5374567.25 Epoch = 2
+====> Train Loss = 5305082.583333333 Epoch = 3
+====> Train Loss = 5190629.083333333 Epoch = 4
+====> Train Loss = 4990331.75 Epoch = 5
+====>  Test Loss = 4815329.0
+====> Train Loss = 4620808.666666667 Epoch = 6
+====> Train Loss = 3925819.9583333335 Epoch = 7
+====> Train Loss = 2846396.0 Epoch = 8
+====> Train Loss = 418062.8958333333 Epoch = 9
+====> Train Loss = -333817331.8333333 Epoch = 10
+====>  Test Loss = -1114612224.0
+====> Train Loss = -98629040373.33333 Epoch = 11
+====> Train Loss = -1671613240262656.0 Epoch = 12
+====> Train Loss = -3.0866618589434866e+23 Epoch = 13
+====> Train Loss = -3.1129127010133894e+23 Epoch = 14
+====> Train Loss = -3.1219276271227454e+23 Epoch = 15
+====>  Test Loss = -3.5163687196480976e+20
+====> Train Loss = -3.1275363789714985e+23 Epoch = 16
+====> Train Loss = -3.133327983752774e+23 Epoch = 17
+====> Train Loss = -3.1373040443495184e+23 Epoch = 18
+====> Train Loss = -3.147962585985626e+23 Epoch = 19
+====> Train Loss = -3.1437813494456146e+23 Epoch = 20
+====>  Test Loss = -5.2827392514041944e+20
+====> Train Loss = -3.148199566834714e+23 Epoch = 21
+====> Train Loss = -3.1462823193529334e+23 Epoch = 22
+====> Train Loss = -3.14896005204185e+23 Epoch = 23
+====> Train Loss = -3.148046056847544e+23 Epoch = 24
+====> Train Loss = -3.149282874270604e+23 Epoch = 25
+====>  Test Loss = -6.761375154811311e+20
+====> Train Loss = -3.1509248152264874e+23 Epoch = 26
+====> Train Loss = -3.150855362287535e+23 Epoch = 27
+====> Train Loss = -3.154704066474424e+23 Epoch = 28
+====> Train Loss = -3.1493496916215444e+23 Epoch = 29
+====> Train Loss = -3.1502790804184435e+23 Epoch = 30
+====>  Test Loss = -7.817154015455777e+20
+====> Train Loss = -3.151787496608949e+23 Epoch = 31
+====> Train Loss = -3.152091943051712e+23 Epoch = 32
+====> Train Loss = -3.155514872047997e+23 Epoch = 33
+====> Train Loss = -3.1606940922503265e+23 Epoch = 34
+====> Train Loss = -3.161341687534666e+23 Epoch = 35
+====>  Test Loss = -8.9895451442017e+20
+====> Train Loss = -3.163735176339409e+23 Epoch = 36
+====> Train Loss = -3.165261925992038e+23 Epoch = 37
+====> Train Loss = -3.164889463877262e+23 Epoch = 38
+====> Train Loss = -3.167305226031475e+23 Epoch = 39
+Traceback (most recent call last):
+  File "/home/joy/projects/music-controllable-diffusion/models/simple_vae/simple_vae.py", line 195, in <module>
+    model.fit(epoch, _optimizer)
+  File "/home/joy/projects/music-controllable-diffusion/models/base/base_model.py", line 103, in fit
+    for batch_idx, (batch, _) in enumerate(self._dms.train_dataloader()):
+  File "/home/joy/.venv/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 521, in __next__
+    data = self._next_data()
+  File "/home/joy/.venv/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1186, in _next_data
+    idx, data = self._get_data()
+  File "/home/joy/.venv/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1142, in _get_data
+    success, data = self._try_get_data()
+  File "/home/joy/.venv/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 990, in _try_get_data
+    data = self._data_queue.get(timeout=timeout)

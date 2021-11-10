@@ -1,0 +1,105 @@
+
+Training simple VAE
+Training --> SimpleVae(
+  (_encoder): Encoder(
+    (_net): Sequential(
+      (0): Linear(in_features=784, out_features=392, bias=True)
+      (1): ReLU()
+      (2): Linear(in_features=392, out_features=196, bias=True)
+      (3): ReLU()
+      (4): Linear(in_features=196, out_features=98, bias=True)
+    )
+    (_fc_mean): Sequential(
+      (0): Linear(in_features=98, out_features=20, bias=True)
+    )
+    (_fc_log_var): Sequential(
+      (0): Linear(in_features=98, out_features=20, bias=True)
+    )
+  )
+  (_decoder): Decoder(
+    (_net): Sequential(
+      (0): Linear(in_features=20, out_features=196, bias=True)
+      (1): ReLU()
+      (2): Linear(in_features=196, out_features=392, bias=True)
+      (3): ReLU()
+      (4): Linear(in_features=392, out_features=784, bias=True)
+      (5): Sigmoid()
+    )
+  )
+)
+Traceback (most recent call last):
+  File "/home/joy/.local/share/JetBrains/Toolbox/apps/PyCharm-P/ch-0/212.5457.59/plugins/python/helpers/pydev/pydevd.py", line 1483, in _exec
+    pydev_imports.execfile(file, globals, locals)  # execute the script
+  File "/home/joy/.local/share/JetBrains/Toolbox/apps/PyCharm-P/ch-0/212.5457.59/plugins/python/helpers/pydev/_pydev_imps/_pydev_execfile.py", line 18, in execfile
+    exec(compile(contents+"\n", file, 'exec'), glob, loc)
+  File "/home/joy/projects/music-controllable-diffusion/models/simple_vae/simple_vae.py", line 185, in <module>
+    model.fit(epoch, _optimizer)
+  File "/home/joy/projects/music-controllable-diffusion/models/base/base_model.py", line 102, in fit
+    for batch_idx, (batch, _) in enumerate(self._dms.train_dataloader()):
+ValueError: too many values to unpack (expected 2)
+Python 3.8.10 (default, Sep 28 2021, 16:10:42)
+Type 'copyright', 'credits' or 'license' for more information
+IPython 7.27.0 -- An enhanced Interactive Python. Type '?' for help.
+PyDev console: using IPython 7.27.0
+Out[1]: <torch.utils.data.dataloader.DataLoader at 0x7fa3bcd4fd30>
+Traceback (most recent call last):
+  File "/home/joy/.venv/lib/python3.8/site-packages/IPython/core/interactiveshell.py", line 3400, in run_code
+    async def run_code(self, code_obj, result=None, *, async_=False):
+  File "<ipython-input-2-6f0595643e03>", line 1, in <module>
+    self._dms.train_dataloader().next()
+AttributeError: 'DataLoader' object has no attribute 'next'
+Traceback (most recent call last):
+  File "/home/joy/.venv/lib/python3.8/site-packages/IPython/core/interactiveshell.py", line 3400, in run_code
+    async def run_code(self, code_obj, result=None, *, async_=False):
+  File "<ipython-input-3-ad95c17561fa>", line 1, in <module>
+    self._dms.train_dataloader().iter()
+AttributeError: 'DataLoader' object has no attribute 'iter'
+Out[4]: <enumerate at 0x7fa34c4a11c0>
+(0, tensor([[[0.0000, 0.0000, 0.0000,  ..., 0.8065, 0.0573, 0.8125],
+         [0.0000, 0.0866, 0.0000,  ..., 0.8065, 0.0573, 0.8125],
+         [0.0000, 0.1260, 0.0000,  ..., 0.8065, 0.0573, 0.8125],
+         ...,
+         [0.0000, 0.0000, 0.0000,  ..., 0.0000, 0.0000, 0.0000],
+         [0.0000, 0.0000, 0.0000,  ..., 0.0000, 0.0000, 0.0000],
+         [0.0000, 0.0000, 0.0000,  ..., 0.0000, 0.0000, 0.0000]],
+        [[0.0079, 0.0000, 0.1875,  ..., 0.5161, 0.0446, 0.4583],
+         [0.0079, 0.0000, 0.1875,  ..., 0.5161, 0.0446, 0.4583],
+         [0.0079, 0.0000, 0.1875,  ..., 0.5161, 0.0446, 0.4583],
+         ...,
+         [0.0000, 0.0000, 0.0000,  ..., 0.0000, 0.0000, 0.0000],
+         [0.0000, 0.0000, 0.0000,  ..., 0.0000, 0.0000, 0.0000],
+         [0.0000, 0.0000, 0.0000,  ..., 0.0000, 0.0000, 0.0000]],
+        [[0.0039, 0.0000, 1.0000,  ..., 0.6774, 0.0573, 0.7500],
+         [0.0039, 0.1260, 1.0000,  ..., 0.5161, 0.0573, 0.7500],
+         [0.0039, 0.2520, 1.0000,  ..., 0.5161, 0.0573, 0.7500],
+         ...,
+         [0.0000, 0.0000, 0.0000,  ..., 0.0000, 0.0000, 0.0000],
+         [0.0000, 0.0000, 0.0000,  ..., 0.0000, 0.0000, 0.0000],
+         [0.0000, 0.0000, 0.0000,  ..., 0.0000, 0.0000, 0.0000]],
+        ...,
+        [[0.0079, 0.0000, 0.3125,  ..., 0.8710, 0.0573, 0.6042],
+         [0.0079, 0.0000, 0.5312,  ..., 0.8710, 0.0573, 0.6042],
+         [0.0079, 0.3780, 0.4062,  ..., 0.8710, 0.0573, 0.6042],
+         ...,
+         [0.0000, 0.0000, 0.0000,  ..., 0.0000, 0.0000, 0.0000],
+         [0.0000, 0.0000, 0.0000,  ..., 0.0000, 0.0000, 0.0000],
+         [0.0000, 0.0000, 0.0000,  ..., 0.0000, 0.0000, 0.0000]],
+        [[0.0039, 0.0000, 0.0000,  ..., 0.3871, 0.0573, 0.7292],
+         [0.0039, 0.0157, 0.0000,  ..., 0.0968, 0.0573, 0.7292],
+         [0.0039, 0.1417, 0.0000,  ..., 0.2581, 0.0573, 0.7292],
+         ...,
+         [0.0000, 0.0000, 0.0000,  ..., 0.0000, 0.0000, 0.0000],
+         [0.0000, 0.0000, 0.0000,  ..., 0.0000, 0.0000, 0.0000],
+         [0.0000, 0.0000, 0.0000,  ..., 0.0000, 0.0000, 0.0000]],
+        [[0.0039, 0.0000, 0.2109,  ..., 0.7097, 0.0573, 0.6667],
+         [0.0039, 0.0000, 1.0000,  ..., 0.5484, 0.0573, 0.6667],
+         [0.0039, 0.0000, 1.0000,  ..., 0.3871, 0.0573, 0.6667],
+         ...,
+         [0.0000, 0.0000, 0.0000,  ..., 0.0000, 0.0000, 0.0000],
+         [0.0000, 0.0000, 0.0000,  ..., 0.0000, 0.0000, 0.0000],
+         [0.0000, 0.0000, 0.0000,  ..., 0.0000, 0.0000, 0.0000]]]))
+Traceback (most recent call last):
+  File "/home/joy/.venv/lib/python3.8/site-packages/IPython/core/interactiveshell.py", line 3400, in run_code
+    async def run_code(self, code_obj, result=None, *, async_=False):
+  File "<ipython-input-6-2a31761bb17b>", line 1, in <module>
+    for _ in enumerate(self._dms.train_dataloader()):

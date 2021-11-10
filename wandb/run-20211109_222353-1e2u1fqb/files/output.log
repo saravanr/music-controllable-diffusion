@@ -1,0 +1,209 @@
+
+Training simple VAE
+/home/joy/.venv/lib/python3.8/site-packages/torchvision/datasets/mnist.py:498: UserWarning: The given NumPy array is not writeable, and PyTorch does not support non-writeable tensors. This means you can write to the underlying (supposedly non-writeable) NumPy array using the tensor. You may want to copy the array to protect its data or make it writeable before converting it to a tensor. This type of warning will be suppressed for the rest of this program. (Triggered internally at  ../torch/csrc/utils/tensor_numpy.cpp:180.)
+  return torch.from_numpy(parsed.astype(m[2], copy=False)).view(*s)
+Training --> SimpleVae(
+  (_encoder): Encoder(
+    (_net): Sequential(
+      (0): Linear(in_features=784, out_features=392, bias=True)
+      (1): LeakyReLU(negative_slope=0.01)
+      (2): Linear(in_features=392, out_features=392, bias=True)
+      (3): LeakyReLU(negative_slope=0.01)
+      (4): Linear(in_features=392, out_features=196, bias=True)
+      (5): LeakyReLU(negative_slope=0.01)
+      (6): Linear(in_features=196, out_features=98, bias=True)
+    )
+    (_fc_mean): Sequential(
+      (0): Linear(in_features=98, out_features=4, bias=True)
+    )
+    (_fc_log_var): Sequential(
+      (0): Linear(in_features=98, out_features=4, bias=True)
+    )
+  )
+  (_decoder): Decoder(
+    (_net): Sequential(
+      (0): Linear(in_features=4, out_features=196, bias=True)
+      (1): LeakyReLU(negative_slope=0.01)
+      (2): Linear(in_features=196, out_features=392, bias=True)
+      (3): LeakyReLU(negative_slope=0.01)
+      (4): Linear(in_features=392, out_features=392, bias=True)
+      (5): LeakyReLU(negative_slope=0.01)
+      (6): Linear(in_features=392, out_features=784, bias=True)
+      (7): Sigmoid()
+    )
+  )
+)
+====> Train Loss = 14660.2873046875 Epoch = 1
+====> Train Loss = 7076.185400390625 Epoch = 2
+====> Train Loss = 2041.217724609375 Epoch = 3
+====> Train Loss = 755.6687561035156 Epoch = 4
+====> Train Loss = 388.3135284423828 Epoch = 5
+====>  Test Loss = 252.23403930664062
+Rand z -> tensor([-0.7308, -0.1717, -0.8587, -0.7176], device='cuda:0')
+====> Train Loss = 200.5533905029297 Epoch = 6
+====> Train Loss = 153.45345458984374 Epoch = 7
+====> Train Loss = 127.81022491455079 Epoch = 8
+====> Train Loss = 108.40583038330078 Epoch = 9
+====> Train Loss = 92.32268142700195 Epoch = 10
+====>  Test Loss = 78.72321319580078
+Rand z -> tensor([ 1.2525,  0.7527, -1.1071,  1.4176], device='cuda:0')
+====> Train Loss = 78.31153945922851 Epoch = 11
+====> Train Loss = 61.28321533203125 Epoch = 12
+====> Train Loss = 60.01815567016602 Epoch = 13
+====> Train Loss = 48.98341789245605 Epoch = 14
+====> Train Loss = 51.04215431213379 Epoch = 15
+====>  Test Loss = 38.533973693847656
+Rand z -> tensor([-1.0833, -0.7442,  1.1368,  1.6802], device='cuda:0')
+====> Train Loss = 43.1538272857666 Epoch = 16
+====> Train Loss = 47.18160133361816 Epoch = 17
+====> Train Loss = 40.10000305175781 Epoch = 18
+====> Train Loss = 44.30728607177734 Epoch = 19
+====> Train Loss = 42.16639175415039 Epoch = 20
+====>  Test Loss = 44.341461181640625
+Rand z -> tensor([ 0.3628,  1.0569, -0.8016,  0.8010], device='cuda:0')
+====> Train Loss = 36.19507484436035 Epoch = 21
+====> Train Loss = 43.48818855285644 Epoch = 22
+====> Train Loss = 40.89223785400391 Epoch = 23
+====> Train Loss = 38.99671669006348 Epoch = 24
+====> Train Loss = 36.89876098632813 Epoch = 25
+====>  Test Loss = 33.9908447265625
+Rand z -> tensor([-0.5791, -0.5279, -0.9355,  0.4885], device='cuda:0')
+====> Train Loss = 35.33767738342285 Epoch = 26
+====> Train Loss = 34.09363479614258 Epoch = 27
+====> Train Loss = 32.68470649719238 Epoch = 28
+====> Train Loss = 31.891970443725587 Epoch = 29
+====> Train Loss = 30.812395095825195 Epoch = 30
+====>  Test Loss = 29.366464614868164
+Rand z -> tensor([-0.0676,  1.5874,  0.2672,  1.4146], device='cuda:0')
+====> Train Loss = 29.691487503051757 Epoch = 31
+====> Train Loss = 29.01075134277344 Epoch = 32
+====> Train Loss = 28.066847610473634 Epoch = 33
+====> Train Loss = 27.53569450378418 Epoch = 34
+====> Train Loss = 26.5355525970459 Epoch = 35
+====>  Test Loss = 22.90315818786621
+Rand z -> tensor([ 1.7297, -0.1104,  0.9842,  0.1934], device='cuda:0')
+====> Train Loss = 25.614212417602538 Epoch = 36
+====> Train Loss = 25.123602676391602 Epoch = 37
+====> Train Loss = 24.23848648071289 Epoch = 38
+====> Train Loss = 23.67512626647949 Epoch = 39
+====> Train Loss = 23.029540252685546 Epoch = 40
+====>  Test Loss = 19.355016708374023
+Rand z -> tensor([ 0.2332, -1.4258,  0.8164, -1.5044], device='cuda:0')
+====> Train Loss = 22.172568702697752 Epoch = 41
+====> Train Loss = 21.631019020080565 Epoch = 42
+====> Train Loss = 21.056082725524902 Epoch = 43
+====> Train Loss = 20.18550338745117 Epoch = 44
+====> Train Loss = 19.738267517089845 Epoch = 45
+====>  Test Loss = 14.33564281463623
+Rand z -> tensor([-1.9170, -0.5005, -1.3077, -1.1585], device='cuda:0')
+====> Train Loss = 18.504925155639647 Epoch = 46
+====> Train Loss = 15.33313627243042 Epoch = 47
+====> Train Loss = 19.725583267211913 Epoch = 48
+====> Train Loss = 20.935132026672363 Epoch = 49
+====> Train Loss = 17.203089904785156 Epoch = 50
+====>  Test Loss = 16.98202133178711
+Rand z -> tensor([-0.7256, -0.0452, -0.3183,  0.4781], device='cuda:0')
+====> Train Loss = 17.47442970275879 Epoch = 51
+====> Train Loss = 16.843469429016114 Epoch = 52
+====> Train Loss = 16.553201103210448 Epoch = 53
+====> Train Loss = 16.386343002319336 Epoch = 54
+====> Train Loss = 15.799296188354493 Epoch = 55
+====>  Test Loss = 15.958889961242676
+Rand z -> tensor([-1.3879,  0.2240,  0.6930, -0.3739], device='cuda:0')
+====> Train Loss = 15.69527587890625 Epoch = 56
+====> Train Loss = 15.37220630645752 Epoch = 57
+====> Train Loss = 15.078332710266114 Epoch = 58
+====> Train Loss = 14.581216621398926 Epoch = 59
+====> Train Loss = 14.578457069396972 Epoch = 60
+====>  Test Loss = 14.25705337524414
+Rand z -> tensor([ 1.8476,  0.0479,  0.3295, -0.0221], device='cuda:0')
+====> Train Loss = 14.154743194580078 Epoch = 61
+====> Train Loss = 14.297518539428712 Epoch = 62
+====> Train Loss = 13.75931625366211 Epoch = 63
+====> Train Loss = 13.785175132751466 Epoch = 64
+====> Train Loss = 13.283842849731446 Epoch = 65
+====>  Test Loss = 12.8694429397583
+Rand z -> tensor([-0.1998,  0.3253, -0.3982, -1.6512], device='cuda:0')
+====> Train Loss = 13.182047080993652 Epoch = 66
+====> Train Loss = 12.920817279815674 Epoch = 67
+====> Train Loss = 12.723607063293457 Epoch = 68
+====> Train Loss = 12.375771427154541 Epoch = 69
+====> Train Loss = 12.340667152404786 Epoch = 70
+====>  Test Loss = 11.941900253295898
+Rand z -> tensor([-0.8698, -0.6291,  0.3311, -0.4484], device='cuda:0')
+====> Train Loss = 11.764394855499267 Epoch = 71
+====> Train Loss = 11.89826774597168 Epoch = 72
+====> Train Loss = 11.814502334594726 Epoch = 73
+====> Train Loss = 11.432303428649902 Epoch = 74
+====> Train Loss = 11.241659450531007 Epoch = 75
+====>  Test Loss = 10.657410621643066
+Rand z -> tensor([ 1.8192, -1.1948, -0.1016,  0.6752], device='cuda:0')
+====> Train Loss = 11.142600822448731 Epoch = 76
+====> Train Loss = 10.969216060638427 Epoch = 77
+====> Train Loss = 10.610925674438477 Epoch = 78
+====> Train Loss = 10.727094173431396 Epoch = 79
+====> Train Loss = 10.410455703735352 Epoch = 80
+====>  Test Loss = 9.984857559204102
+Rand z -> tensor([ 0.0854, -2.3395, -1.7037, -0.7984], device='cuda:0')
+====> Train Loss = 10.308504581451416 Epoch = 81
+====> Train Loss = 10.083901691436768 Epoch = 82
+====> Train Loss = 9.8882586479187 Epoch = 83
+====> Train Loss = 9.861063766479493 Epoch = 84
+====> Train Loss = 9.76165838241577 Epoch = 85
+====>  Test Loss = 8.092138290405273
+Rand z -> tensor([ 0.6283, -1.2130, -1.1418,  0.6046], device='cuda:0')
+====> Train Loss = 9.6588924407959 Epoch = 86
+====> Train Loss = 9.530498123168945 Epoch = 87
+====> Train Loss = 9.430135345458984 Epoch = 88
+====> Train Loss = 9.268900680541993 Epoch = 89
+====> Train Loss = 9.294879055023193 Epoch = 90
+====>  Test Loss = 8.370282173156738
+Rand z -> tensor([-0.8310,  0.0675, -1.6784,  1.5282], device='cuda:0')
+====> Train Loss = 8.99087314605713 Epoch = 91
+====> Train Loss = 8.985273361206055 Epoch = 92
+====> Train Loss = 8.884643173217773 Epoch = 93
+====> Train Loss = 8.733313274383544 Epoch = 94
+====> Train Loss = 8.635104560852051 Epoch = 95
+====>  Test Loss = 6.933666229248047
+Rand z -> tensor([ 0.7737,  1.5317, -2.0548,  0.8658], device='cuda:0')
+====> Train Loss = 8.551884365081786 Epoch = 96
+====> Train Loss = 8.427620220184327 Epoch = 97
+====> Train Loss = 8.43866662979126 Epoch = 98
+====> Train Loss = 8.28901538848877 Epoch = 99
+====> Train Loss = 8.292088317871094 Epoch = 100
+====>  Test Loss = 7.431907653808594
+Rand z -> tensor([ 0.7725,  0.6435, -0.4838, -0.0331], device='cuda:0')
+====> Train Loss = 8.098539447784423 Epoch = 101
+====> Train Loss = 8.02765712738037 Epoch = 102
+====> Train Loss = 7.957969665527344 Epoch = 103
+====> Train Loss = 7.944923210144043 Epoch = 104
+====> Train Loss = 7.630293941497802 Epoch = 105
+====>  Test Loss = 5.831900119781494
+Rand z -> tensor([ 0.8653, -0.4278, -0.4072, -0.5672], device='cuda:0')
+====> Train Loss = 7.68717851638794 Epoch = 106
+====> Train Loss = 7.3294624328613285 Epoch = 107
+====> Train Loss = 7.553075122833252 Epoch = 108
+====> Train Loss = 6.953706169128418 Epoch = 109
+====> Train Loss = 5.36719822883606 Epoch = 110
+====>  Test Loss = 6.651461124420166
+Rand z -> tensor([ 0.2644, -0.8814, -1.7536,  0.4860], device='cuda:0')
+====> Train Loss = 6.470852899551391 Epoch = 111
+====> Train Loss = 5.30553617477417 Epoch = 112
+====> Train Loss = 6.806448554992675 Epoch = 113
+====> Train Loss = 7.090246295928955 Epoch = 114
+====> Train Loss = 6.5151047706604 Epoch = 115
+====>  Test Loss = 5.058078765869141
+Rand z -> tensor([ 1.2220,  1.0670,  0.6645, -1.3628], device='cuda:0')
+====> Train Loss = 6.616523742675781 Epoch = 116
+====> Train Loss = 6.3343202590942385 Epoch = 117
+====> Train Loss = 5.728563356399536 Epoch = 118
+====> Train Loss = 5.143032073974609 Epoch = 119
+====> Train Loss = 6.108566236495972 Epoch = 120
+====>  Test Loss = 4.687002182006836
+Rand z -> tensor([-0.2390,  0.0859, -0.5563, -0.4074], device='cuda:0')
+====> Train Loss = 5.674573040008545 Epoch = 121
+====> Train Loss = 3.9351937770843506 Epoch = 122
+====> Train Loss = 4.7589442253112795 Epoch = 123
+====> Train Loss = 5.699035406112671 Epoch = 124
+====> Train Loss = 5.532889270782471 Epoch = 125
+====>  Test Loss = 4.923639297485352

@@ -1,0 +1,24 @@
+2021-11-09 22:49:41,424 INFO    MainThread:407114 [wandb_setup.py:_flush():71] setting env: {}
+2021-11-09 22:49:41,425 INFO    MainThread:407114 [wandb_setup.py:_flush():71] setting login settings: {}
+2021-11-09 22:49:41,425 INFO    MainThread:407114 [wandb_init.py:_log_setup():357] Logging user logs to /home/joy/projects/music-controllable-diffusion/wandb/run-20211109_224941-1z6h83yl/logs/debug.log
+2021-11-09 22:49:41,426 INFO    MainThread:407114 [wandb_init.py:_log_setup():358] Logging internal logs to /home/joy/projects/music-controllable-diffusion/wandb/run-20211109_224941-1z6h83yl/logs/debug-internal.log
+2021-11-09 22:49:41,427 INFO    MainThread:407114 [wandb_init.py:init():390] calling init triggers
+2021-11-09 22:49:41,427 INFO    MainThread:407114 [wandb_init.py:init():395] wandb.init called with sweep_config: {}
+config: {}
+2021-11-09 22:49:41,428 INFO    MainThread:407114 [wandb_init.py:init():435] starting backend
+2021-11-09 22:49:41,428 INFO    MainThread:407114 [backend.py:_multiprocessing_setup():95] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2021-11-09 22:49:41,457 INFO    MainThread:407114 [backend.py:ensure_launched():199] starting backend process...
+2021-11-09 22:49:41,946 INFO    MainThread:407114 [backend.py:ensure_launched():204] started backend process with pid: 407203
+2021-11-09 22:49:41,948 INFO    MainThread:407114 [wandb_init.py:init():444] backend started and connected
+2021-11-09 22:49:41,950 INFO    MainThread:407114 [wandb_init.py:init():503] updated telemetry
+2021-11-09 22:49:41,978 INFO    MainThread:407114 [wandb_init.py:init():533] communicating current version
+2021-11-09 22:49:43,111 INFO    MainThread:407114 [wandb_init.py:init():538] got version response 
+2021-11-09 22:49:43,111 INFO    MainThread:407114 [wandb_init.py:init():548] communicating run to backend with 30 second timeout
+2021-11-09 22:49:43,275 INFO    MainThread:407114 [wandb_init.py:init():576] starting run threads in backend
+2021-11-09 22:49:44,613 INFO    MainThread:407114 [wandb_run.py:_console_start():1693] atexit reg
+2021-11-09 22:49:44,614 INFO    MainThread:407114 [wandb_run.py:_redirect():1567] redirect: SettingsConsole.REDIRECT
+2021-11-09 22:49:44,614 INFO    MainThread:407114 [wandb_run.py:_redirect():1572] Redirecting console.
+2021-11-09 22:49:44,616 INFO    MainThread:407114 [wandb_run.py:_redirect():1628] Redirects installed.
+2021-11-09 22:49:44,616 INFO    MainThread:407114 [wandb_init.py:init():603] run started, returning control to user process
+2021-11-09 22:51:10,546 INFO    MainThread:407114 [wandb_run.py:_atexit_cleanup():1663] got exitcode: 0
+2021-11-09 22:51:10,548 INFO    MainThread:407114 [wandb_run.py:_restore():1635] restore

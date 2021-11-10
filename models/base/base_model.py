@@ -3,10 +3,11 @@ from typing import Any
 import torch
 import os
 from datetime import datetime
-from pl_bolts.datamodules import MNISTDataModule
 from data.midi_data_module import MidiDataModule
 import torch.nn.functional as F
-import torch.optim as optim
+import wandb
+
+from data.mnist_data_module import MNISTDataModule
 
 
 class BaseModel(torch.nn.Module):
@@ -24,7 +25,7 @@ class BaseModel(torch.nn.Module):
                  emit_tensorboard_scalars=True,
                  use_mnist_dms=False,
                  *args: Any, **kwargs: Any):
-        super().__init__(*args, **kwargs)
+        super(BaseModel, self).__init__(*args, **kwargs)
         now = datetime.now()
         now_str = now.strftime(format="%d-%h-%y-%s")
         self._data_dir = data_dir
@@ -32,9 +33,8 @@ class BaseModel(torch.nn.Module):
         os.makedirs(self._output_dir)
         self._lr = lr
         if use_mnist_dms:
-            self._dms = MNISTDataModule(num_workers=12,
-                                        batch_size=batch_size,
-                                        pin_memory=True)
+            self._dms = MNISTDataModule(data_dir,
+                                        batch_size=batch_size)
         else:
             self._dms = MidiDataModule(data_dir,
                                        batch_size=batch_size)
@@ -49,10 +49,17 @@ class BaseModel(torch.nn.Module):
     @staticmethod
     def sample(mean, var):
         # Set all small values to epsilon
-        std = F.softplus(var) + 1e-8
-        q = torch.distributions.Normal(mean, torch.sqrt(std))
+        std = torch.sqrt(var)
+        std = F.softplus(std) + 1e-8
+        q = torch.distributions.Normal(mean, std)
         z = q.rsample()
         return z
+
+    @staticmethod
+    def reparameterize(mean, log_var):
+        std = torch.exp(0.5 * log_var)
+        eps = torch.randn_like(std)
+        return mean + eps * std
 
     def from_pretrained(self, checkpoint_path):
         print(f"Loading from {checkpoint_path}...")
@@ -61,30 +68,7 @@ class BaseModel(torch.nn.Module):
         return model
 
     @staticmethod
-    def _kl_normal(qm, qv, pm, pv):
-        """
-        Computes the elem-wise KL divergence between two normal distributions KL(q || p) and
-        sum over the last dimension
-
-        Args:
-            qm: tensor: (batch, dim): q mean
-            qv: tensor: (batch, dim): q variance
-            pm: tensor: (batch, dim): p mean
-            pv: tensor: (batch, dim): p variance
-
-        Return:
-            kl: tensor: (batch,): kl between each sample
-        """
-        eps = 1e-8
-        qv = qv + eps
-        element_wise = 0.5 * (torch.log(pv) - torch.log(qv) + qv / pv + (qm - pm).pow(2) / pv - 1)
-        kl = element_wise.sum(-1)
-        kl = torch.mean(kl)
-        return kl
-
-    @staticmethod
-    def _kl_simple(mu, var):
-        log_var = torch.log(var)
+    def _kl_simple(mu, log_var):
         return -0.5 * torch.sum(1 + log_var - mu.pow(2) - log_var.exp())
 
     @staticmethod
@@ -110,24 +94,24 @@ class BaseModel(torch.nn.Module):
     def sample_output(self, epoch):
         raise NotImplementedError(f"Please implement sample_output()")
 
-    def fit(self, epoch):
+    def fit(self, epoch, optimizer):
         device = self.get_device()
         self.to(device)
-        optimizer = self.configure_optimizers()
-
         self.train()
         train_loss = 0
 
         for batch_idx, (batch, _) in enumerate(self._dms.train_dataloader()):
-            batch = batch.cuda()
+            batch = batch.to(device)
             optimizer.zero_grad()
-            loss, logs = self.step(batch, batch_idx)
+            loss = self.step(batch, batch_idx)
             loss.backward()
             batch_loss = loss.detach().item()
             train_loss += batch_loss
             optimizer.step()
 
-        print(f'====> Train Loss = {train_loss / len(self._dms.train_dataloader())} Epoch = {epoch}')
+        loss = train_loss / len(self._dms.train_dataloader().dataset)
+        wandb.log({'loss': loss})
+        print(f'====> Train Loss = {loss} Epoch = {epoch}')
 
     def save(self, epoch):
         model_save_path = os.path.join(self._output_dir, f"{self._model_prefix}-epoch-{epoch}.checkpoint")
@@ -144,5 +128,10 @@ class BaseModel(torch.nn.Module):
                 test_loss += batch_loss
 
         test_loss /= len(self._dms.test_dataloader())
+        wandb.log({'test_loss': test_loss})
         print(f"====>  Test Loss = {test_loss}")
+
+    @property
+    def lr(self):
+        return self._lr
 

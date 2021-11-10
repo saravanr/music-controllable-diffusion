@@ -9,6 +9,11 @@ from torch.utils.tensorboard import SummaryWriter
 import torch.nn.functional as F
 from models.base.base_model import BaseModel
 from utils.midi_utils import save_decoder_output_as_midi
+import matplotlib.pyplot as plt
+
+import wandb
+
+wandb.init(project="music-controllable-diffusion", entity="saravanr")
 
 
 class Encoder(nn.Module):
@@ -17,7 +22,7 @@ class Encoder(nn.Module):
     """
 
     def __init__(self, z_dim, input_shape):
-        super().__init__()
+        super(Encoder, self).__init__()
         self._z_dim = z_dim
         if input_shape[0] < 100:
             scale = 1
@@ -27,11 +32,9 @@ class Encoder(nn.Module):
         input_dim = (input_shape[0] * input_shape[1]) // scale
         self._net = nn.Sequential(
             nn.Linear(input_shape[0] * input_shape[1], input_dim // 2),
-            nn.LeakyReLU(),
-            nn.Linear(input_dim // 2, input_dim // 2),
-            nn.LeakyReLU(),
+            nn.ReLU(),
             nn.Linear(input_dim // 2, input_dim // 4),
-            nn.LeakyReLU(),
+            nn.ReLU(),
             nn.Linear(input_dim // 4, input_dim // 8)
         )
 
@@ -43,8 +46,6 @@ class Encoder(nn.Module):
         )
 
     def forward(self, x):
-        if type(x) == list:
-            x = x[0]
         x = torch.flatten(x, start_dim=1)
         h = self._net(x)
 
@@ -59,7 +60,7 @@ class Decoder(nn.Module):
     """
 
     def __init__(self, z_dim, output_shape):
-        super().__init__()
+        super(Decoder, self).__init__()
         self._z_dim = z_dim
         self._output_shape = output_shape
 
@@ -71,19 +72,17 @@ class Decoder(nn.Module):
         output_dim = (output_shape[0] * output_shape[1]) // scale
         self._net = nn.Sequential(
             nn.Linear(z_dim, output_dim // 4),
-            nn.LeakyReLU(),
+            nn.ReLU(),
             nn.Linear(output_dim // 4, output_dim // 2),
-            nn.LeakyReLU(),
-            nn.Linear(output_dim // 2, output_dim // 2),
-            nn.LeakyReLU(),
+            nn.ReLU(),
             nn.Linear(output_dim // 2, output_dim * scale),
             nn.Sigmoid()
         )
 
     def forward(self, z):
         output = self._net(z)
-        # TODO
-        output = output.reshape((-1, 1, self._output_shape[0], self._output_shape[1]))
+        # Clamp output in (0, 1) to prevent errors in BCE
+        output = torch.clamp(output, 1e-8, 1 - 1e-8)
         return output
 
     @property
@@ -93,81 +92,98 @@ class Decoder(nn.Module):
 
 class SimpleVae(BaseModel):
     def __init__(self, z_dim=64, input_shape=(10000, 8), alpha=1.0, *args: Any, **kwargs: Any):
-        super().__init__(*args, **kwargs)
+        super(SimpleVae, self).__init__(*args, **kwargs)
         self.writer = SummaryWriter()
         self._encoder = Encoder(z_dim, input_shape=input_shape)
         self._decoder = Decoder(z_dim, output_shape=input_shape)
-        self._z_prior_m = torch.nn.Parameter(torch.zeros(1), requires_grad=False)
-        self._z_prior_v = torch.nn.Parameter(torch.ones(1), requires_grad=False)
         self._alpha = alpha
         self._model_prefix = "SimpleVae"
 
     def forward(self, x):
-        mean, log_var = self._encoder.forward(x)
-        z = SimpleVae.sample(mean, torch.exp(log_var))
+        mean, log_var = self._encoder(x)
+        z = SimpleVae.reparameterize(mean, log_var)
         x_hat = self._decoder(z)
         return z, x_hat, mean, log_var
 
     def loss_function(self, x_hat, x, mu, q_log_var):
-        pm = self._z_prior_m
-        pv = self._z_prior_v
-        # recon_loss = func.binary_cross_entropy(x_hat, x, reduction='mean')
-        recon_loss = -func.mse_loss(x_hat, x, reduction='mean')
-        kl = self._kl_normal(mu, torch.exp(q_log_var), pm, pv)
-        #kl = self._kl_simple(qm, qv)
-        elbo = recon_loss - kl
-        loss = -elbo
-        logs = {
-            # Detach before appending to reduce memory consumption
-            "recon_loss": recon_loss,
-            "kl_loss": kl,
-            "loss": loss
-        }
-        return loss, logs
+        recon_loss = func.binary_cross_entropy(x_hat, x.view(-1, 784), reduction='sum')
+        kl = self._kl_simple(mu, q_log_var)
+        loss = recon_loss + kl
+        return loss
 
     def step(self, batch, batch_idx):
-        if type(batch) == list:
-            x = batch[0]
-        else:
-            x = batch
-        z, x_hat, mu, q_log_var = self.forward(x)
-        loss, logs = self.loss_function(x_hat, x, mu, q_log_var)
-        return loss, logs
+        x = batch
+        z, x_hat, mu, q_log_var = self(x)
+        loss = self.loss_function(x_hat, x, mu, q_log_var)
+        return loss
+
+    @staticmethod
+    def plot_image_grid(samples):
+        from mpl_toolkits.axes_grid1 import ImageGrid
+        fig = plt.figure(figsize=(4., 4.))
+        grid = ImageGrid(fig, 111,
+                         nrows_ncols=(4, 4),
+                         axes_pad=0.1,
+                         )
+
+        for ax, im in zip(grid, samples):
+            ax.imshow(im)
+
+        plt.show()
 
     def sample_output(self, epoch):
         try:
-            sample_file_name = os.path.join(self._output_dir, f"{self._model_prefix}-{epoch}.midi")
-            device = self.get_device()
-            rand_z = torch.rand(self._decoder.z_dim).to(device)
-            rand_z.to(device)
-            output = model._decoder(rand_z)
-            sample = output.to("cpu").detach().numpy()
-            if sample.shape[2] < 100:
-                # TODO
-                import matplotlib.pyplot as plt
-                plt.imshow(sample.reshape((28, 28)), cmap='gray')
-                plt.show()
-            else:
-                print(f"Generating midi sample file://{sample_file_name}")
-                save_decoder_output_as_midi(sample, sample_file_name)
+            with torch.no_grad():
+                device = self.get_device()
+                if True:
+                    #TODO
+                    rand_z = torch.randn(16, self._decoder.z_dim).to(device)
+                    rand_z.to(device)
+                    output = self._decoder(rand_z)
+                    samples = output.to("cpu").detach().numpy()
+                    samples = samples.reshape((-1, 28, 28))
+                    SimpleVae.plot_image_grid(samples)
+                else:
+                    rand_z = torch.randn(self._decoder.z_dim).to(device)
+                    rand_z.to(device)
+                    output = self._decoder(rand_z)
+                    sample = output.to("cpu").detach().numpy()
+                    sample_file_name = os.path.join(self._output_dir, f"{self._model_prefix}-{epoch}.midi")
+                    print(f"Generating midi sample file://{sample_file_name}")
+                    save_decoder_output_as_midi(sample, sample_file_name)
         except Exception as _e:
             print(f"Hit exception during sample_output - {_e}")
+
+    @property
+    def alpha(self):
+        return self._alpha
 
 
 if __name__ == "__main__":
     print(f"Training simple VAE")
+    batch_size = 4000
     model = SimpleVae(
         alpha=1,
-        z_dim=4,
+        z_dim=20,
         input_shape=(28, 28),
         use_mnist_dms=True,
         sample_output_step=10,
-        batch_size=1000
+        batch_size=batch_size
     )
     print(f"Training --> {model}")
-    for epoch in range(1, 51):
-        model.fit(epoch)
-        if epoch % 10 == 0:
-            model.test()
+
+    max_epochs = 200
+    wandb.config = {
+        "learning_rate" : model.lr,
+        "epochs":  max_epochs,
+        "batch_size": batch_size,
+        "alpha": model.alpha
+    }
+
+    _optimizer = model.configure_optimizers()
+    for epoch in range(1, max_epochs + 1):
+        model.fit(epoch, _optimizer)
+        if epoch % 5 == 0:
+            #model.test()
             model.sample_output(epoch)
             model.save(epoch)

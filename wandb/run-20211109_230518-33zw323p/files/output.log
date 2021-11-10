@@ -1,0 +1,57 @@
+
+Training simple VAE
+/home/joy/.venv/lib/python3.8/site-packages/torchvision/datasets/mnist.py:498: UserWarning: The given NumPy array is not writeable, and PyTorch does not support non-writeable tensors. This means you can write to the underlying (supposedly non-writeable) NumPy array using the tensor. You may want to copy the array to protect its data or make it writeable before converting it to a tensor. This type of warning will be suppressed for the rest of this program. (Triggered internally at  ../torch/csrc/utils/tensor_numpy.cpp:180.)
+  return torch.from_numpy(parsed.astype(m[2], copy=False)).view(*s)
+Training --> SimpleVae(
+  (_encoder): Encoder(
+    (_net): Sequential(
+      (0): Linear(in_features=784, out_features=392, bias=True)
+      (1): LeakyReLU(negative_slope=0.01)
+      (2): Linear(in_features=392, out_features=392, bias=True)
+      (3): LeakyReLU(negative_slope=0.01)
+      (4): Linear(in_features=392, out_features=196, bias=True)
+      (5): LeakyReLU(negative_slope=0.01)
+      (6): Linear(in_features=196, out_features=98, bias=True)
+    )
+    (_fc_mean): Sequential(
+      (0): Linear(in_features=98, out_features=4, bias=True)
+    )
+    (_fc_log_var): Sequential(
+      (0): Linear(in_features=98, out_features=4, bias=True)
+    )
+  )
+  (_decoder): Decoder(
+    (_net): Sequential(
+      (0): Linear(in_features=4, out_features=196, bias=True)
+      (1): LeakyReLU(negative_slope=0.01)
+      (2): Linear(in_features=196, out_features=392, bias=True)
+      (3): LeakyReLU(negative_slope=0.01)
+      (4): Linear(in_features=392, out_features=392, bias=True)
+      (5): LeakyReLU(negative_slope=0.01)
+      (6): Linear(in_features=392, out_features=784, bias=True)
+      (7): Sigmoid()
+    )
+  )
+)
+====> Train Loss = 5409175.333333333 Epoch = 1
+====> Train Loss = 5354182.333333333 Epoch = 2
+====> Train Loss = 5273106.25 Epoch = 3
+====> Train Loss = 5140348.583333333 Epoch = 4
+====> Train Loss = 4908624.583333333 Epoch = 5
+====>  Test Loss = 4708465.0
+====> Train Loss = 4483441.833333333 Epoch = 6
+====> Train Loss = 3729973.125 Epoch = 7
+====> Train Loss = 2974849.875 Epoch = 8
+====> Train Loss = 2654524.875 Epoch = 9
+====> Train Loss = 2246706.2916666665 Epoch = 10
+====>  Test Loss = 2046490.125
+====> Train Loss = 1878657.2291666667 Epoch = 11
+====> Train Loss = -2174399.75 Epoch = 12
+====> Train Loss = -2330466273.3333335 Epoch = 13
+====> Train Loss = -3863749153604949.5 Epoch = 14
+====> Train Loss = -1.9624629705417687e+19 Epoch = 15
+====>  Test Loss = -3.454568073761506e+20
+====> Train Loss = -4.114096272516306e+24 Epoch = 16
+====> Train Loss = -4.1099482489856073e+24 Epoch = 17
+====> Train Loss = -4.113046863217414e+24 Epoch = 18
+====> Train Loss = -4.112449981408638e+24 Epoch = 19

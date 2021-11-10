@@ -1,0 +1,24 @@
+{
+    "os": "Linux-5.11.0-38-generic-x86_64-with-glibc2.29",
+    "python": "3.8.10",
+    "heartbeatAt": "2021-11-10T06:30:27.811433",
+    "startedAt": "2021-11-10T06:30:24.544213",
+    "docker": null,
+    "gpu": "NVIDIA GeForce RTX 3090",
+    "gpu_count": 1,
+    "cpu_count": 16,
+    "cuda": null,
+    "args": [],
+    "state": "running",
+    "program": "/home/joy/projects/music-controllable-diffusion/models/simple_vae/simple_vae.py",
+    "codePath": "models/simple_vae/simple_vae.py",
+    "git": {
+        "remote": "git@github.com:saravanr/music-controllable-diffusion.git",
+        "commit": "50ea1dce633853c98286a3de356cb610488431ce"
+    },
+    "email": "saravanr@icloud.com",
+    "root": "/home/joy/projects/music-controllable-diffusion",
+    "host": "lapis",
+    "username": "joy",
+    "executable": "/home/joy/.venv/bin/python"
+}
