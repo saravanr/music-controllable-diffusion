@@ -18,7 +18,7 @@ class BaseModel(torch.nn.Module):
                  data_dir=os.path.expanduser("~/midi_processed/"),
                  output_dir=os.path.expanduser("~/model-archive/"),
                  num_gpus=1,
-                 batch_size=30000,
+                 batch_size=3000,
                  sample_output_step=200,
                  save_checkpoint_every=1000,
                  emit_tensorboard_scalars=True,
@@ -33,9 +33,11 @@ class BaseModel(torch.nn.Module):
         self._lr = lr
         if use_mnist_dms:
             self._dms = MNISTDataModule(num_workers=12,
+                                        batch_size=batch_size,
                                         pin_memory=True)
         else:
-            self._dms = MidiDataModule(data_dir)
+            self._dms = MidiDataModule(data_dir,
+                                       batch_size=batch_size)
         self._model_prefix = "base-model"
         self._num_gpus = num_gpus
         self._sample_output_step = sample_output_step
@@ -45,10 +47,10 @@ class BaseModel(torch.nn.Module):
         self._dms.setup()
 
     @staticmethod
-    def sample(mean, log_var):
+    def sample(mean, var):
         # Set all small values to epsilon
-        std = F.softplus(log_var) + 1e-8
-        q = torch.distributions.Normal(mean, std)
+        std = F.softplus(var) + 1e-8
+        q = torch.distributions.Normal(mean, torch.sqrt(std))
         z = q.rsample()
         return z
 
@@ -81,13 +83,12 @@ class BaseModel(torch.nn.Module):
         return kl
 
     @staticmethod
-    def _kl(mean, var):
-        eps = 1e-8
-        kl_loss = -0.5 * torch.sum(1 + torch.log(var + eps) - torch.square(mean) - var, axis=-1)
-        kl_loss = torch.mean(kl_loss)
-        return kl_loss
+    def _kl_simple(mu, var):
+        log_var = torch.log(var)
+        return -0.5 * torch.sum(1 + log_var - mu.pow(2) - log_var.exp())
 
-    def enable_debugging(self):
+    @staticmethod
+    def enable_debugging():
         torch.autograd.set_detect_anomaly(True)
 
     def get_device(self):

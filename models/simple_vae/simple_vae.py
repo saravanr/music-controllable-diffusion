@@ -6,7 +6,7 @@ from pytorch_lightning.utilities.types import STEP_OUTPUT
 from torch import nn
 from torch.nn import functional as func
 from torch.utils.tensorboard import SummaryWriter
-
+import torch.nn.functional as F
 from models.base.base_model import BaseModel
 from utils.midi_utils import save_decoder_output_as_midi
 
@@ -35,17 +35,22 @@ class Encoder(nn.Module):
             nn.Linear(input_dim // 4, input_dim // 8)
         )
 
-        self._fc_mean = nn.Linear(input_dim // 8, z_dim)
-        self._fc_var = nn.Linear(input_dim // 8, z_dim)
+        self._fc_mean = nn.Sequential(
+            nn.Linear(input_dim // 8, z_dim),
+        )
+        self._fc_log_var = nn.Sequential(
+            nn.Linear(input_dim // 8, z_dim),
+        )
 
     def forward(self, x):
         if type(x) == list:
             x = x[0]
         x = torch.flatten(x, start_dim=1)
         h = self._net(x)
+
         mean = self._fc_mean(h)
-        var = self._fc_var(h)
-        return mean, var
+        log_var = self._fc_log_var(h)
+        return mean, log_var
 
 
 class Decoder(nn.Module):
@@ -71,7 +76,8 @@ class Decoder(nn.Module):
             nn.LeakyReLU(),
             nn.Linear(output_dim // 2, output_dim // 2),
             nn.LeakyReLU(),
-            nn.Linear(output_dim // 2, output_dim * scale)
+            nn.Linear(output_dim // 2, output_dim * scale),
+            nn.Sigmoid()
         )
 
     def forward(self, z):
@@ -97,20 +103,20 @@ class SimpleVae(BaseModel):
         self._model_prefix = "SimpleVae"
 
     def forward(self, x):
-        mean, var = self._encoder.forward(x)
-        relu = nn.ReLU()
-        var = relu(var)
-        z = SimpleVae.sample(mean, var)
+        mean, log_var = self._encoder.forward(x)
+        z = SimpleVae.sample(mean, torch.exp(log_var))
         x_hat = self._decoder(z)
-        return z, x_hat, mean, var
+        return z, x_hat, mean, log_var
 
-    def loss_function(self, x_hat, x, qm, qv):
+    def loss_function(self, x_hat, x, mu, q_log_var):
         pm = self._z_prior_m
         pv = self._z_prior_v
-        output = torch.sigmoid(x_hat)
-        recon_loss = func.mse_loss(output, x, reduction='mean')
-        kl = self._kl_normal(qm, qv, pm, pv)
-        loss = recon_loss - self._alpha * kl
+        # recon_loss = func.binary_cross_entropy(x_hat, x, reduction='mean')
+        recon_loss = -func.mse_loss(x_hat, x, reduction='mean')
+        kl = self._kl_normal(mu, torch.exp(q_log_var), pm, pv)
+        #kl = self._kl_simple(qm, qv)
+        elbo = recon_loss - kl
+        loss = -elbo
         logs = {
             # Detach before appending to reduce memory consumption
             "recon_loss": recon_loss,
@@ -124,8 +130,8 @@ class SimpleVae(BaseModel):
             x = batch[0]
         else:
             x = batch
-        z, x_hat, qm, qv = self.forward(x)
-        loss, logs = self.loss_function(x_hat, x, qm, qv)
+        z, x_hat, mu, q_log_var = self.forward(x)
+        loss, logs = self.loss_function(x_hat, x, mu, q_log_var)
         return loss, logs
 
     def sample_output(self, epoch):
@@ -134,13 +140,12 @@ class SimpleVae(BaseModel):
             device = self.get_device()
             rand_z = torch.rand(self._decoder.z_dim).to(device)
             rand_z.to(device)
-            logits = model._decoder(rand_z)
-            output = torch.sigmoid(logits)
+            output = model._decoder(rand_z)
             sample = output.to("cpu").detach().numpy()
             if sample.shape[2] < 100:
                 # TODO
                 import matplotlib.pyplot as plt
-                plt.imshow(sample.reshape((28, 28)))
+                plt.imshow(sample.reshape((28, 28)), cmap='gray')
                 plt.show()
             else:
                 print(f"Generating midi sample file://{sample_file_name}")
@@ -152,11 +157,12 @@ class SimpleVae(BaseModel):
 if __name__ == "__main__":
     print(f"Training simple VAE")
     model = SimpleVae(
-        z_dim=2,
+        alpha=1,
+        z_dim=4,
         input_shape=(28, 28),
         use_mnist_dms=True,
         sample_output_step=10,
-        batch_size=100000
+        batch_size=1000
     )
     print(f"Training --> {model}")
     for epoch in range(1, 51):
