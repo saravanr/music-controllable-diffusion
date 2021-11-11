@@ -1,0 +1,66 @@
+
+Training GMVAE
+Traceback (most recent call last):
+  File "/home/joy/.local/share/JetBrains/Toolbox/apps/PyCharm-P/ch-0/212.5457.59/plugins/python/helpers/pydev/pydevd.py", line 1483, in _exec
+    pydev_imports.execfile(file, globals, locals)  # execute the script
+  File "/home/joy/.local/share/JetBrains/Toolbox/apps/PyCharm-P/ch-0/212.5457.59/plugins/python/helpers/pydev/_pydev_imps/_pydev_execfile.py", line 18, in execfile
+    exec(compile(contents+"\n", file, 'exec'), glob, loc)
+  File "/home/joy/projects/music-controllable-diffusion/models/gmiw_vae/gmiw_vae.py", line 144, in <module>
+    model.fit(epoch, _optimizer)
+  File "/home/joy/projects/music-controllable-diffusion/models/base/base_model.py", line 100, in fit
+    loss = self.step(batch, batch_idx)
+  File "/home/joy/projects/music-controllable-diffusion/models/gmiw_vae/gmiw_vae.py", line 105, in step
+    loss = self.forward(batch)
+  File "/home/joy/projects/music-controllable-diffusion/models/gmiw_vae/gmiw_vae.py", line 101, in forward
+    niwae, kl, rec = self.negative_iwae_bound(x, iw=4)
+  File "/home/joy/projects/music-controllable-diffusion/models/gmiw_vae/gmiw_vae.py", line 72, in negative_iwae_bound
+    z = ut.sample_gaussian(weighted_m, torch.exp(weighted_log_v))
+  File "/home/joy/projects/music-controllable-diffusion/utils/model_utils.py", line 24, in sample_gaussian
+    distribution = Normal(loc=m, scale=torch.sqrt(v))
+  File "/home/joy/.venv/lib/python3.8/site-packages/torch/distributions/normal.py", line 50, in __init__
+    super(Normal, self).__init__(batch_shape, validate_args=validate_args)
+  File "/home/joy/.venv/lib/python3.8/site-packages/torch/distributions/distribution.py", line 55, in __init__
+    raise ValueError(
+ValueError: Expected parameter scale (Tensor of shape (8192, 8)) of distribution Normal(loc: torch.Size([8192, 8]), scale: torch.Size([8192, 8])) to satisfy the constraint GreaterThan(lower_bound=0.0), but found invalid values:
+tensor([[5.3908e+07, 2.6754e-06, 2.1330e+01,  ..., 5.3457e-17, 2.1275e+02,
+         2.1031e-05],
+        [4.6382e-04, 2.2430e-18, 3.0199e-03,  ..., 1.9763e-07, 1.4813e+11,
+         3.0890e+01],
+        [1.6246e-03, 2.6738e-13, 4.8552e-05,  ..., 4.5420e-02, 1.2658e+14,
+         4.7469e+06],
+        ...,
+        [7.7689e+03, 1.2202e-15, 6.9715e+02,  ..., 9.4737e-01, 1.6177e+06,
+         5.7565e-02],
+        [5.8481e+06, 2.1583e-07, 2.9964e+04,  ..., 7.6717e+01, 1.1128e+06,
+         1.0294e+02],
+        [1.7831e+04, 2.8127e-17, 2.2215e+15,  ..., 1.4367e-01, 1.9290e+14,
+         2.6085e-03]], device='cuda:0', grad_fn=<SqrtBackward0>)
+Training --> GMIWVae(
+  (_encoder): Encoder(
+    (_net): Sequential(
+      (0): Linear(in_features=784, out_features=392, bias=True)
+      (1): ELU(alpha=1.0)
+      (2): Dropout(p=0.5, inplace=False)
+    )
+    (_fc_mean): Sequential(
+      (0): Linear(in_features=392, out_features=8, bias=True)
+    )
+    (_fc_log_var): Sequential(
+      (0): Linear(in_features=392, out_features=8, bias=True)
+    )
+  )
+  (_decoder): Decoder(
+    (_net): Sequential(
+      (0): Linear(in_features=8, out_features=196, bias=True)
+      (1): ELU(alpha=1.0)
+      (2): Dropout(p=0.5, inplace=False)
+      (3): Linear(in_features=196, out_features=784, bias=True)
+      (4): Sigmoid()
+    )
+  )
+)
+Python 3.8.10 (default, Sep 28 2021, 16:10:42)
+Type 'copyright', 'credits' or 'license' for more information
+IPython 7.27.0 -- An enhanced Interactive Python. Type '?' for help.
+PyDev console: using IPython 7.27.0
+Out[1]: tensor(0., device='cuda:0', grad_fn=<MinBackward1>)

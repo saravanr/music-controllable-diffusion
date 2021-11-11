@@ -99,3 +99,853 @@
 2021-11-11 13:22:39,068 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
 2021-11-11 13:22:39,068 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
 2021-11-11 13:22:39,642 INFO    Thread-8  :57514 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_132214-gbzthiaf/files/wandb-summary.json
+2021-11-11 13:22:40,642 INFO    Thread-8  :57514 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_132214-gbzthiaf/files/output.log
+2021-11-11 13:22:41,391 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:22:41,392 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:22:41,392 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:22:41,642 INFO    Thread-8  :57514 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_132214-gbzthiaf/files/wandb-summary.json
+2021-11-11 13:22:41,709 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:22:41,709 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:22:41,709 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:22:42,016 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:22:42,016 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:22:42,016 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:22:42,368 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:22:42,369 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:22:42,369 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:22:42,642 INFO    Thread-8  :57514 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_132214-gbzthiaf/files/output.log
+2021-11-11 13:22:42,643 INFO    Thread-8  :57514 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_132214-gbzthiaf/files/wandb-summary.json
+2021-11-11 13:22:42,668 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:22:42,668 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:22:42,668 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:22:42,970 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:22:42,970 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:22:42,970 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:22:43,270 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:22:43,270 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:22:43,271 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:22:43,559 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:22:43,560 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:22:43,560 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:22:43,643 INFO    Thread-8  :57514 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_132214-gbzthiaf/files/wandb-summary.json
+2021-11-11 13:22:43,868 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:22:43,868 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:22:43,869 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:22:44,167 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:22:44,167 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:22:44,167 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:22:44,468 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:22:44,468 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:22:44,469 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:22:44,643 INFO    Thread-8  :57514 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_132214-gbzthiaf/files/output.log
+2021-11-11 13:22:44,643 INFO    Thread-8  :57514 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_132214-gbzthiaf/files/wandb-summary.json
+2021-11-11 13:22:44,764 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:22:44,764 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:22:44,765 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:22:45,057 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:22:45,058 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:22:45,058 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:22:45,375 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:22:45,376 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:22:45,376 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:22:45,643 INFO    Thread-8  :57514 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_132214-gbzthiaf/files/wandb-summary.json
+2021-11-11 13:22:45,665 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:22:45,666 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:22:45,666 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:22:45,963 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:22:45,963 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:22:45,963 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:22:46,259 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:22:46,259 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:22:46,259 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:22:46,303 DEBUG   SenderThread:57514 [sender.py:send():238] send: stats
+2021-11-11 13:22:46,555 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:22:46,555 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:22:46,556 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:22:46,644 INFO    Thread-8  :57514 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_132214-gbzthiaf/files/output.log
+2021-11-11 13:22:46,644 INFO    Thread-8  :57514 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_132214-gbzthiaf/files/wandb-summary.json
+2021-11-11 13:22:46,852 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:22:46,852 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:22:46,852 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:22:47,144 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:22:47,145 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:22:47,145 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:22:47,644 INFO    Thread-8  :57514 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_132214-gbzthiaf/files/wandb-summary.json
+2021-11-11 13:22:48,421 DEBUG   HandlerThread:57514 [handler.py:handle_request():130] handle_request: stop_status
+2021-11-11 13:22:48,422 DEBUG   SenderThread:57514 [sender.py:send_request():252] send_request: stop_status
+2021-11-11 13:22:48,644 INFO    Thread-8  :57514 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_132214-gbzthiaf/files/output.log
+2021-11-11 13:22:49,143 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:22:49,143 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:22:49,144 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:22:49,437 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:22:49,437 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:22:49,438 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:22:49,645 INFO    Thread-8  :57514 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_132214-gbzthiaf/files/wandb-summary.json
+2021-11-11 13:22:49,733 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:22:49,734 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:22:49,734 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:22:50,034 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:22:50,034 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:22:50,035 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:22:50,339 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:22:50,340 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:22:50,340 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:22:50,635 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:22:50,635 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:22:50,636 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:22:50,645 INFO    Thread-8  :57514 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_132214-gbzthiaf/files/output.log
+2021-11-11 13:22:50,645 INFO    Thread-8  :57514 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_132214-gbzthiaf/files/wandb-summary.json
+2021-11-11 13:22:50,937 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:22:50,937 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:22:50,938 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:22:51,234 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:22:51,234 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:22:51,234 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:22:51,531 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:22:51,531 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:22:51,532 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:22:51,645 INFO    Thread-8  :57514 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_132214-gbzthiaf/files/wandb-summary.json
+2021-11-11 13:22:51,837 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:22:51,838 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:22:51,838 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:22:52,136 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:22:52,136 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:22:52,136 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:22:52,444 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:22:52,444 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:22:52,445 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:22:52,645 INFO    Thread-8  :57514 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_132214-gbzthiaf/files/output.log
+2021-11-11 13:22:52,646 INFO    Thread-8  :57514 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_132214-gbzthiaf/files/wandb-summary.json
+2021-11-11 13:22:52,743 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:22:52,744 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:22:52,744 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:22:53,057 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:22:53,057 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:22:53,057 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:22:53,359 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:22:53,359 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:22:53,359 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:22:53,646 INFO    Thread-8  :57514 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_132214-gbzthiaf/files/wandb-summary.json
+2021-11-11 13:22:53,658 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:22:53,658 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:22:53,659 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:22:53,962 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:22:53,962 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:22:53,962 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:22:54,260 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:22:54,260 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:22:54,261 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:22:54,584 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:22:54,584 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:22:54,585 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:22:54,646 INFO    Thread-8  :57514 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_132214-gbzthiaf/files/output.log
+2021-11-11 13:22:54,646 INFO    Thread-8  :57514 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_132214-gbzthiaf/files/wandb-summary.json
+2021-11-11 13:22:54,883 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:22:54,883 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:22:54,884 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:22:55,647 INFO    Thread-8  :57514 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_132214-gbzthiaf/files/wandb-summary.json
+2021-11-11 13:22:56,647 INFO    Thread-8  :57514 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_132214-gbzthiaf/files/output.log
+2021-11-11 13:22:57,114 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:22:57,115 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:22:57,115 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:22:57,415 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:22:57,415 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:22:57,415 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:22:57,647 INFO    Thread-8  :57514 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_132214-gbzthiaf/files/wandb-summary.json
+2021-11-11 13:22:57,718 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:22:57,718 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:22:57,718 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:22:58,020 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:22:58,020 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:22:58,021 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:22:58,324 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:22:58,324 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:22:58,324 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:22:58,624 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:22:58,624 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:22:58,625 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:22:58,647 INFO    Thread-8  :57514 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_132214-gbzthiaf/files/output.log
+2021-11-11 13:22:58,648 INFO    Thread-8  :57514 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_132214-gbzthiaf/files/wandb-summary.json
+2021-11-11 13:22:58,928 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:22:58,928 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:22:58,928 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:22:59,224 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:22:59,224 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:22:59,224 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:22:59,526 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:22:59,526 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:22:59,526 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:22:59,648 INFO    Thread-8  :57514 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_132214-gbzthiaf/files/wandb-summary.json
+2021-11-11 13:22:59,835 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:22:59,836 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:22:59,836 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:00,133 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:00,133 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:00,133 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:00,429 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:00,430 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:00,430 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:00,648 INFO    Thread-8  :57514 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_132214-gbzthiaf/files/output.log
+2021-11-11 13:23:00,648 INFO    Thread-8  :57514 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_132214-gbzthiaf/files/wandb-summary.json
+2021-11-11 13:23:00,727 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:00,727 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:00,727 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:01,020 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:01,020 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:01,020 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:01,311 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:01,311 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:01,312 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:01,609 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:01,610 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:01,610 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:01,648 INFO    Thread-8  :57514 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_132214-gbzthiaf/files/wandb-summary.json
+2021-11-11 13:23:01,911 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:01,911 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:01,911 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:02,201 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:02,201 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:02,201 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:02,503 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:02,504 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:02,504 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:02,649 INFO    Thread-8  :57514 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_132214-gbzthiaf/files/output.log
+2021-11-11 13:23:02,649 INFO    Thread-8  :57514 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_132214-gbzthiaf/files/wandb-summary.json
+2021-11-11 13:23:02,807 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:02,807 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:02,808 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:03,616 DEBUG   HandlerThread:57514 [handler.py:handle_request():130] handle_request: stop_status
+2021-11-11 13:23:03,616 DEBUG   SenderThread:57514 [sender.py:send_request():252] send_request: stop_status
+2021-11-11 13:23:03,649 INFO    Thread-8  :57514 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_132214-gbzthiaf/files/wandb-summary.json
+2021-11-11 13:23:04,649 INFO    Thread-8  :57514 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_132214-gbzthiaf/files/output.log
+2021-11-11 13:23:04,799 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:04,799 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:04,799 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:05,096 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:05,097 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:05,097 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:05,394 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:05,394 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:05,394 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:05,650 INFO    Thread-8  :57514 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_132214-gbzthiaf/files/wandb-summary.json
+2021-11-11 13:23:05,709 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:05,710 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:05,710 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:06,017 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:06,017 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:06,017 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:06,321 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:06,321 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:06,322 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:06,624 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:06,625 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:06,625 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:06,650 INFO    Thread-8  :57514 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_132214-gbzthiaf/files/output.log
+2021-11-11 13:23:06,650 INFO    Thread-8  :57514 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_132214-gbzthiaf/files/wandb-summary.json
+2021-11-11 13:23:06,929 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:06,930 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:06,930 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:07,221 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:07,222 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:07,222 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:07,515 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:07,515 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:07,515 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:07,650 INFO    Thread-8  :57514 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_132214-gbzthiaf/files/wandb-summary.json
+2021-11-11 13:23:07,816 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:07,816 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:07,817 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:08,110 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:08,110 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:08,110 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:08,409 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:08,409 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:08,410 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:08,650 INFO    Thread-8  :57514 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_132214-gbzthiaf/files/output.log
+2021-11-11 13:23:08,651 INFO    Thread-8  :57514 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_132214-gbzthiaf/files/wandb-summary.json
+2021-11-11 13:23:08,713 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:08,713 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:08,713 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:09,044 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:09,044 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:09,044 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:09,357 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:09,357 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:09,358 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:09,650 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:09,650 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:09,651 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:09,651 INFO    Thread-8  :57514 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_132214-gbzthiaf/files/wandb-summary.json
+2021-11-11 13:23:09,958 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:09,958 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:09,959 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:10,252 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:10,252 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:10,253 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:10,547 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:10,547 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:10,547 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:10,651 INFO    Thread-8  :57514 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_132214-gbzthiaf/files/output.log
+2021-11-11 13:23:10,652 INFO    Thread-8  :57514 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_132214-gbzthiaf/files/wandb-summary.json
+2021-11-11 13:23:12,652 INFO    Thread-8  :57514 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_132214-gbzthiaf/files/output.log
+2021-11-11 13:23:12,799 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:12,800 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:12,800 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:13,101 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:13,102 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:13,102 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:13,410 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:13,410 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:13,411 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:13,652 INFO    Thread-8  :57514 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_132214-gbzthiaf/files/wandb-summary.json
+2021-11-11 13:23:13,709 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:13,709 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:13,709 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:14,011 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:14,011 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:14,011 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:14,308 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:14,308 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:14,308 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:14,606 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:14,607 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:14,607 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:14,653 INFO    Thread-8  :57514 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_132214-gbzthiaf/files/output.log
+2021-11-11 13:23:14,653 INFO    Thread-8  :57514 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_132214-gbzthiaf/files/wandb-summary.json
+2021-11-11 13:23:14,904 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:14,905 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:14,905 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:15,201 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:15,201 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:15,202 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:15,503 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:15,503 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:15,503 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:15,653 INFO    Thread-8  :57514 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_132214-gbzthiaf/files/wandb-summary.json
+2021-11-11 13:23:15,807 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:15,808 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:15,808 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:16,106 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:16,106 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:16,106 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:16,407 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:16,407 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:16,407 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:16,531 DEBUG   SenderThread:57514 [sender.py:send():238] send: stats
+2021-11-11 13:23:16,653 INFO    Thread-8  :57514 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_132214-gbzthiaf/files/output.log
+2021-11-11 13:23:16,653 INFO    Thread-8  :57514 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_132214-gbzthiaf/files/wandb-summary.json
+2021-11-11 13:23:16,706 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:16,707 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:16,707 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:17,014 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:17,014 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:17,014 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:17,311 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:17,311 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:17,312 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:17,611 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:17,611 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:17,612 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:17,653 INFO    Thread-8  :57514 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_132214-gbzthiaf/files/wandb-summary.json
+2021-11-11 13:23:17,912 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:17,912 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:17,912 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:18,205 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:18,205 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:18,206 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:18,510 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:18,510 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:18,510 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:18,654 INFO    Thread-8  :57514 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_132214-gbzthiaf/files/output.log
+2021-11-11 13:23:18,654 INFO    Thread-8  :57514 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_132214-gbzthiaf/files/wandb-summary.json
+2021-11-11 13:23:18,836 DEBUG   HandlerThread:57514 [handler.py:handle_request():130] handle_request: stop_status
+2021-11-11 13:23:18,836 DEBUG   SenderThread:57514 [sender.py:send_request():252] send_request: stop_status
+2021-11-11 13:23:20,466 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:20,466 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:20,467 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:20,654 INFO    Thread-8  :57514 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_132214-gbzthiaf/files/output.log
+2021-11-11 13:23:20,654 INFO    Thread-8  :57514 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_132214-gbzthiaf/files/wandb-summary.json
+2021-11-11 13:23:20,754 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:20,754 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:20,755 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:21,042 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:21,043 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:21,043 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:21,330 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:21,330 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:21,330 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:21,634 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:21,634 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:21,634 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:21,655 INFO    Thread-8  :57514 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_132214-gbzthiaf/files/wandb-summary.json
+2021-11-11 13:23:21,938 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:21,938 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:21,939 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:22,231 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:22,231 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:22,231 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:22,526 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:22,526 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:22,527 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:22,655 INFO    Thread-8  :57514 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_132214-gbzthiaf/files/output.log
+2021-11-11 13:23:22,655 INFO    Thread-8  :57514 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_132214-gbzthiaf/files/wandb-summary.json
+2021-11-11 13:23:22,824 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:22,824 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:22,824 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:23,116 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:23,116 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:23,117 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:23,411 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:23,412 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:23,412 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:23,655 INFO    Thread-8  :57514 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_132214-gbzthiaf/files/wandb-summary.json
+2021-11-11 13:23:23,705 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:23,705 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:23,705 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:24,001 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:24,001 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:24,001 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:24,308 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:24,309 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:24,309 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:24,609 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:24,609 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:24,610 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:24,656 INFO    Thread-8  :57514 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_132214-gbzthiaf/files/output.log
+2021-11-11 13:23:24,656 INFO    Thread-8  :57514 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_132214-gbzthiaf/files/wandb-summary.json
+2021-11-11 13:23:24,908 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:24,908 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:24,909 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:25,199 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:25,199 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:25,199 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:25,495 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:25,495 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:25,495 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:25,657 INFO    Thread-8  :57514 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_132214-gbzthiaf/files/wandb-summary.json
+2021-11-11 13:23:25,791 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:25,791 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:25,791 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:26,089 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:26,090 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:26,090 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:26,657 INFO    Thread-8  :57514 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_132214-gbzthiaf/files/output.log
+2021-11-11 13:23:26,657 INFO    Thread-8  :57514 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_132214-gbzthiaf/files/wandb-summary.json
+2021-11-11 13:23:28,084 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:28,084 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:28,085 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:28,386 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:28,386 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:28,386 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:28,658 INFO    Thread-8  :57514 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_132214-gbzthiaf/files/output.log
+2021-11-11 13:23:28,658 INFO    Thread-8  :57514 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_132214-gbzthiaf/files/wandb-summary.json
+2021-11-11 13:23:28,684 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:28,684 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:28,684 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:28,993 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:28,994 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:28,994 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:29,287 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:29,287 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:29,287 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:29,583 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:29,583 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:29,583 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:29,658 INFO    Thread-8  :57514 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_132214-gbzthiaf/files/wandb-summary.json
+2021-11-11 13:23:29,876 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:29,877 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:29,877 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:30,166 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:30,166 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:30,167 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:30,464 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:30,464 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:30,464 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:30,658 INFO    Thread-8  :57514 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_132214-gbzthiaf/files/output.log
+2021-11-11 13:23:30,658 INFO    Thread-8  :57514 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_132214-gbzthiaf/files/wandb-summary.json
+2021-11-11 13:23:30,759 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:30,759 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:30,760 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:31,051 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:31,051 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:31,051 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:31,346 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:31,346 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:31,346 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:31,650 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:31,651 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:31,651 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:31,658 INFO    Thread-8  :57514 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_132214-gbzthiaf/files/wandb-summary.json
+2021-11-11 13:23:31,954 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:31,954 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:31,954 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:32,254 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:32,254 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:32,254 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:32,554 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:32,554 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:32,555 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:32,659 INFO    Thread-8  :57514 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_132214-gbzthiaf/files/output.log
+2021-11-11 13:23:32,659 INFO    Thread-8  :57514 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_132214-gbzthiaf/files/wandb-summary.json
+2021-11-11 13:23:32,865 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:32,865 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:32,865 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:33,178 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:33,179 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:33,179 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:33,491 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:33,491 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:33,492 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:33,659 INFO    Thread-8  :57514 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_132214-gbzthiaf/files/wandb-summary.json
+2021-11-11 13:23:33,787 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:33,787 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:33,787 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:34,223 DEBUG   HandlerThread:57514 [handler.py:handle_request():130] handle_request: stop_status
+2021-11-11 13:23:34,223 DEBUG   SenderThread:57514 [sender.py:send_request():252] send_request: stop_status
+2021-11-11 13:23:34,659 INFO    Thread-8  :57514 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_132214-gbzthiaf/files/output.log
+2021-11-11 13:23:34,660 INFO    Thread-8  :57514 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_132214-gbzthiaf/files/wandb-summary.json
+2021-11-11 13:23:36,066 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:36,067 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:36,067 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:36,365 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:36,365 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:36,366 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:36,660 INFO    Thread-8  :57514 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_132214-gbzthiaf/files/output.log
+2021-11-11 13:23:36,660 INFO    Thread-8  :57514 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_132214-gbzthiaf/files/wandb-summary.json
+2021-11-11 13:23:36,666 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:36,667 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:36,667 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:36,982 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:36,982 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:36,983 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:37,290 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:37,291 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:37,291 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:37,591 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:37,591 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:37,592 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:37,660 INFO    Thread-8  :57514 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_132214-gbzthiaf/files/wandb-summary.json
+2021-11-11 13:23:37,893 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:37,893 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:37,894 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:38,202 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:38,202 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:38,202 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:38,511 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:38,511 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:38,511 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:38,661 INFO    Thread-8  :57514 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_132214-gbzthiaf/files/output.log
+2021-11-11 13:23:38,661 INFO    Thread-8  :57514 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_132214-gbzthiaf/files/wandb-summary.json
+2021-11-11 13:23:38,815 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:38,816 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:38,816 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:39,116 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:39,117 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:39,117 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:39,460 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:39,460 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:39,460 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:39,661 INFO    Thread-8  :57514 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_132214-gbzthiaf/files/wandb-summary.json
+2021-11-11 13:23:39,834 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:39,834 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:39,834 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:40,244 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:40,244 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:40,245 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:40,663 INFO    Thread-8  :57514 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_132214-gbzthiaf/files/output.log
+2021-11-11 13:23:40,664 INFO    Thread-8  :57514 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_132214-gbzthiaf/files/wandb-summary.json
+2021-11-11 13:23:40,781 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:40,781 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:40,782 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:41,125 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:41,125 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:41,125 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:41,435 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:41,436 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:41,436 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:41,664 INFO    Thread-8  :57514 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_132214-gbzthiaf/files/wandb-summary.json
+2021-11-11 13:23:41,739 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:41,739 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:41,739 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:42,038 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:42,038 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:42,038 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:42,340 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:42,340 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:42,341 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:42,664 INFO    Thread-8  :57514 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_132214-gbzthiaf/files/output.log
+2021-11-11 13:23:42,664 INFO    Thread-8  :57514 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_132214-gbzthiaf/files/wandb-summary.json
+2021-11-11 13:23:44,375 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:44,375 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:44,380 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:44,665 INFO    Thread-8  :57514 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_132214-gbzthiaf/files/output.log
+2021-11-11 13:23:44,665 INFO    Thread-8  :57514 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_132214-gbzthiaf/files/wandb-summary.json
+2021-11-11 13:23:44,681 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:44,681 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:44,681 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:44,993 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:44,993 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:44,994 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:45,300 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:45,301 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:45,301 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:45,603 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:45,603 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:45,603 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:45,665 INFO    Thread-8  :57514 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_132214-gbzthiaf/files/wandb-summary.json
+2021-11-11 13:23:45,924 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:45,924 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:45,924 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:46,219 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:46,220 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:46,220 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:46,521 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:46,521 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:46,521 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:46,665 INFO    Thread-8  :57514 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_132214-gbzthiaf/files/output.log
+2021-11-11 13:23:46,665 INFO    Thread-8  :57514 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_132214-gbzthiaf/files/wandb-summary.json
+2021-11-11 13:23:46,771 DEBUG   SenderThread:57514 [sender.py:send():238] send: stats
+2021-11-11 13:23:46,840 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:46,841 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:46,841 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:47,151 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:47,152 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:47,152 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:47,454 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:47,455 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:47,455 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:47,665 INFO    Thread-8  :57514 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_132214-gbzthiaf/files/wandb-summary.json
+2021-11-11 13:23:47,762 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:47,763 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:47,763 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:48,062 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:48,062 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:48,062 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:48,363 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:48,364 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:48,364 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:48,666 INFO    Thread-8  :57514 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_132214-gbzthiaf/files/output.log
+2021-11-11 13:23:48,666 INFO    Thread-8  :57514 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_132214-gbzthiaf/files/wandb-summary.json
+2021-11-11 13:23:48,671 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:48,672 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:48,672 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:48,979 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:48,979 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:48,980 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:49,274 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:49,274 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:49,275 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:49,362 DEBUG   HandlerThread:57514 [handler.py:handle_request():130] handle_request: stop_status
+2021-11-11 13:23:49,362 DEBUG   SenderThread:57514 [sender.py:send_request():252] send_request: stop_status
+2021-11-11 13:23:49,576 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:49,576 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:49,576 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:49,666 INFO    Thread-8  :57514 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_132214-gbzthiaf/files/wandb-summary.json
+2021-11-11 13:23:49,878 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:49,878 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:49,879 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:50,177 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:50,177 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:50,177 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:50,667 INFO    Thread-8  :57514 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_132214-gbzthiaf/files/output.log
+2021-11-11 13:23:50,667 INFO    Thread-8  :57514 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_132214-gbzthiaf/files/wandb-summary.json
+2021-11-11 13:23:52,483 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:52,483 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:52,483 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:52,667 INFO    Thread-8  :57514 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_132214-gbzthiaf/files/wandb-summary.json
+2021-11-11 13:23:52,778 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:52,779 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:52,779 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:53,076 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:53,077 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:53,077 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:53,371 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:53,372 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:53,372 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:53,667 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:53,667 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:53,667 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:53,668 INFO    Thread-8  :57514 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_132214-gbzthiaf/files/wandb-summary.json
+2021-11-11 13:23:53,971 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:53,971 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:53,971 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:54,263 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:54,263 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:54,264 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:54,570 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:54,570 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:54,570 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:54,668 INFO    Thread-8  :57514 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_132214-gbzthiaf/files/output.log
+2021-11-11 13:23:54,668 INFO    Thread-8  :57514 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_132214-gbzthiaf/files/wandb-summary.json
+2021-11-11 13:23:54,872 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:54,872 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:54,872 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:55,174 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:55,174 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:55,174 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:55,473 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:55,474 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:55,474 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:55,668 INFO    Thread-8  :57514 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_132214-gbzthiaf/files/wandb-summary.json
+2021-11-11 13:23:55,769 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:55,769 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:55,770 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:56,069 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:56,070 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:56,070 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:56,364 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:56,364 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:56,365 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:56,661 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:56,661 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:56,662 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:56,669 INFO    Thread-8  :57514 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_132214-gbzthiaf/files/output.log
+2021-11-11 13:23:56,669 INFO    Thread-8  :57514 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_132214-gbzthiaf/files/wandb-summary.json
+2021-11-11 13:23:56,958 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:56,959 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:56,959 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:57,248 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:57,249 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:57,249 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:57,547 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:57,547 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:57,548 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:57,669 INFO    Thread-8  :57514 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_132214-gbzthiaf/files/wandb-summary.json
+2021-11-11 13:23:57,850 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:57,850 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:57,850 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:58,148 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:23:58,149 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:23:58,149 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:23:58,669 INFO    Thread-8  :57514 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_132214-gbzthiaf/files/output.log
+2021-11-11 13:23:58,669 INFO    Thread-8  :57514 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_132214-gbzthiaf/files/wandb-summary.json
+2021-11-11 13:24:00,130 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:24:00,130 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:24:00,131 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:24:00,435 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:24:00,435 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:24:00,435 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:24:00,670 INFO    Thread-8  :57514 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_132214-gbzthiaf/files/output.log
+2021-11-11 13:24:00,670 INFO    Thread-8  :57514 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_132214-gbzthiaf/files/wandb-summary.json
+2021-11-11 13:24:00,730 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:24:00,730 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:24:00,731 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:24:01,027 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:24:01,027 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:24:01,027 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:24:01,319 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:24:01,319 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:24:01,319 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:24:01,623 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:24:01,623 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:24:01,623 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:24:01,670 INFO    Thread-8  :57514 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_132214-gbzthiaf/files/wandb-summary.json
+2021-11-11 13:24:01,928 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:24:01,928 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:24:01,929 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:24:02,227 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:24:02,228 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:24:02,228 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:24:02,528 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:24:02,529 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:24:02,529 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:24:02,670 INFO    Thread-8  :57514 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_132214-gbzthiaf/files/output.log
+2021-11-11 13:24:02,671 INFO    Thread-8  :57514 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_132214-gbzthiaf/files/wandb-summary.json
+2021-11-11 13:24:02,830 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:24:02,830 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:24:02,830 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:24:03,156 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:24:03,156 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:24:03,157 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:24:03,558 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:24:03,559 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:24:03,559 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:24:03,671 INFO    Thread-8  :57514 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_132214-gbzthiaf/files/wandb-summary.json
+2021-11-11 13:24:03,911 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:24:03,911 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:24:03,911 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:24:04,243 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:24:04,243 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:24:04,244 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:24:04,558 DEBUG   HandlerThread:57514 [handler.py:handle_request():130] handle_request: stop_status
+2021-11-11 13:24:04,558 DEBUG   SenderThread:57514 [sender.py:send_request():252] send_request: stop_status
+2021-11-11 13:24:04,671 INFO    Thread-8  :57514 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_132214-gbzthiaf/files/output.log
+2021-11-11 13:24:04,671 INFO    Thread-8  :57514 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_132214-gbzthiaf/files/wandb-summary.json
+2021-11-11 13:24:04,758 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:24:04,759 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:24:04,759 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:24:04,904 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:24:04,904 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:24:04,905 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:24:05,205 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:24:05,206 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:24:05,206 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:24:05,512 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:24:05,512 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:24:05,512 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:24:05,671 INFO    Thread-8  :57514 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_132214-gbzthiaf/files/wandb-summary.json
+2021-11-11 13:24:05,812 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:24:05,812 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:24:05,812 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:24:06,119 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:24:06,119 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:24:06,119 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:24:06,672 INFO    Thread-8  :57514 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_132214-gbzthiaf/files/output.log
+2021-11-11 13:24:06,672 INFO    Thread-8  :57514 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_132214-gbzthiaf/files/wandb-summary.json
+2021-11-11 13:24:08,493 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:24:08,494 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:24:08,494 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:24:08,672 INFO    Thread-8  :57514 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_132214-gbzthiaf/files/wandb-summary.json
+2021-11-11 13:24:08,798 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:24:08,798 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:24:08,798 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:24:09,102 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:24:09,102 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:24:09,103 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:24:09,411 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:24:09,411 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:24:09,411 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:24:09,672 INFO    Thread-8  :57514 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_132214-gbzthiaf/files/wandb-summary.json
+2021-11-11 13:24:09,727 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:24:09,727 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:24:09,728 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:24:10,037 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:24:10,038 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:24:10,038 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:24:10,348 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:24:10,349 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:24:10,349 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:24:10,658 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:24:10,658 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:24:10,658 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:24:10,673 INFO    Thread-8  :57514 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_132214-gbzthiaf/files/output.log
+2021-11-11 13:24:10,673 INFO    Thread-8  :57514 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_132214-gbzthiaf/files/wandb-summary.json
+2021-11-11 13:24:10,965 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:24:10,965 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:24:10,965 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:24:11,265 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:24:11,265 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:24:11,265 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:24:11,565 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:24:11,565 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:24:11,566 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:24:11,673 INFO    Thread-8  :57514 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_132214-gbzthiaf/files/wandb-summary.json
+2021-11-11 13:24:11,866 DEBUG   SenderThread:57514 [sender.py:send():238] send: history
+2021-11-11 13:24:11,866 DEBUG   SenderThread:57514 [sender.py:send():238] send: summary
+2021-11-11 13:24:11,867 INFO    SenderThread:57514 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 13:24:12,674 INFO    Thread-8  :57514 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_132214-gbzthiaf/files/output.log
+2021-11-11 13:24:12,674 INFO    Thread-8  :57514 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_132214-gbzthiaf/files/wandb-summary.json
+2021-11-11 13:24:17,005 DEBUG   SenderThread:57514 [sender.py:send():238] send: stats
+2021-11-11 13:24:19,763 DEBUG   HandlerThread:57514 [handler.py:handle_request():130] handle_request: stop_status
+2021-11-11 13:24:19,763 DEBUG   SenderThread:57514 [sender.py:send_request():252] send_request: stop_status
+2021-11-11 13:24:34,909 DEBUG   HandlerThread:57514 [handler.py:handle_request():130] handle_request: stop_status
+2021-11-11 13:24:34,909 DEBUG   SenderThread:57514 [sender.py:send_request():252] send_request: stop_status
+2021-11-11 13:24:47,377 DEBUG   SenderThread:57514 [sender.py:send():238] send: stats
+2021-11-11 13:24:50,114 DEBUG   HandlerThread:57514 [handler.py:handle_request():130] handle_request: stop_status
+2021-11-11 13:24:50,115 DEBUG   SenderThread:57514 [sender.py:send_request():252] send_request: stop_status
+2021-11-11 13:25:05,277 DEBUG   HandlerThread:57514 [handler.py:handle_request():130] handle_request: stop_status
+2021-11-11 13:25:05,278 DEBUG   SenderThread:57514 [sender.py:send_request():252] send_request: stop_status
+2021-11-11 13:25:17,647 DEBUG   SenderThread:57514 [sender.py:send():238] send: stats
+2021-11-11 13:25:20,487 DEBUG   HandlerThread:57514 [handler.py:handle_request():130] handle_request: stop_status
+2021-11-11 13:25:20,487 DEBUG   SenderThread:57514 [sender.py:send_request():252] send_request: stop_status
+2021-11-11 13:25:29,195 WARNING MainThread:57514 [internal.py:wandb_internal():146] Internal process interrupt: 1

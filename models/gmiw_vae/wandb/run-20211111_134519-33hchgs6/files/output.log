@@ -1,0 +1,119 @@
+
+Training GMVAE
+Training --> GMIWVae(
+  (_encoder): Encoder(
+    (_net): Sequential(
+      (0): Linear(in_features=784, out_features=392, bias=True)
+      (1): ReLU()
+      (2): Linear(in_features=392, out_features=196, bias=True)
+      (3): Tanh()
+      (4): Dropout(p=0.5, inplace=False)
+      (5): Linear(in_features=196, out_features=196, bias=True)
+      (6): ReLU()
+      (7): Linear(in_features=196, out_features=98, bias=True)
+    )
+    (_fc_mean): Sequential(
+      (0): Linear(in_features=98, out_features=8, bias=True)
+    )
+    (_fc_log_var): Sequential(
+      (0): Linear(in_features=98, out_features=8, bias=True)
+    )
+  )
+  (_decoder): Decoder(
+    (_net): Sequential(
+      (0): Linear(in_features=8, out_features=196, bias=True)
+      (1): ReLU()
+      (2): Linear(in_features=196, out_features=392, bias=True)
+      (3): Tanh()
+      (4): Linear(in_features=392, out_features=196, bias=True)
+      (5): ReLU()
+      (6): Linear(in_features=196, out_features=784, bias=True)
+      (7): Sigmoid()
+    )
+  )
+)
+====> Train Loss = 2.842376879416406e-05 Epoch = 1
+====> Train Loss = 4.35659009963274e-06 Epoch = 2
+====> Train Loss = 2.883459225995466e-06 Epoch = 3
+====> Train Loss = 3.003336132193605e-06 Epoch = 4
+====> Train Loss = 2.0821291429456322e-06 Epoch = 5
+====> Train Loss = 2.1449660445796326e-06 Epoch = 6
+====> Train Loss = 1.8615057915061092e-06 Epoch = 7
+====> Train Loss = 2.084710640095485e-06 Epoch = 8
+====> Train Loss = 1.5424794527158763e-06 Epoch = 9
+====> Train Loss = 1.5287363290553913e-06 Epoch = 10
+====> Train Loss = 1.5435835618215302e-06 Epoch = 11
+====> Train Loss = 1.5600116826438654e-06 Epoch = 12
+====> Train Loss = 1.2697326189178663e-06 Epoch = 13
+====> Train Loss = 1.3656521807812774e-06 Epoch = 14
+====> Train Loss = 1.160073505404095e-06 Epoch = 15
+====> Train Loss = 1.264625282298463e-06 Epoch = 16
+====> Train Loss = 1.0842428523271033e-06 Epoch = 17
+====> Train Loss = 1.0615884112970283e-06 Epoch = 18
+====> Train Loss = 1.2696756079094485e-06 Epoch = 19
+====> Train Loss = 1.1781730805523694e-06 Epoch = 20
+====> Train Loss = 9.403972876801466e-07 Epoch = 21
+====> Train Loss = 6.526988882493848e-07 Epoch = 22
+====> Train Loss = 9.612031945531876e-07 Epoch = 23
+====> Train Loss = 9.634166373871267e-07 Epoch = 24
+====> Train Loss = 9.007468412164599e-07 Epoch = 25
+====> Train Loss = 1.0572944457332293e-06 Epoch = 26
+====> Train Loss = 8.260903433741381e-07 Epoch = 27
+====> Train Loss = 6.604085964985037e-07 Epoch = 28
+====> Train Loss = 6.825038830963119e-07 Epoch = 29
+====> Train Loss = 7.172260481941824e-07 Epoch = 30
+====> Train Loss = 6.109181219168628e-07 Epoch = 31
+====> Train Loss = 5.99523016717285e-07 Epoch = 32
+====> Train Loss = 8.053002267843112e-07 Epoch = 33
+====> Train Loss = 3.2285880976511786e-07 Epoch = 34
+====> Train Loss = 7.595331446888546e-07 Epoch = 35
+====> Train Loss = 5.121927611374607e-07 Epoch = 36
+====> Train Loss = 2.76902862242423e-07 Epoch = 37
+====> Train Loss = 5.06663183720472e-07 Epoch = 38
+====> Train Loss = 4.879501037066802e-07 Epoch = 39
+====> Train Loss = 5.449150281492621e-07 Epoch = 40
+====> Train Loss = 4.10775316413492e-07 Epoch = 41
+====> Train Loss = 3.6352850729599594e-07 Epoch = 42
+====> Train Loss = 4.924385905421028e-07 Epoch = 43
+====> Train Loss = 3.994650508199508e-07 Epoch = 44
+====> Train Loss = 4.548979748506099e-07 Epoch = 45
+====> Train Loss = 3.278515340449909e-07 Epoch = 46
+====> Train Loss = 2.769075511120415e-07 Epoch = 47
+====> Train Loss = 2.454263381271934e-07 Epoch = 48
+====> Train Loss = 2.9454922284154845e-07 Epoch = 49
+====> Train Loss = 3.6301826088068384e-07 Epoch = 50
+====> Train Loss = 2.846755553036928e-07 Epoch = 51
+====> Train Loss = 2.606753531532983e-07 Epoch = 52
+====> Train Loss = 2.0867442556967337e-07 Epoch = 53
+====> Train Loss = 2.0919275023819258e-07 Epoch = 54
+====> Train Loss = 1.8571814774380377e-07 Epoch = 55
+====> Train Loss = 2.4292775973056755e-07 Epoch = 56
+====> Train Loss = 3.205809412368884e-07 Epoch = 57
+====> Train Loss = 1.749632191301013e-07 Epoch = 58
+====> Train Loss = 1.982516138620364e-07 Epoch = 59
+====> Train Loss = 2.813027744802336e-07 Epoch = 60
+====> Train Loss = 2.907224668888375e-07 Epoch = 61
+====> Train Loss = 2.3921090566242734e-07 Epoch = 62
+====> Train Loss = 2.6368387722565484e-07 Epoch = 63
+====> Train Loss = 1.6089598066173493e-07 Epoch = 64
+====> Train Loss = 1.732280778621013e-07 Epoch = 65
+====> Train Loss = 1.8802220486880592e-07 Epoch = 66
+====> Train Loss = 2.663527052694311e-07 Epoch = 67
+====> Train Loss = 1.6697159153409302e-07 Epoch = 68
+====> Train Loss = 1.5498681750614195e-07 Epoch = 69
+====> Train Loss = 2.2765599424019455e-07 Epoch = 70
+====> Train Loss = 2.5943023695920906e-07 Epoch = 71
+====> Train Loss = 2.068218057199071e-07 Epoch = 72
+====> Train Loss = 2.5613776233512906e-07 Epoch = 73
+====> Train Loss = 2.396268333541229e-07 Epoch = 74
+====> Train Loss = 2.13974939348797e-07 Epoch = 75
+====> Train Loss = 3.600704037429144e-07 Epoch = 76
+====> Train Loss = 2.410129071601356e-07 Epoch = 77
+====> Train Loss = 2.9763899898777406e-07 Epoch = 78
+====> Train Loss = 1.9604503080093613e-07 Epoch = 79
+====> Train Loss = 1.8807978776749223e-07 Epoch = 80
+Traceback (most recent call last):
+  File "/home/joy/projects/music-controllable-diffusion/models/gmiw_vae/gmiw_vae.py", line 147, in <module>
+    model.sample_output(epoch)
+  File "/home/joy/projects/music-controllable-diffusion/models/simple_vae/simple_vae.py", line 155, in sample_output
+    SimpleVae.plot_image_grid(samples)

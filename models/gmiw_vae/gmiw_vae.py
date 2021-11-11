@@ -83,7 +83,7 @@ class GMIWVae(SimpleVae):
         # Evaluate
         #reconstruction_loss = func.mse_loss(x_hat, x.view(-1, MAX_MIDI_ENCODING_ROWS * 8), reduction='sum')
         reconstruction_loss = -func.binary_cross_entropy(x_hat, weighted_x.view(-1, 784), reduction='mean')
-
+        reconstruction_loss /= batch
         x_posteriors = reconstruction_loss
         z_posteriors = ut.log_normal(z, weighted_m, torch.exp(weighted_log_v))
 
@@ -98,7 +98,7 @@ class GMIWVae(SimpleVae):
         return niwae, kl, reconstruction_loss
 
     def forward(self, x):
-        niwae, kl, rec = self.negative_iwae_bound(x, iw=4)
+        niwae, kl, rec = self.negative_iwae_bound(x, iw=10)
         return niwae
 
     def step(self, batch, batch_idx):
@@ -108,7 +108,7 @@ class GMIWVae(SimpleVae):
 
 if __name__ == "__main__":
     print(f"Training GMVAE")
-    batch_size = 2048
+    batch_size = 16
     train_mnist = True
     if train_mnist:
         model = GMIWVae(
@@ -142,7 +142,7 @@ if __name__ == "__main__":
     _optimizer = model.configure_optimizers()
     for epoch in range(1, max_epochs + 1):
         model.fit(epoch, _optimizer)
-        if epoch % 20 == 0:
+        if epoch % 1 == 0:
             # model.test()
             model.sample_output(epoch)
             model.save(epoch)

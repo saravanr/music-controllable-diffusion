@@ -1,0 +1,32 @@
+2021-11-11 13:36:32,838 INFO    MainThread:60806 [wandb_setup.py:_flush():71] setting env: {}
+2021-11-11 13:36:32,838 INFO    MainThread:60806 [wandb_setup.py:_flush():71] setting login settings: {}
+2021-11-11 13:36:32,838 INFO    MainThread:60806 [wandb_init.py:_log_setup():357] Logging user logs to /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_133632-1ped3h49/logs/debug.log
+2021-11-11 13:36:32,838 INFO    MainThread:60806 [wandb_init.py:_log_setup():358] Logging internal logs to /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_133632-1ped3h49/logs/debug-internal.log
+2021-11-11 13:36:32,838 INFO    MainThread:60806 [wandb_init.py:init():390] calling init triggers
+2021-11-11 13:36:32,838 INFO    MainThread:60806 [wandb_init.py:init():395] wandb.init called with sweep_config: {}
+config: {}
+2021-11-11 13:36:32,839 INFO    MainThread:60806 [wandb_init.py:init():435] starting backend
+2021-11-11 13:36:32,839 INFO    MainThread:60806 [backend.py:_multiprocessing_setup():95] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2021-11-11 13:36:32,856 INFO    MainThread:60806 [backend.py:ensure_launched():199] starting backend process...
+2021-11-11 13:36:33,349 INFO    MainThread:60806 [backend.py:ensure_launched():204] started backend process with pid: 60891
+2021-11-11 13:36:33,350 INFO    MainThread:60806 [wandb_init.py:init():444] backend started and connected
+2021-11-11 13:36:33,353 INFO    MainThread:60806 [wandb_init.py:init():503] updated telemetry
+2021-11-11 13:36:33,373 INFO    MainThread:60806 [wandb_init.py:init():533] communicating current version
+2021-11-11 13:36:34,549 INFO    MainThread:60806 [wandb_init.py:init():538] got version response 
+2021-11-11 13:36:34,549 INFO    MainThread:60806 [wandb_init.py:init():548] communicating run to backend with 30 second timeout
+2021-11-11 13:36:34,707 INFO    MainThread:60806 [wandb_init.py:init():576] starting run threads in backend
+2021-11-11 13:36:36,036 INFO    MainThread:60806 [wandb_run.py:_console_start():1693] atexit reg
+2021-11-11 13:36:36,036 INFO    MainThread:60806 [wandb_run.py:_redirect():1567] redirect: SettingsConsole.REDIRECT
+2021-11-11 13:36:36,037 INFO    MainThread:60806 [wandb_run.py:_redirect():1572] Redirecting console.
+2021-11-11 13:36:36,038 INFO    MainThread:60806 [wandb_run.py:_redirect():1628] Redirects installed.
+2021-11-11 13:36:36,038 INFO    MainThread:60806 [wandb_init.py:init():603] run started, returning control to user process
+2021-11-11 13:36:36,051 INFO    MainThread:60806 [wandb_setup.py:_flush():71] setting env: {}
+2021-11-11 13:36:36,051 INFO    MainThread:60806 [wandb_setup.py:_flush():71] setting login settings: {}
+2021-11-11 13:36:36,052 INFO    MainThread:60806 [wandb_init.py:_log_setup():357] Logging user logs to /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_133636-3ejugvjj/logs/debug.log
+2021-11-11 13:36:36,052 INFO    MainThread:60806 [wandb_init.py:_log_setup():358] Logging internal logs to /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_133636-3ejugvjj/logs/debug-internal.log
+2021-11-11 13:36:36,052 INFO    MainThread:60806 [wandb_init.py:init():390] calling init triggers
+2021-11-11 13:36:36,052 INFO    MainThread:60806 [wandb_init.py:init():395] wandb.init called with sweep_config: {}
+config: {}
+2021-11-11 13:36:36,052 INFO    MainThread:60806 [wandb_init.py:init():432] wandb.init() called when a run is still active
+2021-11-11 13:37:58,609 INFO    MainThread:60806 [wandb_run.py:_atexit_cleanup():1663] got exitcode: 0
+2021-11-11 13:37:58,609 INFO    MainThread:60806 [wandb_run.py:_restore():1635] restore

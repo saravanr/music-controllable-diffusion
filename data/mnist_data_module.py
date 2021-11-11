@@ -47,7 +47,7 @@ class MNISTDataModule(pl.LightningDataModule):
         device = get_device()
         train_x = np.array([np.array(x) for x, _ in datasets.MNIST(self._data_dir, train=True, download=True)])
         train_y = np.array([np.array(y) for _, y in datasets.MNIST(self._data_dir, train=True, download=True)])
-        train_x = train_x.astype(np.float32)
+        train_x = train_x.astype(np.float32) / 255.0
         train_x = [torch.tensor(x).to(device) for x in train_x]
         train_data_set = MNISTTensorDataSet(train_x, batch_size=self._batch_size)
         train_loader = torch.utils.data.DataLoader(
@@ -59,7 +59,7 @@ class MNISTDataModule(pl.LightningDataModule):
 
         test_x = np.array([np.array(x) for x, _ in datasets.MNIST(self._data_dir, train=False, download=True)])
         test_y = np.array([np.array(y) for _, y in datasets.MNIST(self._data_dir, train=False, download=True)])
-        test_x = test_x.astype(np.float32)
+        test_x = test_x.astype(np.float32) / 255.0
         test_x = [torch.tensor(x).to(device) for x in test_x]
         test_y = test_y.astype(np.float32)
         test_data_set = MNISTTensorDataSet(test_x, batch_size=self._batch_size)

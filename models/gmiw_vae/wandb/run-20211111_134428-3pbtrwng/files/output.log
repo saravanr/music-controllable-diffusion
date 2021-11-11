@@ -1,0 +1,61 @@
+
+Training GMVAE
+Traceback (most recent call last):
+  File "/home/joy/.local/share/JetBrains/Toolbox/apps/PyCharm-P/ch-0/212.5457.59/plugins/python/helpers/pydev/pydevd.py", line 1483, in _exec
+    pydev_imports.execfile(file, globals, locals)  # execute the script
+  File "/home/joy/.local/share/JetBrains/Toolbox/apps/PyCharm-P/ch-0/212.5457.59/plugins/python/helpers/pydev/_pydev_imps/_pydev_execfile.py", line 18, in execfile
+    exec(compile(contents+"\n", file, 'exec'), glob, loc)
+  File "/home/joy/projects/music-controllable-diffusion/models/gmiw_vae/gmiw_vae.py", line 144, in <module>
+    model.fit(epoch, _optimizer)
+  File "/home/joy/projects/music-controllable-diffusion/models/base/base_model.py", line 101, in fit
+    loss = self.step(batch, batch_idx)
+  File "/home/joy/projects/music-controllable-diffusion/models/gmiw_vae/gmiw_vae.py", line 105, in step
+    loss = self.forward(batch)
+  File "/home/joy/projects/music-controllable-diffusion/models/gmiw_vae/gmiw_vae.py", line 101, in forward
+    niwae, kl, rec = self.negative_iwae_bound(x, iw=4)
+  File "/home/joy/projects/music-controllable-diffusion/models/gmiw_vae/gmiw_vae.py", line 65, in negative_iwae_bound
+    mean, log_var = self._encoder.forward(x)
+  File "/home/joy/projects/music-controllable-diffusion/models/simple_vae/simple_vae.py", line 56, in forward
+    h = self._net(x)
+  File "/home/joy/.venv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1102, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/joy/.venv/lib/python3.8/site-packages/torch/nn/modules/container.py", line 141, in forward
+    input = module(input)
+  File "/home/joy/.venv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1102, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/joy/.venv/lib/python3.8/site-packages/torch/nn/modules/linear.py", line 103, in forward
+    return F.linear(input, self.weight, self.bias)
+  File "/home/joy/.venv/lib/python3.8/site-packages/torch/nn/functional.py", line 1848, in linear
+    return torch._C._nn.linear(input, weight, bias)
+RuntimeError: mat1 and mat2 shapes cannot be multiplied (2048x196 and 392x98)
+Training --> GMIWVae(
+  (_encoder): Encoder(
+    (_net): Sequential(
+      (0): Linear(in_features=784, out_features=392, bias=True)
+      (1): ReLU()
+      (2): Linear(in_features=392, out_features=196, bias=True)
+      (3): Tanh()
+      (4): Dropout(p=0.5, inplace=False)
+      (5): Linear(in_features=196, out_features=196, bias=True)
+      (6): ReLU()
+      (7): Linear(in_features=392, out_features=98, bias=True)
+    )
+    (_fc_mean): Sequential(
+      (0): Linear(in_features=98, out_features=8, bias=True)
+    )
+    (_fc_log_var): Sequential(
+      (0): Linear(in_features=98, out_features=8, bias=True)
+    )
+  )
+  (_decoder): Decoder(
+    (_net): Sequential(
+      (0): Linear(in_features=8, out_features=196, bias=True)
+      (1): ReLU()
+      (2): Linear(in_features=196, out_features=392, bias=True)
+      (3): Tanh()
+      (4): Linear(in_features=392, out_features=196, bias=True)
+      (5): ReLU()
+      (6): Linear(in_features=196, out_features=784, bias=True)
+      (7): Sigmoid()
+    )
+  )
