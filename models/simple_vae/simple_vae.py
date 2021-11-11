@@ -35,19 +35,19 @@ class Encoder(nn.Module):
         input_dim = (input_shape[0] * input_shape[1]) // scale
         self._net = nn.Sequential(
             nn.Linear(input_shape[0] * input_shape[1], input_dim // 2),
-            nn.ReLU(),
-            nn.Linear(input_dim // 2, input_dim // 4),
+            #nn.ReLU(),
+            #nn.Linear(input_dim // 2, input_dim // 4),
             nn.Tanh(),
-            nn.Linear(input_dim // 4, input_dim // 4),
-            nn.ReLU(),
-            nn.Linear(input_dim // 4, input_dim // 8)
+            ##nn.Linear(input_dim // 4, input_dim // 4),
+            #nn.ReLU(),
+            #nn.Linear(input_dim // 2, input_dim // 8)
         )
 
         self._fc_mean = nn.Sequential(
-            nn.Linear(input_dim // 8, z_dim),
+            nn.Linear(input_dim // 2, z_dim),
         )
         self._fc_log_var = nn.Sequential(
-            nn.Linear(input_dim // 8, z_dim),
+            nn.Linear(input_dim // 2, z_dim),
         )
 
     def forward(self, x):
@@ -78,11 +78,11 @@ class Decoder(nn.Module):
         self._net = nn.Sequential(
             nn.Linear(z_dim, output_dim // 4),
             nn.ReLU(),
-            nn.Linear(output_dim // 4, output_dim // 2),
-            nn.Tanh(),
-            nn.Linear(output_dim // 2, output_dim // 2),
-            nn.ReLU(),
-            nn.Linear(output_dim // 2, output_dim * scale),
+           # nn.Linear(output_dim // 4, output_dim // 2),
+           # nn.Tanh(),
+            #nn.Linear(output_dim // 2, output_dim // 2),
+            #nn.ReLU(),
+            nn.Linear(output_dim // 4, output_dim * scale),
             nn.Sigmoid()
         )
 
@@ -105,6 +105,7 @@ class SimpleVae(BaseModel):
         self._decoder = Decoder(z_dim, output_shape=input_shape)
         self._alpha = alpha
         self._model_prefix = "SimpleVaeMidi"
+        self._z_dim = z_dim
 
     def forward(self, x):
         mean, log_var = self._encoder(x)
@@ -113,7 +114,8 @@ class SimpleVae(BaseModel):
         return z, x_hat, mean, log_var
 
     def loss_function(self, x_hat, x, mu, q_log_var):
-        recon_loss = func.binary_cross_entropy(x_hat, x.view(-1, MAX_MIDI_ENCODING_ROWS*8), reduction='sum')
+        #recon_loss = func.binary_cross_entropy(x_hat, x.view(-1, MAX_MIDI_ENCODING_ROWS*8), reduction='sum')
+        recon_loss = func.mse_loss(x_hat, x.view(-1, MAX_MIDI_ENCODING_ROWS*8), reduction='sum')
         kl = self._kl_simple(mu, q_log_var)
         loss = recon_loss + self.alpha * kl
         return loss
@@ -142,7 +144,7 @@ class SimpleVae(BaseModel):
         try:
             with torch.no_grad():
                 device = get_device()
-                if False:
+                if True:
                     #TODO
                     rand_z = torch.randn(16, self._decoder.z_dim).to(device)
                     rand_z.to(device)

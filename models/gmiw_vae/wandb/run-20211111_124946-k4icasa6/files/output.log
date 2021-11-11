@@ -1,0 +1,68 @@
+
+Training GMVAE
+Training --> GMIWVae(
+  (_encoder): Encoder(
+    (_net): Sequential(
+      (0): Linear(in_features=784, out_features=392, bias=True)
+      (1): ReLU()
+      (2): Linear(in_features=392, out_features=196, bias=True)
+      (3): Tanh()
+      (4): Linear(in_features=196, out_features=196, bias=True)
+      (5): ReLU()
+      (6): Linear(in_features=196, out_features=98, bias=True)
+    )
+    (_fc_mean): Sequential(
+      (0): Linear(in_features=98, out_features=20, bias=True)
+    )
+    (_fc_log_var): Sequential(
+      (0): Linear(in_features=98, out_features=20, bias=True)
+    )
+  )
+  (_decoder): Decoder(
+    (_net): Sequential(
+      (0): Linear(in_features=20, out_features=196, bias=True)
+      (1): ReLU()
+      (2): Linear(in_features=196, out_features=392, bias=True)
+      (3): Tanh()
+      (4): Linear(in_features=392, out_features=392, bias=True)
+      (5): ReLU()
+      (6): Linear(in_features=392, out_features=784, bias=True)
+      (7): Sigmoid()
+    )
+  )
+)
+====> Train Loss = -57080821.307733335 Epoch = 1
+====> Train Loss = -57100575.5136 Epoch = 2
+====> Train Loss = -57100589.6192 Epoch = 3
+====> Train Loss = -57100591.616 Epoch = 4
+====> Train Loss = -57100591.650133334 Epoch = 5
+====>  Test Loss = -7354119683.240506
+====> Train Loss = -57100591.73546667 Epoch = 6
+====> Train Loss = -57100591.88053333 Epoch = 7
+====> Train Loss = -57100592.477866665 Epoch = 8
+====> Train Loss = -57100592.8192 Epoch = 9
+====> Train Loss = -57100592.938666664 Epoch = 10
+====>  Test Loss = -7354119860.658228
+====> Train Loss = -57100592.91306667 Epoch = 11
+====> Train Loss = -57100592.776533335 Epoch = 12
+====> Train Loss = -57100592.73386667 Epoch = 13
+====> Train Loss = -57100592.72533333 Epoch = 14
+====> Train Loss = -57100592.810666665 Epoch = 15
+====>  Test Loss = -7354119804.759494
+====> Train Loss = -57100592.904533334 Epoch = 16
+====> Train Loss = -57100592.75946666 Epoch = 17
+====> Train Loss = -57100592.896 Epoch = 18
+====> Train Loss = -57100592.768 Epoch = 19
+====> Train Loss = -57100592.938666664 Epoch = 20
+====>  Test Loss = -7354119833.92405
+====> Train Loss = -57100592.80213334 Epoch = 21
+====> Train Loss = -57100592.938666664 Epoch = 22
+====> Train Loss = -57100592.82773333 Epoch = 23
+====> Train Loss = -57100592.810666665 Epoch = 24
+====> Train Loss = -57100592.7168 Epoch = 25
+====>  Test Loss = -7354119832.303798
+====> Train Loss = -57100592.930133335 Epoch = 26
+====> Train Loss = -57100592.7424 Epoch = 27
+====> Train Loss = -57100592.73386667 Epoch = 28
+====> Train Loss = -57100592.810666665 Epoch = 29
+====> Train Loss = -57100592.83626667 Epoch = 30

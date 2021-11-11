@@ -16,7 +16,7 @@ class BaseModel(torch.nn.Module):
     Base model class that will be inherited by all model types
     """
 
-    def __init__(self, lr=1e-4,
+    def __init__(self, lr=1e-3,
                  data_dir=os.path.expanduser("~/midi_processed/"),
                  output_dir=os.path.expanduser("~/model-archive/"),
                  num_gpus=1,
@@ -96,13 +96,13 @@ class BaseModel(torch.nn.Module):
 
         for batch_idx, batch in enumerate(self._dms.train_dataloader()):
             #batch = batch.reshape(-1, 28, 28)
-            batch = batch.to(device)
             optimizer.zero_grad()
             loss = self.step(batch, batch_idx)
             loss.backward()
+            optimizer.step()
+
             batch_loss = loss.detach().item()
             train_loss += batch_loss
-            optimizer.step()
 
         loss = train_loss / len(self._dms.train_dataloader().dataset)
         wandb.log({'loss': loss})

@@ -1,0 +1,33 @@
+2021-11-11 13:09:10,217 INFO    MainThread:55299 [wandb_setup.py:_flush():71] setting env: {}
+2021-11-11 13:09:10,217 INFO    MainThread:55299 [wandb_setup.py:_flush():71] setting login settings: {}
+2021-11-11 13:09:10,217 INFO    MainThread:55299 [wandb_init.py:_log_setup():357] Logging user logs to /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_130910-14idmut4/logs/debug.log
+2021-11-11 13:09:10,217 INFO    MainThread:55299 [wandb_init.py:_log_setup():358] Logging internal logs to /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_130910-14idmut4/logs/debug-internal.log
+2021-11-11 13:09:10,217 INFO    MainThread:55299 [wandb_init.py:init():390] calling init triggers
+2021-11-11 13:09:10,217 INFO    MainThread:55299 [wandb_init.py:init():395] wandb.init called with sweep_config: {}
+config: {}
+2021-11-11 13:09:10,217 INFO    MainThread:55299 [wandb_init.py:init():435] starting backend
+2021-11-11 13:09:10,218 INFO    MainThread:55299 [backend.py:_multiprocessing_setup():95] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2021-11-11 13:09:10,234 INFO    MainThread:55299 [backend.py:ensure_launched():199] starting backend process...
+2021-11-11 13:09:10,964 INFO    MainThread:55299 [backend.py:ensure_launched():204] started backend process with pid: 55396
+2021-11-11 13:09:10,965 INFO    MainThread:55299 [wandb_init.py:init():444] backend started and connected
+2021-11-11 13:09:10,967 INFO    MainThread:55299 [wandb_init.py:init():503] updated telemetry
+2021-11-11 13:09:10,990 INFO    MainThread:55299 [wandb_init.py:init():533] communicating current version
+2021-11-11 13:09:12,128 WARNING MainThread:55299 [wandb_init.py:init():891] interrupted
+Traceback (most recent call last):
+  File "/home/joy/.venv/lib/python3.8/site-packages/wandb/sdk/wandb_init.py", line 870, in init
+    run = wi.init()
+  File "/home/joy/.venv/lib/python3.8/site-packages/wandb/sdk/wandb_init.py", line 534, in init
+    check = backend.interface.communicate_check_version(
+  File "/home/joy/.venv/lib/python3.8/site-packages/wandb/sdk/interface/interface.py", line 87, in communicate_check_version
+    ret = self._communicate_check_version(check_version)
+  File "/home/joy/.venv/lib/python3.8/site-packages/wandb/sdk/interface/interface_queue.py", line 436, in _communicate_check_version
+    result = self._communicate(rec)
+  File "/home/joy/.venv/lib/python3.8/site-packages/wandb/sdk/interface/interface_queue.py", line 232, in _communicate
+    return self._communicate_async(rec, local=local).get(timeout=timeout)
+  File "/home/joy/.venv/lib/python3.8/site-packages/wandb/sdk/interface/router.py", line 32, in get
+    is_set = self._object_ready.wait(timeout)
+  File "/usr/lib/python3.8/threading.py", line 558, in wait
+    signaled = self._cond.wait(timeout)
+  File "/usr/lib/python3.8/threading.py", line 306, in wait
+    gotit = waiter.acquire(True, timeout)
+KeyboardInterrupt
