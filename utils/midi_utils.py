@@ -25,9 +25,9 @@ def save_decoder_output_as_midi(decoder_output, midi_file_name):
 
 
 def get_encoding_from_decoder_output(decoder_output):
-    generated_midi_npy = decoder_output[0]
+    generated_midi_npy = decoder_output
+    generated_midi_npy = generated_midi_npy.reshape((100, 8))
     # Usually the negative values are very close to zero, zero them out
-    generated_midi_npy[generated_midi_npy < 0] = 0
     weights = get_normalization_weights()
     encoding = np.multiply(generated_midi_npy, weights.T).astype(int)
     return encoding
@@ -35,12 +35,13 @@ def get_encoding_from_decoder_output(decoder_output):
 
 def save_as_midi(encoding, midi_file_name):
     from muzic.musicbert.preprocess import MIDI_to_encoding, encoding_to_MIDI
+    encoding[encoding > 127.] = 127
     midi_obj = encoding_to_MIDI(encoding)
     midi_obj.dump(midi_file_name)
 
 
 def get_normalization_weights():
-    weights = np.array([9280., 127., 128., 255., 127., 31., 157., 48.])
+    weights = np.array([254., 127., 127., 254., 127., 31., 127., 31.])
     return weights
 
 

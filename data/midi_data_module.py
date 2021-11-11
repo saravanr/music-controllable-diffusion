@@ -9,7 +9,7 @@ from torchvision import transforms
 
 from data.midi_dataset import MidiDataset, Trim, Filter, Reshape, Normalize, data_loader_collate_fn
 
-MAX_MIDI_ENCODING_ROWS = 10000
+MAX_MIDI_ENCODING_ROWS = 100
 
 
 class MidiDataModule(pl.LightningDataModule):
@@ -30,7 +30,7 @@ class MidiDataModule(pl.LightningDataModule):
         self._test_dataloader = None
         self._val_dataloader = None
         self._data_shape = data_shape
-        self._num_workers = 12
+        self._num_workers = 0
         self._shuffle = shuffle
 
     def setup(self, stage: Optional[str] = None) -> None:
@@ -49,14 +49,12 @@ class MidiDataModule(pl.LightningDataModule):
                                             batch_size=self._batch_size,
                                             shuffle=self._shuffle,
                                             num_workers=self._num_workers,
-                                            pin_memory=True,
                                             collate_fn=data_loader_collate_fn
                                             )
         self._test_dataloader = DataLoader(self._test_dataset,
                                            batch_size=self._batch_size,
                                            shuffle=self._shuffle,
                                            num_workers=self._num_workers,
-                                           pin_memory=True,
                                            collate_fn=data_loader_collate_fn,
                                            )
 
@@ -64,7 +62,6 @@ class MidiDataModule(pl.LightningDataModule):
                                           batch_size=self._batch_size,
                                           shuffle=self._shuffle,
                                           num_workers=self._num_workers,
-                                          pin_memory=True,
                                           collate_fn=data_loader_collate_fn,
                                           )
 

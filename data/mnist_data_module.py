@@ -12,12 +12,12 @@ from utils.cuda_utils import get_device
 
 class MNISTTensorDataSet(Dataset):
     def __init__(self, tensors, batch_size):
-        batched_tensors = [tensors[i * batch_size:(i + 1) * batch_size] for i in range((len(tensors) + batch_size - 1) // batch_size)]
-        data_set = []
-        for batch in batched_tensors:
-            data_set.append(torch.stack(batch))
+        #batched_tensors = [tensors[i * batch_size:(i + 1) * batch_size] for i in range((len(tensors) + batch_size - 1) // batch_size)]
+        #data_set = []
+        #for batch in batched_tensors:
+        #    data_set.append(torch.stack(batch))
 
-        self.batched_tensors = data_set
+        self.batched_tensors = tensors
 
     def __getitem__(self, index):
         return self.batched_tensors[index]

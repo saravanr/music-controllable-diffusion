@@ -4,8 +4,10 @@ import os
 import shutil
 from torch.utils.data import Dataset
 import tqdm
+
+from utils.cuda_utils import get_device
 from utils.file_utils import get_files_in_path
-from utils.midi_utils import get_encoding
+from utils.midi_utils import get_encoding, get_normalization_weights
 from cachetools import cached, LRUCache, TTLCache
 
 
@@ -18,10 +20,12 @@ def data_loader_collate_fn(batch):
     batch = list(filter(lambda x: x is not None and len(x) != 0, batch))
     return torch.utils.data.dataloader.default_collate(batch)
 
+
 class Filter(object):
     """
     Filter invalid time series values
     """
+
     def __init__(self):
         pass
 
@@ -40,14 +44,14 @@ class Normalize(object):
     The Octuple Token in OctupleMIDI encoding using the following scheme:
     [Time Sig, Tempo, Bar, Position, Instrument, Pitch, Duration, Velocity]
     The corresponding number of variations are:
-    [254, [16-256], [256], [256], [128], 128, 128, 128]
+    [254, [16-256], [256], [256], [128], 127, 128, 127]
 
     Min - tensor([0., 0., 0., 0., 0., 0., 0., 0.], device='cuda:0')
     Max - tensor(
     """
 
-    def __init__(self, max_values=np.array([254., 127., 128., 255., 127., 31., 157., 48.])):
-        self._max_values = max_values
+    def __init__(self):
+        self._max_values = get_normalization_weights()
 
     def __call__(self, sample):
         if sample is None or len(sample) == 0:
@@ -97,27 +101,35 @@ class MidiDataset(Dataset):
         self.data_dir = data_dir
         self.transform = transform
         self.data_files = get_files_in_path(data_dir, matching_pattern=f"*.npy")
+        self.data_files = self.data_files[0:1000]
+        self.tensors = self.generate_tensors()
+
+    def generate_tensors(self):
+        device = get_device()
+        tensors = []
+        print(f"Generating input tensors on {device}")
+        for data_file in tqdm.tqdm(self.data_files):
+            if not os.path.exists(data_file):
+                continue
+            data = np.load(data_file)
+            if self.transform:
+                data = self.transform(data)
+
+            if data is None:
+                continue
+            tensor = torch.Tensor(data).to(device)
+            tensors.append(tensor)
+
+        return tensors
 
     def __len__(self):
-        return len(self.data_files)
+        return len(self.tensors)
 
     def __getitem__(self, index):
         if torch.is_tensor(index):
             raise NotImplementedError(f"Torch indexes are not implemented")
-        numpy_file_name = self.data_files[index]
-        sample = None
 
-        try:
-            if os.path.exists(numpy_file_name):
-                sample = np.load(numpy_file_name)
-        except Exception as _e:
-            sample = None
-            print(f"Unable to load {numpy_file_name} -- {_e}")
-
-        if sample is not None and self.transform:
-            sample = self.transform(sample)
-
-        return sample
+        return self.tensors[index]
 
 
 def process(files):
@@ -169,13 +181,13 @@ if __name__ == "__main__":
     _data_dir = os.path.expanduser("~/midi_processed/")
     _files = get_files_in_path(_data_dir, matching_pattern="*.npy")
     print(f"Number of files - {len(_files)}")
-    device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
-    _global_min = torch.Tensor(np.zeros(8)).to(device)
-    _global_max = torch.Tensor(np.zeros(8)).to(device)
+    _device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+    _global_min = torch.Tensor(np.zeros(8)).to(_device)
+    _global_max = torch.Tensor(np.zeros(8)).to(_device)
     for _file in tqdm.tqdm(_files):
         _sample = np.load(_file)
         try:
-            _sample = torch.Tensor(_sample).to(device)
+            _sample = torch.Tensor(_sample).to(_device)
 
             _min = torch.min(_sample, dim=-2).values
             _max = torch.max(_sample, dim=-2).values

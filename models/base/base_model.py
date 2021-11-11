@@ -95,7 +95,7 @@ class BaseModel(torch.nn.Module):
         train_loss = 0
 
         for batch_idx, batch in enumerate(self._dms.train_dataloader()):
-            batch = batch.reshape(-1, 28, 28)
+            #batch = batch.reshape(-1, 28, 28)
             batch = batch.to(device)
             optimizer.zero_grad()
             loss = self.step(batch, batch_idx)
@@ -118,7 +118,7 @@ class BaseModel(torch.nn.Module):
         test_loss = 0
         with torch.no_grad():
             for batch_idx, batch in enumerate(self._dms.test_dataloader()):
-                batch = batch.reshape(-1, 28, 28)
+                #batch = batch.reshape(-1, 28, 28)
                 batch = batch.to(device)
                 loss = self.step(batch, batch_idx)
                 batch_loss = loss.detach().item()

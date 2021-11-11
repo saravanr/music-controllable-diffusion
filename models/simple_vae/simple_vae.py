@@ -14,7 +14,7 @@ import matplotlib.pyplot as plt
 
 import wandb
 
-wandb.init(project="music-controllable-diffusion", entity="saravanr")
+wandb.init(project="music-controllable-diffusion-midi", entity="saravanr")
 
 
 class Encoder(nn.Module):
@@ -83,7 +83,7 @@ class Decoder(nn.Module):
     def forward(self, z):
         output = self._net(z)
         # Clamp output in (0, 1) to prevent errors in BCE
-        output = torch.clamp(output, 1e-8, 1 - 1e-8)
+        # output = torch.clamp(output, 1e-8, 1 - 1e-8)
         return output
 
     @property
@@ -98,7 +98,7 @@ class SimpleVae(BaseModel):
         self._encoder = Encoder(z_dim, input_shape=input_shape)
         self._decoder = Decoder(z_dim, output_shape=input_shape)
         self._alpha = alpha
-        self._model_prefix = "SimpleVae"
+        self._model_prefix = "SimpleVaeMidi"
 
     def forward(self, x):
         mean, log_var = self._encoder(x)
@@ -107,7 +107,7 @@ class SimpleVae(BaseModel):
         return z, x_hat, mean, log_var
 
     def loss_function(self, x_hat, x, mu, q_log_var):
-        recon_loss = func.binary_cross_entropy(x_hat, x.view(-1, 784), reduction='sum')
+        recon_loss = func.binary_cross_entropy(x_hat, x.view(-1, 100*8), reduction='sum')
         kl = self._kl_simple(mu, q_log_var)
         loss = recon_loss + self.alpha * kl
         return loss
@@ -136,7 +136,7 @@ class SimpleVae(BaseModel):
         try:
             with torch.no_grad():
                 device = get_device()
-                if True:
+                if False:
                     #TODO
                     rand_z = torch.randn(16, self._decoder.z_dim).to(device)
                     rand_z.to(device)
@@ -162,15 +162,26 @@ class SimpleVae(BaseModel):
 
 if __name__ == "__main__":
     print(f"Training simple VAE")
-    batch_size = 100
-    model = SimpleVae(
-        alpha=1,
-        z_dim=20,
-        input_shape=(28, 28),
-        use_mnist_dms=True,
-        sample_output_step=10,
-        batch_size=batch_size
-    )
+    batch_size = 1024
+    train_mnist = False
+    if train_mnist:
+        model = SimpleVae(
+            alpha=1,
+            z_dim=20,
+            input_shape=(28, 28),
+            use_mnist_dms=True,
+            sample_output_step=10,
+            batch_size=batch_size
+        )
+    else:
+        model = SimpleVae(
+            alpha=1,
+            z_dim=200,
+            input_shape=(100, 8),
+            use_mnist_dms=False,
+            sample_output_step=10,
+            batch_size=batch_size
+        )
     print(f"Training --> {model}")
 
     max_epochs = 10000
@@ -184,7 +195,7 @@ if __name__ == "__main__":
     _optimizer = model.configure_optimizers()
     for epoch in range(1, max_epochs + 1):
         model.fit(epoch, _optimizer)
-        if epoch % 100 == 0:
+        if epoch % 400 == 0:
             model.test()
             model.sample_output(epoch)
             model.save(epoch)
