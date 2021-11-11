@@ -6,6 +6,7 @@ import miditoolkit
 import note_seq
 
 
+
 def play_midi_file(midi_file_name):
     note_sequence_object = note_seq.midi_file_to_note_sequence(midi_file_name)
     play_sequence(note_sequence_object, synth=note_seq.fluidsynth)
@@ -26,7 +27,9 @@ def save_decoder_output_as_midi(decoder_output, midi_file_name):
 
 def get_encoding_from_decoder_output(decoder_output):
     generated_midi_npy = decoder_output
-    generated_midi_npy = generated_midi_npy.reshape((100, 8))
+    from data.midi_data_module import MAX_MIDI_ENCODING_ROWS
+
+    generated_midi_npy = generated_midi_npy.reshape((MAX_MIDI_ENCODING_ROWS, 8))
     # Usually the negative values are very close to zero, zero them out
     weights = get_normalization_weights()
     encoding = np.multiply(generated_midi_npy, weights.T).astype(int)

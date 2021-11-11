@@ -9,7 +9,7 @@ from torchvision import transforms
 
 from data.midi_dataset import MidiDataset, Trim, Filter, Reshape, Normalize, data_loader_collate_fn
 
-MAX_MIDI_ENCODING_ROWS = 100
+MAX_MIDI_ENCODING_ROWS = 1600
 
 
 class MidiDataModule(pl.LightningDataModule):
