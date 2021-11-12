@@ -1,0 +1,52 @@
+
+Training GMVAE
+Training --> GMIWVae(
+  (_encoder): Encoder(
+    (_net): Sequential(
+      (0): Linear(in_features=784, out_features=392, bias=True)
+      (1): ReLU()
+      (2): Linear(in_features=392, out_features=196, bias=True)
+      (3): Tanh()
+      (4): Dropout(p=0.5, inplace=False)
+      (5): Linear(in_features=196, out_features=196, bias=True)
+      (6): ReLU()
+      (7): Linear(in_features=196, out_features=98, bias=True)
+    )
+    (_fc_mean): Sequential(
+      (0): Linear(in_features=98, out_features=20, bias=True)
+    )
+    (_fc_log_var): Sequential(
+      (0): Linear(in_features=98, out_features=20, bias=True)
+    )
+  )
+  (_decoder): Decoder(
+    (_net): Sequential(
+      (0): Linear(in_features=20, out_features=196, bias=True)
+      (1): ReLU()
+      (2): Linear(in_features=196, out_features=392, bias=True)
+      (3): Tanh()
+      (4): Linear(in_features=392, out_features=196, bias=True)
+      (5): ReLU()
+      (6): Linear(in_features=196, out_features=784, bias=True)
+      (7): Sigmoid()
+    )
+  )
+)
+====> Train Loss = -0.005562320804595947 Epoch = 1
+====> Train Loss = -0.09364809192021688 Epoch = 2
+====> Train Loss = -9219.498252539062 Epoch = 3
+====> Train Loss = -222230.84666666668 Epoch = 4
+====> Train Loss = -725926.7541333333 Epoch = 5
+====> Train Loss = -769138.6794666667 Epoch = 6
+====> Train Loss = -769368.2176 Epoch = 7
+====> Train Loss = -769407.0186666667 Epoch = 8
+====> Train Loss = -769210.7861333333 Epoch = 9
+====> Train Loss = -769657.7792 Epoch = 10
+====> Train Loss = -768684.5269333334 Epoch = 11
+====> Train Loss = -769700.8448 Epoch = 12
+====> Train Loss = -770015.264 Epoch = 13
+====> Train Loss = -769460.6186666667 Epoch = 14
+====> Train Loss = -768174.2549333334 Epoch = 15
+====> Train Loss = -769715.6117333333 Epoch = 16
+====> Train Loss = -768869.6341333333 Epoch = 17
+====> Train Loss = -769224.9856 Epoch = 18

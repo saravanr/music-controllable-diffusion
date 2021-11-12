@@ -1,0 +1,24 @@
+{
+    "os": "Linux-5.11.0-40-generic-x86_64-with-glibc2.29",
+    "python": "3.8.10",
+    "heartbeatAt": "2021-11-12T08:39:46.279387",
+    "startedAt": "2021-11-12T08:39:43.098972",
+    "docker": null,
+    "gpu": "NVIDIA GeForce RTX 3090",
+    "gpu_count": 1,
+    "cpu_count": 16,
+    "cuda": null,
+    "args": [],
+    "state": "running",
+    "program": "/home/joy/projects/music-controllable-diffusion/models/dcgan/dcgan.py",
+    "codePath": "models/dcgan/dcgan.py",
+    "git": {
+        "remote": "git@github.com:saravanr/music-controllable-diffusion.git",
+        "commit": "e11d648fec09d20bddfad36bce7e2cc86726fe0b"
+    },
+    "email": "saravanr@icloud.com",
+    "root": "/home/joy/projects/music-controllable-diffusion",
+    "host": "lapis",
+    "username": "joy",
+    "executable": "/home/joy/.venv/bin/python"
+}

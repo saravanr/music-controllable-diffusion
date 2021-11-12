@@ -1,0 +1,67 @@
+
+Training GMVAE
+Training --> GMIWVae(
+  (_encoder): Encoder(
+    (_net): Sequential(
+      (0): Linear(in_features=784, out_features=392, bias=True)
+      (1): ReLU()
+      (2): Linear(in_features=392, out_features=196, bias=True)
+      (3): Tanh()
+      (4): Dropout(p=0.5, inplace=False)
+      (5): Linear(in_features=196, out_features=196, bias=True)
+      (6): ReLU()
+      (7): Linear(in_features=196, out_features=98, bias=True)
+    )
+    (_fc_mean): Sequential(
+      (0): Linear(in_features=98, out_features=20, bias=True)
+    )
+    (_fc_log_var): Sequential(
+      (0): Linear(in_features=98, out_features=20, bias=True)
+    )
+  )
+  (_decoder): Decoder(
+    (_net): Sequential(
+      (0): Linear(in_features=20, out_features=196, bias=True)
+      (1): ReLU()
+      (2): Linear(in_features=196, out_features=392, bias=True)
+      (3): Tanh()
+      (4): Linear(in_features=392, out_features=196, bias=True)
+      (5): ReLU()
+      (6): Linear(in_features=196, out_features=784, bias=True)
+      (7): Sigmoid()
+    )
+  )
+)
+====> Train Loss = -2.485132737150084e+16 Epoch = 1
+====> Train Loss = -6.181063842418673e+17 Epoch = 2
+====> Train Loss = -5.482900528845901e+17 Epoch = 3
+====> Train Loss = -1.1130422976186548e+18 Epoch = 4
+====> Train Loss = -6.661671446268645e+17 Epoch = 5
+====> Train Loss = -7.064042857507535e+17 Epoch = 6
+====> Train Loss = -7.617439861014575e+17 Epoch = 7
+====> Train Loss = -8.937882095212257e+17 Epoch = 8
+====> Train Loss = -8.069288791194052e+17 Epoch = 9
+====> Train Loss = -6.934608870587264e+17 Epoch = 10
+====> Train Loss = -7.98734502191786e+17 Epoch = 11
+====> Train Loss = -7.387740646429348e+17 Epoch = 12
+====> Train Loss = -8.378584936388712e+17 Epoch = 13
+====> Train Loss = -8.126404837315124e+17 Epoch = 14
+====> Train Loss = -7.250591072689655e+17 Epoch = 15
+====> Train Loss = -8.663587304730948e+17 Epoch = 16
+====> Train Loss = -7.947818511285172e+17 Epoch = 17
+====> Train Loss = -7.57979341557633e+17 Epoch = 18
+====> Train Loss = -8.339607595163711e+17 Epoch = 19
+====> Train Loss = -7.269039704991333e+17 Epoch = 20
+====> Train Loss = -1.6737721394445972e+18 Epoch = 21
+====> Train Loss = -7.306847892988069e+17 Epoch = 22
+====> Train Loss = -8.000556249327882e+17 Epoch = 23
+====> Train Loss = -8.739398004011466e+17 Epoch = 24
+====> Train Loss = -7.75753162231708e+17 Epoch = 25
+====> Train Loss = -7.976013924206962e+17 Epoch = 26
+====> Train Loss = -7.536257974131594e+17 Epoch = 27
+====> Train Loss = -6.824056488987534e+17 Epoch = 28
+Python 3.8.10 (default, Sep 28 2021, 16:10:42)
+Type 'copyright', 'credits' or 'license' for more information
+IPython 7.27.0 -- An enhanced Interactive Python. Type '?' for help.
+PyDev console: using IPython 7.27.0
+Out[1]: tensor(-3.2867e+21, device='cuda:0', grad_fn=<AddBackward0>)

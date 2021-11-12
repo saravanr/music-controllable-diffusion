@@ -1,0 +1,59 @@
+
+Training GMVAE
+Training --> GMIWVae(
+  (_encoder): Encoder(
+    (_net): Sequential(
+      (0): Linear(in_features=784, out_features=392, bias=True)
+      (1): ReLU()
+      (2): Linear(in_features=392, out_features=196, bias=True)
+      (3): Tanh()
+      (4): Dropout(p=0.5, inplace=False)
+      (5): Linear(in_features=196, out_features=196, bias=True)
+      (6): ReLU()
+      (7): Linear(in_features=196, out_features=98, bias=True)
+    )
+    (_fc_mean): Sequential(
+      (0): Linear(in_features=98, out_features=20, bias=True)
+    )
+    (_fc_log_var): Sequential(
+      (0): Linear(in_features=98, out_features=20, bias=True)
+    )
+  )
+  (_decoder): Decoder(
+    (_net): Sequential(
+      (0): Linear(in_features=20, out_features=196, bias=True)
+      (1): ReLU()
+      (2): Linear(in_features=196, out_features=392, bias=True)
+      (3): Tanh()
+      (4): Linear(in_features=392, out_features=196, bias=True)
+      (5): ReLU()
+      (6): Linear(in_features=196, out_features=784, bias=True)
+      (7): Sigmoid()
+    )
+  )
+)
+====> Train Loss = 0.017521378533169627 Epoch = 1
+Generating midi sample file:///home/joy/model-archive/11-Nov-21-1636670410/GMIWVae-1.midi
+Hit exception during sample_output - cannot reshape array of size 784 into shape (1600,8)
+====> Train Loss = 0.01680745834459861 Epoch = 2
+Generating midi sample file:///home/joy/model-archive/11-Nov-21-1636670410/GMIWVae-2.midi
+Hit exception during sample_output - cannot reshape array of size 784 into shape (1600,8)
+====> Train Loss = 0.016728746026257672 Epoch = 3
+Generating midi sample file:///home/joy/model-archive/11-Nov-21-1636670410/GMIWVae-3.midi
+Hit exception during sample_output - cannot reshape array of size 784 into shape (1600,8)
+Traceback (most recent call last):
+  File "/home/joy/projects/music-controllable-diffusion/models/gmiw_vae/gmiw_vae.py", line 145, in <module>
+    model.fit(epoch, _optimizer)
+  File "/home/joy/projects/music-controllable-diffusion/models/base/base_model.py", line 99, in fit
+    loss = self.step(batch, batch_idx)
+  File "/home/joy/projects/music-controllable-diffusion/models/gmiw_vae/gmiw_vae.py", line 106, in step
+    loss = self.forward(batch)
+  File "/home/joy/projects/music-controllable-diffusion/models/gmiw_vae/gmiw_vae.py", line 102, in forward
+    niwae, kl, rec = self.negative_iwae_bound(x, iw=10)
+  File "/home/joy/projects/music-controllable-diffusion/models/gmiw_vae/gmiw_vae.py", line 83, in negative_iwae_bound
+    z_weighted_priors = ut.log_normal_mixture(z, weighted_p_m, torch.exp(weighted_p_v))
+  File "/home/joy/projects/music-controllable-diffusion/utils/model_utils.py", line 87, in log_normal_mixture
+    log_probs = compute_log_prob(m_z, m, v)
+  File "/home/joy/projects/music-controllable-diffusion/utils/model_utils.py", line 36, in compute_log_prob
+    log_probs = -1 * torch.pow((x - m), 2) / (2 * v) - const - log_std
+KeyboardInterrupt

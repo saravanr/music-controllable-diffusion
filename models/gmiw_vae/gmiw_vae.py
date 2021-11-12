@@ -7,7 +7,7 @@ import numpy as np
 import utils.model_utils as ut
 from data.midi_data_module import MAX_MIDI_ENCODING_ROWS
 from models.simple_vae.simple_vae import SimpleVae
-
+import torch.nn.functional as F
 wandb.init(project="music-controllable-diffusion-midi-gmiw_vae", entity="saravanr")
 
 
@@ -61,31 +61,35 @@ class GMIWVae(SimpleVae):
         # Duplicate x  m times
         weighted_x = ut.duplicate(x, iw)
 
+        data = weighted_x.to('cpu').numpy()
         # Obtain the mean and var from encoder
-        mean, log_var = self._encoder.forward(x)
+        mean, log_var = self._encoder(x)
+        log_var = F.softplus(log_var) + 1e-8
 
         # Duplicate mean and var
         weighted_m = ut.duplicate(mean, iw)
         weighted_log_v = ut.duplicate(log_var, iw)
 
         # We now have 'm' mean and variances. Sample `z`
-        z = ut.sample_gaussian(weighted_m, torch.exp(weighted_log_v))
+        #z = ut.sample_gaussian(weighted_m, torch.exp(weighted_log_v))
+        z = SimpleVae.reparameterize(weighted_m, weighted_log_v)
 
         # Obtain logits
-        x_hat = self._decoder.forward(z)
+        x_hat = self._decoder(z)
 
         # Obtain weighted priors
         num_to_expand = batch * iw
         weighted_p_m = prior[0].expand(num_to_expand, *prior[0].shape[1:])
         weighted_p_v = prior[1].expand(num_to_expand, *prior[1].shape[1:])
-        z_weighted_priors = ut.log_normal_mixture(z, weighted_p_m, torch.exp(weighted_p_v))
+        weighted_p_v = F.softplus(weighted_p_v) + 1e-8
+
+        z_weighted_priors = ut.log_normal_mixture(z, weighted_p_m, weighted_p_v)
 
         # Evaluate
         #reconstruction_loss = func.mse_loss(x_hat, x.view(-1, MAX_MIDI_ENCODING_ROWS * 8), reduction='sum')
         reconstruction_loss = -func.binary_cross_entropy(x_hat, weighted_x.view(-1, 784), reduction='mean')
-        reconstruction_loss /= batch
         x_posteriors = reconstruction_loss
-        z_posteriors = ut.log_normal(z, weighted_m, torch.exp(weighted_log_v))
+        z_posteriors = ut.log_normal(z, weighted_m, weighted_log_v)
 
         log_ratios = z_weighted_priors + x_posteriors - z_posteriors
         log_ratios = log_ratios.reshape(iw, batch)
@@ -97,24 +101,46 @@ class GMIWVae(SimpleVae):
         kl = torch.mean(kls)
         return niwae, kl, reconstruction_loss
 
+    @staticmethod
+    def detach_torch_tuple(args):
+        return (v.detach() for v in args)
+
+    @staticmethod
+    def compute_metrics(fn, repeat, xl):
+        metrics = [0, 0, 0]
+        for _ in range(repeat):
+            niwae, kl, rec = GMIWVae.detach_torch_tuple(fn(xl))
+            metrics[0] += niwae / repeat
+            metrics[1] += kl / repeat
+            metrics[2] += rec / repeat
+        return metrics
+
     def forward(self, x):
+        for iw in [1, 10, 100]:
+            repeat = max(100 // iw, 1)  # Do at least 100 iterations
+            fn = lambda x: model.negative_iwae_bound(x, iw)
+            niwae, kl, rec = GMIWVae.compute_metrics(fn, repeat, x)
+            print("Negative IWAE-{}: {}".format(iw, niwae))
+
+
         niwae, kl, rec = self.negative_iwae_bound(x, iw=10)
         return niwae
 
     def step(self, batch, batch_idx):
-        loss = self.forward(batch)
+
+        loss = self(batch)
         return loss
 
 
 if __name__ == "__main__":
     print(f"Training GMVAE")
-    batch_size = 16
+    batch_size = 2048
     train_mnist = True
     if train_mnist:
         model = GMIWVae(
             alpha=1,
             k=10,
-            z_dim=8,
+            z_dim=20,
             input_shape=(28, 28),
             use_mnist_dms=True,
             sample_output_step=10,

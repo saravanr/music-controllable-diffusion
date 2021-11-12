@@ -1,0 +1,67 @@
+2021-11-12 00:21:35,674 INFO    MainThread:87194 [internal.py:wandb_internal():87] W&B internal server running at pid: 87194, started at: 2021-11-12 00:21:35.673885
+2021-11-12 00:21:35,676 DEBUG   HandlerThread:87194 [handler.py:handle_request():130] handle_request: check_version
+2021-11-12 00:21:35,676 INFO    WriterThread:87194 [datastore.py:open_for_write():77] open: /home/joy/projects/music-controllable-diffusion/models/dcgan/wandb/run-20211112_002134-1otjaahd/run-1otjaahd.wandb
+2021-11-12 00:21:35,677 DEBUG   SenderThread:87194 [sender.py:send():238] send: header
+2021-11-12 00:21:35,677 DEBUG   SenderThread:87194 [sender.py:send_request():252] send_request: check_version
+2021-11-12 00:21:35,742 DEBUG   SenderThread:87194 [sender.py:send():238] send: run
+2021-11-12 00:21:35,898 INFO    SenderThread:87194 [dir_watcher.py:__init__():169] watching files in: /home/joy/projects/music-controllable-diffusion/models/dcgan/wandb/run-20211112_002134-1otjaahd/files
+2021-11-12 00:21:35,898 INFO    SenderThread:87194 [sender.py:_start_run_threads():825] run started: 1otjaahd with start time 1636705294
+2021-11-12 00:21:35,899 DEBUG   SenderThread:87194 [sender.py:send():238] send: summary
+2021-11-12 00:21:35,900 INFO    SenderThread:87194 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-12 00:21:35,907 DEBUG   HandlerThread:87194 [handler.py:handle_request():130] handle_request: run_start
+2021-11-12 00:21:36,900 INFO    Thread-8  :87194 [dir_watcher.py:_on_file_created():217] file/dir created: /home/joy/projects/music-controllable-diffusion/models/dcgan/wandb/run-20211112_002134-1otjaahd/files/wandb-summary.json
+2021-11-12 00:21:37,216 DEBUG   HandlerThread:87194 [meta.py:__init__():40] meta init
+2021-11-12 00:21:37,216 DEBUG   HandlerThread:87194 [meta.py:__init__():54] meta init done
+2021-11-12 00:21:37,216 DEBUG   HandlerThread:87194 [meta.py:probe():214] probe
+2021-11-12 00:21:37,222 DEBUG   HandlerThread:87194 [meta.py:_setup_git():204] setup git
+2021-11-12 00:21:37,243 DEBUG   HandlerThread:87194 [meta.py:_setup_git():211] setup git done
+2021-11-12 00:21:37,244 DEBUG   HandlerThread:87194 [meta.py:_save_pip():58] save pip
+2021-11-12 00:21:37,244 DEBUG   HandlerThread:87194 [meta.py:_save_pip():72] save pip done
+2021-11-12 00:21:37,244 DEBUG   HandlerThread:87194 [meta.py:probe():252] probe done
+2021-11-12 00:21:37,247 DEBUG   SenderThread:87194 [sender.py:send():238] send: files
+2021-11-12 00:21:37,247 INFO    SenderThread:87194 [sender.py:_save_file():960] saving file wandb-metadata.json with policy now
+2021-11-12 00:21:37,254 DEBUG   HandlerThread:87194 [handler.py:handle_request():130] handle_request: stop_status
+2021-11-12 00:21:37,254 DEBUG   SenderThread:87194 [sender.py:send_request():252] send_request: stop_status
+2021-11-12 00:21:37,648 INFO    Thread-11 :87194 [upload_job.py:push():137] Uploaded file /tmp/tmp4rzdhhb0wandb/11e2hy1v-wandb-metadata.json
+2021-11-12 00:21:37,899 INFO    Thread-8  :87194 [dir_watcher.py:_on_file_created():217] file/dir created: /home/joy/projects/music-controllable-diffusion/models/dcgan/wandb/run-20211112_002134-1otjaahd/files/requirements.txt
+2021-11-12 00:21:37,900 INFO    Thread-8  :87194 [dir_watcher.py:_on_file_created():217] file/dir created: /home/joy/projects/music-controllable-diffusion/models/dcgan/wandb/run-20211112_002134-1otjaahd/files/wandb-metadata.json
+2021-11-12 00:21:37,900 INFO    Thread-8  :87194 [dir_watcher.py:_on_file_created():217] file/dir created: /home/joy/projects/music-controllable-diffusion/models/dcgan/wandb/run-20211112_002134-1otjaahd/files/output.log
+2021-11-12 00:21:39,900 INFO    Thread-8  :87194 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/dcgan/wandb/run-20211112_002134-1otjaahd/files/output.log
+2021-11-12 00:21:43,901 INFO    Thread-8  :87194 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/dcgan/wandb/run-20211112_002134-1otjaahd/files/output.log
+2021-11-12 00:21:47,903 INFO    Thread-8  :87194 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/dcgan/wandb/run-20211112_002134-1otjaahd/files/output.log
+2021-11-12 00:21:52,380 DEBUG   HandlerThread:87194 [handler.py:handle_request():130] handle_request: stop_status
+2021-11-12 00:21:52,380 DEBUG   SenderThread:87194 [sender.py:send_request():252] send_request: stop_status
+2021-11-12 00:22:05,471 DEBUG   SenderThread:87194 [sender.py:send():238] send: stats
+2021-11-12 00:22:07,504 DEBUG   HandlerThread:87194 [handler.py:handle_request():130] handle_request: stop_status
+2021-11-12 00:22:07,505 DEBUG   SenderThread:87194 [sender.py:send_request():252] send_request: stop_status
+2021-11-12 00:22:22,653 DEBUG   HandlerThread:87194 [handler.py:handle_request():130] handle_request: stop_status
+2021-11-12 00:22:22,653 DEBUG   SenderThread:87194 [sender.py:send_request():252] send_request: stop_status
+2021-11-12 00:22:35,795 DEBUG   SenderThread:87194 [sender.py:send():238] send: stats
+2021-11-12 00:22:37,780 DEBUG   HandlerThread:87194 [handler.py:handle_request():130] handle_request: stop_status
+2021-11-12 00:22:37,780 DEBUG   SenderThread:87194 [sender.py:send_request():252] send_request: stop_status
+2021-11-12 00:22:52,904 DEBUG   HandlerThread:87194 [handler.py:handle_request():130] handle_request: stop_status
+2021-11-12 00:22:52,904 DEBUG   SenderThread:87194 [sender.py:send_request():252] send_request: stop_status
+2021-11-12 00:23:06,023 DEBUG   SenderThread:87194 [sender.py:send():238] send: stats
+2021-11-12 00:23:08,025 DEBUG   HandlerThread:87194 [handler.py:handle_request():130] handle_request: stop_status
+2021-11-12 00:23:08,025 DEBUG   SenderThread:87194 [sender.py:send_request():252] send_request: stop_status
+2021-11-12 00:23:23,150 DEBUG   HandlerThread:87194 [handler.py:handle_request():130] handle_request: stop_status
+2021-11-12 00:23:23,151 DEBUG   SenderThread:87194 [sender.py:send_request():252] send_request: stop_status
+2021-11-12 00:23:36,410 DEBUG   SenderThread:87194 [sender.py:send():238] send: stats
+2021-11-12 00:23:38,279 DEBUG   HandlerThread:87194 [handler.py:handle_request():130] handle_request: stop_status
+2021-11-12 00:23:38,280 DEBUG   SenderThread:87194 [sender.py:send_request():252] send_request: stop_status
+2021-11-12 00:23:53,419 DEBUG   HandlerThread:87194 [handler.py:handle_request():130] handle_request: stop_status
+2021-11-12 00:23:53,420 DEBUG   SenderThread:87194 [sender.py:send_request():252] send_request: stop_status
+2021-11-12 00:24:06,651 DEBUG   SenderThread:87194 [sender.py:send():238] send: stats
+2021-11-12 00:24:08,548 DEBUG   HandlerThread:87194 [handler.py:handle_request():130] handle_request: stop_status
+2021-11-12 00:24:08,548 DEBUG   SenderThread:87194 [sender.py:send_request():252] send_request: stop_status
+2021-11-12 00:24:23,667 DEBUG   HandlerThread:87194 [handler.py:handle_request():130] handle_request: stop_status
+2021-11-12 00:24:23,667 DEBUG   SenderThread:87194 [sender.py:send_request():252] send_request: stop_status
+2021-11-12 00:24:36,971 DEBUG   SenderThread:87194 [sender.py:send():238] send: stats
+2021-11-12 00:24:38,807 DEBUG   HandlerThread:87194 [handler.py:handle_request():130] handle_request: stop_status
+2021-11-12 00:24:38,808 DEBUG   SenderThread:87194 [sender.py:send_request():252] send_request: stop_status
+2021-11-12 00:24:53,955 DEBUG   HandlerThread:87194 [handler.py:handle_request():130] handle_request: stop_status
+2021-11-12 00:24:53,955 DEBUG   SenderThread:87194 [sender.py:send_request():252] send_request: stop_status
+2021-11-12 00:25:07,275 DEBUG   SenderThread:87194 [sender.py:send():238] send: stats
+2021-11-12 00:25:09,094 DEBUG   HandlerThread:87194 [handler.py:handle_request():130] handle_request: stop_status
+2021-11-12 00:25:09,094 DEBUG   SenderThread:87194 [sender.py:send_request():252] send_request: stop_status
+2021-11-12 00:25:18,996 WARNING MainThread:87194 [internal.py:wandb_internal():146] Internal process interrupt: 1

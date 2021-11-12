@@ -95,9 +95,7 @@ class BaseModel(torch.nn.Module):
         train_loss = 0
 
         for batch_idx, batch in enumerate(self._dms.train_dataloader()):
-            #batch = batch.reshape(-1, 28, 28)
             optimizer.zero_grad()
-            data = batch.to('cpu').numpy()
             loss = self.step(batch, batch_idx)
             loss.backward()
             optimizer.step()

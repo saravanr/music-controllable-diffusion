@@ -57,6 +57,8 @@ class Normalize(object):
         if sample is None or len(sample) == 0:
             return sample
         sample = np.divide(sample, self._max_values).astype(np.float32)
+        # Fix edge conditions
+        sample[sample > 1.0] = 1.0
         return sample
 
 

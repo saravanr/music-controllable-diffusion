@@ -5,53 +5,53 @@ The style file: icml2021.bst
 Database file #1: project.bib
 Warning--entry type for "colinlmd" isn't style-file defined
 --line 36 of file project.bib
-Warning--entry type for "walker" isn't style-file defined
---line 44 of file project.bib
+Warning--entry type for "midiman" isn't style-file defined
+--line 52 of file project.bib
 Warning--entry type for "gretton12" isn't style-file defined
---line 78 of file project.bib
+--line 85 of file project.bib
 Warning--empty title in bazin2021
 Warning--empty journal in bazin2021
+Warning--empty year in midiman
 Warning--empty year in colinlmd
-Warning--empty year in walker
-You've used 10 entries,
+You've used 11 entries,
             2773 wiz_defined-function locations,
-            636 strings with 6323 characters,
-and the built_in function-call counts, 4443 in all, are:
-= -- 347
-> -- 359
+            639 strings with 6539 characters,
+and the built_in function-call counts, 4991 in all, are:
+= -- 387
+> -- 416
 < -- 2
-+ -- 121
-- -- 111
-* -- 370
-:= -- 701
-add.period$ -- 27
-call.type$ -- 10
-change.case$ -- 66
-chr.to.int$ -- 10
-cite$ -- 24
-duplicate$ -- 166
-empty$ -- 325
-format.name$ -- 121
-if$ -- 902
++ -- 140
+- -- 129
+* -- 420
+:= -- 788
+add.period$ -- 29
+call.type$ -- 11
+change.case$ -- 75
+chr.to.int$ -- 11
+cite$ -- 26
+duplicate$ -- 182
+empty$ -- 358
+format.name$ -- 140
+if$ -- 1012
 int.to.chr$ -- 1
 int.to.str$ -- 1
 missing$ -- 2
-newline$ -- 55
-num.names$ -- 40
-pop$ -- 165
+newline$ -- 59
+num.names$ -- 44
+pop$ -- 187
 preamble$ -- 1
-purify$ -- 57
+purify$ -- 65
 quote$ -- 0
-skip$ -- 167
+skip$ -- 186
 stack$ -- 0
-substring$ -- 20
-swap$ -- 9
+substring$ -- 22
+swap$ -- 10
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 110
+type$ -- 121
 warning$ -- 4
-while$ -- 30
+while$ -- 33
 width$ -- 0
-write$ -- 119
+write$ -- 129
 (There were 7 warnings)

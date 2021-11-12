@@ -1,0 +1,54 @@
+
+Training GMVAE
+Training --> GMIWVae(
+  (_encoder): Encoder(
+    (_net): Sequential(
+      (0): Linear(in_features=784, out_features=392, bias=True)
+      (1): ReLU()
+      (2): Linear(in_features=392, out_features=196, bias=True)
+      (3): Tanh()
+      (4): Dropout(p=0.5, inplace=False)
+      (5): Linear(in_features=196, out_features=196, bias=True)
+      (6): ReLU()
+      (7): Linear(in_features=196, out_features=98, bias=True)
+    )
+    (_fc_mean): Sequential(
+      (0): Linear(in_features=98, out_features=20, bias=True)
+    )
+    (_fc_log_var): Sequential(
+      (0): Linear(in_features=98, out_features=20, bias=True)
+    )
+  )
+  (_decoder): Decoder(
+    (_net): Sequential(
+      (0): Linear(in_features=20, out_features=196, bias=True)
+      (1): ReLU()
+      (2): Linear(in_features=196, out_features=392, bias=True)
+      (3): Tanh()
+      (4): Linear(in_features=392, out_features=196, bias=True)
+      (5): ReLU()
+      (6): Linear(in_features=196, out_features=784, bias=True)
+      (7): Sigmoid()
+    )
+  )
+)
+====> Train Loss = 0.017637068599959213 Epoch = 1
+====> Train Loss = 0.016813647890090943 Epoch = 2
+====> Train Loss = 0.016709441888332368 Epoch = 3
+====> Train Loss = 0.01666831005960703 Epoch = 4
+Python 3.8.10 (default, Sep 28 2021, 16:10:42)
+Type 'copyright', 'credits' or 'license' for more information
+IPython 7.27.0 -- An enhanced Interactive Python. Type '?' for help.
+PyDev console: using IPython 7.27.0
+Out[1]: tensor(1., device='cuda:0')
+Out[2]: tensor(0., device='cuda:0')
+Out[3]: tensor(0.5794, device='cuda:0', grad_fn=<MaxBackward1>)
+Out[4]: tensor(4.0993e-08, device='cuda:0', grad_fn=<MinBackward1>)
+Out[5]:
+tensor([[-1.3913, -1.0082,  0.8248,  ...,  1.3193,  0.7257,  1.5115],
+        [-0.2225,  0.7150,  0.4584,  ...,  1.8037, -1.3434,  2.0127],
+        [-0.4267,  0.4431,  1.9573,  ..., -2.0088,  1.2942,  1.7509],
+        ...,
+        [ 1.2225, -1.5227, -0.5578,  ..., -0.4077, -0.8515,  0.7446],
+        [-2.3924, -0.6481,  1.4239,  ..., -0.3308,  1.1432, -0.4169],
+        [ 0.3088,  3.9303,  2.0347,  ...,  2.6601,  2.0586,  0.4891]],

@@ -27,3 +27,135 @@
 2021-11-11 14:06:41,699 INFO    Thread-8  :64334 [dir_watcher.py:_on_file_created():217] file/dir created: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_140637-2q7gijss/files/output.log
 2021-11-11 14:06:41,699 INFO    Thread-8  :64334 [dir_watcher.py:_on_file_created():217] file/dir created: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_140637-2q7gijss/files/requirements.txt
 2021-11-11 14:06:43,699 INFO    Thread-8  :64334 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_140637-2q7gijss/files/output.log
+2021-11-11 14:06:56,171 DEBUG   HandlerThread:64334 [handler.py:handle_request():130] handle_request: stop_status
+2021-11-11 14:06:56,171 DEBUG   SenderThread:64334 [sender.py:send_request():252] send_request: stop_status
+2021-11-11 14:07:05,705 INFO    Thread-8  :64334 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_140637-2q7gijss/files/output.log
+2021-11-11 14:07:09,302 DEBUG   SenderThread:64334 [sender.py:send():238] send: stats
+2021-11-11 14:07:11,302 DEBUG   HandlerThread:64334 [handler.py:handle_request():130] handle_request: stop_status
+2021-11-11 14:07:11,302 DEBUG   SenderThread:64334 [sender.py:send_request():252] send_request: stop_status
+2021-11-11 14:07:26,422 DEBUG   HandlerThread:64334 [handler.py:handle_request():130] handle_request: stop_status
+2021-11-11 14:07:26,422 DEBUG   SenderThread:64334 [sender.py:send_request():252] send_request: stop_status
+2021-11-11 14:07:29,536 DEBUG   SenderThread:64334 [sender.py:send():238] send: history
+2021-11-11 14:07:29,536 DEBUG   SenderThread:64334 [sender.py:send():238] send: summary
+2021-11-11 14:07:29,539 INFO    SenderThread:64334 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 14:07:29,712 INFO    Thread-8  :64334 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_140637-2q7gijss/files/wandb-summary.json
+2021-11-11 14:07:31,712 INFO    Thread-8  :64334 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_140637-2q7gijss/files/output.log
+2021-11-11 14:07:39,561 DEBUG   SenderThread:64334 [sender.py:send():238] send: stats
+2021-11-11 14:07:41,545 DEBUG   HandlerThread:64334 [handler.py:handle_request():130] handle_request: stop_status
+2021-11-11 14:07:41,545 DEBUG   SenderThread:64334 [sender.py:send_request():252] send_request: stop_status
+2021-11-11 14:07:54,486 DEBUG   SenderThread:64334 [sender.py:send():238] send: history
+2021-11-11 14:07:54,486 DEBUG   SenderThread:64334 [sender.py:send():238] send: summary
+2021-11-11 14:07:54,487 INFO    SenderThread:64334 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 14:07:54,718 INFO    Thread-8  :64334 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_140637-2q7gijss/files/wandb-summary.json
+2021-11-11 14:07:55,718 INFO    Thread-8  :64334 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_140637-2q7gijss/files/output.log
+2021-11-11 14:07:56,667 DEBUG   HandlerThread:64334 [handler.py:handle_request():130] handle_request: stop_status
+2021-11-11 14:07:56,667 DEBUG   SenderThread:64334 [sender.py:send_request():252] send_request: stop_status
+2021-11-11 14:08:02,020 WARNING MainThread:64334 [internal.py:wandb_internal():146] Internal process interrupt: 1
+2021-11-11 14:08:03,721 INFO    Thread-8  :64334 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_140637-2q7gijss/files/output.log
+2021-11-11 14:08:04,316 DEBUG   HandlerThread:64334 [handler.py:handle_request():130] handle_request: poll_exit
+2021-11-11 14:08:04,316 DEBUG   SenderThread:64334 [sender.py:send():238] send: telemetry
+2021-11-11 14:08:04,316 DEBUG   SenderThread:64334 [sender.py:send():238] send: exit
+2021-11-11 14:08:04,316 INFO    SenderThread:64334 [sender.py:send_exit():370] handling exit code: 0
+2021-11-11 14:08:04,316 INFO    SenderThread:64334 [sender.py:send_exit():372] handling runtime: 84
+2021-11-11 14:08:04,316 INFO    SenderThread:64334 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 14:08:04,317 INFO    SenderThread:64334 [sender.py:send_exit():382] send defer
+2021-11-11 14:08:04,317 DEBUG   SenderThread:64334 [sender.py:send_request():252] send_request: poll_exit
+2021-11-11 14:08:04,317 DEBUG   HandlerThread:64334 [handler.py:handle_request():130] handle_request: defer
+2021-11-11 14:08:04,317 INFO    HandlerThread:64334 [handler.py:handle_request_defer():147] handle defer: 0
+2021-11-11 14:08:04,317 DEBUG   SenderThread:64334 [sender.py:send_request():252] send_request: defer
+2021-11-11 14:08:04,317 INFO    SenderThread:64334 [sender.py:send_request_defer():391] handle sender defer: 0
+2021-11-11 14:08:04,317 INFO    SenderThread:64334 [sender.py:transition_state():395] send defer: 1
+2021-11-11 14:08:04,317 DEBUG   HandlerThread:64334 [handler.py:handle_request():130] handle_request: defer
+2021-11-11 14:08:04,318 INFO    HandlerThread:64334 [handler.py:handle_request_defer():147] handle defer: 1
+2021-11-11 14:08:04,339 DEBUG   SenderThread:64334 [sender.py:send_request():252] send_request: defer
+2021-11-11 14:08:04,339 INFO    SenderThread:64334 [sender.py:send_request_defer():391] handle sender defer: 1
+2021-11-11 14:08:04,339 INFO    SenderThread:64334 [sender.py:transition_state():395] send defer: 2
+2021-11-11 14:08:04,339 DEBUG   SenderThread:64334 [sender.py:send():238] send: stats
+2021-11-11 14:08:04,339 DEBUG   HandlerThread:64334 [handler.py:handle_request():130] handle_request: defer
+2021-11-11 14:08:04,339 INFO    HandlerThread:64334 [handler.py:handle_request_defer():147] handle defer: 2
+2021-11-11 14:08:04,340 DEBUG   SenderThread:64334 [sender.py:send_request():252] send_request: defer
+2021-11-11 14:08:04,340 INFO    SenderThread:64334 [sender.py:send_request_defer():391] handle sender defer: 2
+2021-11-11 14:08:04,340 INFO    SenderThread:64334 [sender.py:transition_state():395] send defer: 3
+2021-11-11 14:08:04,340 DEBUG   HandlerThread:64334 [handler.py:handle_request():130] handle_request: defer
+2021-11-11 14:08:04,340 INFO    HandlerThread:64334 [handler.py:handle_request_defer():147] handle defer: 3
+2021-11-11 14:08:04,340 DEBUG   SenderThread:64334 [sender.py:send():238] send: summary
+2021-11-11 14:08:04,341 INFO    SenderThread:64334 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-11 14:08:04,341 DEBUG   SenderThread:64334 [sender.py:send_request():252] send_request: defer
+2021-11-11 14:08:04,341 INFO    SenderThread:64334 [sender.py:send_request_defer():391] handle sender defer: 3
+2021-11-11 14:08:04,341 INFO    SenderThread:64334 [sender.py:transition_state():395] send defer: 4
+2021-11-11 14:08:04,341 DEBUG   HandlerThread:64334 [handler.py:handle_request():130] handle_request: defer
+2021-11-11 14:08:04,341 INFO    HandlerThread:64334 [handler.py:handle_request_defer():147] handle defer: 4
+2021-11-11 14:08:04,341 DEBUG   SenderThread:64334 [sender.py:send_request():252] send_request: defer
+2021-11-11 14:08:04,341 INFO    SenderThread:64334 [sender.py:send_request_defer():391] handle sender defer: 4
+2021-11-11 14:08:04,419 DEBUG   HandlerThread:64334 [handler.py:handle_request():130] handle_request: poll_exit
+2021-11-11 14:08:04,482 INFO    SenderThread:64334 [sender.py:transition_state():395] send defer: 5
+2021-11-11 14:08:04,482 DEBUG   SenderThread:64334 [sender.py:send_request():252] send_request: poll_exit
+2021-11-11 14:08:04,484 DEBUG   HandlerThread:64334 [handler.py:handle_request():130] handle_request: defer
+2021-11-11 14:08:04,484 INFO    HandlerThread:64334 [handler.py:handle_request_defer():147] handle defer: 5
+2021-11-11 14:08:04,484 DEBUG   SenderThread:64334 [sender.py:send_request():252] send_request: defer
+2021-11-11 14:08:04,485 INFO    SenderThread:64334 [sender.py:send_request_defer():391] handle sender defer: 5
+2021-11-11 14:08:04,485 INFO    SenderThread:64334 [dir_watcher.py:finish():283] shutting down directory watcher
+2021-11-11 14:08:04,586 DEBUG   HandlerThread:64334 [handler.py:handle_request():130] handle_request: poll_exit
+2021-11-11 14:08:04,721 INFO    Thread-8  :64334 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_140637-2q7gijss/files/wandb-summary.json
+2021-11-11 14:08:04,721 INFO    SenderThread:64334 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_140637-2q7gijss/files/output.log
+2021-11-11 14:08:04,721 INFO    SenderThread:64334 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_140637-2q7gijss/files/config.yaml
+2021-11-11 14:08:04,722 INFO    SenderThread:64334 [dir_watcher.py:finish():313] scan: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_140637-2q7gijss/files
+2021-11-11 14:08:04,722 INFO    SenderThread:64334 [dir_watcher.py:finish():327] scan save: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_140637-2q7gijss/files/wandb-summary.json wandb-summary.json
+2021-11-11 14:08:04,722 INFO    SenderThread:64334 [dir_watcher.py:finish():327] scan save: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_140637-2q7gijss/files/config.yaml config.yaml
+2021-11-11 14:08:04,722 INFO    SenderThread:64334 [dir_watcher.py:finish():327] scan save: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_140637-2q7gijss/files/output.log output.log
+2021-11-11 14:08:04,722 INFO    SenderThread:64334 [dir_watcher.py:finish():327] scan save: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_140637-2q7gijss/files/wandb-metadata.json wandb-metadata.json
+2021-11-11 14:08:04,723 INFO    SenderThread:64334 [dir_watcher.py:finish():327] scan save: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_140637-2q7gijss/files/requirements.txt requirements.txt
+2021-11-11 14:08:04,731 INFO    SenderThread:64334 [sender.py:transition_state():395] send defer: 6
+2021-11-11 14:08:04,731 DEBUG   SenderThread:64334 [sender.py:send_request():252] send_request: poll_exit
+2021-11-11 14:08:04,736 DEBUG   HandlerThread:64334 [handler.py:handle_request():130] handle_request: defer
+2021-11-11 14:08:04,736 INFO    HandlerThread:64334 [handler.py:handle_request_defer():147] handle defer: 6
+2021-11-11 14:08:04,740 DEBUG   SenderThread:64334 [sender.py:send_request():252] send_request: defer
+2021-11-11 14:08:04,741 INFO    SenderThread:64334 [sender.py:send_request_defer():391] handle sender defer: 6
+2021-11-11 14:08:04,741 INFO    SenderThread:64334 [file_pusher.py:finish():177] shutting down file pusher
+2021-11-11 14:08:04,832 DEBUG   HandlerThread:64334 [handler.py:handle_request():130] handle_request: poll_exit
+2021-11-11 14:08:04,833 DEBUG   SenderThread:64334 [sender.py:send_request():252] send_request: poll_exit
+2021-11-11 14:08:04,934 DEBUG   HandlerThread:64334 [handler.py:handle_request():130] handle_request: poll_exit
+2021-11-11 14:08:04,935 DEBUG   SenderThread:64334 [sender.py:send_request():252] send_request: poll_exit
+2021-11-11 14:08:05,036 DEBUG   HandlerThread:64334 [handler.py:handle_request():130] handle_request: poll_exit
+2021-11-11 14:08:05,037 DEBUG   SenderThread:64334 [sender.py:send_request():252] send_request: poll_exit
+2021-11-11 14:08:05,119 INFO    Thread-14 :64334 [upload_job.py:push():137] Uploaded file /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_140637-2q7gijss/files/output.log
+2021-11-11 14:08:05,125 INFO    Thread-13 :64334 [upload_job.py:push():137] Uploaded file /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_140637-2q7gijss/files/config.yaml
+2021-11-11 14:08:05,136 INFO    Thread-12 :64334 [upload_job.py:push():137] Uploaded file /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_140637-2q7gijss/files/wandb-summary.json
+2021-11-11 14:08:05,138 DEBUG   HandlerThread:64334 [handler.py:handle_request():130] handle_request: poll_exit
+2021-11-11 14:08:05,138 DEBUG   SenderThread:64334 [sender.py:send_request():252] send_request: poll_exit
+2021-11-11 14:08:05,143 INFO    Thread-15 :64334 [upload_job.py:push():137] Uploaded file /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_140637-2q7gijss/files/requirements.txt
+2021-11-11 14:08:05,240 DEBUG   HandlerThread:64334 [handler.py:handle_request():130] handle_request: poll_exit
+2021-11-11 14:08:05,240 DEBUG   SenderThread:64334 [sender.py:send_request():252] send_request: poll_exit
+2021-11-11 14:08:05,341 DEBUG   HandlerThread:64334 [handler.py:handle_request():130] handle_request: poll_exit
+2021-11-11 14:08:05,342 DEBUG   SenderThread:64334 [sender.py:send_request():252] send_request: poll_exit
+2021-11-11 14:08:05,343 INFO    Thread-7  :64334 [sender.py:transition_state():395] send defer: 7
+2021-11-11 14:08:05,344 DEBUG   HandlerThread:64334 [handler.py:handle_request():130] handle_request: defer
+2021-11-11 14:08:05,344 INFO    HandlerThread:64334 [handler.py:handle_request_defer():147] handle defer: 7
+2021-11-11 14:08:05,344 DEBUG   SenderThread:64334 [sender.py:send_request():252] send_request: defer
+2021-11-11 14:08:05,344 INFO    SenderThread:64334 [sender.py:send_request_defer():391] handle sender defer: 7
+2021-11-11 14:08:05,447 DEBUG   HandlerThread:64334 [handler.py:handle_request():130] handle_request: poll_exit
+2021-11-11 14:08:05,524 INFO    SenderThread:64334 [sender.py:transition_state():395] send defer: 8
+2021-11-11 14:08:05,525 DEBUG   SenderThread:64334 [sender.py:send_request():252] send_request: poll_exit
+2021-11-11 14:08:05,526 DEBUG   HandlerThread:64334 [handler.py:handle_request():130] handle_request: defer
+2021-11-11 14:08:05,526 INFO    HandlerThread:64334 [handler.py:handle_request_defer():147] handle defer: 8
+2021-11-11 14:08:05,527 DEBUG   SenderThread:64334 [sender.py:send_request():252] send_request: defer
+2021-11-11 14:08:05,527 INFO    SenderThread:64334 [sender.py:send_request_defer():391] handle sender defer: 8
+2021-11-11 14:08:05,528 INFO    SenderThread:64334 [sender.py:transition_state():395] send defer: 9
+2021-11-11 14:08:05,530 DEBUG   HandlerThread:64334 [handler.py:handle_request():130] handle_request: defer
+2021-11-11 14:08:05,531 INFO    HandlerThread:64334 [handler.py:handle_request_defer():147] handle defer: 9
+2021-11-11 14:08:05,531 DEBUG   SenderThread:64334 [sender.py:send():238] send: final
+2021-11-11 14:08:05,531 DEBUG   SenderThread:64334 [sender.py:send():238] send: footer
+2021-11-11 14:08:05,532 DEBUG   SenderThread:64334 [sender.py:send_request():252] send_request: defer
+2021-11-11 14:08:05,532 INFO    SenderThread:64334 [sender.py:send_request_defer():391] handle sender defer: 9
+2021-11-11 14:08:05,629 DEBUG   HandlerThread:64334 [handler.py:handle_request():130] handle_request: poll_exit
+2021-11-11 14:08:05,629 DEBUG   SenderThread:64334 [sender.py:send_request():252] send_request: poll_exit
+2021-11-11 14:08:05,629 INFO    SenderThread:64334 [file_pusher.py:join():182] waiting for file pusher
+2021-11-11 14:08:05,896 DEBUG   HandlerThread:64334 [handler.py:handle_request():130] handle_request: get_summary
+2021-11-11 14:08:05,897 DEBUG   HandlerThread:64334 [handler.py:handle_request():130] handle_request: sampled_history
+2021-11-11 14:08:05,897 DEBUG   HandlerThread:64334 [handler.py:handle_request():130] handle_request: shutdown
+2021-11-11 14:08:05,897 INFO    HandlerThread:64334 [handler.py:finish():731] shutting down handler
+2021-11-11 14:08:06,532 INFO    WriterThread:64334 [datastore.py:close():281] close: /home/joy/projects/music-controllable-diffusion/models/gmiw_vae/wandb/run-20211111_140637-2q7gijss/run-2q7gijss.wandb
+2021-11-11 14:08:06,895 INFO    SenderThread:64334 [sender.py:finish():1091] shutting down sender
+2021-11-11 14:08:06,895 INFO    SenderThread:64334 [file_pusher.py:finish():177] shutting down file pusher
+2021-11-11 14:08:06,895 INFO    SenderThread:64334 [file_pusher.py:join():182] waiting for file pusher
+2021-11-11 14:08:06,897 INFO    MainThread:64334 [internal.py:handle_exit():77] Internal process exited
