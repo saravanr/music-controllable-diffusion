@@ -1,0 +1,22 @@
+{
+    "os": "macOS-10.16-x86_64-i386-64bit",
+    "python": "3.8.6",
+    "heartbeatAt": "2021-11-21T08:19:42.986661",
+    "startedAt": "2021-11-21T08:19:05.668340",
+    "docker": null,
+    "cpu_count": 4,
+    "cuda": null,
+    "args": [],
+    "state": "running",
+    "program": "/Users/joy/projects/music-controllable-diffusion/models/simple_vae/simple_vae.py",
+    "codePath": "models/simple_vae/simple_vae.py",
+    "git": {
+        "remote": "git@github.com:saravanr/music-controllable-diffusion.git",
+        "commit": "edad2490c68ca2159122e364bdcf53e86197477b"
+    },
+    "email": "joy@elbo.ai",
+    "root": "/Users/joy/projects/music-controllable-diffusion",
+    "host": "elbo",
+    "username": "joy",
+    "executable": "/Users/joy/projects/music-controllable-diffusion/.venv/bin/python"
+}

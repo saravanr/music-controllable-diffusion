@@ -1,0 +1,23 @@
+Training simple VAE
+Generating input tensors on cpu
+0it [00:00, ?it/s]
+Traceback (most recent call last):
+  File "/Users/joy/Library/Application Support/JetBrains/Toolbox/apps/PyCharm-P/ch-0/212.5457.59/PyCharm.app/Contents/plugins/python/helpers/pydev/pydevd.py", line 1483, in _exec
+    pydev_imports.execfile(file, globals, locals)  # execute the script
+  File "/Users/joy/Library/Application Support/JetBrains/Toolbox/apps/PyCharm-P/ch-0/212.5457.59/PyCharm.app/Contents/plugins/python/helpers/pydev/_pydev_imps/_pydev_execfile.py", line 18, in execfile
+    exec(compile(contents+"\n", file, 'exec'), glob, loc)
+  File "/Users/joy/projects/music-controllable-diffusion/models/simple_vae/simple_vae.py", line 186, in <module>
+    model = SimpleVae(
+  File "/Users/joy/projects/music-controllable-diffusion/models/simple_vae/simple_vae.py", line 103, in __init__
+    super(SimpleVae, self).__init__(*args, **kwargs)
+  File "/Users/joy/projects/music-controllable-diffusion/models/base/base_model.py", line 48, in __init__
+    self._dms.setup()
+  File "/Users/joy/projects/music-controllable-diffusion/.venv/lib/python3.8/site-packages/pytorch_lightning/core/datamodule.py", line 474, in wrapped_fn
+    fn(*args, **kwargs)
+  File "/Users/joy/projects/music-controllable-diffusion/data/midi_data_module.py", line 48, in setup
+    self._train_dataloader = DataLoader(self._train_dataset,
+  File "/Users/joy/projects/music-controllable-diffusion/.venv/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 268, in __init__
+    sampler = RandomSampler(dataset, generator=generator)
+  File "/Users/joy/projects/music-controllable-diffusion/.venv/lib/python3.8/site-packages/torch/utils/data/sampler.py", line 102, in __init__
+    raise ValueError("num_samples should be a positive integer "
+ValueError: num_samples should be a positive integer value, but got num_samples=0
