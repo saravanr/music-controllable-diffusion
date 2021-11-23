@@ -1,14 +1,12 @@
 import torch
 import numpy as np
 import os
-import shutil
 from torch.utils.data import Dataset
 import tqdm
 
 from utils.cuda_utils import get_device
 from utils.file_utils import get_files_in_path
-from utils.midi_utils import get_encoding, get_normalization_weights
-from cachetools import cached, LRUCache, TTLCache
+from utils.midi_utils import get_encoding
 
 
 def data_loader_collate_fn(batch):
@@ -35,30 +33,6 @@ class Filter(object):
 
         if np.max(sample.T[0]) > 254.0:
             return None
-        return sample
-
-
-class Normalize(object):
-    """
-    Normalizes the input to a range of [-1.0 to 1.0]
-    The Octuple Token in OctupleMIDI encoding using the following scheme:
-    [Time Sig, Tempo, Bar, Position, Instrument, Pitch, Duration, Velocity]
-    The corresponding number of variations are:
-    [254, [16-256], [256], [256], [128], 127, 128, 127]
-
-    Min - tensor([0., 0., 0., 0., 0., 0., 0., 0.], device='cuda:0')
-    Max - tensor(
-    """
-
-    def __init__(self):
-        self._max_values = get_normalization_weights()
-
-    def __call__(self, sample):
-        if sample is None or len(sample) == 0:
-            return sample
-        sample = np.divide(sample, self._max_values).astype(np.float32)
-        # Fix edge conditions
-        sample[sample > 1.0] = 1.0
         return sample
 
 
@@ -102,7 +76,7 @@ class MidiDataset(Dataset):
     def __init__(self, data_dir, transform=None):
         self.data_dir = data_dir
         self.transform = transform
-        self.data_files = get_files_in_path(data_dir, matching_pattern=f"*.npy")
+        self.data_files = get_files_in_path(data_dir, matching_pattern=f"*.npy")[0:10000]
         self.tensors = self.generate_tensors()
 
     def generate_tensors(self):
@@ -135,7 +109,7 @@ class MidiDataset(Dataset):
 
 def process(files):
     import rmi2mid
-    output_dir = os.path.expanduser("~/midi_processed")
+    output_dir = os.path.expanduser("~/midi_features")
     print(f"Data set length = {len(files)}")
     count = 0
     partition = 0
@@ -161,7 +135,6 @@ def process(files):
                 np.save(output_file, encoding)
                 print(f"Converted and saved to {output_file}")
                 count = count + 1
-                shutil.move(file, os.path.join(os.path.expanduser('~/midijunk'), os.path.basename(file)))
             except Exception as e:
                 pass
 
@@ -169,7 +142,7 @@ def process(files):
 def generate_numpy_files():
     import os
     import multiprocessing as mp
-    output_dir = os.path.expanduser("~/midi_processed")
+    output_dir = os.path.expanduser("~/midi_features")
     os.makedirs(output_dir, exist_ok=True)
     files = get_files_in_path(_data_dir, matching_pattern="*.mid")
     num_proc = mp.cpu_count() - 1
@@ -178,8 +151,7 @@ def generate_numpy_files():
     p.map(process, parts)
 
 
-if __name__ == "__main__":
-    _data_dir = os.path.expanduser("~/midi_processed/")
+def find_min_max():
     _files = get_files_in_path(_data_dir, matching_pattern="*.npy")
     print(f"Number of files - {len(_files)}")
     _device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
@@ -199,3 +171,8 @@ if __name__ == "__main__":
 
     print(f"Min - {_global_min}")
     print(f"Max - {_global_max}")
+
+
+if __name__ == "__main__":
+    _data_dir = os.path.expanduser("~/midi/")
+    generate_numpy_files()
