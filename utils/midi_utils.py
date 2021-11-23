@@ -7,6 +7,7 @@ from note_seq import midi_io
 from note_seq.protobuf import music_pb2
 
 
+
 def note_seq_to_nd_array(note_sequence):
     """Converts a NoteSequence serialized proto to arrays."""
     # Based on magenta/models/piano_genie/loader.py
@@ -31,6 +32,8 @@ def note_seq_to_nd_array(note_sequence):
 
 def nd_array_to_note_seq(note_array):
     """Converts ND array to Note Seq"""
+    from data.midi_data_module import MIDI_ENCODING_WIDTH
+    note_array = note_array.reshape((-1, MIDI_ENCODING_WIDTH))
     seq = music_pb2.NoteSequence()
     note_array = (np.arctanh(note_array) * 254.0) + 127.
 

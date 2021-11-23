@@ -8,7 +8,7 @@ from torch.nn import functional as func
 from torch.utils.tensorboard import SummaryWriter
 import torch.nn.functional as F
 
-from data.midi_data_module import MAX_MIDI_ENCODING_ROWS
+from data.midi_data_module import MAX_MIDI_ENCODING_ROWS, MIDI_ENCODING_WIDTH
 from models.base.base_model import BaseModel
 from utils.cuda_utils import get_device
 from utils.midi_utils import save_decoder_output_as_midi
@@ -84,7 +84,7 @@ class Decoder(nn.Module):
             nn.Linear(output_dim // 2, output_dim // 4),
             nn.ReLU(),
             nn.Linear(output_dim // 4, output_dim * scale),
-            nn.Sigmoid()
+            nn.Tanh()
         )
 
     def forward(self, z):
@@ -116,7 +116,7 @@ class SimpleVae(BaseModel):
 
     def loss_function(self, x_hat, x, mu, q_log_var):
         #recon_loss = func.binary_cross_entropy(x_hat, x.view(-1, 784), reduction='sum')
-        recon_loss = func.mse_loss(x_hat, x.view(-1, MAX_MIDI_ENCODING_ROWS*8), reduction='sum')
+        recon_loss = func.mse_loss(x_hat, x.view(-1, MAX_MIDI_ENCODING_ROWS*MIDI_ENCODING_WIDTH), reduction='sum')
         kl = self._kl_simple(mu, q_log_var)
         loss = recon_loss + self.alpha * kl
         return loss
@@ -186,7 +186,7 @@ if __name__ == "__main__":
         model = SimpleVae(
             alpha=1,
             z_dim=80,
-            input_shape=(MAX_MIDI_ENCODING_ROWS, 8),
+            input_shape=(MAX_MIDI_ENCODING_ROWS, MIDI_ENCODING_WIDTH),
             use_mnist_dms=False,
             sample_output_step=10,
             batch_size=batch_size

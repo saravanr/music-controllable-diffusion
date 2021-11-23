@@ -17,8 +17,8 @@ class BaseModel(torch.nn.Module):
     """
 
     def __init__(self, lr=1e-3,
-                 data_dir=os.path.expanduser("~/midi_processed/"),
-                 output_dir=os.path.expanduser("~/model-archive/"),
+                 data_dir=os.path.expanduser("~/midi_features/"),
+                 output_dir=os.path.expanduser("~/model-archive-note-seq/"),
                  num_gpus=1,
                  batch_size=3000,
                  sample_output_step=200,

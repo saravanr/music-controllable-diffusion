@@ -7,9 +7,10 @@ from pytorch_lightning.utilities.types import TRAIN_DATALOADERS, EVAL_DATALOADER
 from torch.utils.data import DataLoader
 from torchvision import transforms
 
-from data.midi_dataset import MidiDataset, Trim, Filter, Reshape, Normalize, data_loader_collate_fn
+from data.midi_dataset import MidiDataset, Trim, Reshape, data_loader_collate_fn
 
 MAX_MIDI_ENCODING_ROWS = 1600
+MIDI_ENCODING_WIDTH = 6
 
 
 class MidiDataModule(pl.LightningDataModule):
@@ -18,7 +19,7 @@ class MidiDataModule(pl.LightningDataModule):
                  data_dir,
                  batch_size=10,
                  shuffle=True,
-                 data_shape=(MAX_MIDI_ENCODING_ROWS, 8),
+                 data_shape=(MAX_MIDI_ENCODING_ROWS, MIDI_ENCODING_WIDTH),
                  ):
         super().__init__()
         self._data_dir = data_dir
@@ -36,7 +37,7 @@ class MidiDataModule(pl.LightningDataModule):
     def setup(self, stage: Optional[str] = None) -> None:
         data_set = MidiDataset(self._data_dir,
                                transform=transforms.Compose(
-                                   [Trim(max_rows=MAX_MIDI_ENCODING_ROWS), Filter(), Normalize(), Reshape(self._data_shape)]))
+                                   [Trim(max_rows=MAX_MIDI_ENCODING_ROWS), Reshape(self._data_shape)]))
         train_size = int(0.7 * len(data_set))
         test_size = int((len(data_set) - train_size) / 2.0)
         val_size = len(data_set) - train_size - test_size
@@ -82,8 +83,8 @@ if __name__ == "__main__":
     import tqdm
 
     # Gathers stats on the data loader
-    _midi_module = MidiDataModule(data_dir=os.path.expanduser("~/midi_processed"),
-                                  batch_size=40)
+    _midi_module = MidiDataModule(data_dir=os.path.expanduser("~/midi_features"),
+                                  batch_size=20)
     _midi_module.setup()
     _train = _midi_module.train_dataloader()
     _test = _midi_module.test_dataloader()

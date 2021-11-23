@@ -19,23 +19,6 @@ def data_loader_collate_fn(batch):
     return torch.utils.data.dataloader.default_collate(batch)
 
 
-class Filter(object):
-    """
-    Filter invalid time series values
-    """
-
-    def __init__(self):
-        pass
-
-    def __call__(self, sample):
-        if sample is None or len(sample) == 0:
-            return sample
-
-        if np.max(sample.T[0]) > 254.0:
-            return None
-        return sample
-
-
 class Trim(object):
     """
     Trims the sample to appropriate size
