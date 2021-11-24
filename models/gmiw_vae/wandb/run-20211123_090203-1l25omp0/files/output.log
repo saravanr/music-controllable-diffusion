@@ -1,0 +1,268 @@
+9913344it [00:00, 39512069.83it/s]
+29696it [00:00, 2504303.76it/s]
+1649664it [00:00, 18744899.58it/s]
+5120it [00:00, 18433336.03it/s]
+Training GMVAE
+Downloading http://yann.lecun.com/exdb/mnist/train-images-idx3-ubyte.gz
+Downloading http://yann.lecun.com/exdb/mnist/train-images-idx3-ubyte.gz to /home/joy/midi_features/MNIST/raw/train-images-idx3-ubyte.gz
+Extracting /home/joy/midi_features/MNIST/raw/train-images-idx3-ubyte.gz to /home/joy/midi_features/MNIST/raw
+Downloading http://yann.lecun.com/exdb/mnist/train-labels-idx1-ubyte.gz
+Downloading http://yann.lecun.com/exdb/mnist/train-labels-idx1-ubyte.gz to /home/joy/midi_features/MNIST/raw/train-labels-idx1-ubyte.gz
+Extracting /home/joy/midi_features/MNIST/raw/train-labels-idx1-ubyte.gz to /home/joy/midi_features/MNIST/raw
+Downloading http://yann.lecun.com/exdb/mnist/t10k-images-idx3-ubyte.gz
+Downloading http://yann.lecun.com/exdb/mnist/t10k-images-idx3-ubyte.gz to /home/joy/midi_features/MNIST/raw/t10k-images-idx3-ubyte.gz
+Extracting /home/joy/midi_features/MNIST/raw/t10k-images-idx3-ubyte.gz to /home/joy/midi_features/MNIST/raw
+Downloading http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ubyte.gz
+Downloading http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ubyte.gz to /home/joy/midi_features/MNIST/raw/t10k-labels-idx1-ubyte.gz
+Extracting /home/joy/midi_features/MNIST/raw/t10k-labels-idx1-ubyte.gz to /home/joy/midi_features/MNIST/raw
+Training --> GMIWVae(
+  (_encoder): Encoder(
+    (_net): Sequential(
+      (0): Linear(in_features=784, out_features=392, bias=True)
+      (1): ReLU()
+      (2): Linear(in_features=392, out_features=196, bias=True)
+      (3): Tanh()
+      (4): Dropout(p=0.5, inplace=False)
+      (5): Linear(in_features=196, out_features=196, bias=True)
+      (6): ReLU()
+      (7): Linear(in_features=196, out_features=98, bias=True)
+    )
+    (_fc_mean): Sequential(
+      (0): Linear(in_features=98, out_features=20, bias=True)
+    )
+    (_fc_log_var): Sequential(
+      (0): Linear(in_features=98, out_features=20, bias=True)
+    )
+  )
+  (_decoder): Decoder(
+    (_net): Sequential(
+      (0): Linear(in_features=20, out_features=196, bias=True)
+      (1): ReLU()
+      (2): Linear(in_features=196, out_features=392, bias=True)
+      (3): Tanh()
+      (4): Linear(in_features=392, out_features=196, bias=True)
+      (5): ReLU()
+      (6): Linear(in_features=196, out_features=784, bias=True)
+      (7): Tanh()
+    )
+  )
+)
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [156,0,0], thread: [0,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [156,0,0], thread: [4,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [156,0,0], thread: [5,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [156,0,0], thread: [6,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [156,0,0], thread: [9,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [156,0,0], thread: [10,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [156,0,0], thread: [11,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [156,0,0], thread: [15,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [156,0,0], thread: [16,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [156,0,0], thread: [17,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [156,0,0], thread: [22,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [156,0,0], thread: [25,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [156,0,0], thread: [26,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [156,0,0], thread: [27,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [156,0,0], thread: [29,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [156,0,0], thread: [30,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [145,0,0], thread: [32,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [145,0,0], thread: [35,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [145,0,0], thread: [37,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [145,0,0], thread: [39,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [145,0,0], thread: [40,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [145,0,0], thread: [41,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [145,0,0], thread: [47,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [145,0,0], thread: [50,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [145,0,0], thread: [55,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [145,0,0], thread: [58,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [145,0,0], thread: [59,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [145,0,0], thread: [62,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [49,0,0], thread: [1,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [49,0,0], thread: [4,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [49,0,0], thread: [5,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [49,0,0], thread: [13,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [49,0,0], thread: [14,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [49,0,0], thread: [15,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [49,0,0], thread: [18,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [49,0,0], thread: [20,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [49,0,0], thread: [22,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [49,0,0], thread: [28,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [49,0,0], thread: [29,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:115: operator(): block: [49,0,0], thread: [30,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+Traceback (most recent call last):
+  File "/home/joy/.local/share/JetBrains/Toolbox/apps/PyCharm-P/ch-0/212.5457.59/plugins/python/helpers/pydev/pydevd.py", line 1483, in _exec
+    pydev_imports.execfile(file, globals, locals)  # execute the script
+  File "/home/joy/.local/share/JetBrains/Toolbox/apps/PyCharm-P/ch-0/212.5457.59/plugins/python/helpers/pydev/_pydev_imps/_pydev_execfile.py", line 18, in execfile
+    exec(compile(contents+"\n", file, 'exec'), glob, loc)
+  File "/home/joy/projects/music-controllable-diffusion/models/gmiw_vae/gmiw_vae.py", line 170, in <module>
+    model.fit(epoch, _optimizer)
+  File "/home/joy/projects/music-controllable-diffusion/models/base/base_model.py", line 99, in fit
+    loss = self.step(batch, batch_idx)
+  File "/home/joy/projects/music-controllable-diffusion/models/gmiw_vae/gmiw_vae.py", line 131, in step
+    loss = self(batch)
+  File "/home/joy/.venv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1102, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/joy/projects/music-controllable-diffusion/models/gmiw_vae/gmiw_vae.py", line 122, in forward
+    niwae, kl, rec = GMIWVae.compute_metrics(fn, repeat, x)
+  File "/home/joy/projects/music-controllable-diffusion/models/gmiw_vae/gmiw_vae.py", line 112, in compute_metrics
+    niwae, kl, rec = GMIWVae.detach_torch_tuple(fn(xl))
+  File "/home/joy/projects/music-controllable-diffusion/models/gmiw_vae/gmiw_vae.py", line 121, in <lambda>
+    fn = lambda x: model.negative_iwae_bound(x, iw)
+  File "/home/joy/projects/music-controllable-diffusion/models/gmiw_vae/gmiw_vae.py", line 64, in negative_iwae_bound
+    data = weighted_x.to('cpu').numpy()
+RuntimeError: CUDA error: device-side assert triggered
+CUDA kernel errors might be asynchronously reported at some other API call,so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1.
+Python 3.8.10 (default, Sep 28 2021, 16:10:42)
+Type 'copyright', 'credits' or 'license' for more information
+IPython 7.27.0 -- An enhanced Interactive Python. Type '?' for help.
+PyDev console: using IPython 7.27.0
+Out[1]:
+Traceback (most recent call last):
+  File "/home/joy/.venv/lib/python3.8/site-packages/IPython/core/formatters.py", line 220, in catch_format_error
+    @decorator
+  File "/home/joy/.venv/lib/python3.8/site-packages/IPython/core/formatters.py", line 689, in __call__
+    @catch_format_error
+  File "/home/joy/.venv/lib/python3.8/site-packages/IPython/lib/pretty.py", line 356, in pretty
+    def pretty(self, obj):
+  File "/home/joy/.venv/lib/python3.8/site-packages/IPython/lib/pretty.py", line 697, in _repr_pprint
+    def _repr_pprint(obj, p, cycle):
+  File "/home/joy/.venv/lib/python3.8/site-packages/torch/_tensor.py", line 245, in __repr__
+    def __repr__(self):
+  File "/home/joy/.venv/lib/python3.8/site-packages/torch/_tensor_str.py", line 413, in _str
+    def _str(self):
+  File "/home/joy/.venv/lib/python3.8/site-packages/torch/_tensor_str.py", line 287, in _str_intern
+    def _str_intern(inp):
+  File "/home/joy/.venv/lib/python3.8/site-packages/torch/_tensor_str.py", line 223, in _tensor_str
+    def _tensor_str(self, indent):
+  File "/home/joy/.venv/lib/python3.8/site-packages/torch/_tensor_str.py", line 270, in get_summarized_data
+    def get_summarized_data(self):
+  File "/home/joy/.venv/lib/python3.8/site-packages/torch/_tensor_str.py", line 283, in <listcomp>
+    return torch.stack([get_summarized_data(x) for x in (start + end)])
+  File "/home/joy/.venv/lib/python3.8/site-packages/torch/_tensor_str.py", line 270, in get_summarized_data
+    def get_summarized_data(self):
+  File "/home/joy/.venv/lib/python3.8/site-packages/torch/_tensor_str.py", line 283, in <listcomp>
+    return torch.stack([get_summarized_data(x) for x in (start + end)])
+  File "/home/joy/.venv/lib/python3.8/site-packages/torch/_tensor_str.py", line 270, in get_summarized_data
+    def get_summarized_data(self):
+RuntimeError: CUDA error: device-side assert triggered
+CUDA kernel errors might be asynchronously reported at some other API call,so the stacktrace below might be incorrect.
+
+Out[1]: Out[2]:
+Traceback (most recent call last):
+  File "/home/joy/.venv/lib/python3.8/site-packages/IPython/core/formatters.py", line 220, in catch_format_error
+    @decorator
+  File "/home/joy/.venv/lib/python3.8/site-packages/IPython/core/formatters.py", line 689, in __call__
+    @catch_format_error
+  File "/home/joy/.venv/lib/python3.8/site-packages/IPython/lib/pretty.py", line 356, in pretty
+    def pretty(self, obj):
+  File "/home/joy/.venv/lib/python3.8/site-packages/IPython/lib/pretty.py", line 697, in _repr_pprint
+    def _repr_pprint(obj, p, cycle):
+  File "/home/joy/.venv/lib/python3.8/site-packages/torch/_tensor.py", line 245, in __repr__
+    def __repr__(self):
+  File "/home/joy/.venv/lib/python3.8/site-packages/torch/_tensor_str.py", line 413, in _str
+    def _str(self):
+  File "/home/joy/.venv/lib/python3.8/site-packages/torch/_tensor_str.py", line 287, in _str_intern
+    def _str_intern(inp):
+  File "/home/joy/.venv/lib/python3.8/site-packages/torch/_tensor_str.py", line 223, in _tensor_str
+    def _tensor_str(self, indent):
+  File "/home/joy/.venv/lib/python3.8/site-packages/torch/_tensor_str.py", line 270, in get_summarized_data
+    def get_summarized_data(self):
+  File "/home/joy/.venv/lib/python3.8/site-packages/torch/_tensor_str.py", line 283, in <listcomp>
+    return torch.stack([get_summarized_data(x) for x in (start + end)])
+  File "/home/joy/.venv/lib/python3.8/site-packages/torch/_tensor_str.py", line 270, in get_summarized_data
+    def get_summarized_data(self):
+  File "/home/joy/.venv/lib/python3.8/site-packages/torch/_tensor_str.py", line 283, in <listcomp>
+    return torch.stack([get_summarized_data(x) for x in (start + end)])
+  File "/home/joy/.venv/lib/python3.8/site-packages/torch/_tensor_str.py", line 270, in get_summarized_data
+    def get_summarized_data(self):
+RuntimeError: CUDA error: device-side assert triggered
+CUDA kernel errors might be asynchronously reported at some other API call,so the stacktrace below might be incorrect.
+
+Out[1]: Out[2]: Out[3]: 1
+Out[4]:
+Traceback (most recent call last):
+  File "/home/joy/.venv/lib/python3.8/site-packages/IPython/core/formatters.py", line 220, in catch_format_error
+    @decorator
+  File "/home/joy/.venv/lib/python3.8/site-packages/IPython/core/formatters.py", line 689, in __call__
+    @catch_format_error
+  File "/home/joy/.venv/lib/python3.8/site-packages/IPython/lib/pretty.py", line 356, in pretty
+    def pretty(self, obj):
+  File "/home/joy/.venv/lib/python3.8/site-packages/IPython/lib/pretty.py", line 697, in _repr_pprint
+    def _repr_pprint(obj, p, cycle):
+  File "/home/joy/.venv/lib/python3.8/site-packages/torch/_tensor.py", line 245, in __repr__
+    def __repr__(self):
+  File "/home/joy/.venv/lib/python3.8/site-packages/torch/_tensor_str.py", line 413, in _str
+    def _str(self):
+  File "/home/joy/.venv/lib/python3.8/site-packages/torch/_tensor_str.py", line 287, in _str_intern
+    def _str_intern(inp):
+  File "/home/joy/.venv/lib/python3.8/site-packages/torch/_tensor_str.py", line 223, in _tensor_str
+    def _tensor_str(self, indent):
+  File "/home/joy/.venv/lib/python3.8/site-packages/torch/_tensor_str.py", line 270, in get_summarized_data
+    def get_summarized_data(self):
+  File "/home/joy/.venv/lib/python3.8/site-packages/torch/_tensor_str.py", line 283, in <listcomp>
+    return torch.stack([get_summarized_data(x) for x in (start + end)])
+  File "/home/joy/.venv/lib/python3.8/site-packages/torch/_tensor_str.py", line 270, in get_summarized_data
+    def get_summarized_data(self):
+  File "/home/joy/.venv/lib/python3.8/site-packages/torch/_tensor_str.py", line 283, in <listcomp>
+    return torch.stack([get_summarized_data(x) for x in (start + end)])
+  File "/home/joy/.venv/lib/python3.8/site-packages/torch/_tensor_str.py", line 270, in get_summarized_data
+    def get_summarized_data(self):
+RuntimeError: CUDA error: device-side assert triggered
+CUDA kernel errors might be asynchronously reported at some other API call,so the stacktrace below might be incorrect.
+
+Out[4]: Out[5]:
+Traceback (most recent call last):
+  File "/home/joy/.venv/lib/python3.8/site-packages/IPython/core/formatters.py", line 220, in catch_format_error
+    @decorator
+  File "/home/joy/.venv/lib/python3.8/site-packages/IPython/core/formatters.py", line 689, in __call__
+    @catch_format_error
+  File "/home/joy/.venv/lib/python3.8/site-packages/IPython/lib/pretty.py", line 356, in pretty
+    def pretty(self, obj):
+  File "/home/joy/.venv/lib/python3.8/site-packages/IPython/lib/pretty.py", line 697, in _repr_pprint
+    def _repr_pprint(obj, p, cycle):
+  File "/home/joy/.venv/lib/python3.8/site-packages/torch/_tensor.py", line 245, in __repr__
+    def __repr__(self):
+  File "/home/joy/.venv/lib/python3.8/site-packages/torch/_tensor_str.py", line 413, in _str
+    def _str(self):
+  File "/home/joy/.venv/lib/python3.8/site-packages/torch/_tensor_str.py", line 287, in _str_intern
+    def _str_intern(inp):
+  File "/home/joy/.venv/lib/python3.8/site-packages/torch/_tensor_str.py", line 223, in _tensor_str
+    def _tensor_str(self, indent):
+  File "/home/joy/.venv/lib/python3.8/site-packages/torch/_tensor_str.py", line 270, in get_summarized_data
+    def get_summarized_data(self):
+  File "/home/joy/.venv/lib/python3.8/site-packages/torch/_tensor_str.py", line 283, in <listcomp>
+    return torch.stack([get_summarized_data(x) for x in (start + end)])
+  File "/home/joy/.venv/lib/python3.8/site-packages/torch/_tensor_str.py", line 270, in get_summarized_data
+    def get_summarized_data(self):
+  File "/home/joy/.venv/lib/python3.8/site-packages/torch/_tensor_str.py", line 283, in <listcomp>
+    return torch.stack([get_summarized_data(x) for x in (start + end)])
+  File "/home/joy/.venv/lib/python3.8/site-packages/torch/_tensor_str.py", line 270, in get_summarized_data
+    def get_summarized_data(self):
+RuntimeError: CUDA error: device-side assert triggered
+CUDA kernel errors might be asynchronously reported at some other API call,so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1.
+Exception in thread Thread-4:
+Traceback (most recent call last):
+  File "/usr/lib/python3.8/threading.py", line 932, in _bootstrap_inner
+    self.run()
+  File "/usr/lib/python3.8/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/joy/.venv/lib/python3.8/site-packages/wandb/sdk/wandb_run.py", line 149, in check_network_status
+    status_response = self._interface.communicate_network_status()
+  File "/home/joy/.venv/lib/python3.8/site-packages/wandb/sdk/interface/interface.py", line 120, in communicate_network_status
+    resp = self._communicate_network_status(status)
+  File "/home/joy/.venv/lib/python3.8/site-packages/wandb/sdk/interface/interface_queue.py", line 411, in _communicate_network_status
+    resp = self._communicate(req, local=True)
+  File "/home/joy/.venv/lib/python3.8/site-packages/wandb/sdk/interface/interface_queue.py", line 232, in _communicate
+    return self._communicate_async(rec, local=local).get(timeout=timeout)
+  File "/home/joy/.venv/lib/python3.8/site-packages/wandb/sdk/interface/interface_queue.py", line 237, in _communicate_async
+    raise Exception("The wandb backend process has shutdown")
+Exception: The wandb backend process has shutdown
+Exception in thread Thread-3:
+Traceback (most recent call last):
+  File "/usr/lib/python3.8/threading.py", line 932, in _bootstrap_inner
+    self.run()
+  File "/usr/lib/python3.8/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/joy/.venv/lib/python3.8/site-packages/wandb/sdk/wandb_run.py", line 167, in check_status
+    status_response = self._interface.communicate_stop_status()
+  File "/home/joy/.venv/lib/python3.8/site-packages/wandb/sdk/interface/interface.py", line 109, in comm
