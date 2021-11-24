@@ -59,7 +59,7 @@ class MidiDataset(Dataset):
     def __init__(self, data_dir, transform=None):
         self.data_dir = data_dir
         self.transform = transform
-        self.data_files = get_files_in_path(data_dir, matching_pattern=f"*.npy")[0:10000]
+        self.data_files = get_files_in_path(data_dir, matching_pattern=f"*.npy")
         self.tensors = self.generate_tensors()
 
     def generate_tensors(self):
@@ -69,7 +69,12 @@ class MidiDataset(Dataset):
         for data_file in tqdm.tqdm(self.data_files):
             if not os.path.exists(data_file):
                 continue
-            data = np.load(data_file)
+            try:
+                data = np.load(data_file)
+            except Exception as e:
+                print(f"Unable to load {data_file} -- {e}")
+                continue
+
             if self.transform:
                 data = self.transform(data)
 
@@ -97,19 +102,24 @@ def process(files):
     count = 0
     partition = 0
     pid = os.getpid()
-    for file in tqdm.tqdm(files):
+    existing_files = get_files_in_path(output_dir, matching_pattern="*.npy")
+    existing_files = [os.path.basename(x) for x in existing_files]
+    existing_files = set(existing_files)
+    print(f"Existing files = {len(existing_files)}")
+    for file in files:
         try:
             partition_dir = os.path.join(output_dir, f"{partition}-{pid}")
             os.makedirs(partition_dir, exist_ok=True)
             output_file = os.path.join(partition_dir, f"{os.path.basename(file)}.npy")
-            if os.path.exists(output_file):
+            if os.path.basename(output_file) in existing_files:
+                print(f"Skipping {file}")
                 continue
+            print(f"Processing {file}")
             encoding = get_encoding(file)
             np.save(output_file, encoding)
             count = count + 1
             if count % 2000 == 0:
                 partition = partition + 1
-            print(f"Saved to {output_file}")
         except Exception as _e:
             output_file = f"{file}.mid"
             try:
@@ -128,10 +138,13 @@ def generate_numpy_files():
     output_dir = os.path.expanduser("~/midi_features")
     os.makedirs(output_dir, exist_ok=True)
     files = get_files_in_path(_data_dir, matching_pattern="*.mid")
-    num_proc = mp.cpu_count() - 1
-    parts = [files[i:i + num_proc] for i in range(0, len(files), num_proc)]
-    p = mp.Pool(num_proc)
-    p.map(process, parts)
+    num_proc = 1
+    if num_proc > 1:
+        parts = [files[i:i + num_proc] for i in range(0, len(files), num_proc)]
+        p = mp.Pool(num_proc)
+        p.map(process, parts)
+    else:
+        process(files)
 
 
 def find_min_max():

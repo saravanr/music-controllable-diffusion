@@ -1,0 +1,24 @@
+{
+    "os": "Linux-5.11.0-40-generic-x86_64-with-glibc2.29",
+    "python": "3.8.10",
+    "heartbeatAt": "2021-11-23T17:02:07.589366",
+    "startedAt": "2021-11-23T17:02:03.911000",
+    "docker": null,
+    "gpu": "NVIDIA GeForce RTX 3090",
+    "gpu_count": 1,
+    "cpu_count": 16,
+    "cuda": null,
+    "args": [],
+    "state": "running",
+    "program": "/home/joy/projects/music-controllable-diffusion/models/gmiw_vae/gmiw_vae.py",
+    "codePath": "models/gmiw_vae/gmiw_vae.py",
+    "git": {
+        "remote": "git@github.com:saravanr/music-controllable-diffusion.git",
+        "commit": "b6ca28fe6f295c7e0cfa84c47eed0e172ad4e6e5"
+    },
+    "email": "saravanr@icloud.com",
+    "root": "/home/joy/projects/music-controllable-diffusion",
+    "host": "lapis",
+    "username": "joy",
+    "executable": "/home/joy/.venv/bin/python"
+}
