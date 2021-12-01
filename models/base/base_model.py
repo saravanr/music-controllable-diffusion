@@ -33,19 +33,25 @@ class BaseModel(torch.nn.Module):
         self._output_dir = os.path.join(output_dir, now_str)
         os.makedirs(self._output_dir)
         self._lr = lr
-        if use_mnist_dms:
-            self._dms = MNISTDataModule(data_dir,
-                                        batch_size=batch_size)
-        else:
-            self._dms = MidiDataModule(data_dir,
-                                       batch_size=batch_size)
+        self._use_mnist_dms = use_mnist_dms
+        self._dms = None
         self._model_prefix = "base-model"
         self._num_gpus = num_gpus
         self._sample_output_step = sample_output_step
         self._save_checkpoint_every = save_checkpoint_every
         self._emit_tensorboard_scalars = emit_tensorboard_scalars
-        self.batch_size = batch_size
+        self._batch_size = batch_size
+
+    def setup(self):
+        if self._use_mnist_dms:
+            self._dms = MNISTDataModule(self._data_dir,
+                                        batch_size=self._batch_size)
+        else:
+            self._dms = MidiDataModule(self._data_dir,
+                                       batch_size=self._batch_size)
+
         self._dms.setup()
+
 
     @staticmethod
     def sample(mean, var):
@@ -61,12 +67,6 @@ class BaseModel(torch.nn.Module):
         std = torch.exp(0.5 * log_var)
         eps = torch.randn_like(std)
         return mean + eps * std
-
-    def from_pretrained(self, checkpoint_path):
-        print(f"Loading from {checkpoint_path}...")
-        model = self.__class__()
-        model.load_state_dict(torch.load(checkpoint_path))
-        return model
 
     @staticmethod
     def _kl_simple(mu, log_var):
@@ -109,6 +109,7 @@ class BaseModel(torch.nn.Module):
 
     def save(self, epoch):
         model_save_path = os.path.join(self._output_dir, f"{self._model_prefix}-epoch-{epoch}.checkpoint")
+        print(f"Saving model to --> {model_save_path}")
         torch.save(self.state_dict(), model_save_path)
 
     def test(self):

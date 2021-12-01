@@ -60,18 +60,13 @@ class Encoder(nn.Module):
         input_dim = (seq_len * seq_width) // scale
 
         self._net = nn.Sequential(
-            nn.LSTM(input_size=seq_len, hidden_size=seq_len, num_layers=4, batch_first=True),
+            nn.GRU(input_size=seq_len, hidden_size=seq_len, num_layers=64, batch_first=True, bidirectional=True),
             ExtractLSTMOutput(),
             nn.Flatten(start_dim=1),
-            nn.Linear(input_dim, input_dim // 2),
+            nn.Linear(input_dim * 2, input_dim // 2),
             nn.ReLU(),
             nn.Dropout(0.2),
-            nn.Linear(input_dim // 2, input_dim // 4),
-            nn.Tanh(),
-            nn.Dropout(0.2),
-            nn.Linear(input_dim // 4, input_dim // 4),
-            nn.ReLU(),
-            nn.Linear(input_dim // 4, input_dim // 8)
+            nn.Linear(input_dim // 2, input_dim // 8),
         )
 
         self._fc_mean = nn.Sequential(
@@ -112,16 +107,9 @@ class Decoder(nn.Module):
 
         output_dim = (seq_len * seq_width) // scale
         self._net = nn.Sequential(
-            nn.Linear(z_dim, output_dim // 4),
-            nn.ReLU(),
-            nn.Linear(output_dim // 4, output_dim // 2),
-            nn.Tanh(),
-            nn.Linear(output_dim // 2, output_dim // 4),
-            nn.ReLU(),
-            nn.Dropout(0.2),
-            nn.Linear(output_dim // 4, output_dim * scale),
+            nn.Linear(z_dim, output_dim * scale),
             Reshape1DTo2D((seq_width, seq_len)),
-            nn.LSTM(input_size=seq_len, hidden_size=seq_len, num_layers=4, batch_first=True),
+            nn.GRU(input_size=seq_len, hidden_size=seq_len, num_layers=2, batch_first=True),
             ExtractLSTMOutput(),
             nn.Tanh()
         )
@@ -150,6 +138,13 @@ class SimpleVae(BaseModel):
         self._model_prefix = "SimpleVaeMidi"
         self._z_dim = z_dim
 
+    @staticmethod
+    def from_pretrained(checkpoint_path, z_dim, input_shape):
+        print(f"Loading from {checkpoint_path}...")
+        _model = SimpleVae(z_dim=z_dim, input_shape=input_shape)
+        _model.load_state_dict(torch.load(checkpoint_path))
+        return _model
+
     def forward(self, x):
         mean, log_var = self._encoder(x)
         z = SimpleVae.reparameterize(mean, log_var)
@@ -157,8 +152,10 @@ class SimpleVae(BaseModel):
         return z, x_hat, mean, log_var
 
     def loss_function(self, x_hat, x, mu, q_log_var):
-        # recon_loss = func.binary_cross_entropy(x_hat, x.view(-1, 784), reduction='sum')
-        recon_loss = func.mse_loss(x_hat, x, reduction='sum')
+        if self._use_mnist_dms:
+            recon_loss = func.binary_cross_entropy(x_hat, x.view(-1, 784), reduction='sum')
+        else:
+            recon_loss = func.mse_loss(x_hat, x, reduction='sum')
         kl = self._kl_simple(mu, q_log_var)
         loss = recon_loss + self.alpha * kl
         return loss
@@ -187,8 +184,7 @@ class SimpleVae(BaseModel):
         try:
             with torch.no_grad():
                 device = get_device()
-                if False:
-                    # TODO
+                if self._use_mnist_dms:
                     rand_z = torch.randn(16, self._decoder.z_dim).to(device)
                     rand_z.to(device)
                     output = self._decoder(rand_z)
@@ -226,8 +222,8 @@ if __name__ == "__main__":
         )
     else:
         model = SimpleVae(
-            alpha=1000,
-            z_dim=256,
+            alpha=1,
+            z_dim=2048,
             input_shape=(MAX_MIDI_ENCODING_ROWS, MIDI_ENCODING_WIDTH),
             use_mnist_dms=False,
             sample_output_step=10,
@@ -235,7 +231,7 @@ if __name__ == "__main__":
         )
     print(f"Training --> {model}")
 
-    max_epochs = 10000
+    max_epochs = 100
     wandb.config = {
         "learning_rate": model.lr,
         "epochs": max_epochs,
@@ -244,9 +240,12 @@ if __name__ == "__main__":
     }
 
     _optimizer = model.configure_optimizers()
+    model.setup()
     for epoch in range(1, max_epochs + 1):
+        model.train()
         model.fit(epoch, _optimizer)
-        if epoch % 100 == 0:
-            model.test()
+        if epoch % 10 == 0:
+            model.eval()
             model.sample_output(epoch)
+            model.sample_output(1000+epoch)
             model.save(epoch)

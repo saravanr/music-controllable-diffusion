@@ -1,0 +1,1107 @@
+
+Loading from /home/joy/model-archive-note-seq/01-Dec-21-1638386183/SimpleVaeMidi-epoch-10.checkpoint...
+tensor([0.9959, 0.9495, 0.2695,  ..., 0.6298, 0.4218, 0.0622])
+[[-0.18900666 -0.10687474 -0.19457196 -0.13827021 -0.18796295 -0.07720247]
+ [-0.1148174  -0.10561305 -0.14733826 -0.13585436 -0.15543467 -0.1568508 ]
+ [-0.16493924 -0.16516396 -0.1966643  -0.13086933 -0.16430944 -0.15482314]
+ [-0.13594796 -0.13843922 -0.1525639  -0.14258878 -0.15683337 -0.12399797]
+ [-0.08618597 -0.17664659 -0.15750101 -0.16454256 -0.15413035 -0.14464937]
+ [-0.14395927 -0.13634372 -0.20140234 -0.17025629 -0.13849422 -0.16259386]
+ [-0.16556635 -0.12710765 -0.14472109 -0.14416265 -0.12215659 -0.15183955]
+ [-0.2111523  -0.10642949 -0.1830392  -0.09502877 -0.22748943 -0.17680803]
+ [-0.17764097 -0.14512788 -0.12590627 -0.12967673 -0.17968535 -0.1293139 ]
+ [-0.17007498 -0.15647632 -0.157934   -0.11428124 -0.23331574 -0.14217697]
+ [-0.12925628 -0.18443896 -0.23207255 -0.119764   -0.15198968 -0.13236827]
+ [-0.17888106 -0.15732327 -0.18711904 -0.14703876 -0.20665495 -0.18772578]
+ [-0.18310024 -0.15124927 -0.18836373 -0.18244405 -0.19804424 -0.17586178]
+ [-0.13174333 -0.12083073 -0.21307844 -0.08905888 -0.21572237 -0.13998428]
+ [-0.15383686 -0.13604656 -0.18768378 -0.12272272 -0.18474218 -0.11893644]
+ [-0.14616886 -0.11183279 -0.15847333 -0.15820104 -0.19248737 -0.14053482]
+ [-0.16983603 -0.11946897 -0.15454675 -0.13709772 -0.34175014 -0.24204509]
+ [-0.33638346 -0.2984028  -0.34407052 -0.19276722 -0.3113347  -0.23813073]
+ [-0.3081993  -0.2719604  -0.31969413 -0.29513738 -0.33998266 -0.29929876]
+ [-0.34728613 -0.25832933 -0.32331714 -0.32984406 -0.30047727 -0.2644819 ]
+ [-0.30187824 -0.25078365 -0.3663446  -0.25954393 -0.27746585 -0.29954582]
+ [-0.3075552  -0.30625147 -0.31286672 -0.29073286 -0.2795889  -0.24453917]
+ [-0.38316977 -0.27878922 -0.32982066 -0.29557467 -0.35781398 -0.2584862 ]
+ [-0.30640256 -0.25038028 -0.2678992  -0.31213865 -0.3659972  -0.23027913]
+ [-0.33563885 -0.24527682 -0.40748602 -0.32959655 -0.3467586  -0.28903037]
+ [-0.3204815  -0.2511654  -0.37513876 -0.24897468 -0.3337915  -0.27233264]
+ [-0.31189013 -0.2428263  -0.42256403 -0.27904624 -0.3261877  -0.31061366]
+ [-0.40176314 -0.24899882 -0.3238692  -0.24469641 -0.38198078 -0.27617255]
+ [-0.31077993 -0.33690616 -0.3889813  -0.31701767 -0.34942842 -0.29458714]
+ [-0.33601522 -0.33858916 -0.3782961  -0.27511033 -0.25737953 -0.23937877]
+ [-0.38569897 -0.24231717 -0.3792726  -0.2760298  -0.30502677 -0.256638  ]
+ [-0.38424402 -0.2510713  -0.36092165 -0.21963418 -0.3140427  -0.2506479 ]
+ [-0.2970997  -0.2852265  -0.38534597 -0.25362402 -0.31338307 -0.2423318 ]
+ [-0.31489196 -0.27282518 -0.4090075  -0.3128315  -0.38685074 -0.35664412]
+ [-0.3988913  -0.25918624 -0.41547078 -0.30720833 -0.37815085 -0.3419784 ]
+ [-0.40820596 -0.33978733 -0.41376394 -0.344644   -0.37688306 -0.32195398]
+ [-0.38542446 -0.3692133  -0.3874776  -0.31487295 -0.3746959  -0.2921338 ]
+ [-0.43412107 -0.29951945 -0.41113445 -0.32738265 -0.3704527  -0.3324497 ]
+ [-0.38468102 -0.33754334 -0.36089432 -0.29307538 -0.4264354  -0.29998752]
+ [-0.41548476 -0.3157223  -0.44346553 -0.3320234  -0.37537292 -0.2889586 ]
+ [-0.34698126 -0.35685828 -0.40447715 -0.3000419  -0.39584127 -0.3245916 ]
+ [-0.45253006 -0.35840344 -0.4240582  -0.35606033 -0.39984834 -0.30348167]
+ [-0.42595723 -0.29987183 -0.4112625  -0.31774536 -0.36774614 -0.31471506]
+ [-0.4398197  -0.3236675  -0.41665578 -0.34905416 -0.40966657 -0.30197218]
+ [-0.39161098 -0.27906004 -0.44523624 -0.3117242  -0.34542683 -0.39617917]
+ [-0.4323561  -0.3293979  -0.42275155 -0.3486695  -0.39163303 -0.34343863]
+ [-0.4097318  -0.29157543 -0.3353183  -0.3144265  -0.42026627 -0.3195409 ]
+ [-0.41733915 -0.33778575 -0.3751986  -0.30787858 -0.43459028 -0.30063543]
+ [-0.4268395  -0.2723991  -0.3913968  -0.3199473  -0.35633466 -0.32278642]
+ [-0.4323755  -0.2946073  -0.38044268 -0.30978575 -0.37143    -0.31935024]
+ [-0.41385186 -0.32773533 -0.37235394 -0.3193364  -0.38582078 -0.27925688]
+ [-0.42253697 -0.3265809  -0.37186933 -0.34144711 -0.41785935 -0.2963106 ]
+ [-0.41583356 -0.33124918 -0.32852072 -0.32516828 -0.38590243 -0.31279078]
+ [-0.40456054 -0.3150025  -0.38640988 -0.29813465 -0.39376408 -0.27268583]
+ [-0.4528662  -0.31657127 -0.3684696  -0.28422403 -0.38289958 -0.2992103 ]
+ [-0.39813834 -0.30858305 -0.3731827  -0.27596045 -0.40827784 -0.27099118]
+ [-0.4357154  -0.3526054  -0.38030127 -0.28712797 -0.365178   -0.3101805 ]
+ [-0.3780417  -0.31298086 -0.3815101  -0.32759205 -0.41053632 -0.30202326]
+ [-0.42989606 -0.35855013 -0.37731034 -0.30317986 -0.37717587 -0.28906864]
+ [-0.4179878  -0.31833366 -0.35635406 -0.32809553 -0.369007   -0.29278627]
+ [-0.42152396 -0.33330733 -0.35500365 -0.2896727  -0.37686875 -0.2676384 ]
+ [-0.40839472 -0.29975617 -0.3316549  -0.3479665  -0.3881695  -0.2762089 ]
+ [-0.4292765  -0.33861023 -0.38166708 -0.29666656 -0.36082318 -0.2698274 ]
+ [-0.38499156 -0.34444094 -0.36706617 -0.29674873 -0.38322067 -0.322992  ]
+ [-0.38675675 -0.3059191  -0.38193733 -0.28588519 -0.4112098  -0.28867102]
+ [-0.39858764 -0.3266236  -0.35904014 -0.28893766 -0.38599333 -0.28093436]
+ [-0.39035815 -0.33280167 -0.34928438 -0.30016452 -0.35914454 -0.29789138]
+ [-0.3005274  -0.22370979 -0.33400568 -0.25412264 -0.36467573 -0.29817185]
+ [-0.2977828  -0.27648166 -0.3527671  -0.19535978 -0.3712321  -0.27739093]
+ [-0.2484274  -0.2815862  -0.3394263  -0.21933037 -0.3652418  -0.28009957]
+ [-0.3553722  -0.2849101  -0.28805345 -0.21322447 -0.42229074 -0.29247054]
+ [-0.32037947 -0.19800717 -0.31823885 -0.2068571  -0.38656044 -0.30099198]
+ [-0.26949555 -0.22393426 -0.34492862 -0.20460472 -0.34833172 -0.31465554]
+ [-0.34039637 -0.25245923 -0.3394339  -0.21816976 -0.32053933 -0.28215382]
+ [-0.31187087 -0.26677185 -0.3117545  -0.20256951 -0.38318613 -0.30602628]
+ [-0.30643556 -0.27102906 -0.2728034  -0.22243953 -0.37386978 -0.2885764 ]
+ [-0.31688792 -0.27947137 -0.2695089  -0.21924615 -0.3701361  -0.28563935]
+ [-0.28384626 -0.22036834 -0.3069351  -0.24182697 -0.3134243  -0.2626128 ]
+ [-0.29407862 -0.22953649 -0.29331848 -0.19968292 -0.3821894  -0.29023916]
+ [-0.30700347 -0.24922737 -0.28892863 -0.2374252  -0.4039341  -0.32886633]
+ [-0.26718238 -0.20470771 -0.3143881  -0.24467361 -0.3546494  -0.2707811 ]
+ [-0.27155596 -0.24050748 -0.34022835 -0.26925603 -0.358799   -0.28415385]
+ [-0.31790197 -0.2193623  -0.2975863  -0.23201254 -0.35752872 -0.31568164]
+ [-0.28691632 -0.24528004 -0.2473315  -0.22934203 -0.18376885 -0.11165706]
+ [-0.2670822  -0.18420576 -0.26553905 -0.2187078  -0.17421219 -0.1652622 ]
+ [-0.22890392 -0.08233158 -0.29262507 -0.19538371 -0.1696469  -0.21117023]
+ [-0.2514233  -0.12600705 -0.27821943 -0.21727438 -0.29346138 -0.2528627 ]
+ [-0.15315795 -0.14271174 -0.33269212 -0.2584347  -0.23876573 -0.10049549]
+ [-0.20394495 -0.09439655 -0.31838256 -0.26974207 -0.15269883 -0.15361692]
+ [-0.2493631  -0.13718024 -0.20119408 -0.21751532 -0.26628298 -0.18589084]
+ [-0.28133342 -0.12188146 -0.25193548 -0.22193135 -0.21158203 -0.16013402]
+ [-0.18486454 -0.094439   -0.30045873 -0.2115795  -0.22100237 -0.21964014]
+ [-0.14439164 -0.11880559 -0.29144785 -0.23622863 -0.26691326 -0.1715883 ]
+ [-0.17951049 -0.13291982 -0.27639008 -0.22290069 -0.20978911 -0.10855838]
+ [-0.20330983 -0.21474367 -0.19474037 -0.20834008 -0.24590464 -0.08200913]
+ [-0.17804429 -0.12430526 -0.28785053 -0.21225438 -0.1686266  -0.19939782]
+ [-0.21635105 -0.2086786  -0.3711529  -0.2681977  -0.1556739  -0.08760285]
+ [-0.23225677 -0.13207474 -0.28796282 -0.22066784 -0.14527051 -0.19205767]
+ [-0.23666862 -0.21152611 -0.28628868 -0.20329016 -0.23901542 -0.15102823]
+ [-0.20180607 -0.16790922 -0.29058984 -0.2589243  -0.21024352 -0.17105208]]
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+tensor([0.4005, 0.1400, 0.1462,  ..., 0.7722, 0.9015, 0.4244])
+[[-0.18900666 -0.10687474 -0.19457196 -0.13827021 -0.18796296 -0.07720248]
+ [-0.1148174  -0.10561305 -0.14733826 -0.13585436 -0.15543468 -0.15685079]
+ [-0.16493924 -0.16516395 -0.19666432 -0.13086933 -0.16430946 -0.15482314]
+ [-0.13594796 -0.13843924 -0.1525639  -0.14258878 -0.15683337 -0.12399799]
+ [-0.08618598 -0.1766466  -0.15750101 -0.16454257 -0.15413034 -0.14464937]
+ [-0.14395927 -0.13634372 -0.20140237 -0.1702563  -0.13849422 -0.16259386]
+ [-0.16556635 -0.12710765 -0.14472109 -0.14416265 -0.12215659 -0.15183957]
+ [-0.21115227 -0.10642949 -0.1830392  -0.09502877 -0.22748943 -0.17680801]
+ [-0.17764096 -0.14512788 -0.12590627 -0.12967673 -0.17968535 -0.12931389]
+ [-0.17007498 -0.15647632 -0.157934   -0.11428124 -0.23331577 -0.14217699]
+ [-0.12925628 -0.18443896 -0.23207255 -0.119764   -0.15198968 -0.13236827]
+ [-0.17888108 -0.15732327 -0.18711904 -0.14703876 -0.20665495 -0.18772578]
+ [-0.18310022 -0.15124927 -0.18836373 -0.18244405 -0.19804423 -0.17586178]
+ [-0.13174336 -0.12083071 -0.21307844 -0.08905889 -0.21572237 -0.13998426]
+ [-0.15383686 -0.13604656 -0.18768378 -0.12272271 -0.18474218 -0.11893646]
+ [-0.14616886 -0.1118328  -0.15847334 -0.15820104 -0.19248737 -0.14053482]
+ [-0.16983603 -0.11946897 -0.15454675 -0.13709769 -0.34175014 -0.2420451 ]
+ [-0.33638343 -0.2984028  -0.34407052 -0.19276722 -0.3113347  -0.23813072]
+ [-0.30819932 -0.2719604  -0.31969413 -0.29513738 -0.33998266 -0.29929876]
+ [-0.34728616 -0.25832933 -0.32331714 -0.32984412 -0.30047727 -0.2644819 ]
+ [-0.30187824 -0.25078365 -0.3663446  -0.25954393 -0.2774658  -0.29954582]
+ [-0.30755523 -0.30625147 -0.31286672 -0.29073286 -0.2795889  -0.24453911]
+ [-0.3831698  -0.27878922 -0.32982066 -0.29557464 -0.35781404 -0.2584862 ]
+ [-0.30640262 -0.25038028 -0.2678992  -0.31213865 -0.3659972  -0.23027913]
+ [-0.33563882 -0.24527682 -0.40748602 -0.32959655 -0.3467586  -0.28903037]
+ [-0.32048148 -0.2511654  -0.37513873 -0.24897465 -0.3337915  -0.27233267]
+ [-0.31189013 -0.24282633 -0.422564   -0.27904627 -0.3261877  -0.31061372]
+ [-0.40176308 -0.24899882 -0.3238692  -0.2446964  -0.38198075 -0.27617255]
+ [-0.31077996 -0.3369062  -0.3889813  -0.3170177  -0.34942842 -0.29458714]
+ [-0.33601522 -0.3385891  -0.3782961  -0.2751103  -0.25737953 -0.23937874]
+ [-0.38569894 -0.24231714 -0.3792726  -0.27602977 -0.30502677 -0.256638  ]
+ [-0.38424402 -0.2510713  -0.36092165 -0.21963418 -0.3140427  -0.25064793]
+ [-0.29709968 -0.2852265  -0.38534594 -0.25362402 -0.31338307 -0.24233182]
+ [-0.314892   -0.27282518 -0.40900746 -0.3128315  -0.3868507  -0.35664412]
+ [-0.39889127 -0.25918624 -0.4154708  -0.30720833 -0.37815088 -0.3419784 ]
+ [-0.408206   -0.33978733 -0.41376394 -0.344644   -0.37688306 -0.32195395]
+ [-0.38542446 -0.3692133  -0.38747758 -0.31487295 -0.37469593 -0.2921338 ]
+ [-0.43412107 -0.29951945 -0.41113445 -0.32738265 -0.3704527  -0.3324497 ]
+ [-0.38468102 -0.33754334 -0.36089432 -0.29307535 -0.4264354  -0.2999875 ]
+ [-0.41548473 -0.3157223  -0.44346556 -0.3320234  -0.37537295 -0.2889586 ]
+ [-0.34698126 -0.35685828 -0.40447715 -0.30004194 -0.39584133 -0.32459158]
+ [-0.45253006 -0.35840344 -0.4240582  -0.35606033 -0.39984834 -0.30348164]
+ [-0.4259572  -0.29987183 -0.4112625  -0.31774536 -0.36774614 -0.3147151 ]
+ [-0.4398197  -0.3236675  -0.41665578 -0.34905422 -0.4096666  -0.30197218]
+ [-0.39161095 -0.27906    -0.4452362  -0.31172416 -0.3454268  -0.3961792 ]
+ [-0.4323561  -0.3293979  -0.42275155 -0.3486695  -0.39163303 -0.3434386 ]
+ [-0.40973178 -0.29157543 -0.33531833 -0.31442648 -0.42026624 -0.31954083]
+ [-0.41733915 -0.33778575 -0.37519863 -0.30787858 -0.43459028 -0.30063546]
+ [-0.42683947 -0.2723991  -0.39139682 -0.31994733 -0.35633466 -0.32278645]
+ [-0.43237546 -0.2946073  -0.38044268 -0.30978578 -0.37143004 -0.31935024]
+ [-0.41385186 -0.32773533 -0.3723539  -0.3193364  -0.38582078 -0.27925688]
+ [-0.422537   -0.3265809  -0.37186936 -0.34144711 -0.41785938 -0.2963106 ]
+ [-0.41583356 -0.3312492  -0.32852072 -0.32516825 -0.3859024  -0.31279084]
+ [-0.40456054 -0.3150025  -0.38640988 -0.29813462 -0.39376408 -0.27268583]
+ [-0.45286617 -0.31657127 -0.3684696  -0.2842241  -0.38289958 -0.2992103 ]
+ [-0.39813837 -0.30858302 -0.3731827  -0.27596042 -0.40827784 -0.2709912 ]
+ [-0.43571544 -0.35260543 -0.3803013  -0.28712797 -0.365178   -0.3101805 ]
+ [-0.3780417  -0.31298086 -0.38151014 -0.32759205 -0.4105363  -0.3020233 ]
+ [-0.42989606 -0.35855013 -0.37731034 -0.30317983 -0.37717587 -0.2890686 ]
+ [-0.41798782 -0.31833366 -0.35635406 -0.32809556 -0.36900696 -0.29278624]
+ [-0.42152396 -0.33330733 -0.35500368 -0.28967267 -0.37686875 -0.2676384 ]
+ [-0.40839472 -0.29975617 -0.33165488 -0.34796652 -0.3881695  -0.27620894]
+ [-0.4292765  -0.33861023 -0.38166708 -0.29666653 -0.36082315 -0.2698274 ]
+ [-0.38499156 -0.34444094 -0.3670662  -0.2967487  -0.38322064 -0.322992  ]
+ [-0.38675675 -0.30591914 -0.38193738 -0.28588519 -0.4112098  -0.28867105]
+ [-0.39858764 -0.3266236  -0.35904014 -0.2889377  -0.3859933  -0.28093436]
+ [-0.39035815 -0.3328017  -0.34928435 -0.30016452 -0.35914454 -0.29789135]
+ [-0.3005274  -0.2237098  -0.33400568 -0.25412264 -0.36467573 -0.29817185]
+ [-0.2977828  -0.27648163 -0.35276714 -0.1953598  -0.3712321  -0.27739093]
+ [-0.2484274  -0.2815862  -0.3394263  -0.21933039 -0.36524183 -0.2800996 ]
+ [-0.3553722  -0.28491005 -0.28805345 -0.2132245  -0.42229074 -0.29247054]
+ [-0.32037947 -0.1980072  -0.31823885 -0.20685709 -0.38656044 -0.30099195]
+ [-0.26949555 -0.22393426 -0.34492862 -0.20460473 -0.34833175 -0.31465557]
+ [-0.34039637 -0.25245923 -0.33943388 -0.21816976 -0.32053933 -0.28215382]
+ [-0.31187087 -0.26677182 -0.3117545  -0.20256951 -0.38318616 -0.30602625]
+ [-0.30643559 -0.27102906 -0.27280337 -0.22243951 -0.37386978 -0.2885764 ]
+ [-0.31688797 -0.27947137 -0.26950893 -0.21924615 -0.37013614 -0.28563935]
+ [-0.28384623 -0.22036833 -0.3069351  -0.24182692 -0.3134243  -0.26261276]
+ [-0.2940786  -0.22953649 -0.2933185  -0.19968294 -0.3821894  -0.29023916]
+ [-0.30700347 -0.24922737 -0.28892863 -0.23742521 -0.4039341  -0.32886636]
+ [-0.26718238 -0.20470771 -0.31438807 -0.2446736  -0.3546494  -0.27078113]
+ [-0.271556   -0.2405075  -0.34022835 -0.26925606 -0.358799   -0.28415385]
+ [-0.31790197 -0.21936233 -0.29758626 -0.23201254 -0.35752872 -0.31568164]
+ [-0.2869163  -0.24528007 -0.24733147 -0.229342   -0.18376884 -0.11165706]
+ [-0.2670822  -0.18420576 -0.26553908 -0.21870781 -0.17421219 -0.16526218]
+ [-0.22890393 -0.0823316  -0.29262507 -0.19538371 -0.16964692 -0.21117023]
+ [-0.25142327 -0.12600704 -0.27821943 -0.2172744  -0.29346138 -0.25286263]
+ [-0.15315801 -0.14271176 -0.33269212 -0.2584347  -0.23876575 -0.10049552]
+ [-0.20394497 -0.09439654 -0.31838256 -0.26974204 -0.1526988  -0.15361694]
+ [-0.2493631  -0.13718024 -0.20119412 -0.21751533 -0.26628298 -0.18589085]
+ [-0.28133342 -0.12188149 -0.25193545 -0.22193138 -0.21158206 -0.16013399]
+ [-0.18486452 -0.094439   -0.30045876 -0.21157946 -0.2210024  -0.21964014]
+ [-0.1443916  -0.11880559 -0.29144788 -0.23622864 -0.26691332 -0.17158832]
+ [-0.17951047 -0.13291982 -0.2763901  -0.22290072 -0.20978913 -0.10855838]
+ [-0.20330983 -0.21474366 -0.19474036 -0.2083401  -0.24590464 -0.08200914]
+ [-0.17804432 -0.12430526 -0.28785053 -0.21225439 -0.1686266  -0.19939782]
+ [-0.21635103 -0.20867859 -0.3711529  -0.26819772 -0.15567394 -0.08760285]
+ [-0.23225677 -0.13207471 -0.28796285 -0.22066787 -0.14527053 -0.19205767]
+ [-0.23666863 -0.21152613 -0.28628868 -0.20329016 -0.23901543 -0.15102826]
+ [-0.20180607 -0.1679092  -0.29058987 -0.25892434 -0.2102435  -0.17105213]]
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+tensor([0.1953, 0.4283, 0.3790,  ..., 0.0546, 0.9886, 0.1085])
+[[-0.18900667 -0.10687473 -0.19457196 -0.13827021 -0.18796296 -0.07720248]
+ [-0.11481742 -0.10561305 -0.14733826 -0.13585436 -0.15543468 -0.1568508 ]
+ [-0.16493924 -0.16516398 -0.1966643  -0.13086933 -0.16430947 -0.15482315]
+ [-0.13594799 -0.13843924 -0.1525639  -0.14258878 -0.15683337 -0.12399797]
+ [-0.08618598 -0.1766466  -0.15750101 -0.16454257 -0.15413034 -0.14464936]
+ [-0.14395927 -0.13634369 -0.20140237 -0.1702563  -0.13849422 -0.16259386]
+ [-0.16556635 -0.12710764 -0.14472109 -0.14416265 -0.12215659 -0.15183957]
+ [-0.21115227 -0.10642949 -0.1830392  -0.09502877 -0.22748943 -0.17680801]
+ [-0.17764094 -0.14512788 -0.12590629 -0.12967673 -0.17968535 -0.1293139 ]
+ [-0.17007498 -0.15647632 -0.15793402 -0.11428124 -0.23331578 -0.14217699]
+ [-0.12925628 -0.18443896 -0.23207255 -0.119764   -0.15198968 -0.13236827]
+ [-0.17888106 -0.15732327 -0.18711904 -0.14703874 -0.20665495 -0.18772578]
+ [-0.18310025 -0.15124926 -0.18836373 -0.18244405 -0.19804423 -0.17586178]
+ [-0.13174333 -0.12083071 -0.21307844 -0.08905888 -0.21572237 -0.13998431]
+ [-0.15383688 -0.13604656 -0.18768378 -0.12272271 -0.18474218 -0.11893644]
+ [-0.14616886 -0.1118328  -0.15847333 -0.15820102 -0.19248737 -0.14053485]
+ [-0.16983604 -0.11946897 -0.15454678 -0.13709769 -0.34175014 -0.2420451 ]
+ [-0.33638346 -0.29840276 -0.34407052 -0.19276722 -0.3113347  -0.23813072]
+ [-0.30819932 -0.27196035 -0.31969413 -0.29513738 -0.33998266 -0.2992988 ]
+ [-0.34728613 -0.25832933 -0.32331714 -0.32984412 -0.30047727 -0.2644819 ]
+ [-0.30187824 -0.25078368 -0.3663446  -0.2595439  -0.2774658  -0.29954582]
+ [-0.30755523 -0.30625147 -0.31286672 -0.2907328  -0.2795889  -0.24453913]
+ [-0.38316977 -0.27878922 -0.32982066 -0.29557464 -0.35781404 -0.2584862 ]
+ [-0.30640262 -0.25038022 -0.2678992  -0.31213865 -0.3659972  -0.2302791 ]
+ [-0.33563885 -0.24527682 -0.40748602 -0.32959655 -0.3467586  -0.28903037]
+ [-0.32048154 -0.25116536 -0.37513873 -0.24897468 -0.3337915  -0.27233264]
+ [-0.31189016 -0.24282633 -0.422564   -0.2790463  -0.3261877  -0.31061372]
+ [-0.40176308 -0.24899882 -0.3238692  -0.2446964  -0.38198072 -0.27617255]
+ [-0.31077996 -0.33690616 -0.3889813  -0.31701767 -0.34942842 -0.2945871 ]
+ [-0.33601522 -0.3385891  -0.37829614 -0.27511033 -0.25737953 -0.23937874]
+ [-0.38569897 -0.24231714 -0.3792726  -0.2760298  -0.3050268  -0.256638  ]
+ [-0.384244   -0.25107127 -0.36092165 -0.21963418 -0.3140427  -0.25064793]
+ [-0.29709968 -0.2852265  -0.38534597 -0.25362405 -0.31338307 -0.24233179]
+ [-0.314892   -0.27282515 -0.40900746 -0.31283146 -0.3868507  -0.3566441 ]
+ [-0.39889127 -0.25918624 -0.4154708  -0.3072084  -0.37815088 -0.34197837]
+ [-0.408206   -0.33978733 -0.41376394 -0.344644   -0.37688303 -0.32195398]
+ [-0.38542444 -0.3692133  -0.3874776  -0.31487295 -0.37469593 -0.29213384]
+ [-0.434121   -0.2995194  -0.41113445 -0.32738268 -0.3704527  -0.3324497 ]
+ [-0.38468102 -0.3375433  -0.36089432 -0.29307538 -0.42643544 -0.2999875 ]
+ [-0.41548476 -0.3157223  -0.44346556 -0.3320234  -0.37537292 -0.28895855]
+ [-0.34698126 -0.3568583  -0.40447715 -0.3000419  -0.39584133 -0.32459158]
+ [-0.4525301  -0.35840347 -0.4240582  -0.3560604  -0.39984834 -0.3034816 ]
+ [-0.42595717 -0.29987186 -0.41126248 -0.31774536 -0.36774614 -0.3147151 ]
+ [-0.4398197  -0.3236675  -0.41665578 -0.34905422 -0.4096666  -0.30197218]
+ [-0.39161098 -0.27906    -0.44523624 -0.3117242  -0.3454268  -0.3961792 ]
+ [-0.4323561  -0.32939792 -0.42275155 -0.34866947 -0.39163303 -0.34343866]
+ [-0.40973184 -0.29157546 -0.3353183  -0.31442648 -0.42026627 -0.31954083]
+ [-0.41733915 -0.33778572 -0.37519863 -0.30787858 -0.43459028 -0.30063543]
+ [-0.4268395  -0.2723991  -0.39139682 -0.31994733 -0.35633466 -0.32278645]
+ [-0.43237543 -0.2946073  -0.38044265 -0.30978575 -0.37143004 -0.31935024]
+ [-0.41385186 -0.32773533 -0.3723539  -0.31933638 -0.38582078 -0.27925688]
+ [-0.422537   -0.32658094 -0.37186936 -0.3414471  -0.41785938 -0.29631066]
+ [-0.41583356 -0.3312492  -0.32852072 -0.32516828 -0.38590243 -0.31279084]
+ [-0.40456054 -0.3150025  -0.3864099  -0.29813462 -0.39376405 -0.27268583]
+ [-0.4528662  -0.3165713  -0.3684696  -0.2842241  -0.38289958 -0.29921028]
+ [-0.39813834 -0.30858305 -0.37318268 -0.27596045 -0.40827784 -0.2709912 ]
+ [-0.4357154  -0.3526054  -0.38030127 -0.2871279  -0.365178   -0.3101805 ]
+ [-0.3780417  -0.31298086 -0.38151014 -0.32759205 -0.4105363  -0.3020233 ]
+ [-0.42989606 -0.35855016 -0.37731034 -0.3031798  -0.37717587 -0.2890686 ]
+ [-0.41798782 -0.31833366 -0.3563541  -0.32809553 -0.369007   -0.29278627]
+ [-0.42152396 -0.33330736 -0.35500368 -0.2896727  -0.37686875 -0.2676384 ]
+ [-0.40839472 -0.2997562  -0.3316549  -0.34796655 -0.3881695  -0.27620894]
+ [-0.4292765  -0.33861023 -0.38166708 -0.29666656 -0.36082315 -0.2698274 ]
+ [-0.38499156 -0.34444094 -0.3670662  -0.29674873 -0.38322064 -0.322992  ]
+ [-0.38675678 -0.30591914 -0.38193738 -0.28588519 -0.41120976 -0.28867102]
+ [-0.39858764 -0.3266236  -0.35904014 -0.2889377  -0.38599333 -0.2809344 ]
+ [-0.3903581  -0.33280167 -0.34928435 -0.30016452 -0.35914454 -0.29789135]
+ [-0.3005274  -0.22370976 -0.3340057  -0.25412264 -0.36467573 -0.29817185]
+ [-0.29778284 -0.27648166 -0.3527671  -0.19535983 -0.3712321  -0.2773909 ]
+ [-0.2484274  -0.2815862  -0.3394263  -0.21933042 -0.36524183 -0.28009957]
+ [-0.35537222 -0.28491008 -0.28805345 -0.21322447 -0.42229074 -0.2924706 ]
+ [-0.3203795  -0.1980072  -0.31823888 -0.20685706 -0.3865604  -0.30099198]
+ [-0.26949552 -0.22393428 -0.34492862 -0.20460473 -0.34833172 -0.31465557]
+ [-0.34039634 -0.2524592  -0.3394339  -0.21816975 -0.32053933 -0.2821538 ]
+ [-0.31187087 -0.26677182 -0.3117545  -0.20256951 -0.38318616 -0.30602628]
+ [-0.30643559 -0.27102906 -0.2728034  -0.22243951 -0.37386978 -0.2885764 ]
+ [-0.31688794 -0.27947134 -0.2695089  -0.21924615 -0.3701361  -0.2856394 ]
+ [-0.28384626 -0.22036833 -0.3069351  -0.24182694 -0.3134243  -0.2626128 ]
+ [-0.29407862 -0.2295365  -0.2933185  -0.19968294 -0.38218936 -0.29023916]
+ [-0.30700347 -0.24922742 -0.28892863 -0.23742521 -0.4039341  -0.32886633]
+ [-0.26718238 -0.20470771 -0.31438807 -0.24467358 -0.35464942 -0.2707811 ]
+ [-0.271556   -0.24050748 -0.34022835 -0.26925606 -0.358799   -0.28415385]
+ [-0.31790197 -0.2193623  -0.2975863  -0.23201257 -0.3575287  -0.31568164]
+ [-0.2869163  -0.24528004 -0.2473315  -0.22934201 -0.18376884 -0.11165703]
+ [-0.26708224 -0.18420577 -0.26553908 -0.2187078  -0.17421222 -0.16526222]
+ [-0.22890393 -0.08233161 -0.2926251  -0.1953837  -0.16964692 -0.21117023]
+ [-0.2514233  -0.12600707 -0.27821943 -0.21727438 -0.29346138 -0.25286266]
+ [-0.15315795 -0.14271174 -0.33269215 -0.25843477 -0.23876575 -0.10049552]
+ [-0.203945   -0.09439653 -0.31838256 -0.26974207 -0.15269881 -0.15361694]
+ [-0.2493631  -0.13718027 -0.2011941  -0.21751532 -0.26628295 -0.18589084]
+ [-0.28133345 -0.12188146 -0.25193545 -0.22193135 -0.21158205 -0.16013399]
+ [-0.18486454 -0.09443899 -0.30045876 -0.21157947 -0.2210024  -0.21964014]
+ [-0.1443916  -0.11880562 -0.29144788 -0.23622862 -0.26691332 -0.17158829]
+ [-0.17951047 -0.13291982 -0.2763901  -0.2229008  -0.20978914 -0.10855837]
+ [-0.20330983 -0.21474366 -0.19474037 -0.20834006 -0.24590464 -0.08200915]
+ [-0.17804432 -0.12430526 -0.2878505  -0.2122544  -0.1686266  -0.19939783]
+ [-0.21635106 -0.20867859 -0.37115294 -0.2681977  -0.15567394 -0.08760284]
+ [-0.23225676 -0.13207473 -0.28796285 -0.22066787 -0.14527054 -0.19205768]
+ [-0.23666863 -0.21152614 -0.28628865 -0.20329016 -0.23901542 -0.15102823]
+ [-0.20180608 -0.16790923 -0.29058984 -0.2589243  -0.2102435  -0.17105208]]
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+tensor([0.0686, 0.6450, 0.1879,  ..., 0.6009, 0.0605, 0.4149])
+[[-0.18900667 -0.10687474 -0.19457196 -0.13827023 -0.18796296 -0.07720247]
+ [-0.11481742 -0.10561305 -0.14733827 -0.13585436 -0.15543467 -0.15685079]
+ [-0.16493924 -0.16516393 -0.1966643  -0.13086933 -0.16430944 -0.15482314]
+ [-0.13594796 -0.13843924 -0.15256388 -0.14258878 -0.15683337 -0.12399799]
+ [-0.08618597 -0.1766466  -0.15750101 -0.16454257 -0.15413034 -0.14464937]
+ [-0.14395927 -0.13634372 -0.20140237 -0.17025629 -0.13849422 -0.16259386]
+ [-0.16556634 -0.12710765 -0.14472109 -0.14416264 -0.12215659 -0.15183957]
+ [-0.21115227 -0.10642949 -0.1830392  -0.09502877 -0.22748943 -0.17680801]
+ [-0.17764096 -0.14512788 -0.12590629 -0.12967673 -0.17968535 -0.12931389]
+ [-0.17007498 -0.15647632 -0.15793402 -0.11428124 -0.23331577 -0.14217697]
+ [-0.12925628 -0.18443896 -0.23207255 -0.119764   -0.15198968 -0.13236827]
+ [-0.17888106 -0.15732326 -0.18711904 -0.14703874 -0.20665494 -0.18772578]
+ [-0.18310024 -0.15124927 -0.18836372 -0.18244405 -0.19804423 -0.17586178]
+ [-0.13174333 -0.12083071 -0.21307842 -0.08905889 -0.21572237 -0.13998426]
+ [-0.15383686 -0.13604656 -0.18768378 -0.12272269 -0.18474218 -0.11893644]
+ [-0.14616886 -0.1118328  -0.15847333 -0.15820102 -0.19248737 -0.14053483]
+ [-0.16983604 -0.11946897 -0.15454675 -0.13709769 -0.34175014 -0.24204509]
+ [-0.33638343 -0.29840282 -0.34407055 -0.19276722 -0.3113347  -0.23813072]
+ [-0.3081993  -0.2719604  -0.31969413 -0.29513738 -0.3399826  -0.29929876]
+ [-0.34728613 -0.25832933 -0.32331714 -0.32984406 -0.30047727 -0.2644819 ]
+ [-0.30187824 -0.25078365 -0.3663446  -0.25954393 -0.27746585 -0.29954582]
+ [-0.30755523 -0.30625147 -0.31286672 -0.29073283 -0.2795889  -0.24453917]
+ [-0.38316977 -0.27878922 -0.32982066 -0.29557464 -0.357814   -0.2584862 ]
+ [-0.30640262 -0.25038022 -0.2678992  -0.31213865 -0.3659972  -0.23027913]
+ [-0.33563882 -0.24527682 -0.40748602 -0.32959652 -0.3467586  -0.28903037]
+ [-0.3204815  -0.2511654  -0.3751388  -0.24897465 -0.3337915  -0.27233264]
+ [-0.31189018 -0.2428263  -0.422564   -0.27904627 -0.32618764 -0.31061372]
+ [-0.40176314 -0.24899882 -0.3238692  -0.2446964  -0.38198078 -0.27617255]
+ [-0.31077996 -0.33690616 -0.3889813  -0.3170177  -0.3494284  -0.29458714]
+ [-0.33601522 -0.3385891  -0.37829614 -0.2751103  -0.2573795  -0.23937877]
+ [-0.38569894 -0.24231716 -0.3792726  -0.27602977 -0.30502677 -0.256638  ]
+ [-0.38424402 -0.2510713  -0.36092165 -0.21963418 -0.3140427  -0.25064793]
+ [-0.29709968 -0.2852265  -0.38534594 -0.25362402 -0.31338307 -0.2423318 ]
+ [-0.314892   -0.27282515 -0.40900746 -0.31283146 -0.3868507  -0.35664415]
+ [-0.39889127 -0.25918624 -0.41547078 -0.30720833 -0.37815082 -0.3419784 ]
+ [-0.40820596 -0.33978733 -0.41376394 -0.344644   -0.37688306 -0.32195392]
+ [-0.38542446 -0.36921334 -0.38747758 -0.31487298 -0.37469593 -0.2921338 ]
+ [-0.43412107 -0.29951945 -0.41113445 -0.32738262 -0.3704527  -0.33244973]
+ [-0.38468105 -0.33754334 -0.36089432 -0.29307538 -0.4264354  -0.2999875 ]
+ [-0.41548476 -0.31572226 -0.44346556 -0.3320234  -0.37537295 -0.28895858]
+ [-0.34698126 -0.35685828 -0.40447715 -0.30004194 -0.39584133 -0.3245916 ]
+ [-0.45253012 -0.35840347 -0.4240582  -0.35606033 -0.39984837 -0.30348167]
+ [-0.42595723 -0.29987183 -0.4112625  -0.31774536 -0.36774614 -0.31471506]
+ [-0.4398197  -0.32366753 -0.41665575 -0.34905422 -0.40966657 -0.30197218]
+ [-0.39161095 -0.27906004 -0.4452362  -0.3117242  -0.34542677 -0.39617917]
+ [-0.43235606 -0.3293979  -0.42275152 -0.34866953 -0.39163306 -0.34343866]
+ [-0.40973178 -0.29157543 -0.3353183  -0.31442648 -0.42026624 -0.31954086]
+ [-0.41733915 -0.33778572 -0.37519863 -0.3078786  -0.4345903  -0.30063546]
+ [-0.4268395  -0.2723991  -0.3913968  -0.31994733 -0.35633466 -0.32278645]
+ [-0.43237543 -0.2946073  -0.38044268 -0.30978578 -0.37143    -0.31935024]
+ [-0.41385186 -0.32773533 -0.37235388 -0.31933644 -0.38582078 -0.27925688]
+ [-0.42253697 -0.3265809  -0.37186933 -0.34144711 -0.41785935 -0.2963106 ]
+ [-0.41583356 -0.3312492  -0.3285207  -0.32516825 -0.3859024  -0.3127908 ]
+ [-0.40456048 -0.31500253 -0.38640988 -0.29813462 -0.39376417 -0.27268583]
+ [-0.4528662  -0.31657127 -0.36846963 -0.2842241  -0.38289958 -0.29921028]
+ [-0.39813837 -0.30858308 -0.37318274 -0.27596045 -0.40827784 -0.27099118]
+ [-0.43571544 -0.3526054  -0.3803013  -0.28712794 -0.365178   -0.31018043]
+ [-0.3780417  -0.31298083 -0.38151014 -0.32759205 -0.41053632 -0.30202332]
+ [-0.42989606 -0.35855013 -0.37731037 -0.30317983 -0.37717587 -0.2890686 ]
+ [-0.4179878  -0.31833366 -0.3563541  -0.32809556 -0.369007   -0.29278627]
+ [-0.42152393 -0.3333074  -0.35500368 -0.28967267 -0.37686872 -0.2676384 ]
+ [-0.40839472 -0.29975617 -0.3316549  -0.34796652 -0.38816947 -0.2762089 ]
+ [-0.4292765  -0.33861026 -0.38166708 -0.2966665  -0.36082318 -0.26982737]
+ [-0.38499156 -0.34444094 -0.36706623 -0.29674867 -0.3832206  -0.32299197]
+ [-0.38675675 -0.30591914 -0.3819374  -0.28588519 -0.4112098  -0.28867105]
+ [-0.39858764 -0.3266236  -0.35904014 -0.28893766 -0.3859933  -0.28093436]
+ [-0.39035815 -0.3328017  -0.34928438 -0.30016452 -0.35914454 -0.29789135]
+ [-0.30052736 -0.2237098  -0.3340057  -0.25412264 -0.36467573 -0.29817185]
+ [-0.2977828  -0.27648166 -0.3527671  -0.19535978 -0.3712321  -0.27739093]
+ [-0.2484274  -0.2815862  -0.3394263  -0.21933036 -0.3652418  -0.28009963]
+ [-0.35537222 -0.28491005 -0.28805348 -0.21322447 -0.42229074 -0.29247054]
+ [-0.3203795  -0.1980072  -0.31823885 -0.20685707 -0.38656044 -0.300992  ]
+ [-0.26949555 -0.22393426 -0.3449286  -0.20460472 -0.34833175 -0.31465554]
+ [-0.34039637 -0.2524592  -0.3394339  -0.21816973 -0.32053933 -0.2821538 ]
+ [-0.31187087 -0.26677182 -0.3117545  -0.20256954 -0.38318616 -0.30602628]
+ [-0.30643559 -0.27102906 -0.2728034  -0.22243953 -0.37386978 -0.28857636]
+ [-0.31688797 -0.27947137 -0.2695089  -0.21924615 -0.3701361  -0.2856394 ]
+ [-0.2838463  -0.22036831 -0.3069351  -0.24182694 -0.3134243  -0.26261276]
+ [-0.29407862 -0.22953649 -0.29331854 -0.1996829  -0.3821894  -0.29023919]
+ [-0.30700347 -0.2492274  -0.28892863 -0.23742518 -0.4039341  -0.32886633]
+ [-0.26718238 -0.20470768 -0.31438807 -0.24467358 -0.3546494  -0.2707811 ]
+ [-0.271556   -0.24050751 -0.34022835 -0.26925606 -0.358799   -0.28415385]
+ [-0.31790197 -0.21936229 -0.29758626 -0.23201254 -0.35752872 -0.31568167]
+ [-0.2869163  -0.24528004 -0.2473315  -0.229342   -0.18376885 -0.11165706]
+ [-0.26708224 -0.18420576 -0.26553908 -0.2187078  -0.17421219 -0.16526222]
+ [-0.22890393 -0.08233158 -0.29262507 -0.19538373 -0.16964692 -0.21117023]
+ [-0.25142327 -0.12600704 -0.2782194  -0.21727441 -0.2934614  -0.25286263]
+ [-0.153158   -0.14271176 -0.33269215 -0.25843474 -0.23876575 -0.10049552]
+ [-0.20394497 -0.09439654 -0.3183826  -0.26974213 -0.15269883 -0.15361694]
+ [-0.2493631  -0.13718024 -0.20119412 -0.21751532 -0.266283   -0.18589084]
+ [-0.28133345 -0.12188145 -0.25193548 -0.22193137 -0.21158206 -0.16013399]
+ [-0.18486454 -0.09443901 -0.30045876 -0.21157947 -0.2210024  -0.21964012]
+ [-0.1443916  -0.11880564 -0.29144785 -0.23622862 -0.26691332 -0.17158832]
+ [-0.17951047 -0.13291982 -0.27639008 -0.22290081 -0.20978914 -0.10855836]
+ [-0.20330983 -0.21474367 -0.19474038 -0.20834006 -0.24590464 -0.08200912]
+ [-0.17804433 -0.12430524 -0.2878505  -0.21225443 -0.1686266  -0.1993978 ]
+ [-0.21635105 -0.20867857 -0.3711529  -0.2681977  -0.15567392 -0.08760284]
+ [-0.23225677 -0.13207471 -0.28796285 -0.22066785 -0.14527053 -0.19205768]
+ [-0.23666863 -0.21152613 -0.28628868 -0.20329018 -0.23901542 -0.15102823]
+ [-0.20180607 -0.16790923 -0.29058984 -0.25892434 -0.21024352 -0.17105208]]
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+Loading from /home/joy/model-archive-note-seq/01-Dec-21-1638386183/SimpleVaeMidi-epoch-60.checkpoint...
+Loading from /home/joy/model-archive-note-seq/01-Dec-21-1638386183/SimpleVaeMidi-epoch-60.checkpoint...
+tensor([0.2490, 0.7532, 0.0244,  ..., 0.4162, 0.7399, 0.2931])
+[[-0.26552498 -0.11790279 -0.46241054 -0.37253177 -0.44224834 -0.44586954]
+ [-0.25867286 -0.12260105 -0.45886716 -0.37565383 -0.44081804 -0.4409857 ]
+ [-0.25857943 -0.12014509 -0.46360075 -0.37742472 -0.4392996  -0.44045427]
+ [-0.2611469  -0.12153649 -0.4602245  -0.37553585 -0.44081333 -0.44040263]
+ [-0.2585431  -0.11709903 -0.4633204  -0.37799093 -0.43557087 -0.43737346]
+ [-0.2624994  -0.1201781  -0.46504498 -0.37553772 -0.4366512  -0.43559423]
+ [-0.25799215 -0.12183914 -0.46289793 -0.3746842  -0.43670988 -0.43125796]
+ [-0.25890788 -0.12037664 -0.46230215 -0.36996627 -0.43352595 -0.43326437]
+ [-0.26037407 -0.12062769 -0.46362886 -0.37363678 -0.4316754  -0.43336886]
+ [-0.257475   -0.12088295 -0.4640159  -0.37707624 -0.43074742 -0.42997736]
+ [-0.25825912 -0.12294574 -0.46403354 -0.37115276 -0.42698187 -0.4288534 ]
+ [-0.25891206 -0.12031639 -0.46451977 -0.3694636  -0.42782155 -0.4265839 ]
+ [-0.25861594 -0.12069712 -0.4572214  -0.3770624  -0.42240468 -0.42351314]
+ [-0.25899372 -0.1228039  -0.4616619  -0.38440228 -0.4235651  -0.42166138]
+ [-0.25811288 -0.11727173 -0.4634354  -0.37053537 -0.42237002 -0.42467478]
+ [-0.2590703  -0.11806386 -0.46484745 -0.369569   -0.42232344 -0.42035633]
+ [-0.2598415  -0.12425682 -0.46375558 -0.37769687 -0.4187534  -0.42576143]
+ [-0.271492   -0.10929155 -0.46680143 -0.36677125 -0.41278505 -0.4235563 ]
+ [-0.2654145  -0.12539099 -0.4642133  -0.35971943 -0.41822866 -0.41575402]
+ [-0.26161024 -0.14259474 -0.46147797 -0.36638424 -0.41309562 -0.41877243]
+ [-0.24704927 -0.13747482 -0.4626214  -0.37609467 -0.40793976 -0.40259483]
+ [-0.27007583 -0.14875148 -0.47059488 -0.36020136 -0.4135519  -0.4101198 ]
+ [-0.26401097 -0.12903798 -0.45869252 -0.36979356 -0.40384457 -0.41705725]
+ [-0.26069552 -0.12092657 -0.45943397 -0.36116657 -0.40502042 -0.41193563]
+ [-0.268794   -0.12768947 -0.46131673 -0.36775717 -0.40928844 -0.4153215 ]
+ [-0.26484048 -0.11458258 -0.45695394 -0.37469804 -0.4082733  -0.40361035]
+ [-0.2648367  -0.14328143 -0.46572646 -0.3711756  -0.40143055 -0.4106453 ]
+ [-0.27361697 -0.14654489 -0.4689455  -0.37185392 -0.4041703  -0.39567992]
+ [-0.27967018 -0.12208945 -0.45818076 -0.3681549  -0.39665255 -0.40024158]
+ [-0.24783215 -0.13338174 -0.46684945 -0.37749097 -0.39957607 -0.40564236]
+ [-0.26388845 -0.18713027 -0.45295814 -0.38039136 -0.39558154 -0.39498782]
+ [-0.25256512 -0.12462249 -0.45280355 -0.367822   -0.39565367 -0.39215395]
+ [-0.25905398 -0.11437333 -0.4540171  -0.3676837  -0.39545828 -0.40200463]
+ [-0.25360772 -0.1261417  -0.45766717 -0.38328463 -0.39072806 -0.38360026]
+ [-0.24521528 -0.13104528 -0.4564791  -0.37946853 -0.38097805 -0.37856093]
+ [-0.24741487 -0.11257491 -0.45752624 -0.35708675 -0.39703232 -0.39932755]
+ [-0.24963935 -0.1100313  -0.45449886 -0.361578   -0.38623604 -0.40095115]
+ [-0.25421223 -0.1220815  -0.45510253 -0.35231155 -0.39716583 -0.40454414]
+ [-0.26907745 -0.11438712 -0.45050466 -0.36257583 -0.39595738 -0.384817  ]
+ [-0.25129703 -0.11452075 -0.45784226 -0.3610608  -0.392383   -0.37783307]
+ [-0.2631308  -0.09185156 -0.4518575  -0.3659823  -0.39709136 -0.3663723 ]
+ [-0.25555277 -0.1168555  -0.45744136 -0.367515   -0.39132172 -0.37215182]
+ [-0.24062239 -0.13240427 -0.45950893 -0.3614885  -0.39389625 -0.39679867]
+ [-0.2580766  -0.13463065 -0.45711774 -0.36945328 -0.40285853 -0.37261572]
+ [-0.26219434 -0.13606109 -0.4596381  -0.35407272 -0.39399484 -0.35817134]
+ [-0.24492824 -0.11279457 -0.4570824  -0.36367896 -0.3639097  -0.39004117]
+ [-0.25416377 -0.13208696 -0.4577942  -0.3743677  -0.38464797 -0.2997048 ]
+ [-0.22907281 -0.14237197 -0.4546917  -0.3536984  -0.36327803 -0.37006322]
+ [-0.23813367 -0.12685503 -0.45838523 -0.36402127 -0.3629784  -0.3634322 ]
+ [-0.2535436  -0.12385874 -0.4660319  -0.3803756  -0.37625816 -0.38252383]
+ [-0.25858697 -0.136158   -0.45700777 -0.360345   -0.3650862  -0.36216128]
+ [-0.248667   -0.13163403 -0.47155976 -0.36645672 -0.3612487  -0.3495067 ]
+ [-0.25452578 -0.11343116 -0.45471606 -0.38353768 -0.35967138 -0.3497302 ]
+ [-0.25109646 -0.11908716 -0.4421673  -0.3810229  -0.36300138 -0.3646918 ]
+ [-0.24551506 -0.09590256 -0.45793912 -0.38753468 -0.377082   -0.3486225 ]
+ [-0.2523123  -0.11343198 -0.45290813 -0.37698126 -0.35800818 -0.3509832 ]
+ [-0.24714206 -0.12219472 -0.4496078  -0.3627848  -0.36486748 -0.33678693]
+ [-0.24366824 -0.11941309 -0.4582679  -0.37405315 -0.36013913 -0.34911063]
+ [-0.25448787 -0.12381162 -0.45428267 -0.3561719  -0.3450759  -0.35987273]
+ [-0.2627549  -0.11835468 -0.45113036 -0.38127208 -0.36339474 -0.3551971 ]
+ [-0.25630608 -0.12792338 -0.46534398 -0.38369212 -0.36489242 -0.36192808]
+ [-0.25713143 -0.09585157 -0.46573588 -0.3658351  -0.35218605 -0.34816465]
+ [-0.24506329 -0.11666695 -0.43688837 -0.37616643 -0.3604219  -0.3588007 ]
+ [-0.25401944 -0.13855195 -0.45172736 -0.44368118 -0.33129653 -0.3651433 ]
+ [-0.25420696 -0.10670249 -0.43308708 -0.36888072 -0.33294603 -0.34434307]
+ [-0.256897   -0.11911186 -0.43739924 -0.35547438 -0.3436737  -0.33900258]
+ [-0.26167792 -0.14531957 -0.44082978 -0.36018646 -0.35349512 -0.35132736]
+ [-0.2609738  -0.10492454 -0.42806932 -0.37038824 -0.35165665 -0.3474005 ]
+ [-0.25179583 -0.10885438 -0.43212315 -0.3504943  -0.34066764 -0.3251575 ]
+ [-0.25870872 -0.14033712 -0.4289688  -0.35136077 -0.34486952 -0.3255549 ]
+ [-0.24102981 -0.1504725  -0.4384877  -0.3578623  -0.34709483 -0.31662607]
+ [-0.26662448 -0.15766159 -0.43985453 -0.36081946 -0.3385972  -0.32651582]
+ [-0.26806659 -0.130266   -0.43901327 -0.35345632 -0.33371916 -0.32014388]
+ [-0.2539651  -0.11691952 -0.44535893 -0.33922112 -0.33212104 -0.32431382]
+ [-0.2649966  -0.10241574 -0.43415886 -0.35331598 -0.33788496 -0.3254676 ]
+ [-0.26578745 -0.11032338 -0.4251311  -0.36263996 -0.34209839 -0.3245361 ]
+ [-0.26753062 -0.1449397  -0.43958947 -0.36619315 -0.33944952 -0.33111858]
+ [-0.2799895  -0.12474623 -0.43735722 -0.36877358 -0.33681932 -0.31559387]
+ [-0.27588305 -0.10252935 -0.4314204  -0.35165435 -0.33856466 -0.31713203]
+ [-0.22414245 -0.14153132 -0.42713743 -0.35922164 -0.34342608 -0.33503968]
+ [-0.26494697 -0.20197386 -0.41538274 -0.37078092 -0.32888272 -0.31317276]
+ [-0.23996148 -0.11452247 -0.4250273  -0.3659005  -0.3383471  -0.32072496]
+ [-0.24870084 -0.10320566 -0.43979165 -0.36173555 -0.34734336 -0.3410534 ]
+ [-0.26002777 -0.13723542 -0.44560182 -0.37078264 -0.34061182 -0.31337214]
+ [-0.2397297  -0.1207366  -0.42439798 -0.37197596 -0.32453462 -0.32817268]
+ [-0.23827724 -0.09392203 -0.4322879  -0.35237134 -0.3308018  -0.34301713]
+ [-0.23851815 -0.09837457 -0.43774414 -0.3584008  -0.3094902  -0.34093705]
+ [-0.250379   -0.12661484 -0.4269212  -0.3371648  -0.34084395 -0.3434466 ]
+ [-0.26169422 -0.10411652 -0.4420728  -0.35093108 -0.33143306 -0.33257955]
+ [-0.25129366 -0.11216856 -0.42304417 -0.35737643 -0.32291457 -0.31594267]
+ [-0.25998616 -0.0861029  -0.42353874 -0.35575086 -0.32990685 -0.3164275 ]
+ [-0.24954283 -0.10296617 -0.43673646 -0.36103082 -0.3283195  -0.30880374]
+ [-0.23549604 -0.12371273 -0.4354044  -0.353316   -0.32196057 -0.33178744]
+ [-0.25877726 -0.12684223 -0.43467852 -0.37247062 -0.33922777 -0.3279818 ]
+ [-0.25756213 -0.13440903 -0.43426734 -0.33879557 -0.34573805 -0.30957314]
+ [-0.24900657 -0.11139271 -0.42623672 -0.35663906 -0.29318386 -0.3217119 ]
+ [-0.2541849  -0.13077591 -0.4301162  -0.3713306  -0.3227037  -0.2987393 ]
+ [-0.22528575 -0.14176732 -0.43281344 -0.34179854 -0.3053935  -0.31210452]
+ [-0.23079814 -0.12445761 -0.43103278 -0.34780407 -0.3226554  -0.28983578]
+ [-0.24337015 -0.11757191 -0.43455294 -0.3795162  -0.31394    -0.3107321 ]]
+tensor([0.5916, 0.9825, 0.9909,  ..., 0.8203, 0.1297, 0.0064])
+[[-0.26552498 -0.11790282 -0.4624105  -0.3725318  -0.44224834 -0.44586954]
+ [-0.25867286 -0.12260105 -0.45886716 -0.3756539  -0.44081804 -0.44098574]
+ [-0.25857946 -0.1201451  -0.46360075 -0.3774248  -0.43929964 -0.44045427]
+ [-0.2611469  -0.12153649 -0.46022454 -0.37553588 -0.44081333 -0.44040263]
+ [-0.2585431  -0.11709903 -0.4633204  -0.37799093 -0.43557084 -0.43737346]
+ [-0.2624994  -0.12017809 -0.46504498 -0.37553766 -0.4366512  -0.43559423]
+ [-0.25799215 -0.12183917 -0.462898   -0.3746842  -0.43670982 -0.431258  ]
+ [-0.25890794 -0.12037664 -0.46230215 -0.36996627 -0.43352595 -0.43326437]
+ [-0.26037407 -0.1206277  -0.46362892 -0.37363678 -0.4316754  -0.43336886]
+ [-0.25747502 -0.12088295 -0.46401584 -0.37707624 -0.43074742 -0.42997736]
+ [-0.25825912 -0.12294574 -0.46403354 -0.37115276 -0.42698187 -0.42885336]
+ [-0.25891206 -0.1203164  -0.4645197  -0.36946365 -0.42782152 -0.4265839 ]
+ [-0.25861597 -0.12069712 -0.4572214  -0.37706238 -0.42240468 -0.42351314]
+ [-0.25899372 -0.1228039  -0.4616619  -0.3844023  -0.42356512 -0.42166138]
+ [-0.25811294 -0.11727173 -0.4634354  -0.37053537 -0.42237002 -0.42467478]
+ [-0.2590703  -0.11806386 -0.46484745 -0.36956903 -0.42232344 -0.42035633]
+ [-0.25984147 -0.1242568  -0.46375564 -0.3776969  -0.4187534  -0.42576143]
+ [-0.27149194 -0.10929161 -0.46680143 -0.36677128 -0.41278508 -0.42355627]
+ [-0.2654145  -0.12539104 -0.4642133  -0.35971946 -0.41822866 -0.41575402]
+ [-0.2616102  -0.14259477 -0.46147797 -0.36638427 -0.41309565 -0.41877243]
+ [-0.24704927 -0.13747478 -0.4626214  -0.37609467 -0.40793976 -0.40259483]
+ [-0.27007586 -0.14875148 -0.47059482 -0.36020133 -0.4135519  -0.41011977]
+ [-0.26401097 -0.12903789 -0.4586925  -0.36979356 -0.40384457 -0.41705725]
+ [-0.26069552 -0.12092649 -0.45943394 -0.36116654 -0.40502048 -0.4119356 ]
+ [-0.26879394 -0.12768947 -0.46131673 -0.3677572  -0.40928844 -0.4153215 ]
+ [-0.26484045 -0.11458259 -0.45695394 -0.37469804 -0.40827334 -0.40361035]
+ [-0.26483673 -0.14328144 -0.46572646 -0.37117556 -0.40143055 -0.41064537]
+ [-0.27361697 -0.14654493 -0.4689455  -0.3718539  -0.4041703  -0.39567986]
+ [-0.27967015 -0.12208946 -0.45818073 -0.3681549  -0.39665258 -0.40024158]
+ [-0.24783215 -0.13338184 -0.46684948 -0.37749097 -0.39957604 -0.40564236]
+ [-0.26388848 -0.18713024 -0.45295817 -0.38039133 -0.39558157 -0.39498782]
+ [-0.25256512 -0.12462248 -0.45280355 -0.367822   -0.39565367 -0.3921539 ]
+ [-0.25905395 -0.11437333 -0.45401713 -0.36768368 -0.39545825 -0.40200463]
+ [-0.25360766 -0.12614168 -0.4576672  -0.38328463 -0.39072803 -0.38360023]
+ [-0.24521531 -0.1310453  -0.45647916 -0.3794685  -0.38097802 -0.3785609 ]
+ [-0.2474149  -0.11257495 -0.45752627 -0.35708678 -0.3970323  -0.3993276 ]
+ [-0.24963938 -0.11003131 -0.4544989  -0.361578   -0.386236   -0.40095112]
+ [-0.25421223 -0.1220815  -0.45510253 -0.35231155 -0.39716583 -0.4045442 ]
+ [-0.2690774  -0.1143871  -0.4505047  -0.36257577 -0.39595738 -0.38481706]
+ [-0.25129706 -0.11452071 -0.45784226 -0.36106077 -0.39238298 -0.37783304]
+ [-0.26313078 -0.09185158 -0.4518575  -0.3659823  -0.39709133 -0.3663723 ]
+ [-0.2555528  -0.11685553 -0.4574414  -0.367515   -0.39132175 -0.37215182]
+ [-0.2406223  -0.13240425 -0.45950893 -0.3614885  -0.3938963  -0.39679867]
+ [-0.25807664 -0.13463068 -0.45711774 -0.36945334 -0.40285853 -0.37261572]
+ [-0.26219434 -0.1360611  -0.45963803 -0.3540727  -0.39399484 -0.35817134]
+ [-0.24492818 -0.11279457 -0.45708242 -0.36367896 -0.36390972 -0.39004114]
+ [-0.25416377 -0.13208693 -0.4577942  -0.3743677  -0.38464797 -0.29970476]
+ [-0.22907282 -0.14237198 -0.4546917  -0.35369843 -0.363278   -0.3700632 ]
+ [-0.23813365 -0.12685503 -0.45838526 -0.36402124 -0.36297834 -0.36343217]
+ [-0.25354362 -0.12385874 -0.4660319  -0.38037556 -0.37625808 -0.38252386]
+ [-0.25858697 -0.13615803 -0.45700777 -0.36034495 -0.36508626 -0.3621613 ]
+ [-0.24866706 -0.13163407 -0.4715597  -0.36645675 -0.36124873 -0.3495067 ]
+ [-0.2545258  -0.11343122 -0.45471606 -0.38353774 -0.35967144 -0.34973025]
+ [-0.2510965  -0.11908716 -0.4421673  -0.3810229  -0.36300138 -0.36469182]
+ [-0.24551506 -0.09590255 -0.45793915 -0.3875347  -0.37708196 -0.34862253]
+ [-0.25231236 -0.11343198 -0.45290816 -0.3769813  -0.35800815 -0.35098317]
+ [-0.24714203 -0.12219471 -0.44960776 -0.36278474 -0.36486748 -0.33678693]
+ [-0.24366827 -0.11941312 -0.45826787 -0.37405315 -0.36013916 -0.34911057]
+ [-0.25448793 -0.1238116  -0.45428267 -0.35617185 -0.34507585 -0.35987267]
+ [-0.2627549  -0.11835471 -0.45113033 -0.38127202 -0.36339477 -0.35519713]
+ [-0.25630608 -0.12792338 -0.46534395 -0.3836921  -0.36489245 -0.36192805]
+ [-0.25713137 -0.09585153 -0.46573594 -0.3658351  -0.35218602 -0.34816465]
+ [-0.24506329 -0.11666695 -0.43688843 -0.37616643 -0.3604219  -0.35880062]
+ [-0.25401944 -0.13855198 -0.45172736 -0.44368115 -0.33129653 -0.36514327]
+ [-0.25420702 -0.10670249 -0.43308708 -0.36888072 -0.33294606 -0.34434313]
+ [-0.256897   -0.11911187 -0.4373992  -0.35547438 -0.34367374 -0.33900255]
+ [-0.26167795 -0.14531958 -0.44082975 -0.36018646 -0.35349512 -0.35132733]
+ [-0.26097384 -0.10492457 -0.42806932 -0.37038824 -0.3516567  -0.34740046]
+ [-0.25179583 -0.10885441 -0.43212318 -0.35049427 -0.34066767 -0.32515752]
+ [-0.25870872 -0.14033715 -0.4289688  -0.35136077 -0.3448695  -0.32555488]
+ [-0.24102981 -0.1504725  -0.43848774 -0.3578623  -0.34709483 -0.31662607]
+ [-0.2666245  -0.15766163 -0.4398545  -0.36081943 -0.33859727 -0.32651582]
+ [-0.2680666  -0.130266   -0.43901327 -0.3534563  -0.33371916 -0.32014388]
+ [-0.25396508 -0.11691952 -0.44535893 -0.33922112 -0.33212104 -0.32431385]
+ [-0.26499653 -0.10241573 -0.43415886 -0.35331595 -0.337885   -0.32546765]
+ [-0.26578742 -0.11032342 -0.42513114 -0.36263993 -0.34209839 -0.3245361 ]
+ [-0.26753065 -0.14493968 -0.43958947 -0.3661932  -0.33944952 -0.33111855]
+ [-0.27998948 -0.1247462  -0.43735722 -0.36877355 -0.33681926 -0.31559384]
+ [-0.27588314 -0.10252935 -0.43142045 -0.35165435 -0.3385647  -0.31713203]
+ [-0.2241425  -0.14153124 -0.42713746 -0.3592216  -0.34342608 -0.33503973]
+ [-0.26494697 -0.20197392 -0.4153827  -0.3707809  -0.32888272 -0.31317276]
+ [-0.23996146 -0.11452246 -0.4250273  -0.3659005  -0.33834714 -0.32072502]
+ [-0.24870081 -0.10320566 -0.43979168 -0.36173555 -0.34734336 -0.3410534 ]
+ [-0.26002774 -0.13723539 -0.44560182 -0.3707826  -0.34061185 -0.3133722 ]
+ [-0.2397297  -0.12073655 -0.424398   -0.37197596 -0.3245346  -0.32817268]
+ [-0.23827727 -0.09392202 -0.432288   -0.35237134 -0.33080184 -0.34301716]
+ [-0.23851816 -0.09837455 -0.4377441  -0.35840076 -0.3094902  -0.340937  ]
+ [-0.250379   -0.12661484 -0.4269212  -0.3371648  -0.34084395 -0.3434466 ]
+ [-0.26169428 -0.10411648 -0.4420728  -0.35093105 -0.33143306 -0.33257946]
+ [-0.25129363 -0.11216853 -0.4230442  -0.35737643 -0.32291454 -0.31594273]
+ [-0.25998613 -0.0861029  -0.4235387  -0.35575083 -0.3299068  -0.31642747]
+ [-0.24954283 -0.10296618 -0.4367365  -0.36103085 -0.32831946 -0.3088038 ]
+ [-0.23549601 -0.1237127  -0.43540436 -0.35331607 -0.32196048 -0.3317875 ]
+ [-0.2587773  -0.12684229 -0.43467852 -0.37247065 -0.3392278  -0.32798183]
+ [-0.2575621  -0.13440903 -0.43426734 -0.33879557 -0.34573808 -0.3095732 ]
+ [-0.2490066  -0.11139267 -0.42623675 -0.3566391  -0.29318392 -0.32171187]
+ [-0.2541849  -0.13077584 -0.4301162  -0.37133062 -0.32270363 -0.29873937]
+ [-0.22528572 -0.1417673  -0.43281338 -0.34179854 -0.30539352 -0.31210452]
+ [-0.2307981  -0.12445766 -0.43103287 -0.34780407 -0.32265535 -0.28983578]
+ [-0.24337018 -0.11757191 -0.43455294 -0.37951618 -0.31393996 -0.31073204]]
+tensor([0.1311, 0.8739, 0.9454,  ..., 0.0585, 0.6536, 0.5792])
+[[-0.26552498 -0.11790282 -0.4624105  -0.37253177 -0.44224834 -0.44586954]
+ [-0.25867286 -0.12260105 -0.45886716 -0.37565386 -0.44081804 -0.4409857 ]
+ [-0.25857946 -0.1201451  -0.46360075 -0.37742472 -0.43929967 -0.44045427]
+ [-0.2611469  -0.12153649 -0.4602245  -0.37553585 -0.44081333 -0.44040263]
+ [-0.2585431  -0.11709903 -0.4633204  -0.37799093 -0.4355708  -0.43737346]
+ [-0.2624994  -0.1201781  -0.46504503 -0.37553766 -0.4366512  -0.43559423]
+ [-0.25799215 -0.12183917 -0.462898   -0.3746842  -0.43670982 -0.431258  ]
+ [-0.25890788 -0.12037664 -0.46230215 -0.36996627 -0.43352595 -0.43326437]
+ [-0.26037404 -0.1206277  -0.46362892 -0.37363678 -0.4316754  -0.43336886]
+ [-0.257475   -0.12088292 -0.46401584 -0.37707624 -0.43074736 -0.42997745]
+ [-0.25825912 -0.1229458  -0.46403354 -0.37115276 -0.42698187 -0.42885336]
+ [-0.25891206 -0.1203164  -0.46451977 -0.36946362 -0.42782155 -0.4265839 ]
+ [-0.25861597 -0.12069712 -0.45722142 -0.37706232 -0.42240468 -0.42351314]
+ [-0.25899372 -0.12280388 -0.4616619  -0.38440233 -0.4235651  -0.42166138]
+ [-0.25811288 -0.11727171 -0.4634354  -0.37053537 -0.42237002 -0.42467478]
+ [-0.2590703  -0.11806387 -0.46484745 -0.369569   -0.42232344 -0.42035633]
+ [-0.25984147 -0.1242568  -0.46375564 -0.37769687 -0.41875342 -0.42576146]
+ [-0.27149197 -0.10929153 -0.46680143 -0.36677125 -0.41278505 -0.4235563 ]
+ [-0.2654145  -0.12539099 -0.4642133  -0.3597194  -0.41822866 -0.41575402]
+ [-0.2616102  -0.14259475 -0.461478   -0.36638427 -0.41309565 -0.41877237]
+ [-0.24704923 -0.1374747  -0.4626214  -0.3760947  -0.40793973 -0.40259477]
+ [-0.27007586 -0.14875148 -0.47059488 -0.3602013  -0.4135519  -0.41011977]
+ [-0.264011   -0.12903786 -0.4586925  -0.36979356 -0.40384457 -0.41705725]
+ [-0.26069552 -0.12092654 -0.45943394 -0.36116657 -0.40502042 -0.4119356 ]
+ [-0.268794   -0.12768947 -0.46131673 -0.3677572  -0.40928844 -0.41532153]
+ [-0.2648405  -0.11458258 -0.45695397 -0.37469798 -0.4082733  -0.40361035]
+ [-0.26483667 -0.14328134 -0.4657264  -0.37117556 -0.40143055 -0.41064537]
+ [-0.27361694 -0.14654484 -0.4689455  -0.3718539  -0.4041703  -0.3956799 ]
+ [-0.27967018 -0.12208943 -0.45818067 -0.3681549  -0.39665255 -0.4002416 ]
+ [-0.24783215 -0.13338181 -0.46684948 -0.377491   -0.399576   -0.40564236]
+ [-0.2638885  -0.18713026 -0.45295814 -0.38039133 -0.39558154 -0.3949878 ]
+ [-0.2525651  -0.12462248 -0.45280358 -0.36782196 -0.39565367 -0.3921539 ]
+ [-0.25905395 -0.11437327 -0.4540172  -0.3676837  -0.39545825 -0.40200463]
+ [-0.25360766 -0.12614167 -0.4576672  -0.38328466 -0.39072803 -0.38360026]
+ [-0.24521531 -0.13104522 -0.4564791  -0.37946853 -0.38097805 -0.37856093]
+ [-0.2474149  -0.11257491 -0.45752627 -0.35708675 -0.3970323  -0.39932755]
+ [-0.24963944 -0.11003137 -0.4544989  -0.361578   -0.38623598 -0.4009511 ]
+ [-0.25421226 -0.12208154 -0.4551025  -0.35231152 -0.39716583 -0.40454423]
+ [-0.26907742 -0.11438709 -0.45050466 -0.36257577 -0.39595738 -0.384817  ]
+ [-0.25129706 -0.11452073 -0.45784226 -0.3610608  -0.392383   -0.37783307]
+ [-0.26313078 -0.09185161 -0.45185748 -0.36598226 -0.39709142 -0.3663723 ]
+ [-0.25555274 -0.11685552 -0.4574414  -0.367515   -0.39132178 -0.3721518 ]
+ [-0.24062239 -0.13240425 -0.45950893 -0.36148852 -0.3938963  -0.39679864]
+ [-0.25807658 -0.13463067 -0.45711774 -0.36945337 -0.4028585  -0.37261572]
+ [-0.26219434 -0.1360611  -0.45963803 -0.35407272 -0.39399484 -0.3581713 ]
+ [-0.24492818 -0.11279459 -0.45708242 -0.36367902 -0.36390972 -0.39004117]
+ [-0.2541638  -0.13208695 -0.45779416 -0.3743677  -0.38464797 -0.2997048 ]
+ [-0.22907287 -0.14237195 -0.4546917  -0.35369843 -0.36327803 -0.37006316]
+ [-0.2381337  -0.126855   -0.45838523 -0.36402127 -0.36297837 -0.36343214]
+ [-0.25354362 -0.12385882 -0.4660319  -0.38037565 -0.37625813 -0.3825239 ]
+ [-0.25858697 -0.13615806 -0.4570078  -0.36034495 -0.3650863  -0.36216128]
+ [-0.248667   -0.13163404 -0.47155976 -0.36645678 -0.36124873 -0.34950674]
+ [-0.25452578 -0.11343119 -0.45471606 -0.38353768 -0.35967144 -0.34973022]
+ [-0.25109652 -0.11908716 -0.4421673  -0.3810229  -0.36300138 -0.3646918 ]
+ [-0.24551503 -0.09590252 -0.45793915 -0.38753474 -0.377082   -0.3486225 ]
+ [-0.25231233 -0.113432   -0.4529081  -0.3769813  -0.35800818 -0.35098317]
+ [-0.24714202 -0.12219473 -0.4496078  -0.3627848  -0.36486748 -0.33678696]
+ [-0.24366823 -0.11941311 -0.4582679  -0.37405315 -0.36013913 -0.3491106 ]
+ [-0.25448793 -0.12381165 -0.45428267 -0.35617182 -0.3450759  -0.35987273]
+ [-0.26275486 -0.11835471 -0.45113033 -0.38127202 -0.36339474 -0.3551972 ]
+ [-0.25630605 -0.12792349 -0.46534395 -0.3836921  -0.36489245 -0.36192802]
+ [-0.25713137 -0.09585157 -0.46573594 -0.3658351  -0.35218605 -0.34816465]
+ [-0.24506332 -0.11666699 -0.43688843 -0.37616643 -0.3604219  -0.35880065]
+ [-0.25401944 -0.13855198 -0.45172736 -0.44368115 -0.3312966  -0.36514327]
+ [-0.254207   -0.10670247 -0.43308708 -0.36888072 -0.3329461  -0.34434313]
+ [-0.25689697 -0.11911187 -0.4373992  -0.35547438 -0.34367374 -0.33900258]
+ [-0.26167792 -0.14531966 -0.44082978 -0.36018646 -0.35349512 -0.35132733]
+ [-0.2609738  -0.10492458 -0.42806935 -0.3703882  -0.35165665 -0.34740046]
+ [-0.25179583 -0.10885433 -0.43212318 -0.3504943  -0.34066767 -0.32515752]
+ [-0.2587087  -0.14033715 -0.42896885 -0.35136074 -0.34486952 -0.32555488]
+ [-0.24102981 -0.15047252 -0.4384878  -0.35786226 -0.34709483 -0.31662607]
+ [-0.2666245  -0.1576616  -0.43985453 -0.3608195  -0.33859727 -0.3265158 ]
+ [-0.2680666  -0.13026604 -0.43901327 -0.35345626 -0.33371913 -0.3201439 ]
+ [-0.2539651  -0.11691957 -0.4453589  -0.33922118 -0.33212104 -0.32431385]
+ [-0.2649966  -0.10241578 -0.43415886 -0.35331592 -0.33788502 -0.32546762]
+ [-0.2657874  -0.11032337 -0.42513114 -0.36263993 -0.34209836 -0.32453611]
+ [-0.26753068 -0.1449397  -0.43958947 -0.36619318 -0.33944955 -0.33111864]
+ [-0.27998954 -0.1247462  -0.43735725 -0.36877355 -0.3368193  -0.31559387]
+ [-0.2758831  -0.10252936 -0.4314204  -0.35165435 -0.33856472 -0.3171321 ]
+ [-0.22414254 -0.14153124 -0.4271374  -0.3592216  -0.34342608 -0.33503968]
+ [-0.26494694 -0.20197393 -0.41538277 -0.37078086 -0.32888272 -0.3131728 ]
+ [-0.23996148 -0.11452247 -0.42502728 -0.3659005  -0.3383471  -0.32072496]
+ [-0.24870081 -0.10320564 -0.43979168 -0.36173558 -0.34734336 -0.34105346]
+ [-0.26002777 -0.13723542 -0.44560182 -0.3707826  -0.34061188 -0.31337222]
+ [-0.23972969 -0.12073657 -0.42439798 -0.3719759  -0.32453462 -0.32817268]
+ [-0.23827727 -0.09392206 -0.43228796 -0.35237134 -0.33080178 -0.34301722]
+ [-0.2385182  -0.09837456 -0.4377441  -0.35840076 -0.3094902  -0.34093705]
+ [-0.25037906 -0.12661485 -0.4269212  -0.33716482 -0.34084395 -0.34344667]
+ [-0.26169425 -0.10411652 -0.4420728  -0.35093105 -0.3314331  -0.33257955]
+ [-0.25129366 -0.11216849 -0.42304417 -0.35737643 -0.3229146  -0.31594273]
+ [-0.2599861  -0.0861029  -0.4235387  -0.35575083 -0.32990685 -0.31642747]
+ [-0.2495428  -0.10296614 -0.4367365  -0.36103082 -0.32831943 -0.3088038 ]
+ [-0.23549601 -0.12371269 -0.43540433 -0.35331604 -0.32196057 -0.33178753]
+ [-0.25877726 -0.12684228 -0.4346785  -0.37247065 -0.33922777 -0.3279818 ]
+ [-0.25756213 -0.13440901 -0.43426734 -0.33879554 -0.34573802 -0.3095732 ]
+ [-0.2490066  -0.11139271 -0.42623675 -0.35663906 -0.29318395 -0.3217119 ]
+ [-0.25418484 -0.13077591 -0.4301162  -0.3713306  -0.32270366 -0.29873937]
+ [-0.22528578 -0.14176728 -0.43281338 -0.34179857 -0.3053935  -0.31210452]
+ [-0.23079808 -0.12445766 -0.43103278 -0.34780407 -0.3226554  -0.28983575]
+ [-0.2433702  -0.11757194 -0.43455294 -0.3795162  -0.31394    -0.31073204]]
+tensor([0.3472, 0.6184, 0.2227,  ..., 0.1043, 0.1517, 0.6636])
+tensor([0.2181, 0.5464, 0.4063,  ..., 0.0203, 0.2587, 0.7137])
+False
+True

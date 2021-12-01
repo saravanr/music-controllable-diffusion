@@ -265,4 +265,12 @@ Traceback (most recent call last):
     self._target(*self._args, **self._kwargs)
   File "/home/joy/.venv/lib/python3.8/site-packages/wandb/sdk/wandb_run.py", line 167, in check_status
     status_response = self._interface.communicate_stop_status()
-  File "/home/joy/.venv/lib/python3.8/site-packages/wandb/sdk/interface/interface.py", line 109, in comm
+  File "/home/joy/.venv/lib/python3.8/site-packages/wandb/sdk/interface/interface.py", line 109, in communicate_stop_status
+    resp = self._communicate_stop_status(status)
+  File "/home/joy/.venv/lib/python3.8/site-packages/wandb/sdk/interface/interface_queue.py", line 401, in _communicate_stop_status
+    resp = self._communicate(req, local=True)
+  File "/home/joy/.venv/lib/python3.8/site-packages/wandb/sdk/interface/interface_queue.py", line 232, in _communicate
+    return self._communicate_async(rec, local=local).get(timeout=timeout)
+  File "/home/joy/.venv/lib/python3.8/site-packages/wandb/sdk/interface/interface_queue.py", line 237, in _communicate_async
+    raise Exception("The wandb backend process has shutdown")
+Exception: The wandb backend process has shutdown

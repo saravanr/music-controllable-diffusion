@@ -29,3 +29,6 @@ config: {}
 2021-11-23 09:02:07,646 INFO    MainThread:9678 [wandb_init.py:init():395] wandb.init called with sweep_config: {}
 config: {}
 2021-11-23 09:02:07,646 INFO    MainThread:9678 [wandb_init.py:init():432] wandb.init() called when a run is still active
+2021-11-30 16:23:53,053 INFO    MainThread:9678 [wandb_run.py:_atexit_cleanup():1654] got exitcode: 0
+2021-11-30 16:23:53,056 INFO    MainThread:9678 [wandb_run.py:_restore():1634] restore
+2021-11-30 16:23:55,558 INFO    MainThread:9678 [wandb_run.py:_restore():1634] restore

@@ -59,7 +59,7 @@ class MidiDataset(Dataset):
     def __init__(self, data_dir, transform=None):
         self.data_dir = data_dir
         self.transform = transform
-        self.data_files = get_files_in_path(data_dir, matching_pattern=f"*.npy")
+        self.data_files = get_files_in_path(data_dir, matching_pattern=f"*.npy")[0:10000]
         self.tensors = self.generate_tensors()
 
     def generate_tensors(self):

@@ -1,0 +1,9 @@
+
+Loading from /home/joy/home/joy/model-archive-note-seq/01-Dec-21-1638384137/SimpleVaeMidi-epoch-20.checkpoint...
+Generating input tensors on cuda
+
+
+
+
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 10000/10000 [00:14<00:00, 685.42it/s]

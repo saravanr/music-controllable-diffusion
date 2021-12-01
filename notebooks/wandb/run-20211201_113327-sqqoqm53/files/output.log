@@ -1,0 +1,70 @@
+
+Loading from /home/joy/model-archive-note-seq/01-Dec-21-1638386781/SimpleVaeMidi-epoch-40.checkpoint...
+tensor([0.8160, 0.3253, 0.9349,  ..., 0.7193, 0.7441, 0.4041])
+tensor([0.1262, 0.9877, 0.9814,  ..., 0.2328, 0.6434, 0.1405])
+True
+tensor([0.0163, 0.0985, 0.3099,  ..., 0.2776, 0.3046, 0.0714])
+True
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+True
+tensor([0.9356, 0.4685, 0.5246,  ..., 0.7455, 0.4614, 0.9434])
+True
+True
+tensor([0.5485, 0.0422, 0.1957,  ..., 0.3811, 0.2593, 0.4353])
+True
+Loading from /home/joy/model-archive-note-seq/01-Dec-21-1638389119/SimpleVaeMidi-epoch-60.checkpoint...
