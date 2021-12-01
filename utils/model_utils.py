@@ -2,7 +2,9 @@ import torch
 import numpy as np
 
 from torch.distributions.normal import Normal
+import torch.nn as nn
 import torch.nn.functional as F
+
 
 def sample_gaussian(m, v):
     """
@@ -206,3 +208,28 @@ def log_sum_exp(x, dim=0):
     max_x = torch.max(x, dim)[0]
     new_x = x - max_x.unsqueeze(dim).expand_as(x)
     return max_x + (new_x.exp().sum(dim)).log()
+
+
+class GaussianFourierProjection(nn.Module):
+    """Gaussian random features for encoding time steps."""
+
+    def __init__(self, embed_dim, scale=30.):
+        super().__init__()
+        # Randomly sample weights during initialization. These weights are fixed
+        # during optimization and are not trainable.
+        self.W = nn.Parameter(torch.randn(embed_dim // 2) * scale, requires_grad=False)
+
+    def forward(self, x):
+        x_proj = x[:, None] * self.W[None, :] * 2 * np.pi
+        return torch.cat([torch.sin(x_proj), torch.cos(x_proj)], dim=-1)
+
+
+class Dense(nn.Module):
+    """A fully connected layer that reshapes outputs to feature maps."""
+
+    def __init__(self, input_dim, output_dim):
+        super().__init__()
+        self.dense = nn.Linear(input_dim, output_dim)
+
+    def forward(self, x):
+        return self.dense(x)[..., None, None]
