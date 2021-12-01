@@ -68,3 +68,107 @@ config: {}
 2021-12-01 12:08:16,029 INFO    MainThread:233351 [wandb_init.py:_resume_backend():279] resuming backend
 2021-12-01 12:08:20,136 INFO    MainThread:233351 [wandb_init.py:_pause_backend():270] pausing backend
 2021-12-01 12:08:20,136 INFO    MainThread:233351 [jupyter.py:save_ipynb():374] not saving jupyter notebook
+2021-12-01 12:09:22,282 INFO    MainThread:233351 [wandb_init.py:_resume_backend():279] resuming backend
+2021-12-01 12:09:22,286 INFO    MainThread:233351 [wandb_init.py:_pause_backend():270] pausing backend
+2021-12-01 12:09:22,287 INFO    MainThread:233351 [jupyter.py:save_ipynb():374] not saving jupyter notebook
+2021-12-01 12:09:23,206 INFO    MainThread:233351 [wandb_init.py:_resume_backend():279] resuming backend
+2021-12-01 12:09:23,207 INFO    MainThread:233351 [wandb_init.py:_pause_backend():270] pausing backend
+2021-12-01 12:09:23,208 INFO    MainThread:233351 [jupyter.py:save_ipynb():374] not saving jupyter notebook
+2021-12-01 12:09:24,275 INFO    MainThread:233351 [wandb_init.py:_resume_backend():279] resuming backend
+2021-12-01 12:09:28,413 INFO    MainThread:233351 [wandb_init.py:_pause_backend():270] pausing backend
+2021-12-01 12:09:28,413 INFO    MainThread:233351 [jupyter.py:save_ipynb():374] not saving jupyter notebook
+2021-12-01 12:38:29,522 INFO    MainThread:233351 [wandb_run.py:_atexit_cleanup():1663] got exitcode: 0
+2021-12-01 12:38:29,523 INFO    MainThread:233351 [wandb_run.py:_restore():1635] restore
+2021-12-01 12:38:29,760 INFO    MainThread:233351 [wandb_run.py:_wait_for_finish():1793] got exit ret: file_counts {
+  wandb_count: 1
+}
+pusher_stats {
+  uploaded_bytes: 851
+  total_bytes: 851
+}
+
+2021-12-01 12:38:29,918 INFO    MainThread:233351 [wandb_run.py:_wait_for_finish():1793] got exit ret: file_counts {
+  wandb_count: 1
+}
+pusher_stats {
+  uploaded_bytes: 851
+  total_bytes: 851
+}
+
+2021-12-01 12:38:30,758 INFO    MainThread:233351 [wandb_run.py:_wait_for_finish():1793] got exit ret: file_counts {
+  wandb_count: 5
+}
+pusher_stats {
+  uploaded_bytes: 851
+  total_bytes: 20111
+}
+
+2021-12-01 12:38:30,861 INFO    MainThread:233351 [wandb_run.py:_wait_for_finish():1793] got exit ret: file_counts {
+  wandb_count: 5
+}
+pusher_stats {
+  uploaded_bytes: 851
+  total_bytes: 20111
+}
+
+2021-12-01 12:38:30,962 INFO    MainThread:233351 [wandb_run.py:_wait_for_finish():1793] got exit ret: file_counts {
+  wandb_count: 5
+}
+pusher_stats {
+  uploaded_bytes: 851
+  total_bytes: 20111
+}
+
+2021-12-01 12:38:31,064 INFO    MainThread:233351 [wandb_run.py:_wait_for_finish():1793] got exit ret: file_counts {
+  wandb_count: 5
+}
+pusher_stats {
+  uploaded_bytes: 20111
+  total_bytes: 20111
+}
+
+2021-12-01 12:38:31,166 INFO    MainThread:233351 [wandb_run.py:_wait_for_finish():1793] got exit ret: file_counts {
+  wandb_count: 5
+}
+pusher_stats {
+  uploaded_bytes: 20111
+  total_bytes: 20111
+}
+
+2021-12-01 12:38:31,268 INFO    MainThread:233351 [wandb_run.py:_wait_for_finish():1793] got exit ret: file_counts {
+  wandb_count: 5
+}
+pusher_stats {
+  uploaded_bytes: 20111
+  total_bytes: 20111
+}
+
+2021-12-01 12:38:31,371 INFO    MainThread:233351 [wandb_run.py:_wait_for_finish():1793] got exit ret: file_counts {
+  wandb_count: 5
+}
+pusher_stats {
+  uploaded_bytes: 20111
+  total_bytes: 20111
+}
+
+2021-12-01 12:38:31,644 INFO    MainThread:233351 [wandb_run.py:_wait_for_finish():1793] got exit ret: file_counts {
+  wandb_count: 5
+}
+pusher_stats {
+  uploaded_bytes: 20111
+  total_bytes: 20111
+}
+
+2021-12-01 12:38:32,009 INFO    MainThread:233351 [wandb_run.py:_wait_for_finish():1793] got exit ret: done: true
+exit_result {
+}
+file_counts {
+  wandb_count: 5
+}
+pusher_stats {
+  uploaded_bytes: 20111
+  total_bytes: 20111
+}
+local_info {
+}
+

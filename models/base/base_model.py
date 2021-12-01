@@ -92,41 +92,58 @@ class BaseModel(torch.nn.Module):
         device = get_device()
         self.to(device)
         self.train()
-        train_loss = 0
+        batch_train_loss = 0
+        batch_kl_loss = 0.0
+        batch_recon_loss = 0.0
 
         for batch_idx, batch in enumerate(self._dms.train_dataloader()):
             optimizer.zero_grad()
-            loss = self.step(batch, batch_idx)
+            loss, kl, recon_loss = self.step(batch, batch_idx)
             loss.backward()
             optimizer.step()
 
-            batch_loss = loss.detach().item()
-            train_loss += batch_loss
+            batch_train_loss += loss.detach().item()
+            batch_kl_loss += kl.detach().item()
+            batch_recon_loss += recon_loss.detach().item()
 
-        loss = train_loss / len(self._dms.train_dataloader().dataset)
+        loss = batch_train_loss / len(self._dms.train_dataloader().dataset)
+        kl_loss = batch_kl_loss / len(self._dms.train_dataloader().dataset)
+        recon_loss = batch_recon_loss / len(self._dms.train_dataloader().dataset)
         wandb.log({'loss': loss})
-        print(f'====> Train Loss = {loss} Epoch = {epoch}')
+        wandb.log({'kl_loss': kl_loss})
+        wandb.log({'recon_loss': recon_loss})
+        print(f'====> Train Loss = {loss} KL = {kl_loss} Recon = {recon_loss} Epoch = {epoch}')
 
     def save(self, epoch):
-        model_save_path = os.path.join(self._output_dir, f"{self._model_prefix}-epoch-{epoch}.checkpoint")
+        model_save_path = os.path.join(self._output_dir, f"{self._model_prefix}-epoch-{epoch}-{wandb.run.name}.checkpoint")
         print(f"Saving model to --> {model_save_path}")
         torch.save(self.state_dict(), model_save_path)
 
     def test(self):
         self.eval()
         device = get_device()
-        test_loss = 0
+        batch_test_loss = 0
+        batch_kl_loss = 0.0
+        batch_recon_loss = 0.0
         with torch.no_grad():
             for batch_idx, batch in enumerate(self._dms.test_dataloader()):
-                #batch = batch.reshape(-1, 28, 28)
-                batch = batch.to(device)
-                loss = self.step(batch, batch_idx)
-                batch_loss = loss.detach().item()
-                test_loss += batch_loss
+                if self._use_mnist_dms:
+                    batch = batch.reshape(-1, 28, 28)
 
-        test_loss /= len(self._dms.test_dataloader())
-        wandb.log({'test_loss': test_loss})
-        print(f"====>  Test Loss = {test_loss}")
+                batch = batch.to(device)
+                loss, kl, recon_loss = self.step(batch, batch_idx)
+                batch_test_loss += loss.detach().item()
+                batch_kl_loss += kl.detach().item()
+                batch_recon_loss += recon_loss.detach().item()
+
+        loss = batch_test_loss / len(self._dms.train_dataloader().dataset)
+        kl_loss = batch_kl_loss / len(self._dms.train_dataloader().dataset)
+        recon_loss = batch_recon_loss / len(self._dms.train_dataloader().dataset)
+        wandb.log({'test_loss': loss})
+        wandb.log({'test_kl_loss': kl_loss})
+        wandb.log({'test_recon_loss': recon_loss})
+        print(f'====> Test Loss = {loss} KL = {kl_loss} Recon = {recon_loss}')
+
 
     @property
     def lr(self):

@@ -115,3 +115,363 @@
 2021-12-01 12:08:37,788 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: stop_status
 2021-12-01 12:08:52,945 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: stop_status
 2021-12-01 12:08:52,945 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: stop_status
+2021-12-01 12:09:08,075 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: stop_status
+2021-12-01 12:09:08,076 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: stop_status
+2021-12-01 12:09:22,284 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: resume
+2021-12-01 12:09:22,284 INFO    HandlerThread:233403 [handler.py:handle_request_resume():603] starting system metrics thread
+2021-12-01 12:09:22,287 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: pause
+2021-12-01 12:09:22,287 INFO    HandlerThread:233403 [handler.py:handle_request_pause():612] stopping system metrics thread
+2021-12-01 12:09:22,310 DEBUG   SenderThread:233403 [sender.py:send():238] send: stats
+2021-12-01 12:09:23,207 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: resume
+2021-12-01 12:09:23,207 INFO    HandlerThread:233403 [handler.py:handle_request_resume():603] starting system metrics thread
+2021-12-01 12:09:23,208 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: pause
+2021-12-01 12:09:23,208 INFO    HandlerThread:233403 [handler.py:handle_request_pause():612] stopping system metrics thread
+2021-12-01 12:09:23,236 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: stop_status
+2021-12-01 12:09:23,236 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: stop_status
+2021-12-01 12:09:23,375 DEBUG   SenderThread:233403 [sender.py:send():238] send: stats
+2021-12-01 12:09:24,228 INFO    Thread-8  :233403 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/notebooks/wandb/run-20211201_120750-32c8jxg4/files/output.log
+2021-12-01 12:09:24,278 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: resume
+2021-12-01 12:09:24,278 INFO    HandlerThread:233403 [handler.py:handle_request_resume():603] starting system metrics thread
+2021-12-01 12:09:26,228 INFO    Thread-8  :233403 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/notebooks/wandb/run-20211201_120750-32c8jxg4/files/output.log
+2021-12-01 12:09:28,229 INFO    Thread-8  :233403 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/notebooks/wandb/run-20211201_120750-32c8jxg4/files/output.log
+2021-12-01 12:09:28,414 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: pause
+2021-12-01 12:09:28,415 INFO    HandlerThread:233403 [handler.py:handle_request_pause():612] stopping system metrics thread
+2021-12-01 12:09:28,432 DEBUG   SenderThread:233403 [sender.py:send():238] send: stats
+2021-12-01 12:09:30,230 INFO    Thread-8  :233403 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/notebooks/wandb/run-20211201_120750-32c8jxg4/files/output.log
+2021-12-01 12:09:38,377 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: stop_status
+2021-12-01 12:09:38,377 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: stop_status
+2021-12-01 12:09:53,516 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: stop_status
+2021-12-01 12:09:53,516 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: stop_status
+2021-12-01 12:10:08,658 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: stop_status
+2021-12-01 12:10:08,659 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: stop_status
+2021-12-01 12:10:23,799 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: stop_status
+2021-12-01 12:10:23,799 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: stop_status
+2021-12-01 12:10:38,938 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: stop_status
+2021-12-01 12:10:38,938 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: stop_status
+2021-12-01 12:10:54,092 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: stop_status
+2021-12-01 12:10:54,093 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: stop_status
+2021-12-01 12:11:09,238 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: stop_status
+2021-12-01 12:11:09,238 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: stop_status
+2021-12-01 12:11:24,380 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: stop_status
+2021-12-01 12:11:24,381 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: stop_status
+2021-12-01 12:11:39,533 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: stop_status
+2021-12-01 12:11:39,533 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: stop_status
+2021-12-01 12:11:54,669 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: stop_status
+2021-12-01 12:11:54,670 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: stop_status
+2021-12-01 12:12:09,805 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: stop_status
+2021-12-01 12:12:09,805 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: stop_status
+2021-12-01 12:12:24,955 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: stop_status
+2021-12-01 12:12:24,956 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: stop_status
+2021-12-01 12:12:40,092 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: stop_status
+2021-12-01 12:12:40,092 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: stop_status
+2021-12-01 12:12:55,233 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: stop_status
+2021-12-01 12:12:55,234 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: stop_status
+2021-12-01 12:13:10,362 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: stop_status
+2021-12-01 12:13:10,363 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: stop_status
+2021-12-01 12:13:25,510 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: stop_status
+2021-12-01 12:13:25,511 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: stop_status
+2021-12-01 12:13:40,649 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: stop_status
+2021-12-01 12:13:40,650 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: stop_status
+2021-12-01 12:13:55,786 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: stop_status
+2021-12-01 12:13:55,787 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: stop_status
+2021-12-01 12:14:10,935 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: stop_status
+2021-12-01 12:14:10,935 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: stop_status
+2021-12-01 12:14:26,073 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: stop_status
+2021-12-01 12:14:26,073 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: stop_status
+2021-12-01 12:14:41,209 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: stop_status
+2021-12-01 12:14:41,210 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: stop_status
+2021-12-01 12:14:56,356 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: stop_status
+2021-12-01 12:14:56,356 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: stop_status
+2021-12-01 12:15:11,489 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: stop_status
+2021-12-01 12:15:11,490 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: stop_status
+2021-12-01 12:15:26,638 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: stop_status
+2021-12-01 12:15:26,638 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: stop_status
+2021-12-01 12:15:41,772 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: stop_status
+2021-12-01 12:15:41,772 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: stop_status
+2021-12-01 12:15:56,911 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: stop_status
+2021-12-01 12:15:56,911 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: stop_status
+2021-12-01 12:16:12,059 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: stop_status
+2021-12-01 12:16:12,060 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: stop_status
+2021-12-01 12:16:27,217 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: stop_status
+2021-12-01 12:16:27,217 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: stop_status
+2021-12-01 12:16:42,359 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: stop_status
+2021-12-01 12:16:42,359 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: stop_status
+2021-12-01 12:16:57,619 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: stop_status
+2021-12-01 12:16:57,620 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: stop_status
+2021-12-01 12:17:12,774 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: stop_status
+2021-12-01 12:17:12,775 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: stop_status
+2021-12-01 12:17:27,912 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: stop_status
+2021-12-01 12:17:27,913 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: stop_status
+2021-12-01 12:17:43,047 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: stop_status
+2021-12-01 12:17:43,047 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: stop_status
+2021-12-01 12:17:58,192 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: stop_status
+2021-12-01 12:17:58,192 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: stop_status
+2021-12-01 12:18:13,367 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: stop_status
+2021-12-01 12:18:13,367 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: stop_status
+2021-12-01 12:18:28,524 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: stop_status
+2021-12-01 12:18:28,524 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: stop_status
+2021-12-01 12:18:43,666 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: stop_status
+2021-12-01 12:18:43,666 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: stop_status
+2021-12-01 12:18:58,803 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: stop_status
+2021-12-01 12:18:58,803 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: stop_status
+2021-12-01 12:19:13,934 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: stop_status
+2021-12-01 12:19:13,934 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: stop_status
+2021-12-01 12:19:29,104 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: stop_status
+2021-12-01 12:19:29,104 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: stop_status
+2021-12-01 12:19:44,355 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: stop_status
+2021-12-01 12:19:44,355 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: stop_status
+2021-12-01 12:19:59,489 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: stop_status
+2021-12-01 12:19:59,489 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: stop_status
+2021-12-01 12:20:14,632 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: stop_status
+2021-12-01 12:20:14,632 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: stop_status
+2021-12-01 12:20:29,771 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: stop_status
+2021-12-01 12:20:29,771 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: stop_status
+2021-12-01 12:20:44,914 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: stop_status
+2021-12-01 12:20:44,914 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: stop_status
+2021-12-01 12:21:00,125 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: stop_status
+2021-12-01 12:21:00,126 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: stop_status
+2021-12-01 12:21:15,267 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: stop_status
+2021-12-01 12:21:15,267 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: stop_status
+2021-12-01 12:21:30,401 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: stop_status
+2021-12-01 12:21:30,401 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: stop_status
+2021-12-01 12:21:45,544 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: stop_status
+2021-12-01 12:21:45,544 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: stop_status
+2021-12-01 12:22:00,677 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: stop_status
+2021-12-01 12:22:00,677 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: stop_status
+2021-12-01 12:22:15,806 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: stop_status
+2021-12-01 12:22:15,806 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: stop_status
+2021-12-01 12:22:30,949 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: stop_status
+2021-12-01 12:22:30,950 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: stop_status
+2021-12-01 12:22:46,086 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: stop_status
+2021-12-01 12:22:46,086 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: stop_status
+2021-12-01 12:23:01,221 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: stop_status
+2021-12-01 12:23:01,221 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: stop_status
+2021-12-01 12:23:16,357 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: stop_status
+2021-12-01 12:23:16,357 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: stop_status
+2021-12-01 12:23:31,498 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: stop_status
+2021-12-01 12:23:31,498 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: stop_status
+2021-12-01 12:23:46,639 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: stop_status
+2021-12-01 12:23:46,639 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: stop_status
+2021-12-01 12:24:01,776 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: stop_status
+2021-12-01 12:24:01,776 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: stop_status
+2021-12-01 12:24:16,902 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: stop_status
+2021-12-01 12:24:16,902 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: stop_status
+2021-12-01 12:24:32,038 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: stop_status
+2021-12-01 12:24:32,038 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: stop_status
+2021-12-01 12:24:47,177 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: stop_status
+2021-12-01 12:24:47,177 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: stop_status
+2021-12-01 12:25:02,313 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: stop_status
+2021-12-01 12:25:02,314 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: stop_status
+2021-12-01 12:25:17,458 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: stop_status
+2021-12-01 12:25:17,458 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: stop_status
+2021-12-01 12:25:32,592 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: stop_status
+2021-12-01 12:25:32,592 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: stop_status
+2021-12-01 12:25:47,722 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: stop_status
+2021-12-01 12:25:47,722 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: stop_status
+2021-12-01 12:26:02,859 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: stop_status
+2021-12-01 12:26:02,859 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: stop_status
+2021-12-01 12:26:17,995 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: stop_status
+2021-12-01 12:26:17,996 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: stop_status
+2021-12-01 12:26:33,128 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: stop_status
+2021-12-01 12:26:33,129 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: stop_status
+2021-12-01 12:26:48,283 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: stop_status
+2021-12-01 12:26:48,284 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: stop_status
+2021-12-01 12:27:03,433 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: stop_status
+2021-12-01 12:27:03,433 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: stop_status
+2021-12-01 12:27:18,571 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: stop_status
+2021-12-01 12:27:18,572 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: stop_status
+2021-12-01 12:27:33,717 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: stop_status
+2021-12-01 12:27:33,717 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: stop_status
+2021-12-01 12:27:48,857 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: stop_status
+2021-12-01 12:27:48,857 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: stop_status
+2021-12-01 12:28:04,000 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: stop_status
+2021-12-01 12:28:04,001 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: stop_status
+2021-12-01 12:28:19,146 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: stop_status
+2021-12-01 12:28:19,146 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: stop_status
+2021-12-01 12:28:34,297 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: stop_status
+2021-12-01 12:28:34,298 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: stop_status
+2021-12-01 12:28:49,445 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: stop_status
+2021-12-01 12:28:49,445 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: stop_status
+2021-12-01 12:29:04,585 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: stop_status
+2021-12-01 12:29:04,585 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: stop_status
+2021-12-01 12:29:19,714 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: stop_status
+2021-12-01 12:29:19,714 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: stop_status
+2021-12-01 12:29:34,855 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: stop_status
+2021-12-01 12:29:34,856 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: stop_status
+2021-12-01 12:29:49,999 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: stop_status
+2021-12-01 12:29:49,999 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: stop_status
+2021-12-01 12:30:05,137 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: stop_status
+2021-12-01 12:30:05,138 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: stop_status
+2021-12-01 12:30:20,270 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: stop_status
+2021-12-01 12:30:20,271 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: stop_status
+2021-12-01 12:30:35,404 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: stop_status
+2021-12-01 12:30:35,404 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: stop_status
+2021-12-01 12:30:50,542 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: stop_status
+2021-12-01 12:30:50,542 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: stop_status
+2021-12-01 12:31:05,686 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: stop_status
+2021-12-01 12:31:05,687 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: stop_status
+2021-12-01 12:31:20,822 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: stop_status
+2021-12-01 12:31:20,822 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: stop_status
+2021-12-01 12:31:35,956 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: stop_status
+2021-12-01 12:31:35,956 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: stop_status
+2021-12-01 12:31:51,094 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: stop_status
+2021-12-01 12:31:51,095 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: stop_status
+2021-12-01 12:32:06,225 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: stop_status
+2021-12-01 12:32:06,225 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: stop_status
+2021-12-01 12:32:21,383 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: stop_status
+2021-12-01 12:32:21,383 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: stop_status
+2021-12-01 12:32:36,554 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: stop_status
+2021-12-01 12:32:36,554 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: stop_status
+2021-12-01 12:32:51,717 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: stop_status
+2021-12-01 12:32:51,717 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: stop_status
+2021-12-01 12:33:06,879 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: stop_status
+2021-12-01 12:33:06,879 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: stop_status
+2021-12-01 12:33:22,039 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: stop_status
+2021-12-01 12:33:22,039 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: stop_status
+2021-12-01 12:33:37,193 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: stop_status
+2021-12-01 12:33:37,193 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: stop_status
+2021-12-01 12:33:52,323 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: stop_status
+2021-12-01 12:33:52,323 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: stop_status
+2021-12-01 12:34:07,458 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: stop_status
+2021-12-01 12:34:07,458 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: stop_status
+2021-12-01 12:34:22,613 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: stop_status
+2021-12-01 12:34:22,613 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: stop_status
+2021-12-01 12:34:37,756 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: stop_status
+2021-12-01 12:34:37,756 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: stop_status
+2021-12-01 12:34:52,898 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: stop_status
+2021-12-01 12:34:52,899 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: stop_status
+2021-12-01 12:35:08,036 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: stop_status
+2021-12-01 12:35:08,036 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: stop_status
+2021-12-01 12:35:23,173 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: stop_status
+2021-12-01 12:35:23,173 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: stop_status
+2021-12-01 12:35:38,307 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: stop_status
+2021-12-01 12:35:38,307 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: stop_status
+2021-12-01 12:35:53,450 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: stop_status
+2021-12-01 12:35:53,450 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: stop_status
+2021-12-01 12:36:08,587 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: stop_status
+2021-12-01 12:36:08,588 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: stop_status
+2021-12-01 12:36:23,737 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: stop_status
+2021-12-01 12:36:23,738 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: stop_status
+2021-12-01 12:36:38,898 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: stop_status
+2021-12-01 12:36:38,899 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: stop_status
+2021-12-01 12:36:54,065 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: stop_status
+2021-12-01 12:36:54,065 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: stop_status
+2021-12-01 12:37:09,247 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: stop_status
+2021-12-01 12:37:09,248 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: stop_status
+2021-12-01 12:37:24,413 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: stop_status
+2021-12-01 12:37:24,413 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: stop_status
+2021-12-01 12:37:39,582 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: stop_status
+2021-12-01 12:37:39,583 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: stop_status
+2021-12-01 12:37:54,737 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: stop_status
+2021-12-01 12:37:54,737 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: stop_status
+2021-12-01 12:38:09,896 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: stop_status
+2021-12-01 12:38:09,897 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: stop_status
+2021-12-01 12:38:25,048 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: stop_status
+2021-12-01 12:38:25,048 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: stop_status
+2021-12-01 12:38:29,519 WARNING MainThread:233403 [internal.py:wandb_internal():146] Internal process interrupt: 1
+2021-12-01 12:38:29,751 INFO    Thread-8  :233403 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/notebooks/wandb/run-20211201_120750-32c8jxg4/files/output.log
+2021-12-01 12:38:29,756 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: poll_exit
+2021-12-01 12:38:29,757 DEBUG   SenderThread:233403 [sender.py:send():238] send: telemetry
+2021-12-01 12:38:29,757 DEBUG   SenderThread:233403 [sender.py:send():238] send: exit
+2021-12-01 12:38:29,757 INFO    SenderThread:233403 [sender.py:send_exit():370] handling exit code: 0
+2021-12-01 12:38:29,757 INFO    SenderThread:233403 [sender.py:send_exit():372] handling runtime: 15
+2021-12-01 12:38:29,759 INFO    SenderThread:233403 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-12-01 12:38:29,759 INFO    SenderThread:233403 [sender.py:send_exit():382] send defer
+2021-12-01 12:38:29,759 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: poll_exit
+2021-12-01 12:38:29,760 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: defer
+2021-12-01 12:38:29,760 INFO    HandlerThread:233403 [handler.py:handle_request_defer():147] handle defer: 0
+2021-12-01 12:38:29,760 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: defer
+2021-12-01 12:38:29,760 INFO    SenderThread:233403 [sender.py:send_request_defer():391] handle sender defer: 0
+2021-12-01 12:38:29,760 INFO    SenderThread:233403 [sender.py:transition_state():395] send defer: 1
+2021-12-01 12:38:29,760 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: defer
+2021-12-01 12:38:29,760 INFO    HandlerThread:233403 [handler.py:handle_request_defer():147] handle defer: 1
+2021-12-01 12:38:29,760 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: defer
+2021-12-01 12:38:29,760 INFO    SenderThread:233403 [sender.py:send_request_defer():391] handle sender defer: 1
+2021-12-01 12:38:29,761 INFO    SenderThread:233403 [sender.py:transition_state():395] send defer: 2
+2021-12-01 12:38:29,761 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: defer
+2021-12-01 12:38:29,761 INFO    HandlerThread:233403 [handler.py:handle_request_defer():147] handle defer: 2
+2021-12-01 12:38:29,761 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: defer
+2021-12-01 12:38:29,761 INFO    SenderThread:233403 [sender.py:send_request_defer():391] handle sender defer: 2
+2021-12-01 12:38:29,761 INFO    SenderThread:233403 [sender.py:transition_state():395] send defer: 3
+2021-12-01 12:38:29,761 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: defer
+2021-12-01 12:38:29,761 INFO    HandlerThread:233403 [handler.py:handle_request_defer():147] handle defer: 3
+2021-12-01 12:38:29,761 DEBUG   SenderThread:233403 [sender.py:send():238] send: summary
+2021-12-01 12:38:29,764 INFO    SenderThread:233403 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-12-01 12:38:29,764 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: defer
+2021-12-01 12:38:29,764 INFO    SenderThread:233403 [sender.py:send_request_defer():391] handle sender defer: 3
+2021-12-01 12:38:29,764 INFO    SenderThread:233403 [sender.py:transition_state():395] send defer: 4
+2021-12-01 12:38:29,764 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: defer
+2021-12-01 12:38:29,764 INFO    HandlerThread:233403 [handler.py:handle_request_defer():147] handle defer: 4
+2021-12-01 12:38:29,764 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: defer
+2021-12-01 12:38:29,764 INFO    SenderThread:233403 [sender.py:send_request_defer():391] handle sender defer: 4
+2021-12-01 12:38:29,865 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: poll_exit
+2021-12-01 12:38:29,917 INFO    SenderThread:233403 [sender.py:transition_state():395] send defer: 5
+2021-12-01 12:38:29,917 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: poll_exit
+2021-12-01 12:38:29,918 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: defer
+2021-12-01 12:38:29,918 INFO    HandlerThread:233403 [handler.py:handle_request_defer():147] handle defer: 5
+2021-12-01 12:38:29,918 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: defer
+2021-12-01 12:38:29,918 INFO    SenderThread:233403 [sender.py:send_request_defer():391] handle sender defer: 5
+2021-12-01 12:38:29,918 INFO    SenderThread:233403 [dir_watcher.py:finish():283] shutting down directory watcher
+2021-12-01 12:38:30,018 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: poll_exit
+2021-12-01 12:38:30,752 INFO    Thread-8  :233403 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/notebooks/wandb/run-20211201_120750-32c8jxg4/files/wandb-summary.json
+2021-12-01 12:38:30,753 INFO    SenderThread:233403 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/notebooks/wandb/run-20211201_120750-32c8jxg4/files/config.yaml
+2021-12-01 12:38:30,753 INFO    SenderThread:233403 [dir_watcher.py:finish():313] scan: /home/joy/projects/music-controllable-diffusion/notebooks/wandb/run-20211201_120750-32c8jxg4/files
+2021-12-01 12:38:30,754 INFO    SenderThread:233403 [dir_watcher.py:finish():327] scan save: /home/joy/projects/music-controllable-diffusion/notebooks/wandb/run-20211201_120750-32c8jxg4/files/wandb-summary.json wandb-summary.json
+2021-12-01 12:38:30,754 INFO    SenderThread:233403 [dir_watcher.py:finish():327] scan save: /home/joy/projects/music-controllable-diffusion/notebooks/wandb/run-20211201_120750-32c8jxg4/files/config.yaml config.yaml
+2021-12-01 12:38:30,755 INFO    SenderThread:233403 [dir_watcher.py:finish():327] scan save: /home/joy/projects/music-controllable-diffusion/notebooks/wandb/run-20211201_120750-32c8jxg4/files/output.log output.log
+2021-12-01 12:38:30,756 INFO    SenderThread:233403 [dir_watcher.py:finish():327] scan save: /home/joy/projects/music-controllable-diffusion/notebooks/wandb/run-20211201_120750-32c8jxg4/files/wandb-metadata.json wandb-metadata.json
+2021-12-01 12:38:30,756 INFO    SenderThread:233403 [dir_watcher.py:finish():327] scan save: /home/joy/projects/music-controllable-diffusion/notebooks/wandb/run-20211201_120750-32c8jxg4/files/requirements.txt requirements.txt
+2021-12-01 12:38:30,757 INFO    SenderThread:233403 [sender.py:transition_state():395] send defer: 6
+2021-12-01 12:38:30,757 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: poll_exit
+2021-12-01 12:38:30,760 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: defer
+2021-12-01 12:38:30,760 INFO    HandlerThread:233403 [handler.py:handle_request_defer():147] handle defer: 6
+2021-12-01 12:38:30,763 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: defer
+2021-12-01 12:38:30,763 INFO    SenderThread:233403 [sender.py:send_request_defer():391] handle sender defer: 6
+2021-12-01 12:38:30,765 INFO    SenderThread:233403 [file_pusher.py:finish():177] shutting down file pusher
+2021-12-01 12:38:30,860 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: poll_exit
+2021-12-01 12:38:30,860 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: poll_exit
+2021-12-01 12:38:30,962 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: poll_exit
+2021-12-01 12:38:30,962 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: poll_exit
+2021-12-01 12:38:31,063 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: poll_exit
+2021-12-01 12:38:31,063 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: poll_exit
+2021-12-01 12:38:31,165 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: poll_exit
+2021-12-01 12:38:31,166 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: poll_exit
+2021-12-01 12:38:31,235 INFO    Thread-32 :233403 [upload_job.py:push():137] Uploaded file /home/joy/projects/music-controllable-diffusion/notebooks/wandb/run-20211201_120750-32c8jxg4/files/requirements.txt
+2021-12-01 12:38:31,237 INFO    Thread-30 :233403 [upload_job.py:push():137] Uploaded file /home/joy/projects/music-controllable-diffusion/notebooks/wandb/run-20211201_120750-32c8jxg4/files/config.yaml
+2021-12-01 12:38:31,238 INFO    Thread-29 :233403 [upload_job.py:push():137] Uploaded file /home/joy/projects/music-controllable-diffusion/notebooks/wandb/run-20211201_120750-32c8jxg4/files/wandb-summary.json
+2021-12-01 12:38:31,267 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: poll_exit
+2021-12-01 12:38:31,267 INFO    Thread-31 :233403 [upload_job.py:push():137] Uploaded file /home/joy/projects/music-controllable-diffusion/notebooks/wandb/run-20211201_120750-32c8jxg4/files/output.log
+2021-12-01 12:38:31,267 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: poll_exit
+2021-12-01 12:38:31,369 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: poll_exit
+2021-12-01 12:38:31,370 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: poll_exit
+2021-12-01 12:38:31,468 INFO    Thread-7  :233403 [sender.py:transition_state():395] send defer: 7
+2021-12-01 12:38:31,468 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: defer
+2021-12-01 12:38:31,468 INFO    HandlerThread:233403 [handler.py:handle_request_defer():147] handle defer: 7
+2021-12-01 12:38:31,469 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: defer
+2021-12-01 12:38:31,469 INFO    SenderThread:233403 [sender.py:send_request_defer():391] handle sender defer: 7
+2021-12-01 12:38:31,472 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: poll_exit
+2021-12-01 12:38:31,642 INFO    SenderThread:233403 [sender.py:transition_state():395] send defer: 8
+2021-12-01 12:38:31,642 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: poll_exit
+2021-12-01 12:38:31,644 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: defer
+2021-12-01 12:38:31,644 INFO    HandlerThread:233403 [handler.py:handle_request_defer():147] handle defer: 8
+2021-12-01 12:38:31,644 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: defer
+2021-12-01 12:38:31,645 INFO    SenderThread:233403 [sender.py:send_request_defer():391] handle sender defer: 8
+2021-12-01 12:38:31,645 INFO    SenderThread:233403 [sender.py:transition_state():395] send defer: 9
+2021-12-01 12:38:31,646 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: defer
+2021-12-01 12:38:31,647 INFO    HandlerThread:233403 [handler.py:handle_request_defer():147] handle defer: 9
+2021-12-01 12:38:31,647 DEBUG   SenderThread:233403 [sender.py:send():238] send: final
+2021-12-01 12:38:31,647 DEBUG   SenderThread:233403 [sender.py:send():238] send: footer
+2021-12-01 12:38:31,648 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: defer
+2021-12-01 12:38:31,648 INFO    SenderThread:233403 [sender.py:send_request_defer():391] handle sender defer: 9
+2021-12-01 12:38:31,745 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: poll_exit
+2021-12-01 12:38:31,745 DEBUG   SenderThread:233403 [sender.py:send_request():252] send_request: poll_exit
+2021-12-01 12:38:31,745 INFO    SenderThread:233403 [file_pusher.py:join():182] waiting for file pusher
+2021-12-01 12:38:32,010 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: get_summary
+2021-12-01 12:38:32,011 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: sampled_history
+2021-12-01 12:38:32,012 DEBUG   HandlerThread:233403 [handler.py:handle_request():130] handle_request: shutdown
+2021-12-01 12:38:32,012 INFO    HandlerThread:233403 [handler.py:finish():731] shutting down handler
+2021-12-01 12:38:32,647 INFO    WriterThread:233403 [datastore.py:close():281] close: /home/joy/projects/music-controllable-diffusion/notebooks/wandb/run-20211201_120750-32c8jxg4/run-32c8jxg4.wandb
+2021-12-01 12:38:33,009 INFO    SenderThread:233403 [sender.py:finish():1091] shutting down sender
+2021-12-01 12:38:33,010 INFO    SenderThread:233403 [file_pusher.py:finish():177] shutting down file pusher
+2021-12-01 12:38:33,010 INFO    SenderThread:233403 [file_pusher.py:join():182] waiting for file pusher
+2021-12-01 12:38:33,012 INFO    MainThread:233403 [internal.py:handle_exit():77] Internal process exited

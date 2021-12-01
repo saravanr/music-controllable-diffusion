@@ -60,7 +60,7 @@ class Encoder(nn.Module):
         input_dim = (seq_len * seq_width) // scale
 
         self._net = nn.Sequential(
-            nn.GRU(input_size=seq_len, hidden_size=seq_len, num_layers=64, batch_first=True, bidirectional=True),
+            nn.GRU(input_size=seq_len, hidden_size=seq_len, num_layers=4, batch_first=True, bidirectional=True),
             ExtractLSTMOutput(),
             nn.Flatten(start_dim=1),
             nn.Linear(input_dim * 2, input_dim // 2),
@@ -93,7 +93,7 @@ class Decoder(nn.Module):
     VAE Decoder takes the latent Z and maps it to output of shape of the input
     """
 
-    def __init__(self, z_dim, output_shape):
+    def __init__(self, z_dim, output_shape, clam_output=False):
         super(Decoder, self).__init__()
         self._z_dim = z_dim
         self._output_shape = output_shape
@@ -109,18 +109,21 @@ class Decoder(nn.Module):
         self._net = nn.Sequential(
             nn.Linear(z_dim, output_dim * scale),
             Reshape1DTo2D((seq_width, seq_len)),
-            nn.GRU(input_size=seq_len, hidden_size=seq_len, num_layers=2, batch_first=True),
+            nn.GRU(input_size=seq_len, hidden_size=seq_len, num_layers=4, batch_first=True),
             ExtractLSTMOutput(),
             nn.Tanh()
         )
         self._seq_len = seq_len
         self._seq_width = seq_width
+        self._clamp_output = clam_output
 
     def forward(self, z):
         output = self._net(z)
-        # Clamp output in (0, 1) to prevent errors in BCE
-        # output = torch.clamp(output, 1e-8, 1 - 1e-8)
-        output = output.reshape((-1, self._seq_len, self._seq_width))
+        if self._clamp_output:
+            # Clamp output in (0, 1) to prevent errors in BCE
+            output = torch.clamp(output, 1e-8, 1 - 1e-8)
+        else:
+            output = output.reshape((-1, self._seq_len, self._seq_width))
         return output
 
     @property
@@ -158,7 +161,7 @@ class SimpleVae(BaseModel):
             recon_loss = func.mse_loss(x_hat, x, reduction='sum')
         kl = self._kl_simple(mu, q_log_var)
         loss = recon_loss + self.alpha * kl
-        return loss
+        return loss, kl, recon_loss
 
     def step(self, batch, batch_idx):
         x = batch
@@ -185,6 +188,7 @@ class SimpleVae(BaseModel):
             with torch.no_grad():
                 device = get_device()
                 if self._use_mnist_dms:
+                    # 16 for 4x4 set of numbers
                     rand_z = torch.randn(16, self._decoder.z_dim).to(device)
                     rand_z.to(device)
                     output = self._decoder(rand_z)
@@ -196,7 +200,7 @@ class SimpleVae(BaseModel):
                     rand_z.to(device)
                     output = self._decoder(rand_z)
                     sample = output.to("cpu").detach().numpy()
-                    sample_file_name = os.path.join(self._output_dir, f"{self._model_prefix}-{epoch}.midi")
+                    sample_file_name = os.path.join(self._output_dir, f"{self._model_prefix}-{wandb.run.name}-{epoch}.midi")
                     print(f"Generating midi sample file://{sample_file_name}")
                     save_decoder_output_as_midi(sample, sample_file_name)
         except Exception as _e:
@@ -211,19 +215,22 @@ if __name__ == "__main__":
     print(f"Training simple VAE")
     batch_size = 2048
     train_mnist = False
+    _alpha = 10
     if train_mnist:
+        _z_dim = 20
         model = SimpleVae(
-            alpha=1,
-            z_dim=20,
+            alpha=_alpha,
+            z_dim=_z_dim,
             input_shape=(28, 28),
             use_mnist_dms=True,
             sample_output_step=10,
             batch_size=batch_size
         )
     else:
+        _z_dim = 1024
         model = SimpleVae(
-            alpha=1,
-            z_dim=2048,
+            alpha=_alpha,
+            z_dim=_z_dim,
             input_shape=(MAX_MIDI_ENCODING_ROWS, MIDI_ENCODING_WIDTH),
             use_mnist_dms=False,
             sample_output_step=10,
@@ -234,6 +241,7 @@ if __name__ == "__main__":
     max_epochs = 100
     wandb.config = {
         "learning_rate": model.lr,
+        "z_dim": _z_dim,
         "epochs": max_epochs,
         "batch_size": batch_size,
         "alpha": model.alpha
@@ -241,11 +249,13 @@ if __name__ == "__main__":
 
     _optimizer = model.configure_optimizers()
     model.setup()
-    for epoch in range(1, max_epochs + 1):
+    for _epoch in range(1, max_epochs + 1):
         model.train()
-        model.fit(epoch, _optimizer)
-        if epoch % 10 == 0:
+        model.fit(_epoch, _optimizer)
+        model.eval()
+        model.test()
+        if _epoch % 10 == 0:
             model.eval()
-            model.sample_output(epoch)
-            model.sample_output(1000+epoch)
-            model.save(epoch)
+            model.sample_output(_epoch)
+            model.sample_output(1000+ _epoch)
+            model.save(_epoch)
