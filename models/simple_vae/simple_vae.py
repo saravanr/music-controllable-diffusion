@@ -8,6 +8,7 @@ from torch.nn import functional as func
 from torch.utils.tensorboard import SummaryWriter
 import torch.nn.functional as F
 
+import utils.midi_utils
 from data.midi_data_module import MAX_MIDI_ENCODING_ROWS, MIDI_ENCODING_WIDTH
 from models.base.base_model import BaseModel
 from utils.cuda_utils import get_device
@@ -160,8 +161,17 @@ class SimpleVae(BaseModel):
         else:
             recon_loss = func.mse_loss(x_hat, x, reduction='sum')
         kl = self._kl_simple(mu, q_log_var)
-        loss = recon_loss + self.alpha * kl
-        return loss, kl, recon_loss
+
+        x_i = torch.arctanh(x).T[2]
+        x_i_hat = torch.arctanh(x_hat).T[2]
+
+        instrument_loss = func.mse_loss(x_i_hat, x_i, reduction='mean')
+
+        generated_unique_instruments_count = torch.unique((torch.arctanh(x_hat).T[2] * 254 + 127).to(torch.int)).size(dim=0)
+        wandb.log({'instrument_count': float(generated_unique_instruments_count)})
+
+        loss = recon_loss + self.alpha * kl + instrument_loss
+        return loss, kl, recon_loss, instrument_loss
 
     def step(self, batch, batch_idx):
         x = batch
@@ -215,7 +225,7 @@ if __name__ == "__main__":
     print(f"Training simple VAE")
     batch_size = 2048
     train_mnist = False
-    _alpha = 10
+    _alpha = 0.07
     if train_mnist:
         _z_dim = 20
         model = SimpleVae(
@@ -238,7 +248,7 @@ if __name__ == "__main__":
         )
     print(f"Training --> {model}")
 
-    max_epochs = 100
+    max_epochs = 10000
     wandb.config = {
         "learning_rate": model.lr,
         "z_dim": _z_dim,
@@ -257,5 +267,5 @@ if __name__ == "__main__":
         if _epoch % 10 == 0:
             model.eval()
             model.sample_output(_epoch)
-            model.sample_output(1000+ _epoch)
+            model.sample_output(999999+ _epoch)
             model.save(_epoch)

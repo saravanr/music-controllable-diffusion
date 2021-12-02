@@ -95,24 +95,29 @@ class BaseModel(torch.nn.Module):
         batch_train_loss = 0
         batch_kl_loss = 0.0
         batch_recon_loss = 0.0
+        batch_instrument_loss = 0.0
 
         for batch_idx, batch in enumerate(self._dms.train_dataloader()):
             optimizer.zero_grad()
-            loss, kl, recon_loss = self.step(batch, batch_idx)
+            loss, kl, recon_loss, instrument_loss = self.step(batch, batch_idx)
             loss.backward()
             optimizer.step()
 
             batch_train_loss += loss.detach().item()
             batch_kl_loss += kl.detach().item()
             batch_recon_loss += recon_loss.detach().item()
+            batch_instrument_loss += instrument_loss.detach().item()
 
         loss = batch_train_loss / len(self._dms.train_dataloader().dataset)
         kl_loss = batch_kl_loss / len(self._dms.train_dataloader().dataset)
         recon_loss = batch_recon_loss / len(self._dms.train_dataloader().dataset)
+        instrument_loss = batch_instrument_loss/ len(self._dms.train_dataloader().dataset)
+
         wandb.log({'loss': loss})
         wandb.log({'kl_loss': kl_loss})
         wandb.log({'recon_loss': recon_loss})
-        print(f'====> Train Loss = {loss} KL = {kl_loss} Recon = {recon_loss} Epoch = {epoch}')
+        wandb.log({'instrument_loss': instrument_loss})
+        print(f'====> Train Loss = {loss} KL = {kl_loss} Recon = {recon_loss} Instrument Loss={instrument_loss} Epoch = {epoch}')
 
     def save(self, epoch):
         model_save_path = os.path.join(self._output_dir, f"{self._model_prefix}-epoch-{epoch}-{wandb.run.name}.checkpoint")
@@ -125,24 +130,30 @@ class BaseModel(torch.nn.Module):
         batch_test_loss = 0
         batch_kl_loss = 0.0
         batch_recon_loss = 0.0
+        batch_instrument_loss = 0.0
+
         with torch.no_grad():
             for batch_idx, batch in enumerate(self._dms.test_dataloader()):
                 if self._use_mnist_dms:
                     batch = batch.reshape(-1, 28, 28)
 
                 batch = batch.to(device)
-                loss, kl, recon_loss = self.step(batch, batch_idx)
+                loss, kl, recon_loss, instrument_loss = self.step(batch, batch_idx)
                 batch_test_loss += loss.detach().item()
                 batch_kl_loss += kl.detach().item()
                 batch_recon_loss += recon_loss.detach().item()
+                batch_instrument_loss += instrument_loss.detach().item()
 
-        loss = batch_test_loss / len(self._dms.train_dataloader().dataset)
-        kl_loss = batch_kl_loss / len(self._dms.train_dataloader().dataset)
-        recon_loss = batch_recon_loss / len(self._dms.train_dataloader().dataset)
+        loss = batch_test_loss / len(self._dms.test_dataloader().dataset)
+        kl_loss = batch_kl_loss / len(self._dms.test_dataloader().dataset)
+        recon_loss = batch_recon_loss / len(self._dms.test_dataloader().dataset)
+        instrument_loss = batch_instrument_loss / len(self._dms.test_dataloader().dataset)
+
         wandb.log({'test_loss': loss})
         wandb.log({'test_kl_loss': kl_loss})
         wandb.log({'test_recon_loss': recon_loss})
-        print(f'====> Test Loss = {loss} KL = {kl_loss} Recon = {recon_loss}')
+        wandb.log({'test_instrument_loss': instrument_loss})
+        print(f'====> Test Loss = {loss} KL = {kl_loss} Recon = {recon_loss} Instrument Loss = {instrument_loss}')
 
 
     @property

@@ -7,7 +7,6 @@ from note_seq import midi_io
 from note_seq.protobuf import music_pb2
 
 
-
 def note_seq_to_nd_array(note_sequence):
     """Converts a NoteSequence serialized proto to arrays."""
     # Based on magenta/models/piano_genie/loader.py
@@ -30,24 +29,41 @@ def note_seq_to_nd_array(note_sequence):
     return nd_array
 
 
-def nd_array_to_note_seq(note_array):
+def nd_array_to_note_seq(input_note_array):
     """Converts ND array to Note Seq"""
     from data.midi_data_module import MIDI_ENCODING_WIDTH
-    note_array = note_array.reshape((-1, MIDI_ENCODING_WIDTH))
+    note_array = input_note_array.reshape((-1, MIDI_ENCODING_WIDTH))
     seq = music_pb2.NoteSequence()
-    note_array = (np.arctanh(note_array) * 254.0) + 127.
+    note_array = (note_array * 254.0) + 127.
 
     for i in range(0, note_array.shape[0]):
         note = music_pb2.NoteSequence.Note()
         note.pitch = int(note_array.T[0][i])
         note.velocity = int(note_array.T[1][i])
-        note.instrument = int(note_array.T[2][i])
+        note.instrument = 5 * round(int(note_array.T[2][i])/5)
         note.program = int(note_array.T[3][i])
         note.start_time = note_array.T[4][i]
         note.end_time = note_array.T[5][i]
         seq.notes.append(note)
 
+    instruments = set([note.instrument for note in seq.notes])
+    print(f"Number of instruments in Generated MIDI = {len(instruments)}")
+
     return seq
+
+
+def instrument_count(note_array):
+    from data.midi_data_module import MIDI_ENCODING_WIDTH
+    note_array = note_array.reshape((-1, MIDI_ENCODING_WIDTH))
+    note_array_expanded = (note_array * 254.0) + 127.
+
+    instruments = []
+    for i in range(0, note_array_expanded.shape[0]):
+        instrument = int(note_array_expanded.T[2][i])
+        instruments.append(instrument)
+
+    instruments = set(instruments)
+    return len(instruments)
 
 
 def midi_file_note_seq_array(midi_file):

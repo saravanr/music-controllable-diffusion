@@ -110,3 +110,12 @@ config: {}
 2021-12-01 13:00:34,741 INFO    MainThread:240991 [wandb_init.py:_resume_backend():279] resuming backend
 2021-12-01 13:00:35,757 INFO    MainThread:240991 [wandb_init.py:_pause_backend():270] pausing backend
 2021-12-01 13:00:35,757 INFO    MainThread:240991 [jupyter.py:save_ipynb():374] not saving jupyter notebook
+2021-12-01 13:53:16,025 INFO    MainThread:240991 [wandb_init.py:_resume_backend():279] resuming backend
+2021-12-01 13:53:16,029 INFO    MainThread:240991 [wandb_init.py:_pause_backend():270] pausing backend
+2021-12-01 13:53:16,029 INFO    MainThread:240991 [jupyter.py:save_ipynb():374] not saving jupyter notebook
+2021-12-01 13:53:21,453 INFO    MainThread:240991 [wandb_init.py:_resume_backend():279] resuming backend
+2021-12-01 13:53:21,464 INFO    MainThread:240991 [wandb_init.py:_pause_backend():270] pausing backend
+2021-12-01 13:53:21,464 INFO    MainThread:240991 [jupyter.py:save_ipynb():374] not saving jupyter notebook
+2021-12-01 13:54:52,903 INFO    MainThread:240991 [wandb_init.py:_resume_backend():279] resuming backend
+2021-12-01 13:54:52,906 INFO    MainThread:240991 [wandb_init.py:_pause_backend():270] pausing backend
+2021-12-01 13:54:52,906 INFO    MainThread:240991 [jupyter.py:save_ipynb():374] not saving jupyter notebook

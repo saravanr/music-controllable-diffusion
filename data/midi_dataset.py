@@ -59,7 +59,7 @@ class MidiDataset(Dataset):
     def __init__(self, data_dir, transform=None):
         self.data_dir = data_dir
         self.transform = transform
-        self.data_files = get_files_in_path(data_dir, matching_pattern=f"*.npy")[0:50000]
+        self.data_files = get_files_in_path(data_dir, matching_pattern=f"*.npy")[0:10000]
         self.tensors = self.generate_tensors()
 
     def generate_tensors(self):
@@ -135,7 +135,7 @@ def process(files):
 def generate_numpy_files():
     import os
     import multiprocessing as mp
-    output_dir = os.path.expanduser("~/midi_features")
+    output_dir = os.path.expanduser("~/midi_features_norm")
     os.makedirs(output_dir, exist_ok=True)
     files = get_files_in_path(_data_dir, matching_pattern="*.mid")
     num_proc = 1
