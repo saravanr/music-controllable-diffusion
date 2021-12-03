@@ -79,7 +79,7 @@ class BaseModel(torch.nn.Module):
     def enable_debugging():
         torch.autograd.set_detect_anomaly(True)
 
-    def loss_function(self, x_hat_bp, x_hat, x, qm, qv):
+    def loss_function(self, x_hat_bp, x_hat, x, x_control, qm, qv):
         raise NotImplementedError(f"Please implement loss_function()")
 
     def step(self, batch, batch_idx):
@@ -104,10 +104,11 @@ class BaseModel(torch.nn.Module):
         batch_program_loss = 0.0
         batch_start_time_loss = 0.0
         batch_end_time_loss = 0.0
+        batch_control_loss = 0.0
 
         for batch_idx, batch in enumerate(self._dms.train_dataloader()):
             optimizer.zero_grad()
-            loss, kl, recon_loss, pitches_loss, velocity_loss, instruments_loss, program_loss, start_times_loss, end_times_loss = self.step(batch, batch_idx)
+            loss, kl, recon_loss, pitches_loss, velocity_loss, instruments_loss, program_loss, start_times_loss, end_times_loss, control_loss = self.step(batch, batch_idx)
             loss.backward()
             optimizer.step()
 
@@ -121,6 +122,7 @@ class BaseModel(torch.nn.Module):
             batch_program_loss += program_loss.detach().item()
             batch_start_time_loss += start_times_loss.detach().item()
             batch_end_time_loss += end_times_loss.detach().item()
+            batch_control_loss += control_loss.detach().item()
 
         loss = batch_train_loss / len(self._dms.train_dataloader().dataset)
         kl_loss = batch_kl_loss / len(self._dms.train_dataloader().dataset)
@@ -131,6 +133,7 @@ class BaseModel(torch.nn.Module):
         program_loss = batch_program_loss/ len(self._dms.train_dataloader().dataset)
         start_times_loss = batch_start_time_loss/ len(self._dms.train_dataloader().dataset)
         end_times_loss = batch_end_time_loss/ len(self._dms.train_dataloader().dataset)
+        control_loss = batch_control_loss/ len(self._dms.train_dataloader().dataset)
 
         wandb.log({'loss': loss})
         wandb.log({'kl_loss': kl_loss})
@@ -141,7 +144,8 @@ class BaseModel(torch.nn.Module):
         wandb.log({'program_ce_loss': program_loss})
         wandb.log({'start_time_l2_loss': start_times_loss})
         wandb.log({'duration_l2_loss': end_times_loss})
-        print(f'====> Train Loss = {loss} KL = {kl_loss} Recon = {recon_loss} Instrument Loss={instrument_loss} Epoch = {epoch}')
+        wandb.log({'control_l2_loss': control_loss})
+        print(f'====> Train Loss = {loss} KL = {kl_loss} Recon = {recon_loss} Control Loss={control_loss} Epoch = {epoch}')
 
     def save(self, epoch):
         model_save_path = os.path.join(self._output_dir, f"{self._model_prefix}-epoch-{epoch}-{wandb.run.name}.checkpoint")
@@ -160,6 +164,7 @@ class BaseModel(torch.nn.Module):
         batch_program_loss = 0.0
         batch_start_time_loss = 0.0
         batch_end_time_loss = 0.0
+        batch_control_loss = 0.0
 
         with torch.no_grad():
             for batch_idx, batch in enumerate(self._dms.test_dataloader()):
@@ -167,7 +172,7 @@ class BaseModel(torch.nn.Module):
                     batch = batch.reshape(-1, 28, 28)
 
                 batch = batch.to(device)
-                loss, kl, recon_loss, pitches_loss, velocity_loss, instruments_loss, program_loss, start_times_loss, end_times_loss = self.step(batch, batch_idx)
+                loss, kl, recon_loss, pitches_loss, velocity_loss, instruments_loss, program_loss, start_times_loss, end_times_loss, control_loss = self.step(batch, batch_idx)
                 batch_test_loss += loss.detach().item()
                 batch_kl_loss += kl.detach().item()
 
@@ -178,6 +183,7 @@ class BaseModel(torch.nn.Module):
                 batch_program_loss += program_loss.detach().item()
                 batch_start_time_loss += start_times_loss.detach().item()
                 batch_end_time_loss += end_times_loss.detach().item()
+                batch_control_loss += control_loss.detach().item()
 
         loss = batch_test_loss / len(self._dms.test_dataloader().dataset)
         kl_loss = batch_kl_loss / len(self._dms.test_dataloader().dataset)
@@ -188,6 +194,7 @@ class BaseModel(torch.nn.Module):
         program_loss = batch_program_loss/ len(self._dms.test_dataloader().dataset)
         start_times_loss = batch_start_time_loss/ len(self._dms.test_dataloader().dataset)
         end_times_loss = batch_end_time_loss/ len(self._dms.test_dataloader().dataset)
+        control_loss = batch_control_loss/ len(self._dms.test_dataloader().dataset)
 
         wandb.log({'test_loss': loss})
         wandb.log({'test_kl_loss': kl_loss})
@@ -198,8 +205,8 @@ class BaseModel(torch.nn.Module):
         wandb.log({'test_program_ce_loss': program_loss})
         wandb.log({'test_start_time_l2_loss': start_times_loss})
         wandb.log({'test_duration_l2_loss': end_times_loss})
-
-        print(f'====> Test Loss = {loss} KL = {kl_loss} Recon = {recon_loss} Instrument Loss = {instrument_loss}')
+        wandb.log({'test_control_l2_loss': control_loss})
+        print(f'====> Test Loss = {loss} KL = {kl_loss} Recon = {recon_loss} Control Loss = {control_loss}')
 
 
     @property

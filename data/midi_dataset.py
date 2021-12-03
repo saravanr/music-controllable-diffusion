@@ -149,7 +149,10 @@ class MidiDataset(Dataset):
 
         print(f"Generating tensors")
         index = 0
+        from data.midi_data_module import MAX_MIDI_ENCODING_ROWS
         for data in tqdm.tqdm(data_array):
+            # TODO: CLean this
+            data = data[0:MAX_MIDI_ENCODING_ROWS]
             pitches = torch.tensor(data.T[0])
             velocity = torch.tensor(data.T[1])
             instrument = torch.tensor(data.T[2])

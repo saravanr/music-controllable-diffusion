@@ -9,7 +9,8 @@ from torchvision import transforms
 
 from data.midi_dataset import MidiDataset, Rescale, Trim, Reshape, ConvertEndTimeToDuration, data_loader_collate_fn
 
-MAX_MIDI_ENCODING_ROWS = 800
+# 100 notes ~ 30 seconds on average
+MAX_MIDI_ENCODING_ROWS = 300
 MIDI_ENCODING_WIDTH = 6
 
 

@@ -563,3 +563,127 @@
 2021-12-03 12:57:02,872 DEBUG   SenderThread:62422 [sender.py:send_request():252] send_request: stop_status
 2021-12-03 12:57:17,995 DEBUG   HandlerThread:62422 [handler.py:handle_request():130] handle_request: stop_status
 2021-12-03 12:57:17,996 DEBUG   SenderThread:62422 [sender.py:send_request():252] send_request: stop_status
+2021-12-03 12:57:33,114 DEBUG   HandlerThread:62422 [handler.py:handle_request():130] handle_request: stop_status
+2021-12-03 12:57:33,114 DEBUG   SenderThread:62422 [sender.py:send_request():252] send_request: stop_status
+2021-12-03 12:57:48,232 DEBUG   HandlerThread:62422 [handler.py:handle_request():130] handle_request: stop_status
+2021-12-03 12:57:48,232 DEBUG   SenderThread:62422 [sender.py:send_request():252] send_request: stop_status
+2021-12-03 12:58:03,351 DEBUG   HandlerThread:62422 [handler.py:handle_request():130] handle_request: stop_status
+2021-12-03 12:58:03,351 DEBUG   SenderThread:62422 [sender.py:send_request():252] send_request: stop_status
+2021-12-03 12:58:18,477 DEBUG   HandlerThread:62422 [handler.py:handle_request():130] handle_request: stop_status
+2021-12-03 12:58:18,477 DEBUG   SenderThread:62422 [sender.py:send_request():252] send_request: stop_status
+2021-12-03 12:58:33,591 DEBUG   HandlerThread:62422 [handler.py:handle_request():130] handle_request: stop_status
+2021-12-03 12:58:33,591 DEBUG   SenderThread:62422 [sender.py:send_request():252] send_request: stop_status
+2021-12-03 12:58:48,714 DEBUG   HandlerThread:62422 [handler.py:handle_request():130] handle_request: stop_status
+2021-12-03 12:58:48,714 DEBUG   SenderThread:62422 [sender.py:send_request():252] send_request: stop_status
+2021-12-03 12:59:03,838 DEBUG   HandlerThread:62422 [handler.py:handle_request():130] handle_request: stop_status
+2021-12-03 12:59:03,838 DEBUG   SenderThread:62422 [sender.py:send_request():252] send_request: stop_status
+2021-12-03 12:59:18,969 DEBUG   HandlerThread:62422 [handler.py:handle_request():130] handle_request: stop_status
+2021-12-03 12:59:18,969 DEBUG   SenderThread:62422 [sender.py:send_request():252] send_request: stop_status
+2021-12-03 12:59:33,496 WARNING MainThread:62422 [internal.py:wandb_internal():146] Internal process interrupt: 1
+2021-12-03 12:59:34,345 DEBUG   HandlerThread:62422 [handler.py:handle_request():130] handle_request: poll_exit
+2021-12-03 12:59:34,345 DEBUG   SenderThread:62422 [sender.py:send():238] send: telemetry
+2021-12-03 12:59:34,345 DEBUG   SenderThread:62422 [sender.py:send():238] send: exit
+2021-12-03 12:59:34,345 INFO    SenderThread:62422 [sender.py:send_exit():370] handling exit code: 0
+2021-12-03 12:59:34,345 INFO    SenderThread:62422 [sender.py:send_exit():372] handling runtime: 75
+2021-12-03 12:59:34,347 INFO    SenderThread:62422 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-12-03 12:59:34,347 INFO    SenderThread:62422 [sender.py:send_exit():382] send defer
+2021-12-03 12:59:34,347 DEBUG   SenderThread:62422 [sender.py:send_request():252] send_request: poll_exit
+2021-12-03 12:59:34,347 DEBUG   HandlerThread:62422 [handler.py:handle_request():130] handle_request: defer
+2021-12-03 12:59:34,347 INFO    HandlerThread:62422 [handler.py:handle_request_defer():147] handle defer: 0
+2021-12-03 12:59:34,347 DEBUG   SenderThread:62422 [sender.py:send_request():252] send_request: defer
+2021-12-03 12:59:34,347 INFO    SenderThread:62422 [sender.py:send_request_defer():391] handle sender defer: 0
+2021-12-03 12:59:34,347 INFO    SenderThread:62422 [sender.py:transition_state():395] send defer: 1
+2021-12-03 12:59:34,348 DEBUG   HandlerThread:62422 [handler.py:handle_request():130] handle_request: defer
+2021-12-03 12:59:34,348 INFO    HandlerThread:62422 [handler.py:handle_request_defer():147] handle defer: 1
+2021-12-03 12:59:34,348 DEBUG   SenderThread:62422 [sender.py:send_request():252] send_request: defer
+2021-12-03 12:59:34,348 INFO    SenderThread:62422 [sender.py:send_request_defer():391] handle sender defer: 1
+2021-12-03 12:59:34,348 INFO    SenderThread:62422 [sender.py:transition_state():395] send defer: 2
+2021-12-03 12:59:34,348 DEBUG   HandlerThread:62422 [handler.py:handle_request():130] handle_request: defer
+2021-12-03 12:59:34,348 INFO    HandlerThread:62422 [handler.py:handle_request_defer():147] handle defer: 2
+2021-12-03 12:59:34,348 DEBUG   SenderThread:62422 [sender.py:send_request():252] send_request: defer
+2021-12-03 12:59:34,348 INFO    SenderThread:62422 [sender.py:send_request_defer():391] handle sender defer: 2
+2021-12-03 12:59:34,348 INFO    SenderThread:62422 [sender.py:transition_state():395] send defer: 3
+2021-12-03 12:59:34,348 DEBUG   HandlerThread:62422 [handler.py:handle_request():130] handle_request: defer
+2021-12-03 12:59:34,348 INFO    HandlerThread:62422 [handler.py:handle_request_defer():147] handle defer: 3
+2021-12-03 12:59:34,349 DEBUG   SenderThread:62422 [sender.py:send():238] send: summary
+2021-12-03 12:59:34,349 INFO    SenderThread:62422 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-12-03 12:59:34,349 DEBUG   SenderThread:62422 [sender.py:send_request():252] send_request: defer
+2021-12-03 12:59:34,349 INFO    SenderThread:62422 [sender.py:send_request_defer():391] handle sender defer: 3
+2021-12-03 12:59:34,349 INFO    SenderThread:62422 [sender.py:transition_state():395] send defer: 4
+2021-12-03 12:59:34,349 DEBUG   HandlerThread:62422 [handler.py:handle_request():130] handle_request: defer
+2021-12-03 12:59:34,349 INFO    HandlerThread:62422 [handler.py:handle_request_defer():147] handle defer: 4
+2021-12-03 12:59:34,349 DEBUG   SenderThread:62422 [sender.py:send_request():252] send_request: defer
+2021-12-03 12:59:34,349 INFO    SenderThread:62422 [sender.py:send_request_defer():391] handle sender defer: 4
+2021-12-03 12:59:34,450 DEBUG   HandlerThread:62422 [handler.py:handle_request():130] handle_request: poll_exit
+2021-12-03 12:59:34,487 INFO    SenderThread:62422 [sender.py:transition_state():395] send defer: 5
+2021-12-03 12:59:34,487 DEBUG   SenderThread:62422 [sender.py:send_request():252] send_request: poll_exit
+2021-12-03 12:59:34,487 DEBUG   HandlerThread:62422 [handler.py:handle_request():130] handle_request: defer
+2021-12-03 12:59:34,488 INFO    HandlerThread:62422 [handler.py:handle_request_defer():147] handle defer: 5
+2021-12-03 12:59:34,488 DEBUG   SenderThread:62422 [sender.py:send_request():252] send_request: defer
+2021-12-03 12:59:34,488 INFO    SenderThread:62422 [sender.py:send_request_defer():391] handle sender defer: 5
+2021-12-03 12:59:34,488 INFO    SenderThread:62422 [dir_watcher.py:finish():283] shutting down directory watcher
+2021-12-03 12:59:34,588 DEBUG   HandlerThread:62422 [handler.py:handle_request():130] handle_request: poll_exit
+2021-12-03 12:59:34,874 INFO    SenderThread:62422 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/notebooks/wandb/run-20211203_120302-36v15e6d/files/config.yaml
+2021-12-03 12:59:34,874 INFO    SenderThread:62422 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/notebooks/wandb/run-20211203_120302-36v15e6d/files/output.log
+2021-12-03 12:59:34,874 INFO    SenderThread:62422 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/joy/projects/music-controllable-diffusion/notebooks/wandb/run-20211203_120302-36v15e6d/files/wandb-summary.json
+2021-12-03 12:59:34,875 INFO    SenderThread:62422 [dir_watcher.py:finish():313] scan: /home/joy/projects/music-controllable-diffusion/notebooks/wandb/run-20211203_120302-36v15e6d/files
+2021-12-03 12:59:34,875 INFO    SenderThread:62422 [dir_watcher.py:finish():327] scan save: /home/joy/projects/music-controllable-diffusion/notebooks/wandb/run-20211203_120302-36v15e6d/files/wandb-summary.json wandb-summary.json
+2021-12-03 12:59:34,875 INFO    SenderThread:62422 [dir_watcher.py:finish():327] scan save: /home/joy/projects/music-controllable-diffusion/notebooks/wandb/run-20211203_120302-36v15e6d/files/config.yaml config.yaml
+2021-12-03 12:59:34,875 INFO    SenderThread:62422 [dir_watcher.py:finish():327] scan save: /home/joy/projects/music-controllable-diffusion/notebooks/wandb/run-20211203_120302-36v15e6d/files/output.log output.log
+2021-12-03 12:59:34,875 INFO    SenderThread:62422 [dir_watcher.py:finish():327] scan save: /home/joy/projects/music-controllable-diffusion/notebooks/wandb/run-20211203_120302-36v15e6d/files/wandb-metadata.json wandb-metadata.json
+2021-12-03 12:59:34,875 INFO    SenderThread:62422 [dir_watcher.py:finish():327] scan save: /home/joy/projects/music-controllable-diffusion/notebooks/wandb/run-20211203_120302-36v15e6d/files/requirements.txt requirements.txt
+2021-12-03 12:59:34,875 INFO    SenderThread:62422 [sender.py:transition_state():395] send defer: 6
+2021-12-03 12:59:34,875 DEBUG   SenderThread:62422 [sender.py:send_request():252] send_request: poll_exit
+2021-12-03 12:59:34,879 DEBUG   HandlerThread:62422 [handler.py:handle_request():130] handle_request: defer
+2021-12-03 12:59:34,880 INFO    HandlerThread:62422 [handler.py:handle_request_defer():147] handle defer: 6
+2021-12-03 12:59:34,882 DEBUG   SenderThread:62422 [sender.py:send_request():252] send_request: defer
+2021-12-03 12:59:34,882 INFO    SenderThread:62422 [sender.py:send_request_defer():391] handle sender defer: 6
+2021-12-03 12:59:34,883 INFO    SenderThread:62422 [file_pusher.py:finish():177] shutting down file pusher
+2021-12-03 12:59:34,981 DEBUG   HandlerThread:62422 [handler.py:handle_request():130] handle_request: poll_exit
+2021-12-03 12:59:34,981 DEBUG   SenderThread:62422 [sender.py:send_request():252] send_request: poll_exit
+2021-12-03 12:59:35,082 DEBUG   HandlerThread:62422 [handler.py:handle_request():130] handle_request: poll_exit
+2021-12-03 12:59:35,082 DEBUG   SenderThread:62422 [sender.py:send_request():252] send_request: poll_exit
+2021-12-03 12:59:35,184 DEBUG   HandlerThread:62422 [handler.py:handle_request():130] handle_request: poll_exit
+2021-12-03 12:59:35,184 DEBUG   SenderThread:62422 [sender.py:send_request():252] send_request: poll_exit
+2021-12-03 12:59:35,286 DEBUG   HandlerThread:62422 [handler.py:handle_request():130] handle_request: poll_exit
+2021-12-03 12:59:35,287 DEBUG   SenderThread:62422 [sender.py:send_request():252] send_request: poll_exit
+2021-12-03 12:59:35,318 INFO    Thread-29 :62422 [upload_job.py:push():137] Uploaded file /home/joy/projects/music-controllable-diffusion/notebooks/wandb/run-20211203_120302-36v15e6d/files/requirements.txt
+2021-12-03 12:59:35,344 INFO    Thread-27 :62422 [upload_job.py:push():137] Uploaded file /home/joy/projects/music-controllable-diffusion/notebooks/wandb/run-20211203_120302-36v15e6d/files/config.yaml
+2021-12-03 12:59:35,388 DEBUG   HandlerThread:62422 [handler.py:handle_request():130] handle_request: poll_exit
+2021-12-03 12:59:35,388 DEBUG   SenderThread:62422 [sender.py:send_request():252] send_request: poll_exit
+2021-12-03 12:59:35,398 INFO    Thread-28 :62422 [upload_job.py:push():137] Uploaded file /home/joy/projects/music-controllable-diffusion/notebooks/wandb/run-20211203_120302-36v15e6d/files/output.log
+2021-12-03 12:59:35,404 INFO    Thread-26 :62422 [upload_job.py:push():137] Uploaded file /home/joy/projects/music-controllable-diffusion/notebooks/wandb/run-20211203_120302-36v15e6d/files/wandb-summary.json
+2021-12-03 12:59:35,489 DEBUG   HandlerThread:62422 [handler.py:handle_request():130] handle_request: poll_exit
+2021-12-03 12:59:35,489 DEBUG   SenderThread:62422 [sender.py:send_request():252] send_request: poll_exit
+2021-12-03 12:59:35,590 DEBUG   HandlerThread:62422 [handler.py:handle_request():130] handle_request: poll_exit
+2021-12-03 12:59:35,590 DEBUG   SenderThread:62422 [sender.py:send_request():252] send_request: poll_exit
+2021-12-03 12:59:35,604 INFO    Thread-7  :62422 [sender.py:transition_state():395] send defer: 7
+2021-12-03 12:59:35,605 DEBUG   HandlerThread:62422 [handler.py:handle_request():130] handle_request: defer
+2021-12-03 12:59:35,605 INFO    HandlerThread:62422 [handler.py:handle_request_defer():147] handle defer: 7
+2021-12-03 12:59:35,605 DEBUG   SenderThread:62422 [sender.py:send_request():252] send_request: defer
+2021-12-03 12:59:35,605 INFO    SenderThread:62422 [sender.py:send_request_defer():391] handle sender defer: 7
+2021-12-03 12:59:35,692 DEBUG   HandlerThread:62422 [handler.py:handle_request():130] handle_request: poll_exit
+2021-12-03 12:59:35,747 INFO    SenderThread:62422 [sender.py:transition_state():395] send defer: 8
+2021-12-03 12:59:35,747 DEBUG   SenderThread:62422 [sender.py:send_request():252] send_request: poll_exit
+2021-12-03 12:59:35,747 DEBUG   HandlerThread:62422 [handler.py:handle_request():130] handle_request: defer
+2021-12-03 12:59:35,747 INFO    HandlerThread:62422 [handler.py:handle_request_defer():147] handle defer: 8
+2021-12-03 12:59:35,747 DEBUG   SenderThread:62422 [sender.py:send_request():252] send_request: defer
+2021-12-03 12:59:35,748 INFO    SenderThread:62422 [sender.py:send_request_defer():391] handle sender defer: 8
+2021-12-03 12:59:35,748 INFO    SenderThread:62422 [sender.py:transition_state():395] send defer: 9
+2021-12-03 12:59:35,748 DEBUG   SenderThread:62422 [sender.py:send():238] send: final
+2021-12-03 12:59:35,748 DEBUG   HandlerThread:62422 [handler.py:handle_request():130] handle_request: defer
+2021-12-03 12:59:35,748 INFO    HandlerThread:62422 [handler.py:handle_request_defer():147] handle defer: 9
+2021-12-03 12:59:35,748 DEBUG   SenderThread:62422 [sender.py:send():238] send: footer
+2021-12-03 12:59:35,749 DEBUG   SenderThread:62422 [sender.py:send_request():252] send_request: defer
+2021-12-03 12:59:35,749 INFO    SenderThread:62422 [sender.py:send_request_defer():391] handle sender defer: 9
+2021-12-03 12:59:35,848 DEBUG   HandlerThread:62422 [handler.py:handle_request():130] handle_request: poll_exit
+2021-12-03 12:59:35,848 DEBUG   SenderThread:62422 [sender.py:send_request():252] send_request: poll_exit
+2021-12-03 12:59:35,848 INFO    SenderThread:62422 [file_pusher.py:join():182] waiting for file pusher
+2021-12-03 12:59:40,503 WARNING MainThread:62422 [internal.py:is_dead():366] Internal process exiting, parent pid 62274 disappeared
+2021-12-03 12:59:40,503 ERROR   MainThread:62422 [internal.py:wandb_internal():142] Internal process shutdown.
+2021-12-03 12:59:40,749 INFO    WriterThread:62422 [datastore.py:close():281] close: /home/joy/projects/music-controllable-diffusion/notebooks/wandb/run-20211203_120302-36v15e6d/run-36v15e6d.wandb
+2021-12-03 12:59:40,854 INFO    HandlerThread:62422 [handler.py:finish():731] shutting down handler
+2021-12-03 12:59:41,076 INFO    SenderThread:62422 [sender.py:finish():1091] shutting down sender
+2021-12-03 12:59:41,076 INFO    SenderThread:62422 [file_pusher.py:finish():177] shutting down file pusher
+2021-12-03 12:59:41,076 INFO    SenderThread:62422 [file_pusher.py:join():182] waiting for file pusher
+2021-12-03 12:59:41,077 INFO    MainThread:62422 [internal.py:handle_exit():77] Internal process exited

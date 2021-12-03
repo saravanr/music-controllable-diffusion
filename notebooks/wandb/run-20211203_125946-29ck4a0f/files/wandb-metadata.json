@@ -1,0 +1,26 @@
+{
+    "os": "Linux-5.11.0-41-generic-x86_64-with-glibc2.29",
+    "python": "3.8.10",
+    "heartbeatAt": "2021-12-03T20:59:48.599666",
+    "startedAt": "2021-12-03T20:59:46.687960",
+    "docker": null,
+    "gpu": "NVIDIA GeForce RTX 3090",
+    "gpu_count": 1,
+    "cpu_count": 16,
+    "cuda": null,
+    "args": [
+        "-f",
+        "/home/joy/.local/share/jupyter/runtime/kernel-5bc6a804-7bc4-440b-992d-88e9aec7ac4c.json"
+    ],
+    "state": "running",
+    "program": "notebooks/sample_vae.ipynb",
+    "root": "/home/joy/projects/music-controllable-diffusion",
+    "git": {
+        "remote": "git@github.com:saravanr/music-controllable-diffusion.git",
+        "commit": "04651a72a8afa4af09c179d6b29577dc8e696344"
+    },
+    "email": "saravanr@icloud.com",
+    "host": "lapis",
+    "username": "joy",
+    "executable": "/home/joy/.venv/bin/python"
+}

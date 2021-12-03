@@ -62,7 +62,7 @@ class Encoder(nn.Module):
         input_dim = (seq_len * seq_width)
 
         self._net = nn.Sequential(
-            nn.GRU(input_size=seq_len, hidden_size=seq_len, num_layers=4, batch_first=True, bidirectional=True),
+            nn.GRU(input_size=seq_len, hidden_size=seq_len, num_layers=16, batch_first=True, bidirectional=True),
             ExtractLSTMOutput(),
             nn.Flatten(start_dim=1),
             nn.Linear(input_dim * 2, input_dim // 2),
@@ -118,9 +118,9 @@ class DecoderCategorical(nn.Module):
         output_dim = (seq_len * seq_width) // scale
         self._net = nn.Sequential(
             nn.Linear(z_dim, output_dim * scale),
-            nn.Dropout(0.2),
+            nn.Dropout(0.4),
             Reshape1DTo2D((seq_width, seq_len)),
-            nn.GRU(input_size=seq_len, hidden_size=seq_len, num_layers=1, batch_first=True),
+            nn.GRU(input_size=seq_len, hidden_size=seq_len, num_layers=4, batch_first=True),
             ExtractLSTMOutput()
         )
         self._seq_len = seq_len
@@ -186,7 +186,7 @@ class Decoder(nn.Module):
             nn.Linear(z_dim, output_dim * scale),
             nn.Dropout(0.2),
             Reshape1DTo2D((seq_width, seq_len)),
-            nn.GRU(input_size=seq_len, hidden_size=seq_len, num_layers=1, batch_first=True),
+            nn.GRU(input_size=seq_len, hidden_size=seq_len, num_layers=4, batch_first=True),
             ExtractLSTMOutput(),
             nn.Tanh()
         )
@@ -206,6 +206,56 @@ class Decoder(nn.Module):
     @property
     def z_dim(self):
         return self._z_dim
+
+
+class ControllableDecoder(nn.Module):
+    """
+    VAE Decoder takes the latent Z and maps it to output of shape of the input
+    """
+
+    def __init__(self, z_dim, partial_shape, output_shape, clam_output=False):
+        super(ControllableDecoder, self).__init__()
+        self._z_dim = z_dim
+        self._output_shape = output_shape
+        seq_len = output_shape[0]
+        seq_width = output_shape[1]
+
+        if output_shape[0] < 100:
+            scale = 1
+        else:
+            scale = 1
+
+        output_dim = (seq_len * seq_width) // scale
+        self._net = nn.Sequential(
+            nn.Linear(z_dim + partial_shape[0] * partial_shape[1], output_dim * scale),
+            nn.Dropout(0.2),
+            Reshape1DTo2D((seq_width, seq_len)),
+            nn.GRU(input_size=seq_len, hidden_size=seq_len, num_layers=16, batch_first=True),
+            ExtractLSTMOutput(),
+            nn.Tanh()
+        )
+        self._seq_len = seq_len
+        self._seq_width = seq_width
+        self._clamp_output = clam_output
+
+        self._partial_len = partial_shape[0]
+        self._partial_width = partial_shape[1]
+
+    def forward(self, z, x_partial):
+        x_flat = torch.flatten(x_partial, start_dim=1)
+        input = torch.cat((z, x_flat), dim=1)
+        output = self._net(input)
+        if self._clamp_output:
+            # Clamp output in (0, 1) to prevent errors in BCE
+            output = torch.clamp(output, 1e-8, 1 - 1e-8)
+        else:
+            output = output.reshape((-1, self._seq_len, self._seq_width))
+        return output
+
+    @property
+    def z_dim(self):
+        return self._z_dim
+
 
 class SimpleVae(BaseModel):
     def __init__(self, z_dim=64, input_shape=(10000, 8), alpha=1.0, *args: Any, **kwargs: Any):
@@ -237,6 +287,7 @@ class SimpleVae(BaseModel):
         self._instruments_decoder = DecoderCategorical(z_dim, self._instruments_shape, self._instrument_embedding)
         self._program_decoder = DecoderCategorical(z_dim, self._programs_shape, self._program_embedding)
 
+        self._controllable_decoder = ControllableDecoder(z_dim, (input_shape[0]//3, input_shape[1]), input_shape)
         self._alpha = alpha
         self._model_prefix = "SimpleVaeMidi"
         self._z_dim = z_dim
@@ -268,9 +319,10 @@ class SimpleVae(BaseModel):
         x_hat = torch.vstack(
             (x_p.T, x_v.T, x_i.T, x_programs.T, x_start_times.T, x_end_times.T)).T
 
-        return z, x_hat, x_hat_bp, mean, log_var
+        x_control = self._controllable_decoder(z, x_hat_bp[:, 0: x_hat_bp.shape[1]//3])
+        return z, x_hat, x_hat_bp, x_control, mean, log_var
 
-    def compute_midi_recon_loss(self, x, x_hat_bp, x_hat):
+    def compute_midi_recon_loss(self, x, x_hat_bp, x_hat, x_control):
         # Compute losses based on variable types.
         x_pitches_hat = x_hat.T[0]
         x_velocity_hat = x_hat.T[1]
@@ -289,8 +341,6 @@ class SimpleVae(BaseModel):
         x_instruments = x.T[2]
         x_programs = x.T[3]
 
-
-
         x_start_times = x.T[4]
         x_end_times = x.T[5]
 
@@ -300,21 +350,22 @@ class SimpleVae(BaseModel):
         program_loss = func.mse_loss(x_programs_hat, x_programs, reduction='mean')
         start_times_loss = func.mse_loss(x_start_times_hat, x_start_times, reduction='sum')
         end_times_loss = func.mse_loss(x_end_times_hat, x_end_times, reduction='sum')
+        control_loss = func.mse_loss(x_control, x, reduction='sum')
 
         # TODO: How to ensure end times are > start times
-        recon_loss = pitches_loss + velocity_loss + instruments_loss + program_loss + start_times_loss + end_times_loss
-        return recon_loss, pitches_loss, velocity_loss, instruments_loss, program_loss, start_times_loss, end_times_loss
+        recon_loss = pitches_loss + velocity_loss + instruments_loss + program_loss + start_times_loss + end_times_loss + control_loss
+        return recon_loss, pitches_loss, velocity_loss, instruments_loss, program_loss, start_times_loss, end_times_loss, control_loss
 
-    def loss_function(self, x_hat_bp, x_hat, x, mu, q_log_var):
+    def loss_function(self, x_hat_bp, x_hat, x, x_control, mu, q_log_var):
         if self._use_mnist_dms:
             recon_loss = func.binary_cross_entropy(x_hat, x.view(-1, 784), reduction='sum')
             pitches_loss, velocity_loss, instruments_loss, program_loss, start_times_loss, end_times_loss = [None] * 6
         else:
-            recon_loss, pitches_loss, velocity_loss, instruments_loss, program_loss, start_times_loss, end_times_loss = self.compute_midi_recon_loss(
-                x, x_hat_bp, x_hat)
+            recon_loss, pitches_loss, velocity_loss, instruments_loss, program_loss, start_times_loss, end_times_loss, control_loss = self.compute_midi_recon_loss(
+                x, x_hat_bp, x_hat, x_control)
         kl = self._kl_simple(mu, q_log_var)
         loss = recon_loss + self.alpha * kl
-        return loss, kl, recon_loss, pitches_loss, velocity_loss, instruments_loss, program_loss, start_times_loss, end_times_loss
+        return loss, kl, recon_loss, pitches_loss, velocity_loss, instruments_loss, program_loss, start_times_loss, end_times_loss, control_loss
 
     def step(self, batch, batch_idx):
         x = batch
@@ -330,8 +381,8 @@ class SimpleVae(BaseModel):
 
         x_input = torch.cat((p, v, i, pr, s, d), dim=3)
         x_input = torch.squeeze(x_input, dim=1)
-        z, x_hat, x_hat_bp, mu, q_log_var = self(x_input)
-        loss = self.loss_function(x_hat_bp, x_hat, x_input, mu, q_log_var)
+        z, x_hat, x_hat_bp, x_control, mu, q_log_var = self(x_input)
+        loss = self.loss_function(x_hat_bp, x_hat, x_input, x_control, mu, q_log_var)
         return loss
 
     @staticmethod
@@ -403,7 +454,7 @@ if __name__ == "__main__":
             batch_size=batch_size
         )
     else:
-        _z_dim = 1024
+        _z_dim = 256
         model = SimpleVae(
             alpha=_alpha,
             z_dim=_z_dim,

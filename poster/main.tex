@@ -27,11 +27,11 @@
 \usepackage[scale=1.24]{beamerposter} % Use the beamerposter package for laying out the poster
 
 \usetheme{confposter} % Use the confposter theme supplied with this template
-
+\setbeamercolor{title}{fg=blue,bg=white}
 \setbeamercolor{block title}{fg=ngreen,bg=white} % Colors of the block titles
 \setbeamercolor{block body}{fg=black,bg=white} % Colors of the body of blocks
-\setbeamercolor{block alerted title}{fg=white,bg=dblue!70} % Colors of the highlighted block titles
-\setbeamercolor{block alerted body}{fg=black,bg=dblue!10} % Colors of the body of highlighted blocks
+\setbeamercolor{block alerted title}{fg=white,bg=orange!70} % Colors of the highlighted block titles
+\setbeamercolor{block alerted body}{fg=black,bg=orange!10} % Colors of the body of highlighted blocks
 % Many more colors are available for use in beamerthemeconfposter.sty
 
 %-----------------------------------------------------------
@@ -63,13 +63,13 @@
 %	TITLE SECTION 
 %----------------------------------------------------------------------------------------
 
-\title{Music Controllable Diffusion} % Poster title
-
+\title{Multi instrument music generation using VAE} % Poster title
 \author{Saravana Rathinam} % Author(s)
-
 \institute{SCPD Student, Stanford University} % Institution(s)
-
 %----------------------------------------------------------------------------------------
+
+
+
 
 \begin{document}
 
@@ -91,12 +91,11 @@
 %	OBJECTIVES
 %----------------------------------------------------------------------------------------
 
-\begin{alertblock}{Abstract}
+\begin{alertblock}{Summary}
 
-Diffusion based generative models can be used to generate music in a controllable
-way. Generating long music sequences from raw audio waveforms can be very
+Generating long music sequences from raw audio waveforms can be very
 compute intensive. MIDI format gives a much more compressed representation of
-a subset of Music which may give us a tractable way to generate melodies.
+a subset of Music which may give us a tractable way to generate melodies. In this project we generate MIDI audio using Variation Auto Encoders for multiple instruments.
 
 \end{alertblock}
 
@@ -104,7 +103,7 @@ a subset of Music which may give us a tractable way to generate melodies.
 %	INTRODUCTION
 %----------------------------------------------------------------------------------------
 
-\begin{block}{Introduction}
+\begin{block}{Background Information}
 
 Composing music is a skill that is acquired by many years of practice. The music itself is the result
 of the life experiences of the musician, their state of mind, their unconcious and concious thoughts.
@@ -144,7 +143,7 @@ creative process.
 %	MATERIALS
 %----------------------------------------------------------------------------------------
 
-\begin{block}{Materials}
+\begin{block}{Technical Methods}
 
 The following materials were required to complete the research:
 
@@ -345,11 +344,6 @@ Maecenas ultricies feugiat velit non mattis. Fusce tempus arcu id ligula varius 
 
 \end{alertblock}
 
-\begin{center}
-\begin{tabular}{ccc}
-\includegraphics[width=0.4\linewidth]{logo.png} & \hfill & \includegraphics[width=0.4\linewidth]{logo.png}
-\end{tabular}
-\end{center}
 
 %----------------------------------------------------------------------------------------
 
