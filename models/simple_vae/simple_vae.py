@@ -61,12 +61,13 @@ class Encoder(nn.Module):
         input_dim = (seq_len * seq_width) // scale
 
         self._net = nn.Sequential(
+            nn.BatchNorm1d(num_features=seq_width),
             nn.GRU(input_size=seq_len, hidden_size=seq_len, num_layers=4, batch_first=True, bidirectional=True),
             ExtractLSTMOutput(),
             nn.Flatten(start_dim=1),
             nn.Linear(input_dim * 2, input_dim // 2),
             nn.ReLU(),
-            nn.Dropout(0.2),
+            nn.Dropout(0.4),
             nn.Linear(input_dim // 2, input_dim // 8),
         )
 
@@ -109,6 +110,8 @@ class Decoder(nn.Module):
         output_dim = (seq_len * seq_width) // scale
         self._net = nn.Sequential(
             nn.Linear(z_dim, output_dim * scale),
+            nn.LeakyReLU(),
+            nn.Dropout(0.5),
             Reshape1DTo2D((seq_width, seq_len)),
             nn.GRU(input_size=seq_len, hidden_size=seq_len, num_layers=1, batch_first=True),
             ExtractLSTMOutput(),
@@ -276,6 +279,7 @@ class SimpleVae(BaseModel):
                     sample_file_name = os.path.join(self._output_dir,
                                                     f"{self._model_prefix}-{wandb.run.name}-{epoch}.midi")
                     print(f"Generating midi sample file://{sample_file_name}")
+                    print(f"Generating midi sample path = {sample_file_name}")
                     save_decoder_output_as_midi(sample, sample_file_name, self._data_mean, self._data_std)
         except Exception as _e:
             print(f"Hit exception during sample_output - {_e}")
@@ -289,7 +293,7 @@ if __name__ == "__main__":
     print(f"Training simple VAE")
     batch_size = 2048
     train_mnist = False
-    _alpha = 1
+    _alpha = 0.07
     if train_mnist:
         _z_dim = 20
         model = SimpleVae(

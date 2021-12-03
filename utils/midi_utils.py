@@ -45,7 +45,7 @@ def nd_array_to_note_seq(input_note_array, mean=None, std=None):
         note.instrument = int(note_array.T[2][i])
         note.program = int(note_array.T[3][i])
         note.start_time = note_array.T[4][i]
-        note.end_time = note.start_time + note_array.T[5][i]
+        note.end_time = note.start_time + 8*note_array.T[5][i]
         seq.notes.append(note)
     max_value = np.max(note_array)
     print(f"Max value = {max_value}")

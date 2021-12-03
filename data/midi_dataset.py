@@ -3,6 +3,7 @@ import numpy as np
 import os
 from torch.utils.data import Dataset
 import tqdm
+import shutil
 
 from utils.cuda_utils import get_device
 from utils.file_utils import get_files_in_path
@@ -90,7 +91,7 @@ class MidiDataset(Dataset):
     def __init__(self, data_dir, transform=None):
         self.data_dir = data_dir
         self.transform = transform
-        self.data_files = get_files_in_path(data_dir, matching_pattern=f"*.npy")[0:50000]
+        self.data_files = get_files_in_path(data_dir, matching_pattern=f"*.npy")
         self.mean = 0.0
         self.std = 0.0
         self.tensors = self.generate_tensors()
@@ -102,6 +103,9 @@ class MidiDataset(Dataset):
         device = get_device()
         tensors = []
         print(f"Generating input tensors on {device}")
+
+        #clean_features_dir = os.path.expanduser("~/midi_clean_features_v1")
+        #os.makedirs(clean_features_dir, exist_ok=True)
 
         data_array = []
         for data_file in tqdm.tqdm(self.data_files):
@@ -128,9 +132,10 @@ class MidiDataset(Dataset):
                 continue
 
             # Skip only piano music
-            if len(np.unique(data.T[2])) < 8:
+            if np.sum(np.unique(data.T[2])) < 8:
                 continue
 
+            #shutil.copy(data_file, os.path.join(clean_features_dir, os.path.basename(data_file)))
             data_array.append(data)
 
         print(f"Normalizing.. {len(data_array)} samples...")
