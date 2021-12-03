@@ -148,11 +148,15 @@ class MidiDataset(Dataset):
         self.std = np.std(p, axis=(0, 1))
 
         print(f"Generating tensors")
+        index = 0
         for data in tqdm.tqdm(data_array):
             norm_data = (data - self.mean) / self.std
             norm_data = np.tanh(norm_data)
             tensor = torch.Tensor(norm_data).to(device)
             tensors.append(tensor)
+            if index > 30000:
+                break
+            index = index + 1
 
         return tensors
 
