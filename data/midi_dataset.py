@@ -150,10 +150,10 @@ class MidiDataset(Dataset):
         print(f"Generating tensors")
         index = 0
         for data in tqdm.tqdm(data_array):
-            pitches = F.one_hot(torch.tensor(data.T[0]).type(torch.int64), num_classes=128)
-            velocity = F.one_hot(torch.tensor(data.T[1]).type(torch.int64), num_classes=128)
-            instrument = F.one_hot(torch.tensor(data.T[2]).type(torch.int64), num_classes=128)
-            program = F.one_hot(torch.tensor(data.T[3]).type(torch.int64), num_classes=128)
+            pitches = torch.tensor(data.T[0])
+            velocity = torch.tensor(data.T[1])
+            instrument = torch.tensor(data.T[2])
+            program = torch.tensor(data.T[3])
 
             norm_data = (data - self.mean) / self.std
             norm_data = np.tanh(norm_data)

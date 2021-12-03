@@ -16,8 +16,7 @@ from utils.midi_utils import save_decoder_output_as_midi
 import matplotlib.pyplot as plt
 
 import wandb
-
-wandb.init(project="music-controllable-diffusion-midi", entity="saravanr")
+wandb.init(project="music-controllable-diffusion-with-embedding", entity="saravanr")
 
 
 class ExtractLSTMOutput(nn.Module):
@@ -61,7 +60,6 @@ class Encoder(nn.Module):
         input_dim = (seq_len * seq_width) // scale
 
         self._net = nn.Sequential(
-            nn.BatchNorm1d(num_features=seq_width),
             nn.GRU(input_size=seq_len, hidden_size=seq_len//10, num_layers=1, batch_first=True, bidirectional=True),
             ExtractLSTMOutput(),
             nn.Flatten(start_dim=1),
@@ -77,16 +75,39 @@ class Encoder(nn.Module):
         self._fc_log_var = nn.Sequential(
             nn.Linear(input_dim // 8, z_dim),
         )
+        self._pitch_embedding = nn.Embedding(128, 1)
+        self._velocity_embedding = nn.Embedding(128, 1)
+        self._instrument_embedding = nn.Embedding(128, 1)
+        self._program_embedding = nn.Embedding(128, 1)
+        # v = u.unsqueeze(-1).expand(128, 800, 4, 2048)
+        # (v.reshape((2048, 800, 4, 128)) - output.unsqueeze(-1))
+        # torch.norm((v.reshape((2048, 800, 4, 128)) - output.unsqueeze(-1)), dim=2)
         self._device = get_device()
         self._seq_len = seq_len
         self._seq_width = seq_width
 
     def forward(self, x):
-        x = x.reshape((-1, self._seq_width, self._seq_len))
-        h = self._net(x)
+        x_input = x.reshape((-1, self._seq_width, self._seq_len))
+        h = self._net(x_input)
         mean = self._fc_mean(h)
         log_var = self._fc_log_var(h)
         return mean, log_var
+
+    @property
+    def velocity_embedding(self):
+        return self._velocity_embedding
+
+    @property
+    def instrument_embedding(self):
+        return self._instrument_embedding
+
+    @property
+    def program_embedding(self):
+        return self._program_embedding
+
+    @property
+    def pitch_embedding(self):
+        return self._pitch_embedding
 
 
 class DecoderCategorical(nn.Module):
@@ -94,7 +115,7 @@ class DecoderCategorical(nn.Module):
     VAE Decoder takes the latent Z and maps it to output of shape of the input
     """
 
-    def __init__(self, z_dim, output_shape, clam_output=False):
+    def __init__(self, z_dim, output_shape, embedding, clam_output=False):
         super(DecoderCategorical, self).__init__()
         self._z_dim = z_dim
         self._output_shape = output_shape
@@ -112,11 +133,11 @@ class DecoderCategorical(nn.Module):
             nn.Dropout(0.2),
             Reshape1DTo2D((seq_width, seq_len)),
             nn.GRU(input_size=seq_len, hidden_size=seq_len, num_layers=1, batch_first=True),
-            ExtractLSTMOutput(),
-            nn.Softmax()
+            ExtractLSTMOutput()
         )
         self._seq_len = seq_len
         self._seq_width = seq_width
+        self._embedding = embedding
         self._clamp_output = clam_output
 
     def forward(self, z):
@@ -126,7 +147,16 @@ class DecoderCategorical(nn.Module):
             output = torch.clamp(output, 1e-8, 1 - 1e-8)
         else:
             output = output.reshape((-1, self._seq_len, self._seq_width))
-        return output
+
+        w = self._embedding.weight.data
+        # Expand to output size, without memory increase
+        w = w.expand(-1, output.shape[1])
+        dist = w.unsqueeze(-1).expand(128, output.shape[1], output.shape[0]).reshape(
+            (output.shape[0], output.shape[1], -1)) - output
+        # Subtract for distance
+        classification = torch.argmin(dist, dim=2).unsqueeze(2)
+        print(f"Max class = {torch.max(classification)}")
+        return classification
 
     @property
     def z_dim(self):
@@ -180,7 +210,6 @@ class Decoder(nn.Module):
 class SimpleVae(BaseModel):
     def __init__(self, z_dim=64, input_shape=(10000, 8), alpha=1.0, *args: Any, **kwargs: Any):
         super(SimpleVae, self).__init__(*args, **kwargs)
-        self.writer = SummaryWriter()
         self._encoder = Encoder(z_dim, input_shape=input_shape)
 
         self._pitches_shape = (input_shape[0], 1)
@@ -190,12 +219,12 @@ class SimpleVae(BaseModel):
         self._instruments_shape = (input_shape[0], 1)
         self._programs_shape = (input_shape[0], 1)
 
-        self._pitches_decoder = DecoderCategorical(z_dim, output_shape=self._pitches_shape)
-        self._velocity_decoder = DecoderCategorical(z_dim, output_shape=self._velocities_shape)
-        self._start_times_decoder = Decoder(z_dim, output_shape=self._start_times_shape)
-        self._end_times_decoder = Decoder(z_dim, output_shape=self._end_times_shape)
-        self._instruments_decoder = DecoderCategorical(z_dim, output_shape=self._instruments_shape)
-        self._program_decoder = DecoderCategorical(z_dim, output_shape=self._programs_shape)
+        self._pitches_decoder = DecoderCategorical(z_dim, self._pitches_shape, self._encoder.pitch_embedding)
+        self._velocity_decoder = DecoderCategorical(z_dim, self._velocities_shape, self._encoder.velocity_embedding)
+        self._start_times_decoder = Decoder(z_dim, self._start_times_shape)
+        self._end_times_decoder = Decoder(z_dim, self._end_times_shape)
+        self._instruments_decoder = DecoderCategorical(z_dim, self._instruments_shape, self._encoder.instrument_embedding)
+        self._program_decoder = DecoderCategorical(z_dim, self._programs_shape, self._encoder.program_embedding)
 
         self._alpha = alpha
         self._model_prefix = "SimpleVaeMidi"
@@ -266,8 +295,20 @@ class SimpleVae(BaseModel):
 
     def step(self, batch, batch_idx):
         x = batch
-        z, x_hat, mu, q_log_var = self(x)
-        loss = self.loss_function(x_hat, x, mu, q_log_var)
+        pitch, velocity, instrument, program, start_time, duration = torch.split(x, 1, dim=1)
+        s = torch.unsqueeze(start_time, dim=3)
+        d = torch.unsqueeze(duration, dim=3)
+
+        # Generate embeddings for categorical variables
+        p = self._encoder.pitch_embedding(pitch.type(torch.int64))
+        v = self._encoder.velocity_embedding(velocity.type(torch.int64))
+        i = self._encoder.instrument_embedding(instrument.type(torch.int64))
+        pr = self._encoder.program_embedding(program.type(torch.int64))
+
+        x_input = torch.cat((p, v, i, pr, s, d), dim=3)
+        x_input = torch.squeeze(x_input, dim=1)
+        z, x_hat, mu, q_log_var = self(x_input)
+        loss = self.loss_function(x_hat, x_input, mu, q_log_var)
         return loss
 
     @staticmethod
@@ -343,7 +384,7 @@ if __name__ == "__main__":
         model = SimpleVae(
             alpha=_alpha,
             z_dim=_z_dim,
-            input_shape=(MAX_MIDI_ENCODING_ROWS, 514),
+            input_shape=(MAX_MIDI_ENCODING_ROWS, MIDI_ENCODING_WIDTH),
             use_mnist_dms=False,
             sample_output_step=10,
             batch_size=batch_size
@@ -351,7 +392,7 @@ if __name__ == "__main__":
     print(f"Training --> {model}")
 
     max_epochs = 10000
-    wandb.config = {
+    config = {
         "learning_rate": model.lr,
         "z_dim": _z_dim,
         "epochs": max_epochs,

@@ -31,8 +31,9 @@ def nd_array_to_note_seq(input_note_array, mean=None, std=None):
     note_array = input_note_array.reshape((-1, MIDI_ENCODING_WIDTH))
     seq = music_pb2.NoteSequence()
     if mean is not None and std is not None:
-        note_array = np.arctanh(note_array)
-        note_array = note_array * std + mean
+        for i in ([4, 5]):
+            note_array.T[i] = np.arctanh(note_array.T[i])
+            note_array.T[i] = note_array.T[i] * std[i] + mean[i]
 
     # Eliminate any negative values after extrapolation
     # TODO: How can we avoid this?
