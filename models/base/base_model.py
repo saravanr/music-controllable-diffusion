@@ -79,7 +79,7 @@ class BaseModel(torch.nn.Module):
     def enable_debugging():
         torch.autograd.set_detect_anomaly(True)
 
-    def loss_function(self, x_hat, x, qm, qv):
+    def loss_function(self, x_hat_bp, x_hat, x, qm, qv):
         raise NotImplementedError(f"Please implement loss_function()")
 
     def step(self, batch, batch_idx):

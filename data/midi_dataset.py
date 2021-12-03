@@ -163,8 +163,8 @@ class MidiDataset(Dataset):
 
             tensor = torch.vstack((pitches.T, velocity.T, instrument.T, program.T, start_times, duration)).to(device)
             tensors.append(tensor)
-            if index > 40000:
-                break
+            #if index > 40000:
+                #break
             index = index + 1
 
         return tensors

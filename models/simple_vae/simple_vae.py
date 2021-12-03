@@ -207,7 +207,6 @@ class Decoder(nn.Module):
     def z_dim(self):
         return self._z_dim
 
-
 class SimpleVae(BaseModel):
     def __init__(self, z_dim=64, input_shape=(10000, 8), alpha=1.0, *args: Any, **kwargs: Any):
         super(SimpleVae, self).__init__(*args, **kwargs)
@@ -271,7 +270,7 @@ class SimpleVae(BaseModel):
 
         return z, x_hat, x_hat_bp, mean, log_var
 
-    def compute_midi_recon_loss(self, x, x_hat):
+    def compute_midi_recon_loss(self, x, x_hat_bp, x_hat):
         # Compute losses based on variable types.
         x_pitches_hat = x_hat.T[0]
         x_velocity_hat = x_hat.T[1]
@@ -284,13 +283,21 @@ class SimpleVae(BaseModel):
         x_velocity = DecoderCategorical.get_classification_from_output(x.T[1], self._velocity_embedding)
         x_instruments = DecoderCategorical.get_classification_from_output(x.T[2], self._instrument_embedding)
         x_programs = DecoderCategorical.get_classification_from_output(x.T[3], self._program_embedding)
+
+        x_pitches = x.T[0]
+        x_velocity = x.T[1]
+        x_instruments = x.T[2]
+        x_programs = x.T[3]
+
+
+
         x_start_times = x.T[4]
         x_end_times = x.T[5]
 
-        pitches_loss = func.cross_entropy(x_pitches_hat, x_pitches, reduction='mean')
-        velocity_loss = func.cross_entropy(x_velocity_hat, x_velocity, reduction='mean')
-        instruments_loss = func.cross_entropy(x_instruments_hat, x_instruments, reduction='mean')
-        program_loss = func.cross_entropy(x_programs_hat, x_programs, reduction='mean')
+        pitches_loss = func.mse_loss(x_pitches_hat, x_pitches, reduction='mean')
+        velocity_loss = func.mse_loss(x_velocity_hat, x_velocity, reduction='mean')
+        instruments_loss = func.mse_loss(x_instruments_hat, x_instruments, reduction='mean')
+        program_loss = func.mse_loss(x_programs_hat, x_programs, reduction='mean')
         start_times_loss = func.mse_loss(x_start_times_hat, x_start_times, reduction='sum')
         end_times_loss = func.mse_loss(x_end_times_hat, x_end_times, reduction='sum')
 
@@ -298,13 +305,13 @@ class SimpleVae(BaseModel):
         recon_loss = pitches_loss + velocity_loss + instruments_loss + program_loss + start_times_loss + end_times_loss
         return recon_loss, pitches_loss, velocity_loss, instruments_loss, program_loss, start_times_loss, end_times_loss
 
-    def loss_function(self, x_hat, x, mu, q_log_var):
+    def loss_function(self, x_hat_bp, x_hat, x, mu, q_log_var):
         if self._use_mnist_dms:
             recon_loss = func.binary_cross_entropy(x_hat, x.view(-1, 784), reduction='sum')
             pitches_loss, velocity_loss, instruments_loss, program_loss, start_times_loss, end_times_loss = [None] * 6
         else:
             recon_loss, pitches_loss, velocity_loss, instruments_loss, program_loss, start_times_loss, end_times_loss = self.compute_midi_recon_loss(
-                x, x_hat)
+                x, x_hat_bp, x_hat)
         kl = self._kl_simple(mu, q_log_var)
         loss = recon_loss + self.alpha * kl
         return loss, kl, recon_loss, pitches_loss, velocity_loss, instruments_loss, program_loss, start_times_loss, end_times_loss
@@ -324,7 +331,7 @@ class SimpleVae(BaseModel):
         x_input = torch.cat((p, v, i, pr, s, d), dim=3)
         x_input = torch.squeeze(x_input, dim=1)
         z, x_hat, x_hat_bp, mu, q_log_var = self(x_input)
-        loss = self.loss_function(x_hat_bp, x_input, mu, q_log_var)
+        loss = self.loss_function(x_hat_bp, x_hat, x_input, mu, q_log_var)
         return loss
 
     @staticmethod
