@@ -155,8 +155,7 @@ class DecoderCategorical(nn.Module):
             (output.shape[0], output.shape[1], -1)) - output
         # Subtract for distance
         classification = torch.argmin(dist, dim=2).unsqueeze(2)
-        print(f"Max class = {torch.max(classification)}")
-        return classification
+        return classification, output
 
     @property
     def z_dim(self):
@@ -244,16 +243,20 @@ class SimpleVae(BaseModel):
         mean, log_var = self._encoder(x)
         z = SimpleVae.reparameterize(mean, log_var)
 
-        x_pitches = self._pitches_decoder(z)
-        x_velocity = self._velocity_decoder(z)
+        x_pitches, x_p = self._pitches_decoder(z)
+        x_velocity, x_v = self._velocity_decoder(z)
         x_start_times = self._start_times_decoder(z)
         x_end_times = self._end_times_decoder(z)
-        x_instruments = self._instruments_decoder(z)
-        x_programs = self._program_decoder(z)
+        x_instruments, x_i = self._instruments_decoder(z)
+        x_programs, x_pr = self._program_decoder(z)
+
+        x_hat_bp = torch.vstack(
+            (x_pitches.T, x_velocity.T, x_instruments.T, x_pr.T, x_start_times.T, x_end_times.T)).T
 
         x_hat = torch.vstack(
-            (x_pitches.T, x_velocity.T, x_instruments.T, x_programs.T, x_start_times.T, x_end_times.T)).T
-        return z, x_hat, mean, log_var
+            (x_p.T, x_v.T, x_i.T, x_programs.T, x_start_times.T, x_end_times.T)).T
+
+        return z, x_hat, x_hat_bp, mean, log_var
 
     def compute_midi_recon_loss(self, x, x_hat):
         # Compute losses based on variable types.
@@ -271,10 +274,10 @@ class SimpleVae(BaseModel):
         x_start_times = x.T[4]
         x_end_times = x.T[5]
 
-        pitches_loss = func.cross_entropy(x_pitches_hat, x_pitches, reduction='mean')
-        velocity_loss = func.cross_entropy(x_velocity_hat, x_velocity, reduction='mean')
-        instruments_loss = func.cross_entropy(x_instruments_hat, x_instruments, reduction='mean')
-        program_loss = func.cross_entropy(x_programs_hat, x_programs, reduction='mean')
+        pitches_loss = func.mse_loss(x_pitches_hat, x_pitches, reduction='sum')
+        velocity_loss = func.mse_loss(x_velocity_hat, x_velocity, reduction='sum')
+        instruments_loss = func.mse_loss(x_instruments_hat, x_instruments, reduction='sum')
+        program_loss = func.mse_loss(x_programs_hat, x_programs, reduction='sum')
         start_times_loss = func.mse_loss(x_start_times_hat, x_start_times, reduction='sum')
         end_times_loss = func.mse_loss(x_end_times_hat, x_end_times, reduction='sum')
 
@@ -307,8 +310,8 @@ class SimpleVae(BaseModel):
 
         x_input = torch.cat((p, v, i, pr, s, d), dim=3)
         x_input = torch.squeeze(x_input, dim=1)
-        z, x_hat, mu, q_log_var = self(x_input)
-        loss = self.loss_function(x_hat, x_input, mu, q_log_var)
+        z, x_hat, x_hat_bp,  mu, q_log_var = self(x_input)
+        loss = self.loss_function(x_hat_bp, x_input, mu, q_log_var)
         return loss
 
     @staticmethod
@@ -341,12 +344,12 @@ class SimpleVae(BaseModel):
                     rand_z = torch.randn(self._pitches_decoder.z_dim).to(device)
                     rand_z.to(device)
 
-                    x_pitches = self._pitches_decoder(rand_z)
-                    x_velocity = self._velocity_decoder(rand_z)
+                    x_pitches, _ = self._pitches_decoder(rand_z)
+                    x_velocity, _ = self._velocity_decoder(rand_z)
                     x_start_times = self._start_times_decoder(rand_z)
                     x_end_times = self._end_times_decoder(rand_z)
-                    x_instruments = self._instruments_decoder(rand_z)
-                    x_programs = self._program_decoder(rand_z)
+                    x_instruments, _ = self._instruments_decoder(rand_z)
+                    x_programs, _ = self._program_decoder(rand_z)
                     output = torch.vstack(
                         (x_pitches.T, x_velocity.T, x_instruments.T, x_programs.T, x_start_times.T, x_end_times.T)).T
 
