@@ -9,7 +9,7 @@ from torchvision import transforms
 
 from data.midi_dataset import MidiDataset, Rescale, Trim, Reshape, ConvertEndTimeToDuration, data_loader_collate_fn
 
-MAX_MIDI_ENCODING_ROWS = 600
+MAX_MIDI_ENCODING_ROWS = 800
 MIDI_ENCODING_WIDTH = 6
 
 

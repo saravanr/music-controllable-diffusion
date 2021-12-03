@@ -88,12 +88,13 @@ class Rescale(object):
 
 class MidiDataset(Dataset):
 
-    def __init__(self, data_dir, transform=None):
+    def __init__(self, data_dir, transform=None, combined_file=os.path.expanduser("~/midi_features_v2_combined.npy")):
         self.data_dir = data_dir
         self.transform = transform
         self.data_files = get_files_in_path(data_dir, matching_pattern=f"*.npy")
         self.mean = 0.0
         self.std = 0.0
+        self.combined_file = combined_file
         self.tensors = self.generate_tensors()
 
     def get_mean_and_std(self):
@@ -104,43 +105,45 @@ class MidiDataset(Dataset):
         tensors = []
         print(f"Generating input tensors on {device}")
 
-        #clean_features_dir = os.path.expanduser("~/midi_clean_features_v1")
+        #clean_features_dir = os.path.expanduser("~/midi_clean_features_v2")
         #os.makedirs(clean_features_dir, exist_ok=True)
 
         data_array = []
-        for data_file in tqdm.tqdm(self.data_files):
-            if not os.path.exists(data_file):
-                continue
-            try:
-                data = np.load(data_file)
-            except Exception as e:
-                print(f"Unable to load {data_file} -- {e}")
-                continue
+        if not os.path.exists(self.combined_file):
+            for data_file in tqdm.tqdm(self.data_files):
+                if not os.path.exists(data_file):
+                    continue
+                try:
+                    data = np.load(data_file)
+                except Exception as e:
+                    print(f"Unable to load {data_file} -- {e}")
+                    continue
 
-            if self.transform:
-                data = self.transform(data)
+                if self.transform:
+                    data = self.transform(data)
 
-            if data is None:
-                continue
+                if data is None:
+                    continue
 
-            mean = np.mean(data, axis=0)
-            std = np.mean(data, axis=0)
-            if True in np.isinf(mean) or True in np.isnan(mean):
-                continue
+                mean = np.mean(data, axis=0)
+                std = np.mean(data, axis=0)
+                if True in np.isinf(mean) or True in np.isnan(mean):
+                    continue
 
-            if True in np.isinf(std) or True in np.isnan(std):
-                continue
+                if True in np.isinf(std) or True in np.isnan(std):
+                    continue
 
-            # Skip only piano music
-            if np.sum(np.unique(data.T[2])) < 8:
-                continue
+                #shutil.copy(data_file, os.path.join(clean_features_dir, os.path.basename(data_file)))
+                data_array.append(data)
 
-            #shutil.copy(data_file, os.path.join(clean_features_dir, os.path.basename(data_file)))
-            data_array.append(data)
+            print(f"Normalizing.. {len(data_array)} samples...")
+            data_array = [x for x in data_array if x is not None]
+            p = np.array(data_array)
+            np.save(self.combined_file, p)
+        else:
+            p = np.load(self.combined_file)
+            data_array = p
 
-        print(f"Normalizing.. {len(data_array)} samples...")
-        data_array = [x for x in data_array if x is not None]
-        p = np.array(data_array)
         self.mean = np.mean(p, axis=(0, 1))
         self.std = np.std(p, axis=(0, 1))
 

@@ -17,7 +17,7 @@ class BaseModel(torch.nn.Module):
     """
 
     def __init__(self, lr=1e-3,
-                 data_dir=os.path.expanduser("~/midi_clean_features_v1/"),
+                 data_dir=os.path.expanduser("~/midi_features/"),
                  output_dir=os.path.expanduser("~/model-archive-note-seq/"),
                  num_gpus=1,
                  batch_size=3000,
@@ -99,28 +99,49 @@ class BaseModel(torch.nn.Module):
         batch_train_loss = 0
         batch_kl_loss = 0.0
         batch_recon_loss = 0.0
-        batch_instrument_loss = 0.0
+        batch_pitches_loss = 0.0
+        batch_velocity_loss = 0.0
+        batch_instruments_loss = 0.0
+        batch_program_loss = 0.0
+        batch_start_time_loss = 0.0
+        batch_end_time_loss = 0.0
 
         for batch_idx, batch in enumerate(self._dms.train_dataloader()):
             optimizer.zero_grad()
-            loss, kl, recon_loss, instrument_loss = self.step(batch, batch_idx)
+            loss, kl, recon_loss, pitches_loss, velocity_loss, instruments_loss, program_loss, start_times_loss, end_times_loss = self.step(batch, batch_idx)
             loss.backward()
             optimizer.step()
 
             batch_train_loss += loss.detach().item()
             batch_kl_loss += kl.detach().item()
             batch_recon_loss += recon_loss.detach().item()
+
+            batch_pitches_loss += pitches_loss.detach().item()
+            batch_velocity_loss += velocity_loss.detach().item()
             batch_instrument_loss += instrument_loss.detach().item()
+            batch_program_loss += program_loss.detach().item()
+            batch_start_time_loss += start_times_loss.detach().item()
+            batch_end_time_loss += end_times_loss.detach().item()
 
         loss = batch_train_loss / len(self._dms.train_dataloader().dataset)
         kl_loss = batch_kl_loss / len(self._dms.train_dataloader().dataset)
         recon_loss = batch_recon_loss / len(self._dms.train_dataloader().dataset)
+        pitches_loss = batch_pitches_loss/ len(self._dms.train_dataloader().dataset)
+        velocity_loss= batch_velocity_loss/ len(self._dms.train_dataloader().dataset)
         instrument_loss = batch_instrument_loss/ len(self._dms.train_dataloader().dataset)
+        program_loss = batch_program_loss/ len(self._dms.train_dataloader().dataset)
+        start_times_loss = batch_start_time_loss/ len(self._dms.train_dataloader().dataset)
+        end_times_loss = batch_end_time_loss/ len(self._dms.train_dataloader().dataset)
 
         wandb.log({'loss': loss})
         wandb.log({'kl_loss': kl_loss})
         wandb.log({'recon_loss': recon_loss})
-        wandb.log({'instrument_loss': instrument_loss})
+        wandb.log({'pitches_ce_loss': pitches_loss})
+        wandb.log({'velocity_ce_loss': velocity_loss})
+        wandb.log({'instruments_ce_loss': instrument_loss})
+        wandb.log({'program_ce_loss': program_loss})
+        wandb.log({'start_time_l2_loss': start_times_loss})
+        wandb.log({'duration_l2_loss': end_times_loss})
         print(f'====> Train Loss = {loss} KL = {kl_loss} Recon = {recon_loss} Instrument Loss={instrument_loss} Epoch = {epoch}')
 
     def save(self, epoch):
@@ -134,7 +155,12 @@ class BaseModel(torch.nn.Module):
         batch_test_loss = 0
         batch_kl_loss = 0.0
         batch_recon_loss = 0.0
-        batch_instrument_loss = 0.0
+        batch_pitches_loss = 0.0
+        batch_velocity_loss = 0.0
+        batch_instruments_loss = 0.0
+        batch_program_loss = 0.0
+        batch_start_time_loss = 0.0
+        batch_end_time_loss = 0.0
 
         with torch.no_grad():
             for batch_idx, batch in enumerate(self._dms.test_dataloader()):
@@ -142,21 +168,38 @@ class BaseModel(torch.nn.Module):
                     batch = batch.reshape(-1, 28, 28)
 
                 batch = batch.to(device)
-                loss, kl, recon_loss, instrument_loss = self.step(batch, batch_idx)
+                loss, kl, recon_loss, pitches_loss, velocity_loss, instruments_loss, program_loss, start_times_loss, end_times_loss = self.step(batch, batch_idx)
                 batch_test_loss += loss.detach().item()
                 batch_kl_loss += kl.detach().item()
+
                 batch_recon_loss += recon_loss.detach().item()
+                batch_pitches_loss += pitches_loss.detach().item()
+                batch_velocity_loss += velocity_loss.detach().item()
                 batch_instrument_loss += instrument_loss.detach().item()
+                batch_program_loss += program_loss.detach().item()
+                batch_start_time_loss += start_times_loss.detach().item()
+                batch_end_time_loss += end_times_loss.detach().item()
 
         loss = batch_test_loss / len(self._dms.test_dataloader().dataset)
         kl_loss = batch_kl_loss / len(self._dms.test_dataloader().dataset)
         recon_loss = batch_recon_loss / len(self._dms.test_dataloader().dataset)
-        instrument_loss = batch_instrument_loss / len(self._dms.test_dataloader().dataset)
+        pitches_loss = batch_pitches_loss/ len(self._dms.test_dataloader().dataset)
+        velocity_loss= batch_velocity_loss/ len(self._dms.test_dataloader().dataset)
+        instrument_loss = batch_instrument_loss/ len(self._dms.test_dataloader().dataset)
+        program_loss = batch_program_loss/ len(self._dms.test_dataloader().dataset)
+        start_times_loss = batch_start_time_loss/ len(self._dms.test_dataloader().dataset)
+        end_times_loss = batch_end_time_loss/ len(self._dms.test_dataloader().dataset)
 
         wandb.log({'test_loss': loss})
         wandb.log({'test_kl_loss': kl_loss})
         wandb.log({'test_recon_loss': recon_loss})
-        wandb.log({'test_instrument_loss': instrument_loss})
+        wandb.log({'test_pitches_ce_loss': pitches_loss})
+        wandb.log({'test_velocity_ce_loss': velocity_loss})
+        wandb.log({'test_instruments_ce_loss': instrument_loss})
+        wandb.log({'test_program_ce_loss': program_loss})
+        wandb.log({'test_start_time_l2_loss': start_times_loss})
+        wandb.log({'test_duration_l2_loss': end_times_loss})
+
         print(f'====> Test Loss = {loss} KL = {kl_loss} Recon = {recon_loss} Instrument Loss = {instrument_loss}')
 
 
