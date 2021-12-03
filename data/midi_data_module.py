@@ -7,7 +7,7 @@ from pytorch_lightning.utilities.types import TRAIN_DATALOADERS, EVAL_DATALOADER
 from torch.utils.data import DataLoader
 from torchvision import transforms
 
-from data.midi_dataset import MidiDataset, Trim, Reshape, data_loader_collate_fn
+from data.midi_dataset import MidiDataset, Rescale, Trim, Reshape, ConvertEndTimeToDuration, data_loader_collate_fn
 
 MAX_MIDI_ENCODING_ROWS = 500
 MIDI_ENCODING_WIDTH = 6
@@ -37,7 +37,8 @@ class MidiDataModule(pl.LightningDataModule):
     def setup(self, stage: Optional[str] = None) -> None:
         data_set = MidiDataset(self._data_dir,
                                transform=transforms.Compose(
-                                   [Trim(max_rows=MAX_MIDI_ENCODING_ROWS), Reshape(self._data_shape)]))
+                                   [Trim(max_rows=MAX_MIDI_ENCODING_ROWS), Reshape(self._data_shape),
+                                    ConvertEndTimeToDuration(), Rescale()]))
         train_size = int(0.7 * len(data_set))
         test_size = int((len(data_set) - train_size) / 2.0)
         val_size = len(data_set) - train_size - test_size

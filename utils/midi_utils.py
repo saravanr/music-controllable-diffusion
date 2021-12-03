@@ -22,10 +22,6 @@ def note_seq_to_nd_array(note_sequence):
     instruments = np.array([note.instrument for note in note_sequence_ordered])
     programs = np.array([note.program for note in note_sequence_ordered])
     nd_array = np.stack([pitches, velocities, instruments, programs, start_times, end_times], axis=1).astype(np.float32)
-
-    # Normalize
-    nd_array = (nd_array - 127.) / 254.0
-    nd_array = np.tanh(nd_array)
     return nd_array
 
 
@@ -34,16 +30,18 @@ def nd_array_to_note_seq(input_note_array):
     from data.midi_data_module import MIDI_ENCODING_WIDTH
     note_array = input_note_array.reshape((-1, MIDI_ENCODING_WIDTH))
     seq = music_pb2.NoteSequence()
-    note_array = (note_array * 254.0) + 127.
+    note_array = np.abs(note_array)
+    note_array.T[5] = note_array.T[5]
+    note_array.T[4] = note_array.T[5]
 
     for i in range(0, note_array.shape[0]):
         note = music_pb2.NoteSequence.Note()
         note.pitch = int(note_array.T[0][i])
         note.velocity = int(note_array.T[1][i])
-        note.instrument = 5 * round(int(note_array.T[2][i])/5)
+        note.instrument = int(note_array.T[2][i])
         note.program = int(note_array.T[3][i])
         note.start_time = note_array.T[4][i]
-        note.end_time = note_array.T[5][i]
+        note.end_time = note.start_time + note_array.T[5][i]
         seq.notes.append(note)
 
     instruments = set([note.instrument for note in seq.notes])

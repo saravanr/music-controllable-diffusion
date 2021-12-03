@@ -110,7 +110,7 @@ class Decoder(nn.Module):
         self._net = nn.Sequential(
             nn.Linear(z_dim, output_dim * scale),
             Reshape1DTo2D((seq_width, seq_len)),
-            nn.GRU(input_size=seq_len, hidden_size=seq_len, num_layers=4, batch_first=True),
+            nn.GRU(input_size=seq_len, hidden_size=seq_len, num_layers=1, batch_first=True),
             ExtractLSTMOutput(),
             nn.Tanh()
         )
@@ -137,7 +137,21 @@ class SimpleVae(BaseModel):
         super(SimpleVae, self).__init__(*args, **kwargs)
         self.writer = SummaryWriter()
         self._encoder = Encoder(z_dim, input_shape=input_shape)
-        self._decoder = Decoder(z_dim, output_shape=input_shape)
+
+        self._pitches_shape = (input_shape[0], 1)
+        self._velocities_shape = (input_shape[0], 1)
+        self._start_times_shape = (input_shape[0], 1)
+        self._end_times_shape = (input_shape[0], 1)
+        self._instruments_shape = (input_shape[0], 1)
+        self._programs_shape = (input_shape[0], 1)
+
+        self._pitches_decoder = Decoder(z_dim, output_shape=self._pitches_shape)
+        self._velocity_decoder = Decoder(z_dim, output_shape=self._velocities_shape)
+        self._start_times_decoder = Decoder(z_dim, output_shape=self._start_times_shape)
+        self._end_times_decoder = Decoder(z_dim, output_shape=self._end_times_shape)
+        self._instruments_decoder = Decoder(z_dim, output_shape=self._instruments_shape)
+        self._program_decoder = Decoder(z_dim, output_shape=self._programs_shape)
+
         self._alpha = alpha
         self._model_prefix = "SimpleVaeMidi"
         self._z_dim = z_dim
@@ -150,16 +164,55 @@ class SimpleVae(BaseModel):
         return _model
 
     def forward(self, x):
+        # Renorm X to midi
+
         mean, log_var = self._encoder(x)
         z = SimpleVae.reparameterize(mean, log_var)
-        x_hat = self._decoder(z)
+
+        x_pitches = self._pitches_decoder(z)
+        x_velocity = self._velocity_decoder(z)
+        x_start_times = self._start_times_decoder(z)
+        x_end_times = self._end_times_decoder(z)
+        x_instruments = self._instruments_decoder(z)
+        x_programs = self._program_decoder(z)
+
+        x_hat = torch.vstack(
+            (x_pitches.T, x_velocity.T, x_instruments.T, x_programs.T, x_start_times.T, x_end_times.T)).T
         return z, x_hat, mean, log_var
+
+    @staticmethod
+    def compute_midi_recon_loss(x, x_hat):
+        # Compute losses based on variable types.
+        x_pitches_hat = x_hat.T[0]
+        x_velocity_hat = x_hat.T[1]
+        x_instruments_hat = x_hat.T[2]
+        x_programs_hat = x_hat.T[3]
+        x_start_times_hat = x_hat.T[4]
+        x_end_times_hat = x_hat.T[5]
+
+        x_pitches = x.T[0]
+        x_velocity = x.T[1]
+        x_instruments = x.T[2]
+        x_programs = x.T[3]
+        x_start_times = x.T[4]
+        x_end_times = x.T[5]
+
+        pitches_loss = func.cross_entropy(x_pitches_hat, x_pitches, reduction='mean')
+        velocity_loss = func.cross_entropy(x_velocity_hat, x_velocity, reduction='mean')
+        instruments_loss = func.cross_entropy(x_instruments_hat, x_instruments, reduction='mean')
+        program_loss = func.cross_entropy(x_programs_hat, x_programs, reduction='mean')
+        start_times_loss = func.mse_loss(x_start_times_hat, x_start_times, reduction='sum')
+        end_times_loss = func.mse_loss(x_end_times_hat, x_end_times, reduction='sum')
+
+        # TODO: How to ensure end times are > start times
+        recon_loss = pitches_loss + velocity_loss + instruments_loss + program_loss + start_times_loss + end_times_loss
+        return recon_loss
 
     def loss_function(self, x_hat, x, mu, q_log_var):
         if self._use_mnist_dms:
             recon_loss = func.binary_cross_entropy(x_hat, x.view(-1, 784), reduction='sum')
         else:
-            recon_loss = func.mse_loss(x_hat, x, reduction='sum')
+            recon_loss = SimpleVae.compute_midi_recon_loss(x, x_hat)
         kl = self._kl_simple(mu, q_log_var)
 
         x_i = torch.arctanh(x).T[2]
@@ -167,10 +220,11 @@ class SimpleVae(BaseModel):
 
         instrument_loss = func.mse_loss(x_i_hat, x_i, reduction='mean')
 
-        generated_unique_instruments_count = torch.unique((torch.arctanh(x_hat).T[2] * 254 + 127).to(torch.int)).size(dim=0)
+        generated_unique_instruments_count = torch.unique((torch.arctanh(x_hat).T[2] * 254 + 127).to(torch.int)).size(
+            dim=0)
         wandb.log({'instrument_count': float(generated_unique_instruments_count)})
 
-        loss = recon_loss + self.alpha * kl + instrument_loss
+        loss = recon_loss + self.alpha * kl
         return loss, kl, recon_loss, instrument_loss
 
     def step(self, batch, batch_idx):
@@ -206,11 +260,21 @@ class SimpleVae(BaseModel):
                     samples = samples.reshape((-1, 28, 28))
                     SimpleVae.plot_image_grid(samples)
                 else:
-                    rand_z = torch.randn(self._decoder.z_dim).to(device)
+                    rand_z = torch.randn(self._pitches_decoder.z_dim).to(device)
                     rand_z.to(device)
-                    output = self._decoder(rand_z)
+
+                    x_pitches = self._pitches_decoder(rand_z)
+                    x_velocity = self._velocity_decoder(rand_z)
+                    x_start_times = self._start_times_decoder(rand_z)
+                    x_end_times = self._end_times_decoder(rand_z)
+                    x_instruments = self._instruments_decoder(rand_z)
+                    x_programs = self._program_decoder(rand_z)
+                    output = torch.vstack(
+                        (x_pitches.T, x_velocity.T, x_instruments.T, x_programs.T, x_start_times.T, x_end_times.T)).T
+
                     sample = output.to("cpu").detach().numpy()
-                    sample_file_name = os.path.join(self._output_dir, f"{self._model_prefix}-{wandb.run.name}-{epoch}.midi")
+                    sample_file_name = os.path.join(self._output_dir,
+                                                    f"{self._model_prefix}-{wandb.run.name}-{epoch}.midi")
                     print(f"Generating midi sample file://{sample_file_name}")
                     save_decoder_output_as_midi(sample, sample_file_name)
         except Exception as _e:
@@ -225,7 +289,7 @@ if __name__ == "__main__":
     print(f"Training simple VAE")
     batch_size = 2048
     train_mnist = False
-    _alpha = 0.07
+    _alpha = 1000
     if train_mnist:
         _z_dim = 20
         model = SimpleVae(
@@ -267,5 +331,5 @@ if __name__ == "__main__":
         if _epoch % 10 == 0:
             model.eval()
             model.sample_output(_epoch)
-            model.sample_output(999999+ _epoch)
+            model.sample_output(999999 + _epoch)
             model.save(_epoch)

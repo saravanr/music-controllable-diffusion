@@ -219,3 +219,6 @@ fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
 fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
 fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
 fluidsynth: warning: SDL2 not initialized, SDL2 audio driver won't be usable
+wandb: Network error (ConnectionError), entering retry loop.
+Loading from /home/joy/model-archive-note-seq/02-Dec-21-1638497636/SimpleVaeMidi-epoch-30-divine-sponge-309.checkpoint...
+Loading from /home/joy/model-archive-note-seq/02-Dec-21-1638497636/SimpleVaeMidi-epoch-30-divine-sponge-309.checkpoint...

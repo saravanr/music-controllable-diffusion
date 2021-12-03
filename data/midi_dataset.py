@@ -54,12 +54,38 @@ class Reshape(object):
         return sample
 
 
+class ConvertEndTimeToDuration(object):
+    def __init__(self):
+        pass
+
+    def __call__(self, sample):
+        if sample is None:
+            return None
+
+        # End time - start time
+        sample.T[5] = sample.T[5]-sample.T[4]
+        return sample
+
+
+class Rescale(object):
+    def __init__(self):
+        pass
+
+    def __call__(self, sample):
+        if sample is None:
+            return None
+
+        sample = np.arctanh(sample) * 254. + 127.
+        sample = np.tanh(sample / 127.)
+        return sample
+
+
 class MidiDataset(Dataset):
 
     def __init__(self, data_dir, transform=None):
         self.data_dir = data_dir
         self.transform = transform
-        self.data_files = get_files_in_path(data_dir, matching_pattern=f"*.npy")[0:10000]
+        self.data_files = get_files_in_path(data_dir, matching_pattern=f"*.npy")[0:50000]
         self.tensors = self.generate_tensors()
 
     def generate_tensors(self):
