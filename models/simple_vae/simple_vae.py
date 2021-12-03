@@ -128,6 +128,11 @@ class DecoderCategorical(nn.Module):
 
     @staticmethod
     def get_classification_from_output(output, embedding):
+        reshape = False
+        if output.shape[0] == MAX_MIDI_ENCODING_ROWS:
+            output = output.reshape(-1, MAX_MIDI_ENCODING_ROWS)
+            output = output.unsqueeze(-1)
+            reshape = True
         w = embedding.weight.data
         # Expand to output size, without memory increase
         w = w.expand(-1, output.shape[1])
@@ -136,7 +141,10 @@ class DecoderCategorical(nn.Module):
         #    (output.shape[0], output.shape[1], -1)) - output
         dist = torch.abs((w - output[:, None, :]))
         classification = torch.argmin(dist, dim=1)
-        return classification
+
+        if reshape:
+            classification = classification.reshape(MAX_MIDI_ENCODING_ROWS, -1)
+        return classification.type(torch.float32)
 
     def forward(self, z):
         output = self._net(z)
@@ -146,14 +154,7 @@ class DecoderCategorical(nn.Module):
         else:
             output = output.reshape((-1, self._seq_len, self._seq_width))
 
-        w = self._embedding.weight.data
-        # Expand to output size, without memory increase
-        w = w.expand(-1, output.shape[1])
-        w = w.unsqueeze(-1)
-        #dist = w.expand(128, output.shape[1], output.shape[0]).reshape(
-        #    (output.shape[0], output.shape[1], -1)) - output
-        dist = torch.abs((w - output[:, None, :]))
-        classification = torch.argmin(dist, dim=1)
+        classification = DecoderCategorical.get_classification_from_output(output, self._embedding)
         return classification, output
 
     @property
@@ -277,17 +278,17 @@ class SimpleVae(BaseModel):
         x_start_times_hat = x_hat.T[4]
         x_end_times_hat = x_hat.T[5]
 
-        x_pitches = x.T[0]
-        x_velocity = x.T[1]
-        x_instruments = x.T[2]
-        x_programs = x.T[3]
+        x_pitches = DecoderCategorical.get_classification_from_output(x.T[0], self._pitch_embedding)
+        x_velocity = DecoderCategorical.get_classification_from_output(x.T[1], self._velocity_embedding)
+        x_instruments = DecoderCategorical.get_classification_from_output(x.T[2], self._instrument_embedding)
+        x_programs = DecoderCategorical.get_classification_from_output(x.T[3], self._program_embedding)
         x_start_times = x.T[4]
         x_end_times = x.T[5]
 
-        pitches_loss = func.mse_loss(x_pitches_hat, x_pitches, reduction='sum')
-        velocity_loss = func.mse_loss(x_velocity_hat, x_velocity, reduction='sum')
-        instruments_loss = func.mse_loss(x_instruments_hat, x_instruments, reduction='sum')
-        program_loss = func.mse_loss(x_programs_hat, x_programs, reduction='sum')
+        pitches_loss = func.cross_entropy(x_pitches_hat, x_pitches, reduction='sum')
+        velocity_loss = func.cross_entropy(x_velocity_hat, x_velocity, reduction='sum')
+        instruments_loss = func.cross_entropy(x_instruments_hat, x_instruments, reduction='sum')
+        program_loss = func.cross_entropy(x_programs_hat, x_programs, reduction='sum')
         start_times_loss = func.mse_loss(x_start_times_hat, x_start_times, reduction='sum')
         end_times_loss = func.mse_loss(x_end_times_hat, x_end_times, reduction='sum')
 
