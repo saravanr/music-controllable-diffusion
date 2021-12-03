@@ -16,6 +16,7 @@ from utils.midi_utils import save_decoder_output_as_midi
 import matplotlib.pyplot as plt
 
 import wandb
+
 wandb.init(project="music-controllable-diffusion-with-embedding", entity="saravanr")
 
 
@@ -61,7 +62,7 @@ class Encoder(nn.Module):
         input_dim = (seq_len * seq_width)
 
         self._net = nn.Sequential(
-            nn.GRU(input_size=seq_len, hidden_size=seq_len, num_layers=2, batch_first=True, bidirectional=True),
+            nn.GRU(input_size=seq_len, hidden_size=seq_len, num_layers=4, batch_first=True, bidirectional=True),
             ExtractLSTMOutput(),
             nn.Flatten(start_dim=1),
             nn.Linear(input_dim * 2, input_dim // 2),
@@ -95,6 +96,7 @@ class Encoder(nn.Module):
         mean = self._fc_mean(h)
         log_var = self._fc_log_var(h)
         return mean, log_var
+
 
 class DecoderCategorical(nn.Module):
     """
@@ -137,7 +139,7 @@ class DecoderCategorical(nn.Module):
         # Expand to output size, without memory increase
         w = w.expand(-1, output.shape[1])
         w = w.unsqueeze(-1)
-        #dist = w.expand(128, output.shape[1], output.shape[0]).reshape(
+        # dist = w.expand(128, output.shape[1], output.shape[0]).reshape(
         #    (output.shape[0], output.shape[1], -1)) - output
         dist = torch.abs((w - output[:, None, :]))
         classification = torch.argmin(dist, dim=1)
@@ -285,10 +287,10 @@ class SimpleVae(BaseModel):
         x_start_times = x.T[4]
         x_end_times = x.T[5]
 
-        pitches_loss = func.cross_entropy(x_pitches_hat, x_pitches, reduction='sum')
-        velocity_loss = func.cross_entropy(x_velocity_hat, x_velocity, reduction='sum')
-        instruments_loss = func.cross_entropy(x_instruments_hat, x_instruments, reduction='sum')
-        program_loss = func.cross_entropy(x_programs_hat, x_programs, reduction='sum')
+        pitches_loss = func.cross_entropy(x_pitches_hat, x_pitches, reduction='mean')
+        velocity_loss = func.cross_entropy(x_velocity_hat, x_velocity, reduction='mean')
+        instruments_loss = func.cross_entropy(x_instruments_hat, x_instruments, reduction='mean')
+        program_loss = func.cross_entropy(x_programs_hat, x_programs, reduction='mean')
         start_times_loss = func.mse_loss(x_start_times_hat, x_start_times, reduction='sum')
         end_times_loss = func.mse_loss(x_end_times_hat, x_end_times, reduction='sum')
 
@@ -321,7 +323,7 @@ class SimpleVae(BaseModel):
 
         x_input = torch.cat((p, v, i, pr, s, d), dim=3)
         x_input = torch.squeeze(x_input, dim=1)
-        z, x_hat, x_hat_bp,  mu, q_log_var = self(x_input)
+        z, x_hat, x_hat_bp, mu, q_log_var = self(x_input)
         loss = self.loss_function(x_hat_bp, x_input, mu, q_log_var)
         return loss
 
@@ -382,7 +384,7 @@ if __name__ == "__main__":
     print(f"Training simple VAE")
     batch_size = 2048
     train_mnist = False
-    _alpha = 0.07
+    _alpha = 1
     if train_mnist:
         _z_dim = 20
         model = SimpleVae(
