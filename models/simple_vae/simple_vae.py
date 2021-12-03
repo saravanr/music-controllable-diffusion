@@ -276,7 +276,7 @@ class SimpleVae(BaseModel):
                     sample_file_name = os.path.join(self._output_dir,
                                                     f"{self._model_prefix}-{wandb.run.name}-{epoch}.midi")
                     print(f"Generating midi sample file://{sample_file_name}")
-                    save_decoder_output_as_midi(sample, sample_file_name)
+                    save_decoder_output_as_midi(sample, sample_file_name, self._data_mean, self._data_std)
         except Exception as _e:
             print(f"Hit exception during sample_output - {_e}")
 
@@ -289,7 +289,7 @@ if __name__ == "__main__":
     print(f"Training simple VAE")
     batch_size = 2048
     train_mnist = False
-    _alpha = 1000
+    _alpha = 1
     if train_mnist:
         _z_dim = 20
         model = SimpleVae(

@@ -32,7 +32,9 @@ class Trim(object):
             return None
         diff_rows = self._max_rows - sample.shape[0]
         if diff_rows > 0:
-            sample = np.pad(sample, ((0, diff_rows), (0, 0)), constant_values=0)
+            # Do not pad just return none
+            # sample = np.pad(sample, ((0, diff_rows), (0, 0)), constant_values=0)
+            sample = None
         else:
             sample = sample[0:self._max_rows]
 
@@ -63,7 +65,10 @@ class ConvertEndTimeToDuration(object):
             return None
 
         # End time - start time
-        sample.T[5] = sample.T[5]-sample.T[4]
+        try:
+            sample.T[5] = sample.T[5]-sample.T[4]
+        except Exception as _:
+            return None
         return sample
 
 
@@ -75,8 +80,8 @@ class Rescale(object):
         if sample is None:
             return None
 
+        # Renormalize (this is because the stored .npy files have the reverse transform
         sample = np.arctanh(sample) * 254. + 127.
-        sample = np.tanh(sample / 127.)
         return sample
 
 
@@ -86,12 +91,19 @@ class MidiDataset(Dataset):
         self.data_dir = data_dir
         self.transform = transform
         self.data_files = get_files_in_path(data_dir, matching_pattern=f"*.npy")[0:50000]
+        self.mean = 0.0
+        self.std = 0.0
         self.tensors = self.generate_tensors()
+
+    def get_mean_and_std(self):
+        return self.mean, self.std
 
     def generate_tensors(self):
         device = get_device()
         tensors = []
         print(f"Generating input tensors on {device}")
+
+        data_array = []
         for data_file in tqdm.tqdm(self.data_files):
             if not os.path.exists(data_file):
                 continue
@@ -106,7 +118,32 @@ class MidiDataset(Dataset):
 
             if data is None:
                 continue
-            tensor = torch.Tensor(data).to(device)
+
+            mean = np.mean(data, axis=0)
+            std = np.mean(data, axis=0)
+            if True in np.isinf(mean) or True in np.isnan(mean):
+                continue
+
+            if True in np.isinf(std) or True in np.isnan(std):
+                continue
+
+            # Skip only piano music
+            if len(np.unique(data.T[2])) < 8:
+                continue
+
+            data_array.append(data)
+
+        print(f"Normalizing.. {len(data_array)} samples...")
+        data_array = [x for x in data_array if x is not None]
+        p = np.array(data_array)
+        self.mean = np.mean(p, axis=(0, 1))
+        self.std = np.std(p, axis=(0, 1))
+
+        print(f"Generating tensors")
+        for data in tqdm.tqdm(data_array):
+            norm_data = (data - self.mean) / self.std
+            norm_data = np.tanh(norm_data)
+            tensor = torch.Tensor(norm_data).to(device)
             tensors.append(tensor)
 
         return tensors

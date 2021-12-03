@@ -9,7 +9,7 @@ from torchvision import transforms
 
 from data.midi_dataset import MidiDataset, Rescale, Trim, Reshape, ConvertEndTimeToDuration, data_loader_collate_fn
 
-MAX_MIDI_ENCODING_ROWS = 500
+MAX_MIDI_ENCODING_ROWS = 600
 MIDI_ENCODING_WIDTH = 6
 
 
@@ -33,12 +33,15 @@ class MidiDataModule(pl.LightningDataModule):
         self._data_shape = data_shape
         self._num_workers = 0
         self._shuffle = shuffle
+        self._data_set = None
 
     def setup(self, stage: Optional[str] = None) -> None:
         data_set = MidiDataset(self._data_dir,
                                transform=transforms.Compose(
-                                   [Trim(max_rows=MAX_MIDI_ENCODING_ROWS), Reshape(self._data_shape),
-                                    ConvertEndTimeToDuration(), Rescale()]))
+                                   [Trim(max_rows=MAX_MIDI_ENCODING_ROWS),
+                                    Reshape(self._data_shape),
+                                    Rescale(),
+                                    ConvertEndTimeToDuration()]))
         train_size = int(0.7 * len(data_set))
         test_size = int((len(data_set) - train_size) / 2.0)
         val_size = len(data_set) - train_size - test_size
@@ -66,6 +69,7 @@ class MidiDataModule(pl.LightningDataModule):
                                           num_workers=self._num_workers,
                                           collate_fn=data_loader_collate_fn,
                                           )
+        self._data_set = data_set
 
     def train_dataloader(self) -> TRAIN_DATALOADERS:
         return self._train_dataloader
@@ -78,6 +82,9 @@ class MidiDataModule(pl.LightningDataModule):
 
     def teardown(self, stage: Optional[str] = None) -> None:
         pass
+
+    def get_mean_and_std(self):
+        return self._data_set.get_mean_and_std()
 
 
 if __name__ == "__main__":

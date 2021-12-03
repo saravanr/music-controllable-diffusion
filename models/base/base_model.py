@@ -41,6 +41,8 @@ class BaseModel(torch.nn.Module):
         self._save_checkpoint_every = save_checkpoint_every
         self._emit_tensorboard_scalars = emit_tensorboard_scalars
         self._batch_size = batch_size
+        self._data_mean = None
+        self._data_std = None
 
     def setup(self):
         if self._use_mnist_dms:
@@ -51,6 +53,8 @@ class BaseModel(torch.nn.Module):
                                        batch_size=self._batch_size)
 
         self._dms.setup()
+        if not self._use_mnist_dms:
+            self._data_mean, self._data_std = self._dms.get_mean_and_std()
 
 
     @staticmethod

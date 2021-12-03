@@ -25,14 +25,18 @@ def note_seq_to_nd_array(note_sequence):
     return nd_array
 
 
-def nd_array_to_note_seq(input_note_array):
+def nd_array_to_note_seq(input_note_array, mean=None, std=None):
     """Converts ND array to Note Seq"""
     from data.midi_data_module import MIDI_ENCODING_WIDTH
     note_array = input_note_array.reshape((-1, MIDI_ENCODING_WIDTH))
     seq = music_pb2.NoteSequence()
+    if mean is not None and std is not None:
+        note_array = np.arctanh(note_array)
+        note_array = note_array * std + mean
+
+    # Eliminate any negative values after extrapolation
+    # TODO: How can we avoid this?
     note_array = np.abs(note_array)
-    note_array.T[5] = note_array.T[5]
-    note_array.T[4] = note_array.T[5]
 
     for i in range(0, note_array.shape[0]):
         note = music_pb2.NoteSequence.Note()
@@ -43,6 +47,10 @@ def nd_array_to_note_seq(input_note_array):
         note.start_time = note_array.T[4][i]
         note.end_time = note.start_time + note_array.T[5][i]
         seq.notes.append(note)
+    max_value = np.max(note_array)
+    print(f"Max value = {max_value}")
+    if max_value > 127.0:
+        print(f"Exceeded max")
 
     instruments = set([note.instrument for note in seq.notes])
     print(f"Number of instruments in Generated MIDI = {len(instruments)}")
@@ -80,8 +88,8 @@ def get_encoding(midi_file_path):
     return nd_array
 
 
-def save_decoder_output_as_midi(decoder_output, midi_file_name):
-    seq = nd_array_to_note_seq(decoder_output)
+def save_decoder_output_as_midi(decoder_output, midi_file_name, mean, std):
+    seq = nd_array_to_note_seq(decoder_output, mean, std)
     midi_io.note_sequence_to_midi_file(seq, midi_file_name)
 
 
