@@ -54,7 +54,7 @@ class Encoder(nn.Module):
         if input_shape[0] < 100:
             scale = 1
         else:
-            scale = 1
+            scale = 10
 
         seq_len = input_shape[0]
         seq_width = input_shape[1]
@@ -62,7 +62,7 @@ class Encoder(nn.Module):
 
         self._net = nn.Sequential(
             nn.BatchNorm1d(num_features=seq_width),
-            nn.GRU(input_size=seq_len, hidden_size=seq_len, num_layers=4, batch_first=True, bidirectional=True),
+            nn.GRU(input_size=seq_len, hidden_size=seq_len//10, num_layers=1, batch_first=True, bidirectional=True),
             ExtractLSTMOutput(),
             nn.Flatten(start_dim=1),
             nn.Linear(input_dim * 2, input_dim // 2),
@@ -82,12 +82,55 @@ class Encoder(nn.Module):
         self._seq_width = seq_width
 
     def forward(self, x):
-
         x = x.reshape((-1, self._seq_width, self._seq_len))
         h = self._net(x)
         mean = self._fc_mean(h)
         log_var = self._fc_log_var(h)
         return mean, log_var
+
+
+class DecoderCategorical(nn.Module):
+    """
+    VAE Decoder takes the latent Z and maps it to output of shape of the input
+    """
+
+    def __init__(self, z_dim, output_shape, clam_output=False):
+        super(DecoderCategorical, self).__init__()
+        self._z_dim = z_dim
+        self._output_shape = output_shape
+        seq_len = output_shape[0]
+        seq_width = output_shape[1]
+
+        if output_shape[0] < 100:
+            scale = 1
+        else:
+            scale = 1
+
+        output_dim = (seq_len * seq_width) // scale
+        self._net = nn.Sequential(
+            nn.Linear(z_dim, output_dim * scale),
+            nn.Dropout(0.2),
+            Reshape1DTo2D((seq_width, seq_len)),
+            nn.GRU(input_size=seq_len, hidden_size=seq_len, num_layers=1, batch_first=True),
+            ExtractLSTMOutput(),
+            nn.Softmax()
+        )
+        self._seq_len = seq_len
+        self._seq_width = seq_width
+        self._clamp_output = clam_output
+
+    def forward(self, z):
+        output = self._net(z)
+        if self._clamp_output:
+            # Clamp output in (0, 1) to prevent errors in BCE
+            output = torch.clamp(output, 1e-8, 1 - 1e-8)
+        else:
+            output = output.reshape((-1, self._seq_len, self._seq_width))
+        return output
+
+    @property
+    def z_dim(self):
+        return self._z_dim
 
 
 class Decoder(nn.Module):
@@ -110,8 +153,7 @@ class Decoder(nn.Module):
         output_dim = (seq_len * seq_width) // scale
         self._net = nn.Sequential(
             nn.Linear(z_dim, output_dim * scale),
-            nn.LeakyReLU(),
-            nn.Dropout(0.5),
+            nn.Dropout(0.2),
             Reshape1DTo2D((seq_width, seq_len)),
             nn.GRU(input_size=seq_len, hidden_size=seq_len, num_layers=1, batch_first=True),
             ExtractLSTMOutput(),
@@ -148,16 +190,17 @@ class SimpleVae(BaseModel):
         self._instruments_shape = (input_shape[0], 1)
         self._programs_shape = (input_shape[0], 1)
 
-        self._pitches_decoder = Decoder(z_dim, output_shape=self._pitches_shape)
-        self._velocity_decoder = Decoder(z_dim, output_shape=self._velocities_shape)
+        self._pitches_decoder = DecoderCategorical(z_dim, output_shape=self._pitches_shape)
+        self._velocity_decoder = DecoderCategorical(z_dim, output_shape=self._velocities_shape)
         self._start_times_decoder = Decoder(z_dim, output_shape=self._start_times_shape)
         self._end_times_decoder = Decoder(z_dim, output_shape=self._end_times_shape)
-        self._instruments_decoder = Decoder(z_dim, output_shape=self._instruments_shape)
-        self._program_decoder = Decoder(z_dim, output_shape=self._programs_shape)
+        self._instruments_decoder = DecoderCategorical(z_dim, output_shape=self._instruments_shape)
+        self._program_decoder = DecoderCategorical(z_dim, output_shape=self._programs_shape)
 
         self._alpha = alpha
         self._model_prefix = "SimpleVaeMidi"
         self._z_dim = z_dim
+        self._device = get_device()
 
     @staticmethod
     def from_pretrained(checkpoint_path, z_dim, input_shape):
@@ -183,8 +226,7 @@ class SimpleVae(BaseModel):
             (x_pitches.T, x_velocity.T, x_instruments.T, x_programs.T, x_start_times.T, x_end_times.T)).T
         return z, x_hat, mean, log_var
 
-    @staticmethod
-    def compute_midi_recon_loss(x, x_hat):
+    def compute_midi_recon_loss(self, x, x_hat):
         # Compute losses based on variable types.
         x_pitches_hat = x_hat.T[0]
         x_velocity_hat = x_hat.T[1]
@@ -209,26 +251,18 @@ class SimpleVae(BaseModel):
 
         # TODO: How to ensure end times are > start times
         recon_loss = pitches_loss + velocity_loss + instruments_loss + program_loss + start_times_loss + end_times_loss
-        return recon_loss
+        return recon_loss, pitches_loss, velocity_loss, instruments_loss, program_loss, start_times_loss, end_times_loss
 
     def loss_function(self, x_hat, x, mu, q_log_var):
         if self._use_mnist_dms:
             recon_loss = func.binary_cross_entropy(x_hat, x.view(-1, 784), reduction='sum')
+            pitches_loss, velocity_loss, instruments_loss, program_loss, start_times_loss, end_times_loss = [None] * 6
         else:
-            recon_loss = SimpleVae.compute_midi_recon_loss(x, x_hat)
+            recon_loss, pitches_loss, velocity_loss, instruments_loss, program_loss, start_times_loss, end_times_loss = self.compute_midi_recon_loss(
+                x, x_hat)
         kl = self._kl_simple(mu, q_log_var)
-
-        x_i = torch.arctanh(x).T[2]
-        x_i_hat = torch.arctanh(x_hat).T[2]
-
-        instrument_loss = func.mse_loss(x_i_hat, x_i, reduction='mean')
-
-        generated_unique_instruments_count = torch.unique((torch.arctanh(x_hat).T[2] * 254 + 127).to(torch.int)).size(
-            dim=0)
-        wandb.log({'instrument_count': float(generated_unique_instruments_count)})
-
         loss = recon_loss + self.alpha * kl
-        return loss, kl, recon_loss, instrument_loss
+        return loss, kl, recon_loss, pitches_loss, velocity_loss, instruments_loss, program_loss, start_times_loss, end_times_loss
 
     def step(self, batch, batch_idx):
         x = batch
@@ -309,7 +343,7 @@ if __name__ == "__main__":
         model = SimpleVae(
             alpha=_alpha,
             z_dim=_z_dim,
-            input_shape=(MAX_MIDI_ENCODING_ROWS, MIDI_ENCODING_WIDTH),
+            input_shape=(MAX_MIDI_ENCODING_ROWS, 514),
             use_mnist_dms=False,
             sample_output_step=10,
             batch_size=batch_size

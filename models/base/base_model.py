@@ -56,7 +56,6 @@ class BaseModel(torch.nn.Module):
         if not self._use_mnist_dms:
             self._data_mean, self._data_std = self._dms.get_mean_and_std()
 
-
     @staticmethod
     def sample(mean, var):
         # Set all small values to epsilon
@@ -118,7 +117,7 @@ class BaseModel(torch.nn.Module):
 
             batch_pitches_loss += pitches_loss.detach().item()
             batch_velocity_loss += velocity_loss.detach().item()
-            batch_instrument_loss += instrument_loss.detach().item()
+            batch_instruments_loss += instruments_loss.detach().item()
             batch_program_loss += program_loss.detach().item()
             batch_start_time_loss += start_times_loss.detach().item()
             batch_end_time_loss += end_times_loss.detach().item()
@@ -128,7 +127,7 @@ class BaseModel(torch.nn.Module):
         recon_loss = batch_recon_loss / len(self._dms.train_dataloader().dataset)
         pitches_loss = batch_pitches_loss/ len(self._dms.train_dataloader().dataset)
         velocity_loss= batch_velocity_loss/ len(self._dms.train_dataloader().dataset)
-        instrument_loss = batch_instrument_loss/ len(self._dms.train_dataloader().dataset)
+        instrument_loss = batch_instruments_loss/ len(self._dms.train_dataloader().dataset)
         program_loss = batch_program_loss/ len(self._dms.train_dataloader().dataset)
         start_times_loss = batch_start_time_loss/ len(self._dms.train_dataloader().dataset)
         end_times_loss = batch_end_time_loss/ len(self._dms.train_dataloader().dataset)
@@ -175,7 +174,7 @@ class BaseModel(torch.nn.Module):
                 batch_recon_loss += recon_loss.detach().item()
                 batch_pitches_loss += pitches_loss.detach().item()
                 batch_velocity_loss += velocity_loss.detach().item()
-                batch_instrument_loss += instrument_loss.detach().item()
+                batch_instruments_loss += instruments_loss.detach().item()
                 batch_program_loss += program_loss.detach().item()
                 batch_start_time_loss += start_times_loss.detach().item()
                 batch_end_time_loss += end_times_loss.detach().item()
@@ -185,7 +184,7 @@ class BaseModel(torch.nn.Module):
         recon_loss = batch_recon_loss / len(self._dms.test_dataloader().dataset)
         pitches_loss = batch_pitches_loss/ len(self._dms.test_dataloader().dataset)
         velocity_loss= batch_velocity_loss/ len(self._dms.test_dataloader().dataset)
-        instrument_loss = batch_instrument_loss/ len(self._dms.test_dataloader().dataset)
+        instrument_loss = batch_instruments_loss/ len(self._dms.test_dataloader().dataset)
         program_loss = batch_program_loss/ len(self._dms.test_dataloader().dataset)
         start_times_loss = batch_start_time_loss/ len(self._dms.test_dataloader().dataset)
         end_times_loss = batch_end_time_loss/ len(self._dms.test_dataloader().dataset)

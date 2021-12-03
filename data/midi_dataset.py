@@ -8,7 +8,7 @@ import shutil
 from utils.cuda_utils import get_device
 from utils.file_utils import get_files_in_path
 from utils.midi_utils import get_encoding
-
+import torch.nn.functional as F
 
 def data_loader_collate_fn(batch):
     """
@@ -88,7 +88,7 @@ class Rescale(object):
 
 class MidiDataset(Dataset):
 
-    def __init__(self, data_dir, transform=None, combined_file=os.path.expanduser("~/midi_features_v2_combined.npy")):
+    def __init__(self, data_dir, transform=None, combined_file=os.path.expanduser("/dev/shm/midi_features_v2_combined.npy")):
         self.data_dir = data_dir
         self.transform = transform
         self.data_files = get_files_in_path(data_dir, matching_pattern=f"*.npy")
@@ -150,11 +150,20 @@ class MidiDataset(Dataset):
         print(f"Generating tensors")
         index = 0
         for data in tqdm.tqdm(data_array):
+            pitches = F.one_hot(torch.tensor(data.T[0]).type(torch.int64), num_classes=128)
+            velocity = F.one_hot(torch.tensor(data.T[1]).type(torch.int64), num_classes=128)
+            instrument = F.one_hot(torch.tensor(data.T[2]).type(torch.int64), num_classes=128)
+            program = F.one_hot(torch.tensor(data.T[3]).type(torch.int64), num_classes=128)
+
             norm_data = (data - self.mean) / self.std
             norm_data = np.tanh(norm_data)
-            tensor = torch.Tensor(norm_data).to(device)
+
+            start_times = torch.tensor(norm_data.T[4])
+            duration = torch.tensor(norm_data.T[5])
+
+            tensor = torch.vstack((pitches.T, velocity.T, instrument.T, program.T, start_times, duration)).to(device)
             tensors.append(tensor)
-            if index > 30000:
+            if index > 3000:
                 break
             index = index + 1
 
