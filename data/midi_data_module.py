@@ -65,7 +65,7 @@ class MidiDataModule(pl.LightningDataModule):
                                            )
 
         self._val_dataloader = DataLoader(self._val_dataset,
-                                          batch_size=self._batch_size,
+                                          batch_size=1,
                                           shuffle=self._shuffle,
                                           num_workers=self._num_workers,
                                           collate_fn=data_loader_collate_fn,

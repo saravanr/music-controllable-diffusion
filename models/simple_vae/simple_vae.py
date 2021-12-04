@@ -217,7 +217,7 @@ class ControllableDecoder(nn.Module):
         super(ControllableDecoder, self).__init__()
         self._z_dim = z_dim
         self._output_shape = output_shape
-        seq_len = output_shape[0]
+        seq_len = output_shape[0] - partial_shape[0]
         seq_width = output_shape[1]
 
         if output_shape[0] < 100:
@@ -250,6 +250,8 @@ class ControllableDecoder(nn.Module):
             output = torch.clamp(output, 1e-8, 1 - 1e-8)
         else:
             output = output.reshape((-1, self._seq_len, self._seq_width))
+
+        output = torch.cat((x_partial, output), dim=1)
         return output
 
     @property
@@ -319,7 +321,7 @@ class SimpleVae(BaseModel):
         x_hat = torch.vstack(
             (x_p.T, x_v.T, x_i.T, x_programs.T, x_start_times.T, x_end_times.T)).T
 
-        x_control = self._controllable_decoder(z, x_hat_bp[:, 0: x_hat_bp.shape[1]//3])
+        x_control = self._controllable_decoder(z, x[:, 0: x.shape[1]//3])
         return z, x_hat, x_hat_bp, x_control, mean, log_var
 
     def compute_midi_recon_loss(self, x, x_hat_bp, x_hat, x_control):
@@ -359,7 +361,7 @@ class SimpleVae(BaseModel):
     def loss_function(self, x_hat_bp, x_hat, x, x_control, mu, q_log_var):
         if self._use_mnist_dms:
             recon_loss = func.binary_cross_entropy(x_hat, x.view(-1, 784), reduction='sum')
-            pitches_loss, velocity_loss, instruments_loss, program_loss, start_times_loss, end_times_loss = [None] * 6
+            pitches_loss, velocity_loss, instruments_loss, program_loss, start_times_loss, end_times_loss, control_loss = [None] * 7
         else:
             recon_loss, pitches_loss, velocity_loss, instruments_loss, program_loss, start_times_loss, end_times_loss, control_loss = self.compute_midi_recon_loss(
                 x, x_hat_bp, x_hat, x_control)
@@ -427,9 +429,34 @@ class SimpleVae(BaseModel):
                     sample = output.to("cpu").detach().numpy()
                     sample_file_name = os.path.join(self._output_dir,
                                                     f"{self._model_prefix}-{wandb.run.name}-{epoch}.midi")
+                    save_decoder_output_as_midi(sample, sample_file_name, self._data_mean, self._data_std)
                     print(f"Generating midi sample file://{sample_file_name}")
                     print(f"Generating midi sample path = {sample_file_name}")
-                    save_decoder_output_as_midi(sample, sample_file_name, self._data_mean, self._data_std)
+
+                    # Generate some controllable music
+                    for batch_idx, batch in enumerate(self._dms.val_dataloader()):
+                        # TODO: Clean up this mess
+                        batch = batch.to(device)
+                        control = batch[0].T.unsqueeze(0)
+                        control = control[:, 0:100, :]
+                        control_output = self._controllable_decoder(rand_z.unsqueeze(0), control)
+                        x = control_output
+
+                        x_pitches = DecoderCategorical.get_classification_from_output(x.T[0], self._pitch_embedding)
+                        x_velocity = DecoderCategorical.get_classification_from_output(x.T[1], self._velocity_embedding)
+                        x_instruments = DecoderCategorical.get_classification_from_output(x.T[2], self._instrument_embedding)
+                        x_programs = DecoderCategorical.get_classification_from_output(x.T[3], self._program_embedding)
+                        output = torch.stack((x_pitches, x_velocity, x_instruments, x_programs, control_output.T[4], control_output.T[5])).T
+                        sample = output.to("cpu").detach().numpy()
+                        sample = sample.reshape((300,6))
+                        import numpy as np
+                        sample[np.isnan(sample)] = 1e-8
+                        sample_file_name = os.path.join(self._output_dir,
+                                                        f"{self._model_prefix}-control-{wandb.run.name}-{epoch}.midi")
+                        save_decoder_output_as_midi(sample, sample_file_name, self._data_mean, self._data_std)
+                        print(f"Generating controlled midi sample file://{sample_file_name}")
+                        print(f"Generating controlled midi sample path = {sample_file_name}")
+
         except Exception as _e:
             print(f"Hit exception during sample_output - {_e}")
 
