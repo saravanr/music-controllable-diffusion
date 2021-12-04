@@ -25,6 +25,9 @@
 \documentclass[final]{beamer}
 
 \usepackage[scale=1.24]{beamerposter} % Use the beamerposter package for laying out the poster
+\usepackage{media9}
+
+\usepackage{geometry}
 
 \usetheme{confposter} % Use the confposter theme supplied with this template
 \setbeamercolor{title}{fg=blue,bg=white}
@@ -32,6 +35,9 @@
 \setbeamercolor{block body}{fg=black,bg=white} % Colors of the body of blocks
 \setbeamercolor{block alerted title}{fg=white,bg=orange!70} % Colors of the highlighted block titles
 \setbeamercolor{block alerted body}{fg=black,bg=orange!10} % Colors of the body of highlighted blocks
+
+\addtobeamertemplate{institute}{}{\vspace{-20em}}
+
 % Many more colors are available for use in beamerthemeconfposter.sty
 
 %-----------------------------------------------------------
@@ -52,8 +58,10 @@
 \setlength{\onecolwid}{0.22\paperwidth} % Width of one column
 \setlength{\twocolwid}{0.464\paperwidth} % Width of two columns
 \setlength{\threecolwid}{0.708\paperwidth} % Width of three columns
-\setlength{\topmargin}{-0.5in} % Reduce the top margin size
+\setlength{\topmargin}{-1in} % Reduce the top margin size
 %-----------------------------------------------------------
+
+
 
 \usepackage{graphicx}  % Required for including images
 
@@ -64,12 +72,9 @@
 %----------------------------------------------------------------------------------------
 
 \title{Multi instrument music generation using VAE} % Poster title
-\author{Saravana Rathinam} % Author(s)
-\institute{SCPD Student, Stanford University} % Institution(s)
+\author{Saravana Rathinam (saravanr@stanford.edu)} % Author(s)
+\institute{~} % Institution(s)
 %----------------------------------------------------------------------------------------
-
-
-
 
 \begin{document}
 
@@ -93,11 +98,21 @@
 
 \begin{alertblock}{Summary}
 
-Generating long music sequences from raw audio waveforms can be very
-compute intensive. MIDI format gives a much more compressed representation of
-a subset of Music which may give us a tractable way to generate melodies. In this project we generate MIDI audio using Variation Auto Encoders for multiple instruments.
+MIDI format gives a compressed representation of
+a Music which may give us a tractable way to generate long melodies. In this project we generate MIDI audio using Variation Auto Encoders (VAE) for multiple instruments. We also generate MIDI sequences given a short begining sequence and let the model fill in the rest using a Conditional-VAE.
 
 \end{alertblock}
+
+\begin{block}{Motivation}
+
+Recent advances in Generative models
+for Music generation have shown impressive results. Learning the distribution of music creation may be an intractable problem at the moment.
+However one approach we can take is to build tools that serve as an aid in the creative process. If a
+musician already has a few ideas in mind on how a song or melody should start, can the problem be
+modelled as a conditional generative process where given the start can a model
+generate multiple possibilities of how the song can proceed?
+\end{block}
+
 
 %----------------------------------------------------------------------------------------
 %	INTRODUCTION
@@ -105,32 +120,24 @@ a subset of Music which may give us a tractable way to generate melodies. In thi
 
 \begin{block}{Background Information}
 
-Composing music is a skill that is acquired by many years of practice. The music itself is the result
-of the life experiences of the musician, their state of mind, their unconcious and concious thoughts.
-Their creative talent is subjective and difficult to generalize. Recent advances in Generative models
-for Music generation have shown impressive results where the focus has been to replace the creative
-process. Learning the distribution of music creation may be an intractable problem at the moment.
-However one approach we can take is to build tools that serve as an aid in the creative process. If a
-musician already has a few ideas in mind on how a song or melody should start, can the problem be
-modelled as a conditional generative process where given the start and style of the song, can a model
-generate multiple possibilities of how the song can proceed?
-In such a generative system, the inputs to the model would be a short MIDI sequence. The system
-would generate a bunch of sequences that may serve as suggested next sequences and so on. By
-conditioning on the input and letting the musician choose the path to take, the model can help in the
-creative process.
+A MIDI sequence can be thought to consist of a list of notes and attributes. Each note has:
+
+\begin{enumerate}
+\item \textbf{Pitch}: Frequencey of the note
+\item \textbf{Velocity}: Intensity of the note
+\item \textbf{Instrument}: The instrument where the note should be played (or synthesized) 
+\item \textbf{Program}: A control message that specifies which instrument should be selected to play the note
+\item \textbf{Start time}: The start time of the note (seconds)
+\item \textbf{End time}: The end time of the note          
+\end{enumerate}
+
+The data set consisted of $140944$ midi files obtained from The dataset for the project a combination of the Lakh MIDI Dataset v0.1 \cite{colinlmd} and the MIDI dataset posted at \cite{midiman}. All the MIDI files were encoded into Note Sequences using the Google Magenta library \cite{magenta}.
+
+
+
 \end{block}
-
-%------------------------------------------------
-
-
-\begin{figure}
-\includegraphics[width=0.8\linewidth]{placeholder.jpg}
-\caption{Figure caption}
-\end{figure}
-
-%----------------------------------------------------------------------------------------
-
 \end{column} % End of the first column
+
 
 \begin{column}{\sepwid}\end{column} % Empty spacer column
 
@@ -139,6 +146,13 @@ creative process.
 \begin{columns}[t,totalwidth=\twocolwid] % Split up the two columns wide column
 
 \begin{column}{\onecolwid}\vspace{-.6in} % The first column within column 2 (column 2.1)
+
+%------------------------------------------------
+
+
+
+%----------------------------------------------------------------------------------------
+
 
 %----------------------------------------------------------------------------------------
 %	MATERIALS
@@ -154,14 +168,10 @@ The following architectures were tried for controllable generation:
 \item VAE with single Encoder and multiple Decoder sharing $Z$ space
 \end{itemize}
 
-The materials were prepared according to the steps outlined below:
-
-\begin{enumerate}
-\item Curabitur pellentesque dignissim
-\item Eu facilisis est tempus quis
-\item Duis porta consequat lorem
-\item Curabitur pellentesque dignissim
-\end{enumerate}
+\begin{figure}
+\includegraphics[width=0.8\linewidth]{midi_vae.png}
+\caption{Conditional VAE Architecture}
+\end{figure}
 
 \end{block}
 
@@ -175,13 +185,26 @@ The materials were prepared according to the steps outlined below:
 %	METHODS
 %----------------------------------------------------------------------------------------
 
-\begin{block}{Methods}
+\begin{block}{Experiments}
 
 Lorem ipsum dolor \textbf{sit amet}, consectetur adipiscing elit. Sed laoreet accumsan mattis. Integer sapien tellus, auctor ac blandit eget, sollicitudin vitae lorem. Praesent dictum tempor pulvinar. Suspendisse potenti. Sed tincidunt varius ipsum, et porta nulla suscipit et. Etiam congue bibendum felis, ac dictum augue cursus a. \textbf{Donec} magna eros, iaculis sit amet placerat quis, laoreet id est. In ut orci purus, interdum ornare nibh. Pellentesque pulvinar, nibh ac malesuada accumsan, urna nunc convallis tortor, ac vehicula nulla tellus eget nulla. Nullam lectus tortor, \textit{consequat tempor hendrerit} quis, vestibulum in diam. Maecenas sed diam augue.
 
 \end{block}
 
 %----------------------------------------------------------------------------------------
+
+
+\begin{alertblock}{Generated Sample}
+
+
+\begin{figure}
+\includegraphics[width=0.5\linewidth]{winter_planet_midi_plot.png}
+\caption{Pitch and Velocity Plot of Generated Sample}
+\end{figure}
+
+The generated samples follow patterns found in the MIDI files. In this case one can see repeated patterns, a small number of instruments and varying velocity levels in the plot. This sample can be listened at \href{https://soundcloud.com/saravana-r-389436812/cs236-multi-instrument-music-generation-using-vae?si=53eaea6cb734413d80f88bcabc25d3c4}{\textit{SoundCloud Link}}
+
+\end{alertblock} 
 
 \end{column} % End of column 2.2
 
@@ -190,12 +213,6 @@ Lorem ipsum dolor \textbf{sit amet}, consectetur adipiscing elit. Sed laoreet ac
 %----------------------------------------------------------------------------------------
 %	IMPORTANT RESULT
 %----------------------------------------------------------------------------------------
-
-\begin{alertblock}{Important Result}
-
-Lorem ipsum dolor \textbf{sit amet}, consectetur adipiscing elit. Sed commodo molestie porta. Sed ultrices scelerisque sapien ac commodo. Donec ut volutpat elit.
-
-\end{alertblock} 
 
 %----------------------------------------------------------------------------------------
 
@@ -207,10 +224,24 @@ Lorem ipsum dolor \textbf{sit amet}, consectetur adipiscing elit. Sed commodo mo
 %	MATHEMATICAL SECTION
 %----------------------------------------------------------------------------------------
 
-\begin{block}{Mathematical Section}
 
-Nam quis odio enim, in molestie libero. Vivamus cursus mi at nulla elementum sollicitudin. Nam quis odio enim, in molestie libero. Vivamus cursus mi at nulla elementum sollicitudin.
-  
+\begin{block}{VAE Architecture}
+
+Inputs:
+
+\begin{itemize}
+\item Variables Pitch, Velocity, Instrument and Program are categorical variables.
+\item Variables Start time and End time are continuous.
+\end{itemize}
+
+Components:
+\begin{itemize}
+\item Variables Pitch, Velocity, Instrument and Program are categorical variables.
+\item Variables Start time and End time are continuous.
+\end{itemize}
+
+Even though one-hot encoding is the method used for encoding of categorical variable, it does not scale, especially because of large memory usage. Instead we convert the categorical variables to embedding space and use this representation in training. To decode back to categorical values, we check closes $L1$ distance of the \textbf{logits} to each of the embedding weights. The embeddings are learned during training and allow a much smaller memory foot print.
+ 
 \begin{equation}
 E = mc^{2}
 \label{eqn:Einstein}
@@ -292,9 +323,10 @@ Nunc tempus venenatis facilisis. \textbf{Curabitur suscipit} consequat eros non 
 %	ADDITIONAL INFORMATION
 %----------------------------------------------------------------------------------------
 
-\begin{block}{Additional Information}
+\begin{block}{Acknowledgements}
 
-Maecenas ultricies feugiat velit non mattis. Fusce tempus arcu id ligula varius dictum. 
+My TA mentor, \textbf{Kelly He} is awesome! Thank you Kelly. This project would not be possible without your prompt guidance and support. And thank you \textbf{Jiaming Song}, \textbf{Chenlin Meng} and \textbf{Kristy Choi} for the very thoughtful discussions, ideation and support on building this project.
+
 \begin{itemize}
 \item Curabitur pellentesque dignissim
 \item Eu facilisis est tempus quis

@@ -449,13 +449,12 @@ class SimpleVae(BaseModel):
                         output = torch.stack((x_pitches, x_velocity, x_instruments, x_programs, control_output.T[4], control_output.T[5])).T
                         sample = output.to("cpu").detach().numpy()
                         sample = sample.reshape((300,6))
-                        import numpy as np
-                        sample[np.isnan(sample)] = 1e-8
                         sample_file_name = os.path.join(self._output_dir,
                                                         f"{self._model_prefix}-control-{wandb.run.name}-{epoch}.midi")
                         save_decoder_output_as_midi(sample, sample_file_name, self._data_mean, self._data_std)
                         print(f"Generating controlled midi sample file://{sample_file_name}")
                         print(f"Generating controlled midi sample path = {sample_file_name}")
+                        break
 
         except Exception as _e:
             print(f"Hit exception during sample_output - {_e}")
@@ -481,7 +480,7 @@ if __name__ == "__main__":
             batch_size=batch_size
         )
     else:
-        _z_dim = 256
+        _z_dim = 32
         model = SimpleVae(
             alpha=_alpha,
             z_dim=_z_dim,
