@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.10.2)  4 DEC 2021 01:06
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.10.2)  4 DEC 2021 02:01
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -669,7 +669,7 @@ beamerposter: checking size input, please wait.
 beamerposter: the input a0\ 1\ was correct, we proceed.
 beamerposter: finished size input check.
 beamerposter: myfontscale=1.0
-beamerposter: myfontscale=1.24
+beamerposter: myfontscale=1.2
 (/usr/share/texlive/texmf-dist/tex/latex/fp/fp.sty
 Package: fp 1995/04/02
 
@@ -1005,7 +1005,7 @@ File: t1lmss.fd 2009/10/30 v1.6 Font defs for Latin Modern
 * \textheight=2360.44084pt
 * \oddsidemargin=-43.81725pt
 * \evensidemargin=-43.81725pt
-* \topmargin=-72.26999pt
+* \topmargin=-108.405pt
 * \headheight=14.22636pt
 * \headsep=0.0pt
 * \topskip=11.0pt
@@ -1095,7 +1095,6 @@ Dictionary: translator-theorem-dictionary, Language: English
 ) ABD: EverySelectfont initializing macros
 LaTeX Info: Redefining \selectfont on input line 79.
  (./main.nav)
-LaTeX Font Info:    Calculating math sizes for size <17.86> on input line 79.
 LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 7
 9.
 
@@ -1114,56 +1113,50 @@ LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line
 (/usr/share/texmf/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
+LaTeX Font Info:    Trying to load font information for T1+lmr on input line 39
+0.
 
-LaTeX Font Warning: Font shape `OMX/cmex/m/n' in size <17.86> not available
-(Font)              size <17.28> substituted on input line 79.
-
-
-LaTeX Font Warning: Font shape `OMX/cmex/m/n' in size <12.50194> not available
-(Font)              size <12> substituted on input line 79.
-
-LaTeX Font Info:    Trying to load font information for T1+lmr on input line 38
-8.
 (/usr/share/texmf/tex/latex/lm/t1lmr.fd
 File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Calculating math sizes for size <37.03> on input line 388.
+LaTeX Font Info:    Calculating math sizes for size <35.83> on input line 390.
 
 
-LaTeX Font Warning: Font shape `OMX/cmex/m/n' in size <37.03> not available
-(Font)              size <24.88> substituted on input line 388.
+LaTeX Font Warning: Font shape `OMX/cmex/m/n' in size <35.83> not available
+(Font)              size <24.88> substituted on input line 390.
 
 
-LaTeX Font Warning: Font shape `OMX/cmex/m/n' in size <25.92088> not available
-(Font)              size <24.88> substituted on input line 388.
+LaTeX Font Warning: Font shape `OMX/cmex/m/n' in size <17.915> not available
+(Font)              size <17.28> substituted on input line 390.
 
-
-LaTeX Font Warning: Font shape `OMX/cmex/m/n' in size <18.515> not available
-(Font)              size <17.28> substituted on input line 388.
-
-<midi_vae.png, id=18, 962.59625pt x 858.20625pt>
+<midi_vae.png, id=18, 942.52126pt x 869.2475pt>
 File: midi_vae.png Graphic file (type png)
 <use midi_vae.png>
-Package pdftex.def Info: midi_vae.png  used on input line 388.
-(pdftex.def)             Requested size: 610.54266pt x 544.33945pt.
+Package pdftex.def Info: midi_vae.png  used on input line 390.
+(pdftex.def)             Requested size: 763.17543pt x 703.84789pt.
+
+Package amsmath Warning: Foreign command \atop;
+(amsmath)                \frac or \genfrac should be used instead
+(amsmath)                 on input line 390.
+
 <winter_planet_midi_plot.png, id=20, 783.92876pt x 313.17pt>
 File: winter_planet_midi_plot.png Graphic file (type png)
 <use winter_planet_midi_plot.png>
-Package pdftex.def Info: winter_planet_midi_plot.png  used on input line 388.
-(pdftex.def)             Requested size: 360.24815pt x 143.91658pt.
+Package pdftex.def Info: winter_planet_midi_plot.png  used on input line 390.
+(pdftex.def)             Requested size: 648.44229pt x 259.06131pt.
 <placeholder.jpg, id=22, 351.3125pt x 193.72375pt>
 File: placeholder.jpg Graphic file (type jpg)
 <use placeholder.jpg>
-Package pdftex.def Info: placeholder.jpg  used on input line 388.
+Package pdftex.def Info: placeholder.jpg  used on input line 390.
 (pdftex.def)             Requested size: 610.54266pt x 336.72778pt.
 (./main.bbl)
-Overfull \hbox (4.99402pt too wide) detected at line 388
+Overfull \hbox (4.99402pt too wide) detected at line 390
 [][][] [][][][][][][][][] [][][][][][][][][] [][][][][][][][][] [][][][][][][][
 ][] [][][][][][][][][] [][][][][][][] 
  []
 
 
-Overfull \vbox (1393.0539pt too high) detected at line 388
+Overfull \vbox (1277.64194pt too high) detected at line 390
  []
 
 
@@ -1183,39 +1176,40 @@ Overfull \hbox (88.20334pt too wide) has occurred while \output is active
 \tf@snm=\write8
 \openout8 = `main.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 390.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 390.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 392.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 392.
  (./main.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 390.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 390.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 392.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 392.
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
 
 
 LaTeX Font Warning: Size substitutions with differences
-(Font)              up to 12.15pt have occurred.
+(Font)              up to 10.95pt have occurred.
 
  ) 
 Here is how much of TeX's memory you used:
- 24184 strings out of 483065
- 481110 string characters out of 5963550
- 862239 words of memory out of 5000000
- 38592 multiletter control sequences out of 15000+600000
- 604621 words of font info for 76 fonts, out of 8000000 for 9000
+ 24171 strings out of 483065
+ 480917 string characters out of 5963550
+ 859256 words of memory out of 5000000
+ 38585 multiletter control sequences out of 15000+600000
+ 604384 words of font info for 75 fonts, out of 8000000 for 9000
  81 hyphenation exceptions out of 8191
  56i,17n,68p,771b,1606s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texmf/fonts/enc/dv
 ips/lm/lm-mathit.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/s
-hare/texmf/fonts/enc/dvips/lm/lm-rm.enc}</usr/share/texmf/fonts/type1/public/lm
-/lmbx12.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi12.pfb></usr/share/texm
-f/fonts/type1/public/lm/lmr17.pfb></usr/share/texmf/fonts/type1/public/lm/lmri1
-2.pfb></usr/share/texmf/fonts/type1/public/lm/lmss17.pfb></usr/share/texmf/font
-s/type1/public/lm/lmssbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.p
-fb>
-Output written on main.pdf (1 page, 419592 bytes).
+hare/texmf/fonts/enc/dvips/lm/lm-rm.enc}</usr/share/texlive/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf/fonts/type1/public/lm/lmbx1
+2.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi12.pfb></usr/share/texmf/font
+s/type1/public/lm/lmr17.pfb></usr/share/texmf/fonts/type1/public/lm/lmri12.pfb>
+</usr/share/texmf/fonts/type1/public/lm/lmss17.pfb></usr/share/texmf/fonts/type
+1/public/lm/lmssbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb></u
+sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on main.pdf (1 page, 465509 bytes).
 PDF statistics:
- 92 PDF objects out of 1000 (max. 8388607)
- 69 compressed objects within 1 object stream
- 19 named destinations out of 1000 (max. 500000)
+ 97 PDF objects out of 1000 (max. 8388607)
+ 72 compressed objects within 1 object stream
+ 17 named destinations out of 1000 (max. 500000)
  64 words of extra memory for PDF output out of 10000 (max. 10000000)
 

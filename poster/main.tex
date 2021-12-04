@@ -24,7 +24,7 @@
 
 \documentclass[final]{beamer}
 
-\usepackage[scale=1.24]{beamerposter} % Use the beamerposter package for laying out the poster
+\usepackage[scale=1.2]{beamerposter} % Use the beamerposter package for laying out the poster
 \usepackage{media9}
 
 \usepackage{geometry}
@@ -36,7 +36,6 @@
 \setbeamercolor{block alerted title}{fg=white,bg=orange!70} % Colors of the highlighted block titles
 \setbeamercolor{block alerted body}{fg=black,bg=orange!10} % Colors of the body of highlighted blocks
 
-\addtobeamertemplate{institute}{}{\vspace{-20em}}
 
 % Many more colors are available for use in beamerthemeconfposter.sty
 
@@ -58,7 +57,8 @@
 \setlength{\onecolwid}{0.22\paperwidth} % Width of one column
 \setlength{\twocolwid}{0.464\paperwidth} % Width of two columns
 \setlength{\threecolwid}{0.708\paperwidth} % Width of three columns
-\setlength{\topmargin}{-1in} % Reduce the top margin size
+\setlength{\topmargin}{-1.5in} % Reduce the top margin size
+
 %-----------------------------------------------------------
 
 
@@ -73,13 +73,14 @@
 
 \title{Multi instrument music generation using VAE} % Poster title
 \author{Saravana Rathinam (saravanr@stanford.edu)} % Author(s)
-\institute{~} % Institution(s)
+\institute{SCPD Student, Stanford University} % Institution(s)
 %----------------------------------------------------------------------------------------
 
 \begin{document}
 
 \addtobeamertemplate{block end}{}{\vspace*{2ex}} % White space under blocks
 \addtobeamertemplate{block alerted end}{}{\vspace*{2ex}} % White space under highlighted (alert) blocks
+\addtobeamertemplate{institute}{}{\vspace{-20em}}
 
 \setlength{\belowcaptionskip}{2ex} % White space under figures
 \setlength\belowdisplayshortskip{2ex} % White space under equations
@@ -169,12 +170,30 @@ The following architectures were tried for controllable generation:
 \end{itemize}
 
 \begin{figure}
-\includegraphics[width=0.8\linewidth]{midi_vae.png}
+\includegraphics[width=1.0\linewidth]{midi_vae.png}
 \caption{Conditional VAE Architecture}
 \end{figure}
 
 \end{block}
 
+
+\begin{block}{VAE Architecture}
+
+Considerations:
+
+\begin{itemize}
+\item Variables Pitch, Velocity, Instrument and Program are categorical variables.
+\item Variables Start time and End time are continuous.
+\item Hence we need different decoders for Categorical and Continuous variables.
+\item A separate decoder for controlled music generation.
+\item One-hot encoding cannot be used for categorical variables - Memory usage.
+\end{itemize}
+
+We convert the categorical variables to embedding space and use this representation in training. To decode back to categorical values, we check closes $L1$ distance of the \textbf{logits} to each of the embedding weights. The embeddings are learned during training and allow a much smaller memory foot print.
+ 
+
+
+\end{block}
 %----------------------------------------------------------------------------------------
 
 \end{column} % End of column 2.1
@@ -185,9 +204,30 @@ The following architectures were tried for controllable generation:
 %	METHODS
 %----------------------------------------------------------------------------------------
 
-\begin{block}{Experiments}
+\begin{block}{Loss}
 
-Lorem ipsum dolor \textbf{sit amet}, consectetur adipiscing elit. Sed laoreet accumsan mattis. Integer sapien tellus, auctor ac blandit eget, sollicitudin vitae lorem. Praesent dictum tempor pulvinar. Suspendisse potenti. Sed tincidunt varius ipsum, et porta nulla suscipit et. Etiam congue bibendum felis, ac dictum augue cursus a. \textbf{Donec} magna eros, iaculis sit amet placerat quis, laoreet id est. In ut orci purus, interdum ornare nibh. Pellentesque pulvinar, nibh ac malesuada accumsan, urna nunc convallis tortor, ac vehicula nulla tellus eget nulla. Nullam lectus tortor, \textit{consequat tempor hendrerit} quis, vestibulum in diam. Maecenas sed diam augue.
+Conditional VAE $ELBO(x;\theta, \phi, y)$ is given by :
+\begin{equation}
+\mathbb{E}_{q_{\phi}(z|x,y)} [ \log(p_{\theta}(x|z, y))]  - \mathbb{D}(q_{\phi}(z|x, y) || p(z))
+\end{equation}
+
+The categorical cross-entropy loss is given by:
+
+\begin{equation}
+ -\sum_{i=1}^{\mathrm{output \atop size}} y_i \cdot \mathrm{log}\; {\hat{y}}_i
+\end{equation}
+
+The total loss in our Architecture is a sum of $KL$ loss, categorical cross entropy losses, reconstruction losses and controlled reconstruction loss:
+$$ \mathbb{E}_{q_{\phi}(z|x_{time})} [ \log(p_{\theta}(x_{time}|z))]  - \mathbb{D}(q_{\phi}(z|x) || p(z)) $$
+$$ +~\mathbb{E}_{q_{\phi}(z|x_{duration})} [ \log(p_{\theta}(x_{time}|z))] $$
+$$ +~\mathbb{E}_{q_{\phi}(z|x,x_{partial})} [ \log(p_{\theta}(x|z, x_{partial}))] $$
+$$ -~\mathbb{D}(q_{\phi}(z|x, x_{partial}) || p(z)) $$
+$$ +~ \mathbb{E}_{q_{\phi}(z|x,x_{partial})} [ \log(p_{\theta}(x|z, x_{partial}))] $$
+$$ -~ \mathbb{D}(q_{\phi}(z|x, x_{partial}) || p(z)) $$
+$$ -~\sum_{i=1}^{128} x_{pitch} \cdot \mathrm{log}\; {\hat{x}}_{pitch} $$
+$$ -~\sum_{i=1}^{128} x_{velocity} \cdot \mathrm{log}\; {\hat{x}}_{velocity} $$
+$$ -~\sum_{i=1}^{128} x_{instruments} \cdot \mathrm{log}\; {\hat{x}}_{instruments} $$
+$$ -~\sum_{i=1}^{128} x_{program} \cdot \mathrm{log}\; {\hat{x}}_{program} $$
 
 \end{block}
 
@@ -198,7 +238,7 @@ Lorem ipsum dolor \textbf{sit amet}, consectetur adipiscing elit. Sed laoreet ac
 
 
 \begin{figure}
-\includegraphics[width=0.5\linewidth]{winter_planet_midi_plot.png}
+\includegraphics[width=0.9\linewidth]{winter_planet_midi_plot.png}
 \caption{Pitch and Velocity Plot of Generated Sample}
 \end{figure}
 
@@ -225,42 +265,6 @@ The generated samples follow patterns found in the MIDI files. In this case one 
 %----------------------------------------------------------------------------------------
 
 
-\begin{block}{VAE Architecture}
-
-Inputs:
-
-\begin{itemize}
-\item Variables Pitch, Velocity, Instrument and Program are categorical variables.
-\item Variables Start time and End time are continuous.
-\end{itemize}
-
-Components:
-\begin{itemize}
-\item Variables Pitch, Velocity, Instrument and Program are categorical variables.
-\item Variables Start time and End time are continuous.
-\end{itemize}
-
-Even though one-hot encoding is the method used for encoding of categorical variable, it does not scale, especially because of large memory usage. Instead we convert the categorical variables to embedding space and use this representation in training. To decode back to categorical values, we check closes $L1$ distance of the \textbf{logits} to each of the embedding weights. The embeddings are learned during training and allow a much smaller memory foot print.
- 
-\begin{equation}
-E = mc^{2}
-\label{eqn:Einstein}
-\end{equation}
-
-Nam quis odio enim, in molestie libero. Vivamus cursus mi at nulla elementum sollicitudin. Nam quis odio enim, in molestie libero. Vivamus cursus mi at nulla elementum sollicitudin.
-
-\begin{equation}
-\cos^3 \theta =\frac{1}{4}\cos\theta+\frac{3}{4}\cos 3\theta
-\label{eq:refname}
-\end{equation}
-
-Nam quis odio enim, in molestie libero. Vivamus cursus mi at nulla elementum sollicitudin. Nam quis odio enim, in molestie libero. Vivamus cursus mi at nulla elementum sollicitudin.
-
-\begin{equation}
-\kappa =\frac{\xi}{E_{\mathrm{max}}} %\mathbb{ZNR}
-\end{equation}
-
-\end{block}
 
 %----------------------------------------------------------------------------------------
 
