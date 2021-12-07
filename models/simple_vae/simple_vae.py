@@ -1,3 +1,4 @@
+import gc
 import os.path
 from typing import Any
 
@@ -18,7 +19,7 @@ import tqdm
 import numpy
 import wandb
 
-wandb.init(project="music-controllable-diffusion-with-embedding", entity="saravanr")
+wandb.init(project="music-controllable-diffusion-with-fid", entity="saravanr")
 
 
 class ExtractLSTMOutput(nn.Module):
@@ -406,7 +407,6 @@ class SimpleVae(BaseModel):
     def compute_fid(self):
         generated_samples = []
         n_samples = len(self._dms.val_dataloader().dataset)
-        n_samples = 10
         device = self._device
         print("Generating samples...")
 
@@ -476,10 +476,10 @@ class SimpleVae(BaseModel):
         validation_samples = []
         for batch_idx, batch in tqdm.tqdm(enumerate(self._dms.val_dataloader())):
             for x in batch:
-                x.T[0] = DecoderCategorical.get_classification_from_output(x.T[0], self._pitch_embedding)
-                x.T[1] = DecoderCategorical.get_classification_from_output(x.T[1], self._velocity_embedding)
-                x.T[2] = DecoderCategorical.get_classification_from_output(x.T[2], self._instrument_embedding)
-                x.T[3] = DecoderCategorical.get_classification_from_output(x.T[3], self._program_embedding)
+                x[0] = DecoderCategorical.get_classification_from_output(x[0], self._pitch_embedding).squeeze(1)
+                x[1] = DecoderCategorical.get_classification_from_output(x[1], self._velocity_embedding).squeeze(1)
+                x[2] = DecoderCategorical.get_classification_from_output(x[2], self._instrument_embedding).squeeze(1)
+                x[3] = DecoderCategorical.get_classification_from_output(x[3], self._program_embedding).squeeze(1)
 
             validation_samples.append(batch)
 
@@ -491,8 +491,14 @@ class SimpleVae(BaseModel):
         generated_control_fid_score = calculate_fid(validation_samples, generated_control_samples)
         print(f"Generated FID scores = {generated_fid_score}")
         print(f"Control FID scores = {generated_control_fid_score}")
-        wandb.run.summary['fid'] = generated_fid_score
-        wandb.run.summary['control_fid'] = generated_control_fid_score
+        wandb.log({
+            'fid': generated_fid_score,
+            'controlled_generation_fid': generated_control_fid_score
+        }
+        )
+
+        #wandb.run.summary['fid'] = generated_fid_score
+        #wandb.run.summary['control_fid'] = generated_control_fid_score
 
     def sample_output(self, epoch):
         try:
@@ -561,51 +567,52 @@ class SimpleVae(BaseModel):
 
 if __name__ == "__main__":
     print(f"Training simple VAE")
-    batch_size = 2048
+    batch_size = 4096
     train_mnist = False
-    _alpha = 100
-    if train_mnist:
-        _z_dim = 20
-        model = SimpleVae(
-            alpha=_alpha,
-            z_dim=_z_dim,
-            input_shape=(28, 28),
-            use_mnist_dms=True,
-            sample_output_step=10,
-            batch_size=batch_size
-        )
-    else:
-        _z_dim = 32
-        model = SimpleVae(
-            alpha=_alpha,
-            z_dim=_z_dim,
-            input_shape=(MAX_MIDI_ENCODING_ROWS, MIDI_ENCODING_WIDTH),
-            use_mnist_dms=False,
-            sample_output_step=10,
-            batch_size=batch_size
-        )
-    print(f"Training --> {model}")
 
-    max_epochs = 2
-    wandb.config = {
-        "learning_rate": model.lr,
-        "z_dim": _z_dim,
-        "epochs": max_epochs,
-        "batch_size": batch_size,
-        "alpha": model.alpha
-    }
+    for _alpha in [1, 10, 20, 50, 100]:
+        if train_mnist:
+            _z_dim = 20
+            model = SimpleVae(
+                alpha=_alpha,
+                z_dim=_z_dim,
+                input_shape=(28, 28),
+                use_mnist_dms=True,
+                sample_output_step=10,
+                batch_size=batch_size
+            )
+        else:
+            _z_dim = 32
+            model = SimpleVae(
+                alpha=_alpha,
+                z_dim=_z_dim,
+                input_shape=(MAX_MIDI_ENCODING_ROWS, MIDI_ENCODING_WIDTH),
+                use_mnist_dms=False,
+                sample_output_step=10,
+                batch_size=batch_size
+            )
+        print(f"Training --> {model}")
 
-    _optimizer = model.configure_optimizers()
-    model.setup()
-    for _epoch in range(1, max_epochs + 1):
-        model.train()
-        model.fit(_epoch, _optimizer)
-        model.eval()
-        model.test()
-        if _epoch % 10 == 0:
+        max_epochs = 100
+        wandb.config = {
+            "learning_rate": model.lr,
+            "z_dim": _z_dim,
+            "epochs": max_epochs,
+            "batch_size": batch_size,
+            "alpha": model.alpha
+        }
+
+        _optimizer = model.configure_optimizers()
+        model.setup()
+        for _epoch in range(1, max_epochs + 1):
+            model.train()
+            model.fit(_epoch, _optimizer)
             model.eval()
-            model.sample_output(_epoch)
-            model.sample_output(999999 + _epoch)
-            model.save(_epoch)
+            model.test()
+            if _epoch % 10 == 0:
+                model.eval()
+                model.compute_fid()
+                #model.sample_output(_epoch)
+                #model.sample_output(999999 + _epoch)
+                model.save(_epoch)
 
-    model.compute_fid()
