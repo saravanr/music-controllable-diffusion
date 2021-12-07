@@ -14,7 +14,8 @@ from models.base.base_model import BaseModel
 from utils.cuda_utils import get_device
 from utils.midi_utils import save_decoder_output_as_midi
 import matplotlib.pyplot as plt
-
+import tqdm
+import numpy
 import wandb
 
 wandb.init(project="music-controllable-diffusion-with-embedding", entity="saravanr")
@@ -289,7 +290,7 @@ class SimpleVae(BaseModel):
         self._instruments_decoder = DecoderCategorical(z_dim, self._instruments_shape, self._instrument_embedding)
         self._program_decoder = DecoderCategorical(z_dim, self._programs_shape, self._program_embedding)
 
-        self._controllable_decoder = ControllableDecoder(z_dim, (input_shape[0]//3, input_shape[1]), input_shape)
+        self._controllable_decoder = ControllableDecoder(z_dim, (input_shape[0] // 3, input_shape[1]), input_shape)
         self._alpha = alpha
         self._model_prefix = "SimpleVaeMidi"
         self._z_dim = z_dim
@@ -321,7 +322,7 @@ class SimpleVae(BaseModel):
         x_hat = torch.vstack(
             (x_p.T, x_v.T, x_i.T, x_programs.T, x_start_times.T, x_end_times.T)).T
 
-        x_control = self._controllable_decoder(z, x[:, 0: x.shape[1]//3])
+        x_control = self._controllable_decoder(z, x[:, 0: x.shape[1] // 3])
         return z, x_hat, x_hat_bp, x_control, mean, log_var
 
     def compute_midi_recon_loss(self, x, x_hat_bp, x_hat, x_control):
@@ -361,7 +362,8 @@ class SimpleVae(BaseModel):
     def loss_function(self, x_hat_bp, x_hat, x, x_control, mu, q_log_var):
         if self._use_mnist_dms:
             recon_loss = func.binary_cross_entropy(x_hat, x.view(-1, 784), reduction='sum')
-            pitches_loss, velocity_loss, instruments_loss, program_loss, start_times_loss, end_times_loss, control_loss = [None] * 7
+            pitches_loss, velocity_loss, instruments_loss, program_loss, start_times_loss, end_times_loss, control_loss = [
+                                                                                                                              None] * 7
         else:
             recon_loss, pitches_loss, velocity_loss, instruments_loss, program_loss, start_times_loss, end_times_loss, control_loss = self.compute_midi_recon_loss(
                 x, x_hat_bp, x_hat, x_control)
@@ -400,6 +402,97 @@ class SimpleVae(BaseModel):
             ax.imshow(im)
 
         plt.show()
+
+    def compute_fid(self):
+        generated_samples = []
+        n_samples = len(self._dms.val_dataloader().dataset)
+        n_samples = 10
+        device = self._device
+        print("Generating samples...")
+
+        for i in tqdm.tqdm(range(0, n_samples)):
+            rand_z = torch.randn(self._pitches_decoder.z_dim)
+            rand_z_np = rand_z.numpy()
+            rand_z = rand_z.to(device)
+
+            x_pitches, _ = self._pitches_decoder(rand_z)
+            x_velocity, _ = self._velocity_decoder(rand_z)
+            x_start_times = self._start_times_decoder(rand_z)
+            x_end_times = self._end_times_decoder(rand_z)
+            x_instruments, _ = self._instruments_decoder(rand_z)
+            x_programs, _ = self._program_decoder(rand_z)
+            output = torch.vstack(
+                (x_pitches.T, x_velocity.T, x_instruments.T, x_programs.T, x_start_times.T, x_end_times.T)).T
+            generated_samples.append(output)
+
+            #sample = output.to("cpu").detach().numpy()
+            #output_dir = os.path.join(self._output_dir, f"sample-{wandb.run.name}")
+            #os.makedirs(output_dir, exist_ok=True)
+            #sample_file_name = os.path.join(output_dir,
+            #                                f"{self._model_prefix}-{wandb.run.name}-sample-{i}.midi")
+            #z_file = os.path.join(output_dir, f"z-{self._model_prefix}-{wandb.run.name}-sample-{i}.npy")
+            #import numpy as np
+            #np.save(z_file, rand_z_np)
+            #save_decoder_output_as_midi(sample, sample_file_name, self._data_mean, self._data_std)
+
+        # Generate some controllable music
+        generated_control_samples = []
+        print("Generate control samples...")
+        for batch_idx, batch in tqdm.tqdm(enumerate(self._dms.test_dataloader())):
+            # TODO: Clean up this mess
+            rand_z = torch.randn(self._pitches_decoder.z_dim)
+            rand_z_np = rand_z.numpy()
+            rand_z = rand_z.to(device)
+            batch = batch.to(device)
+
+            control = batch[0].T.unsqueeze(0)
+            control = control[:, 0:100, :]
+            control_output = self._controllable_decoder(rand_z.unsqueeze(0), control)
+            x = control_output
+
+            x_pitches = DecoderCategorical.get_classification_from_output(x.T[0], self._pitch_embedding)
+            x_velocity = DecoderCategorical.get_classification_from_output(x.T[1], self._velocity_embedding)
+            x_instruments = DecoderCategorical.get_classification_from_output(x.T[2], self._instrument_embedding)
+            x_programs = DecoderCategorical.get_classification_from_output(x.T[3], self._program_embedding)
+            output = torch.stack(
+                (x_pitches, x_velocity, x_instruments, x_programs, control_output.T[4], control_output.T[5])).T
+            generated_control_samples.append(output)
+            #sample = output.to("cpu").detach().numpy()
+            #sample = sample.reshape((300, 6))
+
+            #output_dir = os.path.join(self._output_dir, f"sample-control-{wandb.run.name}")
+            #os.makedirs(output_dir, exist_ok=True)
+
+            #z_file = os.path.join(output_dir, f"z-{self._model_prefix}-{wandb.run.name}-sample-{batch_idx}.npy")
+            #import numpy as np
+            #np.save(z_file, rand_z_np)
+
+           # sample_file_name = os.path.join(output_dir,
+                                            #f"{self._model_prefix}-control-{wandb.run.name}-{batch_idx}.midi")
+            #save_decoder_output_as_midi(sample, sample_file_name, self._data_mean, self._data_std)
+            if batch_idx > n_samples:
+                break
+
+        validation_samples = []
+        for batch_idx, batch in tqdm.tqdm(enumerate(self._dms.val_dataloader())):
+            for x in batch:
+                x.T[0] = DecoderCategorical.get_classification_from_output(x.T[0], self._pitch_embedding)
+                x.T[1] = DecoderCategorical.get_classification_from_output(x.T[1], self._velocity_embedding)
+                x.T[2] = DecoderCategorical.get_classification_from_output(x.T[2], self._instrument_embedding)
+                x.T[3] = DecoderCategorical.get_classification_from_output(x.T[3], self._program_embedding)
+
+            validation_samples.append(batch)
+
+            if batch_idx > n_samples:
+                break
+
+        from eval.fid_evaluator import calculate_fid
+        generated_fid_score = calculate_fid(validation_samples, generated_samples)
+        generated_control_fid_score = calculate_fid(validation_samples, generated_control_samples)
+        print(f"Generated FID scores = {generated_fid_score}")
+        print(f"Control FID scores = {generated_control_fid_score}")
+        wandb.run.summary['fid'] = generated_fid_score
+        wandb.run.summary['control_fid'] = generated_control_fid_score
 
     def sample_output(self, epoch):
         try:
@@ -444,11 +537,13 @@ class SimpleVae(BaseModel):
 
                         x_pitches = DecoderCategorical.get_classification_from_output(x.T[0], self._pitch_embedding)
                         x_velocity = DecoderCategorical.get_classification_from_output(x.T[1], self._velocity_embedding)
-                        x_instruments = DecoderCategorical.get_classification_from_output(x.T[2], self._instrument_embedding)
+                        x_instruments = DecoderCategorical.get_classification_from_output(x.T[2],
+                                                                                          self._instrument_embedding)
                         x_programs = DecoderCategorical.get_classification_from_output(x.T[3], self._program_embedding)
-                        output = torch.stack((x_pitches, x_velocity, x_instruments, x_programs, control_output.T[4], control_output.T[5])).T
+                        output = torch.stack((x_pitches, x_velocity, x_instruments, x_programs, control_output.T[4],
+                                              control_output.T[5])).T
                         sample = output.to("cpu").detach().numpy()
-                        sample = sample.reshape((300,6))
+                        sample = sample.reshape((300, 6))
                         sample_file_name = os.path.join(self._output_dir,
                                                         f"{self._model_prefix}-control-{wandb.run.name}-{epoch}.midi")
                         save_decoder_output_as_midi(sample, sample_file_name, self._data_mean, self._data_std)
@@ -468,7 +563,7 @@ if __name__ == "__main__":
     print(f"Training simple VAE")
     batch_size = 2048
     train_mnist = False
-    _alpha = 1
+    _alpha = 100
     if train_mnist:
         _z_dim = 20
         model = SimpleVae(
@@ -491,7 +586,7 @@ if __name__ == "__main__":
         )
     print(f"Training --> {model}")
 
-    max_epochs = 10000
+    max_epochs = 2
     wandb.config = {
         "learning_rate": model.lr,
         "z_dim": _z_dim,
@@ -512,3 +607,5 @@ if __name__ == "__main__":
             model.sample_output(_epoch)
             model.sample_output(999999 + _epoch)
             model.save(_epoch)
+
+    model.compute_fid()

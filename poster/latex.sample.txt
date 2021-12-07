@@ -1,0 +1,45 @@
+\begin{block}{Results}
+
+The losses in the simple VAE case did not converge. The beta VAE trained models did not produce good quality audio output. The model learned to produce related musical instruments together and have repeated variations in background audio. The pitch and velocity of many samples did not feel like noise. However the results seem to be affected by class imbalance of the input, which has a lot of Piano music and less of other types of instruments.
+
+\begin{figure}
+    \centering
+    \subfloat[\centering Test Loss]{{\includegraphics[width=12cm]{testloss.png} }}%
+    \qquad
+    \subfloat[\centering Train Loss]{{\includegraphics[width=12cm]{train_loss.png}}}%
+    \caption{Test and Train Loss}%
+\end{figure}
+
+The results from the controlled music generation were not good. The main reason seems to be that the given input was the beginning of the song sequence which has large silences. 
+
+
+\begin{figure}
+    \centering
+    \subfloat[\centering Test Loss]{{\includegraphics[width=5cm]{testloss.png} }}%
+    \qquad
+    \subfloat[\centering Train Loss]{{\includegraphics[width=5cm]{train_loss.png}}}%
+    \caption{Test and Train Loss}%
+\end{figure}
+
+
+
+\begin{figure}
+\includegraphics[width=0.8\linewidth]{placeholder.jpg}
+\caption{Figure caption}
+\end{figure}
+
+Nunc tempus venenatis facilisis. Curabitur suscipit consequat eros non porttitor. Sed a massa dolor, id ornare enim:
+
+\begin{table}
+\vspace{2ex}
+\begin{tabular}{l l l}
+\toprule
+\textbf{Treatments} & \textbf{Response 1} & \textbf{Response 2}\\
+\midrule
+Treatment 1 & 0.0003262 & 0.562 \\
+Treatment 2 & 0.0015681 & 0.910 \\
+Treatment 3 & 0.0009271 & 0.296 \\
+\bottomrule
+\end{tabular}
+\caption{Table caption}
+\end{table}

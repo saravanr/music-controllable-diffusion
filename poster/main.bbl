@@ -1,4 +1,4 @@
-\begin{thebibliography}{10}
+\begin{thebibliography}{1}
 
 \bibitem{colinlmd}
 Colin Raffel.
@@ -8,12 +8,8 @@ Colin Raffel.
 midi man.
 \newblock The largest midi collection on the internet.
 
-\bibitem{magenta}
-Google.
-\newblock Google magenta.
-
 \bibitem{mittal}
-Gautam Mittal, Jesse~H. Engel, Curtis Hawthorne, and Ian Simon.
+Gautam Mittal, Jesse~H. Engel, Curtis H., and Ian S.
 \newblock Symbolic music generation with diffusion models.
 \newblock {\em CoRR}, abs/2103.16091, 2021.
 
@@ -26,42 +22,14 @@ Jooyoung Choi, Sungwon Kim, Yonghyun Jeong, Youngjune Gwon, and Sungroh Yoon.
 \newblock Ilvr: Conditioning method for denoising diffusion probabilistic
   models, 2021.
 
-\bibitem{walker}
-John Walker.
-\newblock Midicsv - converting midi to human readable csv format.
-
 \bibitem{song2020denoising}
 Jiaming Song, Chenlin Meng, and Stefano Ermon.
 \newblock Denoising diffusion implicit models, 2020.
-
-\bibitem{bazin2021}
-Théis Bazin, Gaëtan Hadjeres, Philippe Esling, and Mikhail Malt.
-\newblock 2021.
 
 \bibitem{meng2021sdedit}
 Chenlin Meng, Yang Song, Jiaming Song, Jiajun Wu, Jun-Yan Zhu, and Stefano
   Ermon.
 \newblock Sdedit: Image synthesis and editing with stochastic differential
   equations, 2021.
-
-\bibitem{gretton12}
-A~Gretton, K~M~Borgwardt K, M~J. Rasch, B~Schölkopf, and A~Smola.
-\newblock A kernel two-sample test, 2012.
-
-\bibitem{heusel2018gans}
-Martin Heusel, Hubert Ramsauer, Thomas Unterthiner, Bernhard Nessler, and Sepp
-  Hochreiter.
-\newblock Gans trained by a two time-scale update rule converge to a local nash
-  equilibrium, 2018.
-
-\bibitem{yang2017midinet}
-Li-Chia Yang, Szu-Yu Chou, and Yi-Hsuan Yang.
-\newblock Midinet: A convolutional generative adversarial network for
-  symbolic-domain music generation, 2017.
-
-\bibitem{zeng2021musicbert}
-Mingliang Zeng, Xu~Tan, Rui Wang, Zeqian Ju, Tao Qin, and Tie-Yan Liu.
-\newblock Musicbert: Symbolic music understanding with large-scale
-  pre-training, 2021.
 
 \end{thebibliography}

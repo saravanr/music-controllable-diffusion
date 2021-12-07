@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.10.2)  4 DEC 2021 02:01
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.10.2)  4 DEC 2021 12:49
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -775,6 +775,44 @@ Package: ocgbase 2019/11/04 v0.17 support package for ocgx2.sty
 \mix@btn@dim=\dimen280
 \g_mix_mbtncnt_int=\count337
 )
+(/usr/share/texlive/texmf-dist/tex/latex/subfig/subfig.sty
+Package: subfig 2005/06/28 ver: 1.3 subfig package
+
+(/usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2020/01/03 v3.4h Customizing captions (AR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2020/01/03 v1.8h caption3 kernel (AR)
+Package caption3 Info: TeX engine: e-TeX on input line 61.
+\captionmargin=\dimen281
+\captionmargin@=\dimen282
+\captionwidth=\dimen283
+\caption@tempdima=\dimen284
+\caption@indent=\dimen285
+\caption@parindent=\dimen286
+\caption@hangindent=\dimen287
+Package caption Info: beamer document class detected.
+)
+\c@caption@flags=\count338
+\c@continuedfloat=\count339
+Package caption Info: beamer document class.
+Package caption Info: hyperref package is loaded.
+Package caption Info: Hyperref support is turned off
+(caption)             because hyperref has stopped early.
+)
+\c@KVtest=\count340
+\sf@farskip=\skip63
+\sf@captopadj=\dimen288
+\sf@capskip=\skip64
+\sf@nearskip=\skip65
+\c@subfigure=\count341
+\c@subfigure@save=\count342
+\c@depth=\count343
+\c@subtable=\count344
+\c@subtable@save=\count345
+\sf@top=\skip66
+\sf@bottom=\skip67
+)
 (./beamerthemeconfposter.sty
 Package: beamerthemeconfposter 
 
@@ -791,8 +829,8 @@ File: pgfmoduleplot.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 (/usr/share/texlive/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-0-65
 .sty
 Package: pgfcomp-version-0-65 2020/01/08 v3.1.5b (3.1.5b)
-\pgf@nodesepstart=\dimen281
-\pgf@nodesepend=\dimen282
+\pgf@nodesepstart=\dimen289
+\pgf@nodesepend=\dimen290
 )
 (/usr/share/texlive/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-1-18
 .sty
@@ -806,8 +844,8 @@ Package: pgfcomp-version-1-18 2020/01/08 v3.1.5b (3.1.5b)
 Package: pgffor 2020/01/08 v3.1.5b (3.1.5b)
 
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex)
-\pgffor@iter=\dimen283
-\pgffor@skip=\dimen284
+\pgffor@iter=\dimen291
+\pgffor@skip=\dimen292
 \pgffor@stack=\toks45
 \pgffor@toks=\toks46
 ))
@@ -817,33 +855,33 @@ Package: tikz 2020/01/08 v3.1.5b (3.1.5b)
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothandlers
 .code.tex
 File: pgflibraryplothandlers.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-\pgf@plot@mark@count=\count338
-\pgfplotmarksize=\dimen285
+\pgf@plot@mark@count=\count346
+\pgfplotmarksize=\dimen293
 )
-\tikz@lastx=\dimen286
-\tikz@lasty=\dimen287
-\tikz@lastxsaved=\dimen288
-\tikz@lastysaved=\dimen289
-\tikz@lastmovetox=\dimen290
-\tikz@lastmovetoy=\dimen291
-\tikzleveldistance=\dimen292
-\tikzsiblingdistance=\dimen293
+\tikz@lastx=\dimen294
+\tikz@lasty=\dimen295
+\tikz@lastxsaved=\dimen296
+\tikz@lastysaved=\dimen297
+\tikz@lastmovetox=\dimen298
+\tikz@lastmovetoy=\dimen299
+\tikzleveldistance=\dimen300
+\tikzsiblingdistance=\dimen301
 \tikz@figbox=\box77
 \tikz@figbox@bg=\box78
 \tikz@tempbox=\box79
 \tikz@tempbox@bg=\box80
-\tikztreelevel=\count339
-\tikznumberofchildren=\count340
-\tikznumberofcurrentchild=\count341
-\tikz@fig@count=\count342
+\tikztreelevel=\count347
+\tikznumberofchildren=\count348
+\tikznumberofcurrentchild=\count349
+\tikz@fig@count=\count350
 
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.code.tex
 File: pgfmodulematrix.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-\pgfmatrixcurrentrow=\count343
-\pgfmatrixcurrentcolumn=\count344
-\pgf@matrix@numberofcolumns=\count345
+\pgfmatrixcurrentrow=\count351
+\pgfmatrixcurrentcolumn=\count352
+\pgf@matrix@numberofcolumns=\count353
 )
-\tikz@expandcount=\count346
+\tikz@expandcount=\count354
 
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
 zlibrarytopaths.code.tex
@@ -856,7 +894,7 @@ File: tikzlibraryarrows.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.code.
 tex
 File: pgflibraryarrows.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-\arrowsize=\dimen294
+\arrowsize=\dimen302
 ))
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
 zlibrarybackgrounds.code.tex
@@ -909,7 +947,7 @@ LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `normal'
 (Font)                  OMX/lmex/m/n --> OMX/cmex/m/n on input line 57.
 LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
 (Font)                  OMX/lmex/m/n --> OMX/cmex/m/n on input line 57.
-\big@size=\dimen295
+\big@size=\dimen303
 )
 (/usr/share/texlive/texmf-dist/tex/latex/base/textcomp.sty
 Package: textcomp 2020/02/02 v2.0n Standard LaTeX package
@@ -921,49 +959,49 @@ Package: ragged2e 2019/07/28 v2.2 ragged2e Package (MS)
 (/usr/share/texlive/texmf-dist/tex/latex/ms/everysel.sty
 Package: everysel 2011/10/28 v1.2 EverySelectfont Package (MS)
 )
-\CenteringLeftskip=\skip63
-\RaggedLeftLeftskip=\skip64
-\RaggedRightLeftskip=\skip65
-\CenteringRightskip=\skip66
-\RaggedLeftRightskip=\skip67
-\RaggedRightRightskip=\skip68
-\CenteringParfillskip=\skip69
-\RaggedLeftParfillskip=\skip70
-\RaggedRightParfillskip=\skip71
-\JustifyingParfillskip=\skip72
-\CenteringParindent=\skip73
-\RaggedLeftParindent=\skip74
-\RaggedRightParindent=\skip75
-\JustifyingParindent=\skip76
+\CenteringLeftskip=\skip68
+\RaggedLeftLeftskip=\skip69
+\RaggedRightLeftskip=\skip70
+\CenteringRightskip=\skip71
+\RaggedLeftRightskip=\skip72
+\RaggedRightRightskip=\skip73
+\CenteringParfillskip=\skip74
+\RaggedLeftParfillskip=\skip75
+\RaggedRightParfillskip=\skip76
+\JustifyingParfillskip=\skip77
+\CenteringParindent=\skip78
+\RaggedLeftParindent=\skip79
+\RaggedRightParindent=\skip80
+\JustifyingParindent=\skip81
 )
-\inboxwd=\skip77
-\iinboxwd=\skip78
-\inboxrule=\skip79
+\inboxwd=\skip82
+\iinboxwd=\skip83
+\inboxrule=\skip84
 )
-\sepwid=\skip80
-\onecolwid=\skip81
-\twocolwid=\skip82
-\threecolwid=\skip83
+\sepwid=\skip85
+\onecolwid=\skip86
+\twocolwid=\skip87
+\threecolwid=\skip88
 
 (/usr/share/texlive/texmf-dist/tex/latex/booktabs/booktabs.sty
 Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
-\heavyrulewidth=\dimen296
-\lightrulewidth=\dimen297
-\cmidrulewidth=\dimen298
-\belowrulesep=\dimen299
-\belowbottomsep=\dimen300
-\aboverulesep=\dimen301
-\abovetopsep=\dimen302
-\cmidrulesep=\dimen303
-\cmidrulekern=\dimen304
-\defaultaddspace=\dimen305
-\@cmidla=\count347
-\@cmidlb=\count348
-\@aboverulesep=\dimen306
-\@belowrulesep=\dimen307
-\@thisruleclass=\count349
-\@lastruleclass=\count350
-\@thisrulewidth=\dimen308
+\heavyrulewidth=\dimen304
+\lightrulewidth=\dimen305
+\cmidrulewidth=\dimen306
+\belowrulesep=\dimen307
+\belowbottomsep=\dimen308
+\aboverulesep=\dimen309
+\abovetopsep=\dimen310
+\cmidrulesep=\dimen311
+\cmidrulekern=\dimen312
+\defaultaddspace=\dimen313
+\@cmidla=\count355
+\@cmidlb=\count356
+\@aboverulesep=\dimen314
+\@belowrulesep=\dimen315
+\@thisruleclass=\count357
+\@lastruleclass=\count358
+\@thisrulewidth=\dimen316
 ) (./main.aux)
 \openout1 = `main.aux'.
 
@@ -1025,16 +1063,16 @@ File: t1lmss.fd 2009/10/30 v1.6 Font defs for Latin Modern
 
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count351
-\scratchdimen=\dimen309
+\scratchcounter=\count359
+\scratchdimen=\dimen317
 \scratchbox=\box83
-\nofMPsegments=\count352
-\nofMParguments=\count353
+\nofMPsegments=\count360
+\nofMParguments=\count361
 \everyMPshowfont=\toks47
-\MPscratchCnt=\count354
-\MPscratchDim=\dimen310
-\MPnumerator=\count355
-\makeMPintoPDFobject=\count356
+\MPscratchCnt=\count362
+\MPscratchDim=\dimen318
+\MPnumerator=\count363
+\makeMPintoPDFobject=\count364
 \everyMPtoPDFconversion=\toks48
 ) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -1058,7 +1096,7 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 (/usr/share/texlive/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count357
+\c@section@level=\count365
 )
 LaTeX Info: Redefining \ref on input line 79.
 LaTeX Info: Redefining \pageref on input line 79.
@@ -1092,7 +1130,11 @@ Dictionary: translator-numbers-dictionary, Language: English
 (/usr/share/texlive/texmf-dist/tex/latex/translator/translator-theorem-dictiona
 ry-English.dict
 Dictionary: translator-theorem-dictionary, Language: English 
-) ABD: EverySelectfont initializing macros
+)
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: subfig package v1.3 is loaded.
+Package caption Info: End \AtBeginDocument code.
+ ABD: EverySelectfont initializing macros
 LaTeX Info: Redefining \selectfont on input line 79.
  (./main.nav)
 LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 7
@@ -1113,50 +1155,50 @@ LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line
 (/usr/share/texmf/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for T1+lmr on input line 39
-0.
+LaTeX Font Info:    Trying to load font information for T1+lmr on input line 33
+3.
 
 (/usr/share/texmf/tex/latex/lm/t1lmr.fd
 File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Calculating math sizes for size <35.83> on input line 390.
+LaTeX Font Info:    Calculating math sizes for size <35.83> on input line 333.
 
 
 LaTeX Font Warning: Font shape `OMX/cmex/m/n' in size <35.83> not available
-(Font)              size <24.88> substituted on input line 390.
+(Font)              size <24.88> substituted on input line 333.
 
 
 LaTeX Font Warning: Font shape `OMX/cmex/m/n' in size <17.915> not available
-(Font)              size <17.28> substituted on input line 390.
+(Font)              size <17.28> substituted on input line 333.
 
-<midi_vae.png, id=18, 942.52126pt x 869.2475pt>
+<midi_vae.png, id=17, 942.52126pt x 869.2475pt>
 File: midi_vae.png Graphic file (type png)
 <use midi_vae.png>
-Package pdftex.def Info: midi_vae.png  used on input line 390.
-(pdftex.def)             Requested size: 763.17543pt x 703.84789pt.
-
-Package amsmath Warning: Foreign command \atop;
-(amsmath)                \frac or \genfrac should be used instead
-(amsmath)                 on input line 390.
-
-<winter_planet_midi_plot.png, id=20, 783.92876pt x 313.17pt>
+Package pdftex.def Info: midi_vae.png  used on input line 333.
+(pdftex.def)             Requested size: 569.05511pt x 524.81538pt.
+<winter_planet_midi_plot.png, id=19, 783.92876pt x 313.17pt>
 File: winter_planet_midi_plot.png Graphic file (type png)
 <use winter_planet_midi_plot.png>
-Package pdftex.def Info: winter_planet_midi_plot.png  used on input line 390.
+Package pdftex.def Info: winter_planet_midi_plot.png  used on input line 333.
 (pdftex.def)             Requested size: 648.44229pt x 259.06131pt.
-<placeholder.jpg, id=22, 351.3125pt x 193.72375pt>
-File: placeholder.jpg Graphic file (type jpg)
-<use placeholder.jpg>
-Package pdftex.def Info: placeholder.jpg  used on input line 390.
-(pdftex.def)             Requested size: 610.54266pt x 336.72778pt.
+<testloss.png, id=21, 3011.25pt x 1505.625pt>
+File: testloss.png Graphic file (type png)
+<use testloss.png>
+Package pdftex.def Info: testloss.png  used on input line 333.
+(pdftex.def)             Requested size: 341.43306pt x 170.6965pt.
+<train_loss.png, id=22, 3011.25pt x 1505.625pt>
+File: train_loss.png Graphic file (type png)
+<use train_loss.png>
+Package pdftex.def Info: train_loss.png  used on input line 333.
+(pdftex.def)             Requested size: 341.43306pt x 170.6965pt.
 (./main.bbl)
-Overfull \hbox (4.99402pt too wide) detected at line 390
+Overfull \hbox (4.99402pt too wide) detected at line 333
 [][][] [][][][][][][][][] [][][][][][][][][] [][][][][][][][][] [][][][][][][][
 ][] [][][][][][][][][] [][][][][][][] 
  []
 
 
-Overfull \vbox (1277.64194pt too high) detected at line 390
+Overfull \vbox (1.40411pt too high) detected at line 333
  []
 
 
@@ -1166,7 +1208,8 @@ Overfull \hbox (88.20334pt too wide) has occurred while \output is active
 
 [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
- <./midi_vae.png> <./winter_planet_midi_plot.png> <./placeholder.jpg>]
+ <./midi_vae.png> <./winter_planet_midi_plot.png> <./testloss.png> <./train_los
+s.png>]
 \tf@nav=\write6
 \openout6 = `main.nav'.
 
@@ -1176,11 +1219,11 @@ Overfull \hbox (88.20334pt too wide) has occurred while \output is active
 \tf@snm=\write8
 \openout8 = `main.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 392.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 392.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 335.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 335.
  (./main.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 392.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 392.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 335.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 335.
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
 
@@ -1190,13 +1233,13 @@ LaTeX Font Warning: Size substitutions with differences
 
  ) 
 Here is how much of TeX's memory you used:
- 24171 strings out of 483065
- 480917 string characters out of 5963550
- 859256 words of memory out of 5000000
- 38585 multiletter control sequences out of 15000+600000
- 604384 words of font info for 75 fonts, out of 8000000 for 9000
+ 25380 strings out of 483065
+ 502686 string characters out of 5963550
+ 844022 words of memory out of 5000000
+ 39791 multiletter control sequences out of 15000+600000
+ 610188 words of font info for 77 fonts, out of 8000000 for 9000
  81 hyphenation exceptions out of 8191
- 56i,17n,68p,771b,1606s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 64i,17n,102p,771b,1773s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texmf/fonts/enc/dv
 ips/lm/lm-mathit.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/s
 hare/texmf/fonts/enc/dvips/lm/lm-rm.enc}</usr/share/texlive/texmf-dist/fonts/ty
@@ -1206,10 +1249,10 @@ s/type1/public/lm/lmr17.pfb></usr/share/texmf/fonts/type1/public/lm/lmri12.pfb>
 </usr/share/texmf/fonts/type1/public/lm/lmss17.pfb></usr/share/texmf/fonts/type
 1/public/lm/lmssbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb></u
 sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on main.pdf (1 page, 465509 bytes).
+Output written on main.pdf (1 page, 567585 bytes).
 PDF statistics:
- 97 PDF objects out of 1000 (max. 8388607)
- 72 compressed objects within 1 object stream
- 17 named destinations out of 1000 (max. 500000)
- 64 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 89 PDF objects out of 1000 (max. 8388607)
+ 61 compressed objects within 1 object stream
+ 10 named destinations out of 1000 (max. 500000)
+ 69 words of extra memory for PDF output out of 10000 (max. 10000000)
 

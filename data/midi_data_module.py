@@ -4,7 +4,7 @@ from typing import Optional
 import pytorch_lightning as pl
 import torch
 from pytorch_lightning.utilities.types import TRAIN_DATALOADERS, EVAL_DATALOADERS
-from torch.utils.data import DataLoader
+from torch.utils.data import DataLoader, Subset
 from torchvision import transforms
 
 from data.midi_dataset import MidiDataset, Rescale, Trim, Reshape, ConvertEndTimeToDuration, data_loader_collate_fn
@@ -43,11 +43,21 @@ class MidiDataModule(pl.LightningDataModule):
                                     Reshape(self._data_shape),
                                     Rescale(),
                                     ConvertEndTimeToDuration()]))
-        train_size = int(0.7 * len(data_set))
+        n = len(data_set)
+        train_size = int(0.7 * n)
         test_size = int((len(data_set) - train_size) / 2.0)
-        val_size = len(data_set) - train_size - test_size
-        train_dataset, val_dataset, test_dataset = torch.utils.data.random_split(data_set,
-                                                                                 [train_size, val_size, test_size])
+
+        # We want deterministic split
+        indexes = list(range(n))
+
+        train_idx = indexes[:train_size]
+        val_idx = indexes[train_size:(train_size+ test_size)]
+        test_idx = indexes[(train_size+ test_size):]
+
+        train_dataset = Subset(data_set, train_idx)
+        val_dataset = Subset(data_set, val_idx)
+        test_dataset = Subset(data_set, test_idx)
+
         self._train_dataset = train_dataset
         self._test_dataset = test_dataset
         self._val_dataset = val_dataset

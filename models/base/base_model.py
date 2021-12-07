@@ -28,10 +28,10 @@ class BaseModel(torch.nn.Module):
                  *args: Any, **kwargs: Any):
         super(BaseModel, self).__init__(*args, **kwargs)
         now = datetime.now()
-        now_str = now.strftime(format="%d-%h-%y-%s")
+        now_str = now.strftime(format="%d-%h-%y")
         self._data_dir = data_dir
         self._output_dir = os.path.join(output_dir, now_str)
-        os.makedirs(self._output_dir)
+        os.makedirs(self._output_dir, exist_ok=True)
         self._lr = lr
         self._use_mnist_dms = use_mnist_dms
         self._dms = None

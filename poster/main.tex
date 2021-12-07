@@ -26,7 +26,7 @@
 
 \usepackage[scale=1.2]{beamerposter} % Use the beamerposter package for laying out the poster
 \usepackage{media9}
-
+\usepackage{subfig}
 \usepackage{geometry}
 
 \usetheme{confposter} % Use the confposter theme supplied with this template
@@ -132,7 +132,8 @@ A MIDI sequence can be thought to consist of a list of notes and attributes. Eac
 \item \textbf{End time}: The end time of the note          
 \end{enumerate}
 
-The data set consisted of $140944$ midi files obtained from The dataset for the project a combination of the Lakh MIDI Dataset v0.1 \cite{colinlmd} and the MIDI dataset posted at \cite{midiman}. All the MIDI files were encoded into Note Sequences using the Google Magenta library \cite{magenta}.
+The data set consisted of $140944$ midi files obtained from The dataset for the project a combination of the Lakh MIDI Dataset v0.1 \cite{colinlmd} and the MIDI dataset posted at \cite{midiman}. All the MIDI files were encoded into Note Sequences using the Google Magenta library
+.
 
 
 
@@ -170,7 +171,7 @@ The following architectures were tried for controllable generation:
 \end{itemize}
 
 \begin{figure}
-\includegraphics[width=1.0\linewidth]{midi_vae.png}
+\includegraphics[width=20cm]{midi_vae.png}
 \caption{Conditional VAE Architecture}
 \end{figure}
 
@@ -206,16 +207,6 @@ We convert the categorical variables to embedding space and use this representat
 
 \begin{block}{Loss}
 
-Conditional VAE $ELBO(x;\theta, \phi, y)$ is given by :
-\begin{equation}
-\mathbb{E}_{q_{\phi}(z|x,y)} [ \log(p_{\theta}(x|z, y))]  - \mathbb{D}(q_{\phi}(z|x, y) || p(z))
-\end{equation}
-
-The categorical cross-entropy loss is given by:
-
-\begin{equation}
- -\sum_{i=1}^{\mathrm{output \atop size}} y_i \cdot \mathrm{log}\; {\hat{y}}_i
-\end{equation}
 
 The total loss in our Architecture is a sum of $KL$ loss, categorical cross entropy losses, reconstruction losses and controlled reconstruction loss:
 $$ \mathbb{E}_{q_{\phi}(z|x_{time})} [ \log(p_{\theta}(x_{time}|z))]  - \mathbb{D}(q_{\phi}(z|x) || p(z)) $$
@@ -276,31 +267,6 @@ The generated samples follow patterns found in the MIDI files. In this case one 
 %	RESULTS
 %----------------------------------------------------------------------------------------
 
-\begin{block}{Results}
-
-\begin{figure}
-\includegraphics[width=0.8\linewidth]{placeholder.jpg}
-\caption{Figure caption}
-\end{figure}
-
-Nunc tempus venenatis facilisis. Curabitur suscipit consequat eros non porttitor. Sed a massa dolor, id ornare enim:
-
-\begin{table}
-\vspace{2ex}
-\begin{tabular}{l l l}
-\toprule
-\textbf{Treatments} & \textbf{Response 1} & \textbf{Response 2}\\
-\midrule
-Treatment 1 & 0.0003262 & 0.562 \\
-Treatment 2 & 0.0015681 & 0.910 \\
-Treatment 3 & 0.0009271 & 0.296 \\
-\bottomrule
-\end{tabular}
-\caption{Table caption}
-\end{table}
-
-\end{block}
-
 %----------------------------------------------------------------------------------------
 
 \end{column} % End of column 2.2
@@ -317,9 +283,18 @@ Treatment 3 & 0.0009271 & 0.296 \\
 %	CONCLUSION
 %----------------------------------------------------------------------------------------
 
-\begin{block}{Conclusion}
+\begin{block}{Results}
 
-Nunc tempus venenatis facilisis. \textbf{Curabitur suscipit} consequat eros non porttitor. Sed a massa dolor, id ornare enim. Fusce quis massa dictum tortor \textbf{tincidunt mattis}. Donec quam est, lobortis quis pretium at, laoreet scelerisque lacus. Nam quis odio enim, in molestie libero. Vivamus cursus mi at \textit{nulla elementum sollicitudin}.
+The losses in the simple VAE case did not converge. The beta VAE trained models did not produce good quality audio output. The model learned to produce related musical instruments together and have repeated variations in background audio. The pitch and velocity of many samples did not feel like noise. However the results seem to be affected by class imbalance of the input, which has a lot of Piano music and less of other types of instruments.
+
+\begin{figure}
+    \centering
+    \subfloat[\centering Test Loss]{{\includegraphics[width=12cm]{testloss.png} }}% 
+    \qquad
+    \subfloat[\centering Train Loss]{{\includegraphics[width=12cm]{train_loss.png}}}%
+    \caption{Test and Train Loss}%
+\end{figure}
+
 
 \end{block}
 
@@ -331,11 +306,6 @@ Nunc tempus venenatis facilisis. \textbf{Curabitur suscipit} consequat eros non 
 
 My TA mentor, \textbf{Kelly He} is awesome! Thank you Kelly. This project would not be possible without your prompt guidance and support. And thank you \textbf{Jiaming Song}, \textbf{Chenlin Meng} and \textbf{Kristy Choi} for the very thoughtful discussions, ideation and support on building this project.
 
-\begin{itemize}
-\item Curabitur pellentesque dignissim
-\item Eu facilisis est tempus quis
-\item Duis porta consequat lorem
-\end{itemize}
 
 \end{block}
 
@@ -344,41 +314,14 @@ My TA mentor, \textbf{Kelly He} is awesome! Thank you Kelly. This project would 
 %----------------------------------------------------------------------------------------
 
 \begin{block}{References}
-
 \nocite{*} % Insert publications even if they are not cited in the poster
 \small{\bibliographystyle{unsrt}
-\bibliography{sample}\vspace{0.75in}}
-
+\bibliography{sample}\vspace{0.25in}}
 \end{block}
 
 %----------------------------------------------------------------------------------------
 %	ACKNOWLEDGEMENTS
 %----------------------------------------------------------------------------------------
-
-\setbeamercolor{block title}{fg=red,bg=white} % Change the block title color
-
-\begin{block}{Acknowledgements}
-
-\small{\rmfamily{Nam mollis tristique neque eu luctus. Suspendisse rutrum congue nisi sed convallis. Aenean id neque dolor. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.}} \\
-
-\end{block}
-
-%----------------------------------------------------------------------------------------
-%	CONTACT INFORMATION
-%----------------------------------------------------------------------------------------
-
-\setbeamercolor{block alerted title}{fg=black,bg=norange} % Change the alert block title colors
-\setbeamercolor{block alerted body}{fg=black,bg=white} % Change the alert block body colors
-
-\begin{alertblock}{Contact Information}
-
-\begin{itemize}
-\item Web: \href{http://www.university.edu/smithlab}{http://www.university.edu/smithlab}
-\item Email: \href{mailto:john@smith.com}{john@smith.com}
-\item Phone: +1 (000) 111 1111
-\end{itemize}
-
-\end{alertblock}
 
 
 %----------------------------------------------------------------------------------------

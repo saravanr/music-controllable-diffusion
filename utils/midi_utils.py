@@ -53,8 +53,6 @@ def nd_array_to_note_seq(input_note_array, mean=None, std=None):
         print(f"Exceeded max")
 
     instruments = set([note.instrument for note in seq.notes])
-    print(f"Number of instruments in Generated MIDI = {len(instruments)}")
-
     return seq
 
 
