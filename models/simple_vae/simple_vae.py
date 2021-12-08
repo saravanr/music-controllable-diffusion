@@ -19,7 +19,7 @@ import tqdm
 import numpy
 import wandb
 
-wandb.init(project="music-controllable-diffusion-with-fid", entity="saravanr")
+wandb.init(project="music-controllable-diffusion-with-fid-version-3", entity="saravanr")
 
 
 class ExtractLSTMOutput(nn.Module):
@@ -445,18 +445,19 @@ class SimpleVae(BaseModel):
             rand_z = rand_z.to(device)
             batch = batch.to(device)
 
-            control = batch[0].T.unsqueeze(0)
-            control = control[:, 0:100, :]
-            control_output = self._controllable_decoder(rand_z.unsqueeze(0), control)
-            x = control_output
+            for test_sample in batch:
+                control = test_sample.T.unsqueeze(0)
+                control = control[:, 0:100, :]
+                control_output = self._controllable_decoder(rand_z.unsqueeze(0), control)
+                x = control_output
 
-            x_pitches = DecoderCategorical.get_classification_from_output(x.T[0], self._pitch_embedding)
-            x_velocity = DecoderCategorical.get_classification_from_output(x.T[1], self._velocity_embedding)
-            x_instruments = DecoderCategorical.get_classification_from_output(x.T[2], self._instrument_embedding)
-            x_programs = DecoderCategorical.get_classification_from_output(x.T[3], self._program_embedding)
-            output = torch.stack(
-                (x_pitches, x_velocity, x_instruments, x_programs, control_output.T[4], control_output.T[5])).T
-            generated_control_samples.append(output)
+                x_pitches = DecoderCategorical.get_classification_from_output(x.T[0], self._pitch_embedding)
+                x_velocity = DecoderCategorical.get_classification_from_output(x.T[1], self._velocity_embedding)
+                x_instruments = DecoderCategorical.get_classification_from_output(x.T[2], self._instrument_embedding)
+                x_programs = DecoderCategorical.get_classification_from_output(x.T[3], self._program_embedding)
+                output = torch.stack(
+                    (x_pitches, x_velocity, x_instruments, x_programs, control_output.T[4], control_output.T[5])).T
+                generated_control_samples.append(output)
             #sample = output.to("cpu").detach().numpy()
             #sample = sample.reshape((300, 6))
 
@@ -515,6 +516,7 @@ class SimpleVae(BaseModel):
                 else:
                     rand_z = torch.randn(self._pitches_decoder.z_dim).to(device)
                     rand_z.to(device)
+                    rand_z_np = rand_z.numpy()
 
                     x_pitches, _ = self._pitches_decoder(rand_z)
                     x_velocity, _ = self._velocity_decoder(rand_z)
@@ -531,6 +533,16 @@ class SimpleVae(BaseModel):
                     save_decoder_output_as_midi(sample, sample_file_name, self._data_mean, self._data_std)
                     print(f"Generating midi sample file://{sample_file_name}")
                     print(f"Generating midi sample path = {sample_file_name}")
+
+                    output_dir = os.path.join(self._output_dir, f"sample-control-{wandb.run.name}")
+                    os.makedirs(output_dir, exist_ok=True)
+
+                    z_file = os.path.join(output_dir, f"z-{self._model_prefix}-{wandb.run.name}-sample-{epoch}.npy")
+                    import numpy as np
+                    np.save(z_file, rand_z_np)
+
+                    sample_file_name = os.path.join(output_dir, f"{self._model_prefix}-control-{wandb.run.name}-{epoch}.midi")
+                    save_decoder_output_as_midi(sample, sample_file_name, self._data_mean, self._data_std)
 
                     # Generate some controllable music
                     for batch_idx, batch in enumerate(self._dms.val_dataloader()):
@@ -550,7 +562,7 @@ class SimpleVae(BaseModel):
                                               control_output.T[5])).T
                         sample = output.to("cpu").detach().numpy()
                         sample = sample.reshape((300, 6))
-                        sample_file_name = os.path.join(self._output_dir,
+                        sample_file_name = os.path.join(output_dir,
                                                         f"{self._model_prefix}-control-{wandb.run.name}-{epoch}.midi")
                         save_decoder_output_as_midi(sample, sample_file_name, self._data_mean, self._data_std)
                         print(f"Generating controlled midi sample file://{sample_file_name}")
@@ -570,49 +582,52 @@ if __name__ == "__main__":
     batch_size = 4096
     train_mnist = False
 
-    for _alpha in [1, 10, 20, 50, 100]:
-        if train_mnist:
-            _z_dim = 20
-            model = SimpleVae(
-                alpha=_alpha,
-                z_dim=_z_dim,
-                input_shape=(28, 28),
-                use_mnist_dms=True,
-                sample_output_step=10,
-                batch_size=batch_size
-            )
-        else:
-            _z_dim = 32
-            model = SimpleVae(
-                alpha=_alpha,
-                z_dim=_z_dim,
-                input_shape=(MAX_MIDI_ENCODING_ROWS, MIDI_ENCODING_WIDTH),
-                use_mnist_dms=False,
-                sample_output_step=10,
-                batch_size=batch_size
-            )
-        print(f"Training --> {model}")
+    _alpha = 1
 
-        max_epochs = 100
-        wandb.config = {
-            "learning_rate": model.lr,
-            "z_dim": _z_dim,
-            "epochs": max_epochs,
-            "batch_size": batch_size,
-            "alpha": model.alpha
-        }
+    if train_mnist:
+        _z_dim = 20
+        model = SimpleVae(
+            alpha=_alpha,
+            z_dim=_z_dim,
+            input_shape=(28, 28),
+            use_mnist_dms=True,
+            sample_output_step=10,
+            batch_size=batch_size
+        )
+    else:
+        _z_dim = 32
+        model = SimpleVae(
+            alpha=_alpha,
+            z_dim=_z_dim,
+            input_shape=(MAX_MIDI_ENCODING_ROWS, MIDI_ENCODING_WIDTH),
+            use_mnist_dms=False,
+            sample_output_step=10,
+            batch_size=batch_size
+        )
+    print(f"Training --> {model}")
 
-        _optimizer = model.configure_optimizers()
-        model.setup()
-        for _epoch in range(1, max_epochs + 1):
-            model.train()
-            model.fit(_epoch, _optimizer)
+    max_epochs = 100
+    wandb.config = {
+        "learning_rate": model.lr,
+        "z_dim": _z_dim,
+        "epochs": max_epochs,
+        "batch_size": batch_size,
+        "alpha": model.alpha
+    }
+
+    _optimizer = model.configure_optimizers()
+    model.setup()
+    for _epoch in range(1, max_epochs + 1):
+        model.train()
+        model.fit(_epoch, _optimizer)
+        model.eval()
+        model.test()
+        if _epoch == 1:
+            model.compute_fid()
+
+        if _epoch % 10 == 0:
             model.eval()
-            model.test()
-            if _epoch % 10 == 0:
-                model.eval()
-                model.compute_fid()
-                #model.sample_output(_epoch)
-                #model.sample_output(999999 + _epoch)
-                model.save(_epoch)
+            model.compute_fid()
+            model.sample_output(_epoch)
+            model.save(_epoch)
 

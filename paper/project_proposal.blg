@@ -7,51 +7,59 @@ Warning--entry type for "colinlmd" isn't style-file defined
 --line 36 of file project.bib
 Warning--entry type for "midiman" isn't style-file defined
 --line 52 of file project.bib
+Warning--entry type for "midi_note_seq_data_set" isn't style-file defined
+--line 60 of file project.bib
 Warning--entry type for "gretton12" isn't style-file defined
---line 85 of file project.bib
+--line 93 of file project.bib
+Repeated entry---line 136 of file project.bib
+ : @misc{heusel2018gans
+ :                     ,
+I'm skipping whatever remains of this entry
+Warning--I didn't find a database entry for "magenta"
 Warning--empty title in bazin2021
 Warning--empty journal in bazin2021
+Warning--empty year in midi_note_seq_data_set
 Warning--empty year in midiman
 Warning--empty year in colinlmd
-You've used 11 entries,
+You've used 13 entries,
             2773 wiz_defined-function locations,
-            639 strings with 6539 characters,
-and the built_in function-call counts, 4991 in all, are:
-= -- 387
-> -- 416
-< -- 2
-+ -- 140
-- -- 129
-* -- 420
-:= -- 788
-add.period$ -- 29
-call.type$ -- 11
-change.case$ -- 75
-chr.to.int$ -- 11
-cite$ -- 26
-duplicate$ -- 182
-empty$ -- 358
-format.name$ -- 140
-if$ -- 1012
+            650 strings with 6903 characters,
+and the built_in function-call counts, 5592 in all, are:
+= -- 440
+> -- 436
+< -- 4
++ -- 148
+- -- 135
+* -- 450
+:= -- 879
+add.period$ -- 36
+call.type$ -- 13
+change.case$ -- 83
+chr.to.int$ -- 13
+cite$ -- 31
+duplicate$ -- 212
+empty$ -- 422
+format.name$ -- 148
+if$ -- 1141
 int.to.chr$ -- 1
 int.to.str$ -- 1
 missing$ -- 2
-newline$ -- 59
-num.names$ -- 44
-pop$ -- 187
+newline$ -- 70
+num.names$ -- 52
+pop$ -- 212
 preamble$ -- 1
-purify$ -- 65
+purify$ -- 71
 quote$ -- 0
-skip$ -- 186
+skip$ -- 211
 stack$ -- 0
-substring$ -- 22
-swap$ -- 10
+substring$ -- 26
+swap$ -- 13
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 121
-warning$ -- 4
-while$ -- 33
+type$ -- 143
+warning$ -- 5
+while$ -- 39
 width$ -- 0
-write$ -- 129
-(There were 7 warnings)
+write$ -- 154
+(There was 1 error message)

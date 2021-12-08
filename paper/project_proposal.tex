@@ -74,11 +74,12 @@
 
 
 \begin{abstract}
-Diffusion based generative models can be used to generate music in a controllable way. Generating long music sequences from raw audio waveforms can be very compute intensive. MIDI format gives a much more compressed representation of a subset of Music which may give us a tractable way to generate melodies.
+MIDI format gives a compressed representation of
+a Music which may give us a tractable way to generate long melodies. In this project we generate MIDI audio using Variation Auto Encoders (VAE) for multiple instruments. We generate MIDI sequences given a short begining sequence and let the model fill in the rest using a Conditional-VAE. We also publish a MIDI encoded numpy dataset of 140, 944 samples (~2.7 Gb) that can be used for further research. Finally we discuss some tips and tricks that were useful in achieving faster training of generative models.
 \end{abstract}
 \section{Motivation}
 \label{submission}
-Composing music is a skill that is acquired by many years of practice. The music itself is the result of the life experiences of the musician, their state of mind, their unconcious and concious thoughts. Their creative talent is subjective and difficult to generalize. Recent advances in Generative models for Music generation have shown impressive results where the focus has been to replace the creative process. Learning the distribution of music creation may be an intractable problem at the moment. However one approach we can take is to build tools that serve as an aid in the creative process.  If a musician already has a few ideas in mind on how a song or melody should start, can the problem be modelled as a conditional generative process where given the start and style of the song, can a model generate multiple possibilities of how the song can proceed? 
+Composing music is a skill that is acquired by many years of practice. The music itself is the result of the life experiences of the musician, their state of mind, their unconcious and concious thoughts. Their creative talent is subjective and difficult to generalize. Recent advances in Generative models for Music generation have shown impressive results where the focus has been to replace the creative process. Learning the distribution of music creation may be an intractable problem at the moment. However one approach we can take is to build tools that serve as an aid in the creative process.  If a musician already has a few ideas in mind on how a song or melody should start, can the problem be modelled as a conditional generative process where given the start of the melody, can a model generate multiple possibilities of how the song can proceed? 
 
 In such a generative system, the inputs to the model would be a short MIDI sequence. The system would generate a bunch of sequences that may serve as suggested next sequences and so on. By conditioning on the input and letting the musician choose the path to take, the model can help in the creative process.
 
@@ -86,18 +87,75 @@ In such a generative system, the inputs to the model would be a short MIDI seque
 
 There has been a lot of good work in the area of Music creation. Google's Magenta project explores the role of machine learning in the creative process. In a recent papers \citep{mittal} built a multi-stage non autoregressive generative model that enabled using diffusion models on discrete data. They generated both unconditional music as well as conditional in-filling. They used a Denoising Diffusion Probabilistic Model \cite{ho2020denoising} on top of a MusicVAE model that generated the continuous time latent embeddings. Similarly \cite{choi2021ilvr} proposed an Iterative Latent Variable Refinement (ILVR) method to guide the DDPM to generate high quality images based on a given reference image. Also \cite{song2020denoising}  produced a way to accelerate sampling process of a DDPM which can make generation process of sequences faster. In another beautiful apprach, \cite{bazin2021} built an interactive web interface that transforms sound by inpainting. This approach is similar to what \cite{meng2021sdedit} built with SDEdit that adapts to editing tasks at test time, without the need for re-training the model.
 
+\section{Approach}
+
+Initially we planned to use Denoising Diffusion Probabilistic Models (DDPMs) to model the input distribution. DDPMs have been shown to generate high quality music samples \cite{mittal} and also offer controllable generation using post-hoc conditional infilling. However DDPMs operate on continuous space. In \cite{mittal} the authors used a pre-trained variational auto-encoder (VAE) to learn the continuous latent space representation of the input discrete data. This led us to first implement a VAE, whose encoder network can be used to generate continuous representation for DDPMs.
+
+A auto encoder consists of an encoder and decoder network. The encoder tries to convert the input $x$ to a smaller latent space representation $z$. The dimension of $z$ is typically smaller than the dimension of $x$. The decoder network of an autoencoder converts $z$ back to the input respresentation $\hat{x}$. Once trained, the decoder can be used to generate samples of $x$. The disadvantage though is that in many cases this training may not be tractable. Also the latent representation $z$ serves as a look up table instead of being a continous representation of the input, which can be interpolated along different dimensions.
+
+A VAE \citep{ solves this problem by trying to learn the distribution $q(z|x)$ of the latent space and then generate $z$ by sampling from this distribution. 
+
+$$ ELBO(x;\theta, \phi) = \mathbb{E}_{q_{\phi}(z|x)} [ \log(p_{\theta}(x|z))] - \mathcal{D}(q_{\phi}(z|x) || p(z))$$
+
+
 \section{Dataset}
 
-The dataset for the project a combination of the Lakh MIDI Dataset v0.1 \cite{colinlmd} and the MIDI dataset posted at \citep{midiman}. The Lakh MIDI data set is a collection of 176, 581 unique MIDI files out of which 45, 129 have equivalent songs in the Million Song Dataset. The \citep{midiman} collection has about 150, 000 midi files. All the MIDI files were converted to the OctupleMIDI encoding format as proposed and implemented in \cite{zeng2021musicbert}. The total number of music samples were about 290, 000. 
+A MIDI sequence can be thought to consist of a list of notes and attributes. Each note has:
+
+\begin{enumerate}
+\item \textbf{Pitch}: The frequencey of the note
+\item \textbf{Velocity}: The intensity of the note
+\item \textbf{Instrument}: The instrument where the note should be played (or synthesized)
+\item \textbf{Program}: A control message that specifies which instrument should be selected to play the note
+\item \textbf{Start time}: The start time of the note (seconds)
+\item \textbf{End time}: The end time of the note (seconds)
+\end{enumerate}
+
+
+The dataset for the project a combination of the Lakh MIDI Dataset v0.1 \cite{colinlmd} and the MIDI dataset posted at \citep{midiman}. The Lakh MIDI data set is a collection of 176, 581 unique MIDI files out of which 45, 129 have equivalent songs in the Million Song Dataset. The \citep{midiman} collection has about 150, 000 midi files. Of these only about 140, 944 midi files were usable because of conversion errors. 
+
+For encoding the MIDI files, We considered OctupleMIDI encoding format as proposed and implemented in \cite{zeng2021musicbert}. The encoding format was however hard to normalize and get good results. It was not clear what the mininum and maximum values were for each of the MIDI note attributes. This caused the model to generate invalid MIDI combinations which could not be converted to MIDI  files. Later we moved to using Google's Magenta\cite{magenta} note sequence library. This encodes the MIDI file into a list of note sequences.
+
+
+The data set was split into 70\% training samples, 15\% test samples and 15\% validation samples. The test samples were used for computing test loss and conditional generation of music. The validation set was used for computing the Fréchet Inception Distance (FID) as defined by \cite{heusel2018gans} and implemented in the pytorch fid package by \cite{Seitzer2020FID}.
+
 
 % In the unusual situation where you want a paper to appear in the
 % references without citing it in the main text, use \nocite
 
-\section{Methodology}
+\section{Approach}
 
-Initially the plan is to build a unconditional MusicVAE and see its performance on the LMD dataset. Following which I plan to adopt a similar approach to \citep{mittal} to build a DDPM model that has the ability to inpaint music in a manner similar to SDEdit \cite{meng2021sdedit}.
 
-\section{Evaluation}
+The following architectures were tried for controllable generation:
+
+\begin{itemize}
+\item Variation Auto Encoder (VAE) with a single Encoder Decoder
+\item Beta VAE with $\beta \in [1, 100]$
+\item VAE with single Encoder and multiple Decoder sharing $Z$ space
+\end{itemize}
+
+\begin{center}
+
+\begin{figure}
+\includegraphics[width=1.0\linewidth]{midi_vae.png}
+\caption{Conditional VAE Architecture}
+\end{figure}
+\end{center}
+
+
+Considerations:
+
+\begin{itemize}
+\item Variables Pitch, Velocity, Instrument and Program are categorical variables.
+\item Variables Start time and End time are continuous.
+\item Hence we need different decoders for Categorical and Continuous variables.
+\item A separate decoder for controlled music generation.
+\item One-hot encoding cannot be used for categorical variables - Memory usage.
+\end{itemize}
+
+We convert the categorical variables to embedding space and use this representation in training. To decode back to categorical values, we check closes $L1$ distance of the \textbf{logits} to each of the embedding weights. The embeddings are learned during training and allow a much smaller memory foot print.
+
+\section{Result}
 
 The music evaluation is a qualitative process however in related works authors have used Fréchet distance (FD) \cite{heusel2018gans} and Maximum Mean Discrepancy (MMD) \cite{gretton12} to measure distance between the models continuous output distribution and the original data distribution in latent space.
 
@@ -119,6 +177,11 @@ Pitch plot of generated MIDI files.
 \includegraphics[width=0.8\linewidth]{vae-plot.png}
 
 \includegraphics[width=0.8\linewidth]{vae-plot2.png}
+
+\section{Conclusion}
+
+The encoded sequences were saved to a single numpy archive file (~2.7Gb) which is the largest collection of MIDI samples for ML Research. This is now available at \citep{midi_note_seq_data_set}.
+
 
 \bibliography{project}
 \bibliographystyle{icml2021}
