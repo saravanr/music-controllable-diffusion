@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.10.2)  7 DEC 2021 20:27
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.10.2)  7 DEC 2021 21:34
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -573,74 +573,96 @@ Package microtype Info: Loading generic protrusion settings for font family
 
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2]
-Overfull \hbox (43.58801pt too wide) detected at line 144
+Overfull \hbox (43.58801pt too wide) detected at line 142
 []
  []
 
-<encoder.png, id=118, 1604.99625pt x 361.35pt>
+<encoder.png, id=110, 1604.99625pt x 361.35pt>
 File: encoder.png Graphic file (type png)
 <use encoder.png>
-Package pdftex.def Info: encoder.png  used on input line 150.
+Package pdftex.def Info: encoder.png  used on input line 148.
 (pdftex.def)             Requested size: 397.48499pt x 89.48816pt.
-<midi_vae.png, id=120, 942.52126pt x 869.2475pt>
+<decoder.png, id=112, 1090.0725pt x 272.01625pt>
+File: decoder.png Graphic file (type png)
+<use decoder.png>
+Package pdftex.def Info: decoder.png  used on input line 155.
+(pdftex.def)             Requested size: 397.48499pt x 99.18756pt.
+<midi_vae.png, id=113, 942.52126pt x 869.2475pt>
 File: midi_vae.png Graphic file (type png)
 <use midi_vae.png>
-Package pdftex.def Info: midi_vae.png  used on input line 157.
+Package pdftex.def Info: midi_vae.png  used on input line 162.
 (pdftex.def)             Requested size: 397.48499pt x 366.58025pt.
-[3] [4 <./encoder.png> <./midi_vae.png>]
+[3] [4 <./encoder.png> <./decoder.png> <./midi_vae.png>]
 LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 1
-68.
+82.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1ptm.fd
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
 )
-<vae-loss.png, id=140, 3011.25pt x 1505.625pt>
-File: vae-loss.png Graphic file (type png)
-<use vae-loss.png>
-Package pdftex.def Info: vae-loss.png  used on input line 199.
-(pdftex.def)             Requested size: 317.9892pt x 158.97978pt.
-<vae-test-loss.png, id=141, 3011.25pt x 1505.625pt>
-File: vae-test-loss.png Graphic file (type png)
-<use vae-test-loss.png>
-Package pdftex.def Info: vae-test-loss.png  used on input line 201.
-(pdftex.def)             Requested size: 317.9892pt x 158.97978pt.
- [5 <./vae-loss.png>]
-<vae-plot.png, id=148, 783.92876pt x 313.17pt>
+<training_loss_beta_1.png, id=133, 3011.25pt x 1505.625pt>
+File: training_loss_beta_1.png Graphic file (type png)
+<use training_loss_beta_1.png>
+Package pdftex.def Info: training_loss_beta_1.png  used on input line 192.
+(pdftex.def)             Requested size: 158.99156pt x 79.48988pt.
+<test_loss_beta_1.png, id=134, 3011.25pt x 1505.625pt>
+File: test_loss_beta_1.png Graphic file (type png)
+<use test_loss_beta_1.png>
+Package pdftex.def Info: test_loss_beta_1.png  used on input line 193.
+(pdftex.def)             Requested size: 158.99156pt x 79.48988pt.
+<fid_beta_1.png, id=135, 3011.25pt x 1505.625pt>
+File: fid_beta_1.png Graphic file (type png)
+<use fid_beta_1.png>
+Package pdftex.def Info: fid_beta_1.png  used on input line 198.
+(pdftex.def)             Requested size: 158.99156pt x 79.48988pt.
+<controlled_fid_beta_1.png, id=136, 3011.25pt x 1505.625pt>
+File: controlled_fid_beta_1.png Graphic file (type png)
+<use controlled_fid_beta_1.png>
+Package pdftex.def Info: controlled_fid_beta_1.png  used on input line 199.
+(pdftex.def)             Requested size: 158.99156pt x 79.48988pt.
+<vae-plot.png, id=137, 783.92876pt x 313.17pt>
 File: vae-plot.png Graphic file (type png)
 <use vae-plot.png>
 Package pdftex.def Info: vae-plot.png  used on input line 205.
 (pdftex.def)             Requested size: 317.9892pt x 127.03384pt.
-<vae-plot2.png, id=149, 783.92876pt x 313.17pt>
+<vae-plot2.png, id=138, 783.92876pt x 313.17pt>
 File: vae-plot2.png Graphic file (type png)
 <use vae-plot2.png>
-Package pdftex.def Info: vae-plot2.png  used on input line 207.
+Package pdftex.def Info: vae-plot2.png  used on input line 206.
 (pdftex.def)             Requested size: 317.9892pt x 127.03384pt.
-(./project_proposal.bbl [6 <./vae-test-loss.png> <./vae-plot.png> <./vae-plot2.
-png>]
-Underfull \hbox (badness 10000) in paragraph at lines 57--61
+
+Underfull \hbox (badness 10000) in paragraph at lines 205--207
+[][]
+ []
+
+
+Underfull \vbox (badness 7308) has occurred while \output is active []
+
+ [5 <./training_loss_beta_1.png> <./test_loss_beta_1.png> <./fid_beta_1.png> <.
+/controlled_fid_beta_1.png>] (./project_proposal.bbl
+Underfull \hbox (badness 10000) in paragraph at lines 51--55
 \T1/cmtt/m/n/10 WeAreTheMusicMakers / comments / 3ajwe4 / the _ largest _ midi 
 _ collection _ on _ the _
  []
 
-)
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 217.
+[6 <./vae-plot.png> <./vae-plot2.png>])
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 216.
  [7]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 217.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 216.
  (./project_proposal.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 217.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 217.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 216.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 216.
 Package rerunfilecheck Info: File `project_proposal.out' has not changed.
-(rerunfilecheck)             Checksum: 82F9B12A578FAB97A44EB2A6390F9D52;662.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 217.
+(rerunfilecheck)             Checksum: 35379224C01550722DD409B87FFE8E6C;645.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 216.
  ) 
 Here is how much of TeX's memory you used:
- 9627 strings out of 483065
- 145550 string characters out of 5963550
- 447970 words of memory out of 5000000
- 24289 multiletter control sequences out of 15000+600000
- 567121 words of font info for 137 fonts, out of 8000000 for 9000
+ 9645 strings out of 483065
+ 145980 string characters out of 5963550
+ 449056 words of memory out of 5000000
+ 24300 multiletter control sequences out of 15000+600000
+ 567251 words of font info for 139 fonts, out of 8000000 for 9000
  81 hyphenation exceptions out of 8191
- 38i,10n,42p,1168b,429s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 38i,10n,42p,1168b,449s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc} </home/joy/.texli
 ve2019/texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1000.600pk></usr/share/texlive
 /texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf
@@ -655,10 +677,10 @@ m/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy
 usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texli
 ve/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/f
 onts/type1/urw/times/utmri8a.pfb>
-Output written on project_proposal.pdf (7 pages, 846968 bytes).
+Output written on project_proposal.pdf (7 pages, 1038765 bytes).
 PDF statistics:
- 288 PDF objects out of 1000 (max. 8388607)
- 202 compressed objects within 3 object streams
- 44 named destinations out of 1000 (max. 500000)
- 21119 words of extra memory for PDF output out of 24883 (max. 10000000)
+ 285 PDF objects out of 1000 (max. 8388607)
+ 195 compressed objects within 2 object streams
+ 45 named destinations out of 1000 (max. 500000)
+ 21126 words of extra memory for PDF output out of 24883 (max. 10000000)
 

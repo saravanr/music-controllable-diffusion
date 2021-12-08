@@ -121,7 +121,6 @@ Magenta converts a MIDI file to a sequence of notes. Each note has:
 \item \textbf{End time}: The end time of the note (seconds)
 \end{enumerate}
 
-The data set was split into 70\% training samples, 15\% test samples and 15\% validation samples. The test samples were used for computing test loss and conditional generation of music. The validation set was used for computing the Fréchet Inception Distance (FID) as defined by \cite{heusel2018gans} and implemented in the pytorch fid package by \cite{Seitzer2020FID}.
 
 \subsection{Encoding and Normalization}
 
@@ -139,7 +138,6 @@ The reconstruction loss for categorical variables is best measured through categ
 $$ \underbrace{\mathbb{E}_{q_{\phi}(z|x_{time})} [ \log(p_{\theta}(x_{time}|z))] + \mathbb{E}_{q_{\phi}(z|x_{duration})} [ \log(p_{\theta}(x_{duration}|z))]}_{\text{L2 Reconstruction Loss}}  \underbrace{- \mathbb{D}(q_{\phi}(z|x) || p(z)) }_{\text{KL Divergence}} + $$ 
 
 $$ \underbrace{ \mathbb{E}_{q_{\phi}(z|x,x_{partial})} [ \log(p_{\theta}(x|z, x_{partial}))]}_{\text{L2 Conditional Reconstruction Loss}} \underbrace{-\mathbb{D}(q_{\phi}(z|x, x_{partial}) || p(z))}_{\text{Conditional KL Divergence}} $$
-
 
 $$ \underbrace{-\sum_{i=1}^{128} x_{pitch} \cdot \mathrm{log}\; {\hat{x}}_{pitch}  - \sum_{i=1}^{128} x_{velocity} \cdot \mathrm{log}\; {\hat{x}}_{velocity} - \sum_{i=1}^{128} x_{instr} \cdot \mathrm{log}\; {\hat{x}}_{inst} -\sum_{i=1}^{128} x_{program} \cdot \mathrm{log}\; {\hat{x}}_{program}}_{\text{Categorical Cross Entropy Losses}} $$
 
@@ -166,51 +164,48 @@ Initially we built the encoder using only Linear layers. However later we relali
 \end{figure}
 \end{center}
 
-\section{Approach}
+As illustrated in the figures above, the VAE architecture comprises of an encoder and multiple decoders which share the same $z$ space. This sharing of space while backpropagating the loss ensures that the VAE not only optimizes the reconstruction and $KL$ divergence losses, but also ensure the conditional VAE losses are also optimized.
 
+\subsection{Evaluation}
 
-The following architectures were tried for controllable generation:
+The evaluation of the models was done by both measuring the test loss and computing the Fréchet Inception Distance (FID) as defined by \cite{heusel2018gans} and implemented in the pytorch fid package by \cite{Seitzer2020FID}, on the validation set. The rule of thumb was to ensure that test loss decreases as training proceeds. All the components of the loss (reconstruction, categorical cross entropy etc.) were also tracked as part of the evaluation.
+
+The data set was split into 70\% training samples, 15\% test samples and 15\% validation samples. This gave us about 98660 files in training split and 21142 files each in test and validation split. The test samples were used for computing test loss and conditional generation of music. The validation split was used to measure FID score.
+
+FID score was measured by sampling 21142 (validation set size) samples from the trained model every 10 epochs. The FID score of conditional generation was also computed for every experiment.
+
+\section{Experiments and Results}
+
+Initially we did many experiments with VAEs, but most of them failed because of the encoding problem discussed earlier. Once we figured out the proper way to encode the input (using embeddings), the following experiments were run:
 
 \begin{itemize}
-\item Variation Auto Encoder (VAE) with a single Encoder Decoder
-\item Beta VAE with $\beta \in [1, 100]$
-\item VAE with single Encoder and multiple Decoder sharing $Z$ space
+\item Baseline - Variational Auto Encoder with $\beta = 1$.
+\item Beta VAE with $\beta \in [10, 100]$
+\item Conditional VAE music infilling using best Beta value from above.
 \end{itemize}
 
+\subsection{Baseline}
 
-Considerations:
+The baseline was obtained with $\beta = 1$. The training was performed for $100$ epochs with a learning rate of $1e-3$. The test loss and training loss were found to decrease together.
+\begin{center}
 
-\begin{itemize}
-\item Variables Pitch, Velocity, Instrument and Program are categorical variables.
-\item Variables Start time and End time are continuous.
-\item Hence we need different decoders for Categorical and Continuous variables.
-\item A separate decoder for controlled music generation.
-\item One-hot encoding cannot be used for categorical variables - Memory usage.
-\end{itemize}
+\begin{figure}
+\includegraphics[width=0.4\linewidth]{training_loss_beta_1.png}
+\includegraphics[width=0.4\linewidth]{test_loss_beta_1.png}
+\caption{Training and Test Loss for $\beta = 1$}
+\end{figure}
 
-We convert the categorical variables to embedding space and use this representation in training. To decode back to categorical values, we check closes $L1$ distance of the \textbf{logits} to each of the embedding weights. The embeddings are learned during training and allow a much smaller memory foot print.
+\begin{figure}
+\includegraphics[width=0.4\linewidth]{fid_beta_1.png}
+\includegraphics[width=0.4\linewidth]{controlled_fid_beta_1.png}
+\caption{FID for unconditional and conditional (controlled) generation of Music for $\beta = 1$}
+\end{figure}
 
-\section{Result}
-
-The music evaluation is a qualitative process however in related works authors have used Fréchet distance (FD) \cite{heusel2018gans} and Maximum Mean Discrepancy (MMD) \cite{gretton12} to measure distance between the models continuous output distribution and the original data distribution in latent space.
-
-\section{Technical Approach}
-
-The first baseline was established using a Variational Auto Encoder.
-
-\section{Prelimnary Results}
-
-
-Training and Test Loss of VAE:
-
-\includegraphics[width=0.8\linewidth]{vae-loss.png}
-
-\includegraphics[width=0.8\linewidth]{vae-test-loss.png}
+\end{center}
 
 Pitch plot of generated MIDI files. 
 
 \includegraphics[width=0.8\linewidth]{vae-plot.png}
-
 \includegraphics[width=0.8\linewidth]{vae-plot2.png}
 
 \section{Conclusion}

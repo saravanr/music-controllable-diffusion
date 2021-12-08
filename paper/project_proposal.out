@@ -5,8 +5,7 @@
 \BOOKMARK [2][-]{subsection.3.2}{Dataset}{section.3}% 5
 \BOOKMARK [2][-]{subsection.3.3}{Encoding and Normalization}{section.3}% 6
 \BOOKMARK [2][-]{subsection.3.4}{Model Architecture}{section.3}% 7
-\BOOKMARK [1][-]{section.4}{Approach}{}% 8
-\BOOKMARK [1][-]{section.5}{Result}{}% 9
-\BOOKMARK [1][-]{section.6}{Technical Approach}{}% 10
-\BOOKMARK [1][-]{section.7}{Prelimnary Results}{}% 11
-\BOOKMARK [1][-]{section.8}{Conclusion}{}% 12
+\BOOKMARK [2][-]{subsection.3.5}{Evaluation}{section.3}% 8
+\BOOKMARK [1][-]{section.4}{Experiments and Results}{}% 9
+\BOOKMARK [2][-]{subsection.4.1}{Baseline}{section.4}% 10
+\BOOKMARK [1][-]{section.5}{Conclusion}{}% 11
