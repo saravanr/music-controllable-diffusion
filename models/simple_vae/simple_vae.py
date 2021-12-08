@@ -19,7 +19,7 @@ import tqdm
 import numpy
 import wandb
 
-wandb.init(project="music-controllable-diffusion-with-fid-version-3", entity="saravanr")
+wandb.init(project="music-controllable-diffusion-with-fid-version-4", entity="saravanr")
 
 
 class ExtractLSTMOutput(nn.Module):
@@ -579,7 +579,7 @@ class SimpleVae(BaseModel):
 
 if __name__ == "__main__":
     print(f"Training simple VAE")
-    batch_size = 4096
+    batch_size = 2048
     train_mnist = False
 
     _alpha = 1

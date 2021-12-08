@@ -11,55 +11,51 @@ Warning--entry type for "midi_note_seq_data_set" isn't style-file defined
 --line 60 of file project.bib
 Warning--entry type for "gretton12" isn't style-file defined
 --line 93 of file project.bib
-Repeated entry---line 136 of file project.bib
- : @misc{heusel2018gans
- :                     ,
-I'm skipping whatever remains of this entry
 Warning--I didn't find a database entry for "magenta"
 Warning--empty title in bazin2021
 Warning--empty journal in bazin2021
 Warning--empty year in midi_note_seq_data_set
 Warning--empty year in midiman
 Warning--empty year in colinlmd
-You've used 13 entries,
+You've used 14 entries,
             2773 wiz_defined-function locations,
-            650 strings with 6903 characters,
-and the built_in function-call counts, 5592 in all, are:
-= -- 440
-> -- 436
-< -- 4
-+ -- 148
-- -- 135
-* -- 450
-:= -- 879
-add.period$ -- 36
-call.type$ -- 13
-change.case$ -- 83
-chr.to.int$ -- 13
-cite$ -- 31
-duplicate$ -- 212
-empty$ -- 422
-format.name$ -- 148
-if$ -- 1141
+            654 strings with 6991 characters,
+and the built_in function-call counts, 5940 in all, are:
+= -- 469
+> -- 457
+< -- 5
++ -- 155
+- -- 141
+* -- 472
+:= -- 930
+add.period$ -- 38
+call.type$ -- 14
+change.case$ -- 88
+chr.to.int$ -- 14
+cite$ -- 33
+duplicate$ -- 227
+empty$ -- 454
+format.name$ -- 157
+if$ -- 1216
 int.to.chr$ -- 1
 int.to.str$ -- 1
 missing$ -- 2
-newline$ -- 70
-num.names$ -- 52
-pop$ -- 212
+newline$ -- 74
+num.names$ -- 56
+pop$ -- 225
 preamble$ -- 1
-purify$ -- 71
+purify$ -- 75
 quote$ -- 0
-skip$ -- 211
+skip$ -- 228
 stack$ -- 0
-substring$ -- 26
-swap$ -- 13
+substring$ -- 28
+swap$ -- 14
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 143
+type$ -- 154
 warning$ -- 5
-while$ -- 39
+while$ -- 42
 width$ -- 0
-write$ -- 154
-(There was 1 error message)
+write$ -- 164
+(There were 10 warnings)

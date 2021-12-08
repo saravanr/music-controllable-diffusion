@@ -93,7 +93,7 @@ Initially we planned to use Denoising Diffusion Probabilistic Models (DDPMs) to 
 
 A auto encoder consists of an encoder and decoder network. The encoder tries to convert the input $x$ to a smaller latent space representation $z$. The dimension of $z$ is typically smaller than the dimension of $x$. The decoder network of an autoencoder converts $z$ back to the input respresentation $\hat{x}$. Once trained, the decoder can be used to generate samples of $x$. The disadvantage though is that in many cases this training may not be tractable. Also the latent representation $z$ serves as a look up table instead of being a continous representation of the input, which can be interpolated along different dimensions.
 
-A VAE \citep{ solves this problem by trying to learn the distribution $q(z|x)$ of the latent space and then generate $z$ by sampling from this distribution. 
+A VAE \citep{kingma2014autoencoding} solves this problem by trying to learn the distribution $q(z|x)$ of the latent space and then generate $z$ by sampling from this distribution. 
 
 $$ ELBO(x;\theta, \phi) = \mathbb{E}_{q_{\phi}(z|x)} [ \log(p_{\theta}(x|z))] - \mathcal{D}(q_{\phi}(z|x) || p(z))$$
 

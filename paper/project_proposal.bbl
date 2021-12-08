@@ -1,4 +1,4 @@
-\begin{thebibliography}{13}
+\begin{thebibliography}{14}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -38,6 +38,10 @@ Heusel, M., Ramsauer, H., Unterthiner, T., Nessler, B., and Hochreiter, S.
 Ho, J., Jain, A., and Abbeel, P.
 \newblock Denoising diffusion probabilistic models, 2020.
 
+\bibitem[Kingma \& Welling(2014)Kingma and Welling]{kingma2014autoencoding}
+Kingma, D.~P. and Welling, M.
+\newblock Auto-encoding variational bayes, 2014.
+
 \bibitem[Meng et~al.(2021)Meng, Song, Song, Wu, Zhu, and Ermon]{meng2021sdedit}
 Meng, C., Song, Y., Song, J., Wu, J., Zhu, J.-Y., and Ermon, S.
 \newblock Sdedit: Image synthesis and editing with stochastic differential
@@ -62,7 +66,7 @@ Raffel, C.
 
 \bibitem[Seitzer(2020)]{Seitzer2020FID}
 Seitzer, M.
-\newblock {pytorch-fid: FID Score for PyTorch}.
+\newblock pytorch-fid: Fid score for pytorch.
 \newblock \url{https://github.com/mseitzer/pytorch-fid}, August 2020.
 \newblock Version 0.2.1.
 
