@@ -1,4 +1,4 @@
-\begin{thebibliography}{14}
+\begin{thebibliography}{15}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -21,6 +21,12 @@ for ML~Research, M. N. S.~D.
 \newblock The largest midi note sequence encoded collection for ml researches.
 \newblock URL
   \url{https://www.dropbox.com/s/rjp2rtvunrkkzuk/midi_magenta_note_seq_data_set_v1.0.npy?dl=0}.
+
+\bibitem[Google()]{magenta}
+Google.
+\newblock Magenta: Magenta is an open source research project exploring the
+  role of machine learning as a tool in the creative process.
+\newblock \url{https://research.google/teams/brain/magenta/}.
 
 \bibitem[Gretton et~al.(2012)Gretton, K, Rasch, Schölkopf, and
   Smola]{gretton12}

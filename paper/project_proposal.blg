@@ -11,51 +11,51 @@ Warning--entry type for "midi_note_seq_data_set" isn't style-file defined
 --line 60 of file project.bib
 Warning--entry type for "gretton12" isn't style-file defined
 --line 93 of file project.bib
-Warning--I didn't find a database entry for "magenta"
 Warning--empty title in bazin2021
 Warning--empty journal in bazin2021
 Warning--empty year in midi_note_seq_data_set
+Warning--empty year in magenta
 Warning--empty year in midiman
 Warning--empty year in colinlmd
-You've used 14 entries,
+You've used 15 entries,
             2773 wiz_defined-function locations,
-            654 strings with 6991 characters,
-and the built_in function-call counts, 5940 in all, are:
-= -- 469
-> -- 457
-< -- 5
-+ -- 155
-- -- 141
-* -- 472
-:= -- 930
-add.period$ -- 38
-call.type$ -- 14
-change.case$ -- 88
-chr.to.int$ -- 14
-cite$ -- 33
-duplicate$ -- 227
-empty$ -- 454
-format.name$ -- 157
-if$ -- 1216
+            657 strings with 7172 characters,
+and the built_in function-call counts, 6233 in all, are:
+= -- 494
+> -- 467
+< -- 6
++ -- 159
+- -- 144
+* -- 485
+:= -- 974
+add.period$ -- 41
+call.type$ -- 15
+change.case$ -- 92
+chr.to.int$ -- 15
+cite$ -- 36
+duplicate$ -- 242
+empty$ -- 486
+format.name$ -- 161
+if$ -- 1279
 int.to.chr$ -- 1
 int.to.str$ -- 1
 missing$ -- 2
-newline$ -- 74
-num.names$ -- 56
-pop$ -- 225
+newline$ -- 79
+num.names$ -- 60
+pop$ -- 239
 preamble$ -- 1
-purify$ -- 75
+purify$ -- 78
 quote$ -- 0
-skip$ -- 228
+skip$ -- 240
 stack$ -- 0
-substring$ -- 28
-swap$ -- 14
+substring$ -- 30
+swap$ -- 15
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 154
-warning$ -- 5
-while$ -- 42
+type$ -- 165
+warning$ -- 6
+while$ -- 45
 width$ -- 0
-write$ -- 164
+write$ -- 175
 (There were 10 warnings)
