@@ -8,4 +8,6 @@
 \BOOKMARK [2][-]{subsection.3.5}{Evaluation}{section.3}% 8
 \BOOKMARK [1][-]{section.4}{Experiments and Results}{}% 9
 \BOOKMARK [2][-]{subsection.4.1}{Baseline}{section.4}% 10
-\BOOKMARK [1][-]{section.5}{Conclusion}{}% 11
+\BOOKMARK [2][-]{subsection.4.2}{Beta VAEs}{section.4}% 11
+\BOOKMARK [2][-]{subsection.4.3}{Improving Training Speed}{section.4}% 12
+\BOOKMARK [1][-]{section.5}{Conclusion}{}% 13

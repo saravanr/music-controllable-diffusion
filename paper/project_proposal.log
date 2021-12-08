@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.10.2)  7 DEC 2021 21:34
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.10.2)  7 DEC 2021 23:07
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -577,17 +577,17 @@ Overfull \hbox (43.58801pt too wide) detected at line 142
 []
  []
 
-<encoder.png, id=110, 1604.99625pt x 361.35pt>
+<encoder.png, id=118, 1604.99625pt x 361.35pt>
 File: encoder.png Graphic file (type png)
 <use encoder.png>
 Package pdftex.def Info: encoder.png  used on input line 148.
 (pdftex.def)             Requested size: 397.48499pt x 89.48816pt.
-<decoder.png, id=112, 1090.0725pt x 272.01625pt>
+<decoder.png, id=120, 1090.0725pt x 272.01625pt>
 File: decoder.png Graphic file (type png)
 <use decoder.png>
 Package pdftex.def Info: decoder.png  used on input line 155.
 (pdftex.def)             Requested size: 397.48499pt x 99.18756pt.
-<midi_vae.png, id=113, 942.52126pt x 869.2475pt>
+<midi_vae.png, id=121, 942.52126pt x 869.2475pt>
 File: midi_vae.png Graphic file (type png)
 <use midi_vae.png>
 Package pdftex.def Info: midi_vae.png  used on input line 162.
@@ -599,70 +599,104 @@ LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 1
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1ptm.fd
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
 )
-<training_loss_beta_1.png, id=133, 3011.25pt x 1505.625pt>
+<training_loss_beta_1.png, id=141, 3011.25pt x 1505.625pt>
 File: training_loss_beta_1.png Graphic file (type png)
 <use training_loss_beta_1.png>
 Package pdftex.def Info: training_loss_beta_1.png  used on input line 192.
 (pdftex.def)             Requested size: 158.99156pt x 79.48988pt.
-<test_loss_beta_1.png, id=134, 3011.25pt x 1505.625pt>
+<test_loss_beta_1.png, id=142, 3011.25pt x 1505.625pt>
 File: test_loss_beta_1.png Graphic file (type png)
 <use test_loss_beta_1.png>
 Package pdftex.def Info: test_loss_beta_1.png  used on input line 193.
 (pdftex.def)             Requested size: 158.99156pt x 79.48988pt.
-<fid_beta_1.png, id=135, 3011.25pt x 1505.625pt>
+<fid_beta_1.png, id=143, 3011.25pt x 1505.625pt>
 File: fid_beta_1.png Graphic file (type png)
 <use fid_beta_1.png>
-Package pdftex.def Info: fid_beta_1.png  used on input line 198.
+Package pdftex.def Info: fid_beta_1.png  used on input line 202.
 (pdftex.def)             Requested size: 158.99156pt x 79.48988pt.
-<controlled_fid_beta_1.png, id=136, 3011.25pt x 1505.625pt>
+<controlled_fid_beta_1.png, id=144, 3011.25pt x 1505.625pt>
 File: controlled_fid_beta_1.png Graphic file (type png)
 <use controlled_fid_beta_1.png>
-Package pdftex.def Info: controlled_fid_beta_1.png  used on input line 199.
+Package pdftex.def Info: controlled_fid_beta_1.png  used on input line 203.
 (pdftex.def)             Requested size: 158.99156pt x 79.48988pt.
-<vae-plot.png, id=137, 783.92876pt x 313.17pt>
-File: vae-plot.png Graphic file (type png)
-<use vae-plot.png>
-Package pdftex.def Info: vae-plot.png  used on input line 205.
-(pdftex.def)             Requested size: 317.9892pt x 127.03384pt.
-<vae-plot2.png, id=138, 783.92876pt x 313.17pt>
-File: vae-plot2.png Graphic file (type png)
-<use vae-plot2.png>
-Package pdftex.def Info: vae-plot2.png  used on input line 206.
-(pdftex.def)             Requested size: 317.9892pt x 127.03384pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 205--207
-[][]
- []
-
-
-Underfull \vbox (badness 7308) has occurred while \output is active []
-
+<combined_training_loss.png, id=145, 3011.25pt x 1505.625pt>
+File: combined_training_loss.png Graphic file (type png)
+<use combined_training_loss.png>
+Package pdftex.def Info: combined_training_loss.png  used on input line 214.
+(pdftex.def)             Requested size: 158.99156pt x 79.48988pt.
+<combined_test_loss.png, id=146, 3011.25pt x 1505.625pt>
+File: combined_test_loss.png Graphic file (type png)
+<use combined_test_loss.png>
+Package pdftex.def Info: combined_test_loss.png  used on input line 215.
+(pdftex.def)             Requested size: 158.99156pt x 79.48988pt.
  [5 <./training_loss_beta_1.png> <./test_loss_beta_1.png> <./fid_beta_1.png> <.
-/controlled_fid_beta_1.png>] (./project_proposal.bbl
-Underfull \hbox (badness 10000) in paragraph at lines 51--55
+/controlled_fid_beta_1.png>]
+<combined_fid.png, id=159, 3011.25pt x 1505.625pt>
+File: combined_fid.png Graphic file (type png)
+<use combined_fid.png>
+Package pdftex.def Info: combined_fid.png  used on input line 224.
+(pdftex.def)             Requested size: 158.99156pt x 79.48988pt.
+<combined_fid_controlled.png, id=160, 3011.25pt x 1505.625pt>
+File: combined_fid_controlled.png Graphic file (type png)
+<use combined_fid_controlled.png>
+Package pdftex.def Info: combined_fid_controlled.png  used on input line 225.
+(pdftex.def)             Requested size: 158.99156pt x 79.48988pt.
+<combined_instruments.png, id=161, 3011.25pt x 1505.625pt>
+File: combined_instruments.png Graphic file (type png)
+<use combined_instruments.png>
+Package pdftex.def Info: combined_instruments.png  used on input line 234.
+(pdftex.def)             Requested size: 158.99156pt x 79.48988pt.
+<combined_test_instruments.png, id=162, 3011.25pt x 1505.625pt>
+File: combined_test_instruments.png Graphic file (type png)
+<use combined_test_instruments.png>
+Package pdftex.def Info: combined_test_instruments.png  used on input line 235.
+
+(pdftex.def)             Requested size: 158.99156pt x 79.48988pt.
+ [6 <./combined_training_loss.png> <./combined_test_loss.png> <./combined_fid.p
+ng> <./combined_fid_controlled.png> <./combined_instruments.png> <./combined_te
+st_instruments.png>] (./project_proposal.bbl
+Underfull \hbox (badness 10000) in paragraph at lines 45--49
 \T1/cmtt/m/n/10 WeAreTheMusicMakers / comments / 3ajwe4 / the _ largest _ midi 
 _ collection _ on _ the _
  []
 
-[6 <./vae-plot.png> <./vae-plot2.png>])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 216.
- [7]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 216.
+[7]
+Underfull \hbox (badness 4779) in paragraph at lines 62--67
+[]\T1/ptm/m/n/10 (+20) Rathinam, S.  Vae gen-er-ated mu-sic - win-ter planet.  
+[]$\T1/cmtt/m/n/10 https : / / soundcloud . com /
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 62--67
+\T1/cmtt/m/n/10 saravana-[]r-[]389436812 / cs236-[]multi-[]instrument-[]music-[
+]generation-[]using-[]vae ?
+ []
+
+
+Underfull \hbox (badness 1281) in paragraph at lines 69--74
+[]\T1/ptm/m/n/10 (+20) Rathinam, S.  The largest midi note se-quence en-coded c
+ol-lec-tion for ml re-searches, b.
+ []
+
+)
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 269.
+ [8]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 269.
  (./project_proposal.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 216.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 216.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 269.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 269.
 Package rerunfilecheck Info: File `project_proposal.out' has not changed.
-(rerunfilecheck)             Checksum: 35379224C01550722DD409B87FFE8E6C;645.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 216.
+(rerunfilecheck)             Checksum: 439A693CEF16CDC9F6F35B9D6D916A0C;778.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 269.
  ) 
 Here is how much of TeX's memory you used:
- 9645 strings out of 483065
- 145980 string characters out of 5963550
- 449056 words of memory out of 5000000
- 24300 multiletter control sequences out of 15000+600000
- 567251 words of font info for 139 fonts, out of 8000000 for 9000
+ 9698 strings out of 483065
+ 147130 string characters out of 5963550
+ 449100 words of memory out of 5000000
+ 24328 multiletter control sequences out of 15000+600000
+ 567887 words of font info for 148 fonts, out of 8000000 for 9000
  81 hyphenation exceptions out of 8191
- 38i,10n,42p,1168b,449s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 38i,10n,42p,1168b,443s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc} </home/joy/.texli
 ve2019/texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1000.600pk></usr/share/texlive
 /texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf
@@ -677,10 +711,10 @@ m/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy
 usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texli
 ve/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/f
 onts/type1/urw/times/utmri8a.pfb>
-Output written on project_proposal.pdf (7 pages, 1038765 bytes).
+Output written on project_proposal.pdf (8 pages, 2180115 bytes).
 PDF statistics:
- 285 PDF objects out of 1000 (max. 8388607)
- 195 compressed objects within 2 object streams
- 45 named destinations out of 1000 (max. 500000)
- 21126 words of extra memory for PDF output out of 24883 (max. 10000000)
+ 322 PDF objects out of 1000 (max. 8388607)
+ 222 compressed objects within 3 object streams
+ 53 named destinations out of 1000 (max. 500000)
+ 21162 words of extra memory for PDF output out of 24883 (max. 10000000)
 

@@ -186,31 +186,81 @@ Initially we did many experiments with VAEs, but most of them failed because of 
 
 \subsection{Baseline}
 
-The baseline was obtained with $\beta = 1$. The training was performed for $100$ epochs with a learning rate of $1e-3$. The test loss and training loss were found to decrease together.
+The baseline was obtained with $\beta = 1$. The training was performed for $100$ epochs with a learning rate of $1e-3$. The test loss and training loss were found to decrease together. (Figure 4.) 
+\begin{figure}[h]
 \begin{center}
-
-\begin{figure}
 \includegraphics[width=0.4\linewidth]{training_loss_beta_1.png}
 \includegraphics[width=0.4\linewidth]{test_loss_beta_1.png}
+\end{center}
 \caption{Training and Test Loss for $\beta = 1$}
 \end{figure}
 
+The FID scores also reduced as the training progressed. The curve for FID is not smooth because it was computed every 10 epochs while the training and test loss were computed every epoch. (Figure 5.)
+
 \begin{figure}
+\begin{center}
 \includegraphics[width=0.4\linewidth]{fid_beta_1.png}
 \includegraphics[width=0.4\linewidth]{controlled_fid_beta_1.png}
 \caption{FID for unconditional and conditional (controlled) generation of Music for $\beta = 1$}
+\end{center}
 \end{figure}
 
+\subsection{Beta VAEs}
+
+Several beta VAEs were trained and evaluated with $\beta$ in $[10, 20, 40, 80, 100]$. The following plots show the losses and FID scores obtained.
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=0.4\linewidth]{combined_training_loss.png}
+\includegraphics[width=0.4\linewidth]{combined_test_loss.png}
+\caption{Training and Test Loss plots for different $\beta$ values}
 \end{center}
+\end{figure}
 
-Pitch plot of generated MIDI files. 
+Although the training and test loss appear to be similar for all models, the FID scores show a different story.
 
-\includegraphics[width=0.8\linewidth]{vae-plot.png}
-\includegraphics[width=0.8\linewidth]{vae-plot2.png}
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=0.4\linewidth]{combined_fid.png}
+\includegraphics[width=0.4\linewidth]{combined_fid_controlled.png}
+\caption{FID for unconditional and conditional (controlled) generation of Music different $\beta$ values}
+\end{center}
+\end{figure}
+
+The best scores were obtained with a $\beta$ value of $20$. This was hard to explain, since the test loss looked similar for these models. However after looking at the individual losses, we noticed a difference in how fast the categorical cross entropy loss for the sequence of instruments converged. 
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=0.4\linewidth]{combined_instruments.png}
+\includegraphics[width=0.4\linewidth]{combined_test_instruments.png}
+\caption{Categorical Cross Entropy Loss for Instruments with different $\beta$}
+\end{center}
+\end{figure}
+
+Note the difference in rate of convergence for $\beta = 20$.
+
+\subsection{Improving Training Speed}
+We did about 756 training, test loss evaluation and sampling runs for the project. The initial few runs were extremely slow even though the training was done on a relatively high end GPU (NVidia RTX 3090 FE). After profiling the training loop, we found the following:
+
+\begin{itemize}
+\item Run time conversion of MIDI to PyTorch Tensors was causing memory leak.
+We could not root cause the memory leak, but we suspect it to be in the magenta MIDI to note sequence conversion layer even when we used more than 24 worker processes. Anyway, instead of converting the files at run time, we decided to cache the numpy files separately.
+\item Individual numpy files were slow to load. The data module had to load 140, 944 files and fetching them individually was slow. Since we were IO bottlenecked, one option would have been to use python worker threads. However we decided to instead cache all the files into a single numpy file thereby loading it only once. The file was also copied over to \textit{\textbackslash dev\textbackslash shm} (shared memory), so the file stayed entirely in memory.
+\item Loading across multiple workers was slow. Even though the file was in memory, the CPU had to do a lot of work transfering over the data to the GPU. Although the PCI bus is fast enough, for large quantities of data that is repeatedly fetched, this turned out to be a big bottleneck. To solve this we copied over all the data to the GPU on startup. The tensors took about 4Gb of GPU memory. This transfer however had to be done using a single worker process, since multiple processes cannot access the same CUDA address space.
+
+We also experimented with different batch sizes and found a batch size of 2048 to be good enough. By doing the above we were able to speed up the training from about 90 mins to about 10 mins. This order of magnitude increase in training and eval speed allowed us to train many variations of the model in a short time.
+
+\end{itemize}
+
 
 \section{Conclusion}
 
-The encoded sequences were saved to a single numpy archive file (~2.7Gb) which is the largest collection of MIDI samples for ML Research. This is now available at \citep{midi_note_seq_data_set}.
+This project was a step in trying to generate long sequences of music (90 seconds+) in a more tractable way. The music generated was also multi-instrument and we also tried unconditional generation. The conditional generation was not as succesful because we conditioned on the begining of the song, which was mostly silent or had a few instruments/notes. However the unconditional generating produced some interesting and pleasant music \citep{generated_music}. We also published a dataset \citep{midi_note_seq_data_set} that can be used for further research along with the source code for encoding and decoding \citep{vae_source}.
+
+We found the best $\beta$ value for a good FID score, with the given model architecture, to be $\beta = 20$. The cross entropy loss for the sequence and number of instruments in the generated MIDI file, for good FID models seems to converge slower. Its difficult to explain why there is this correlation, but our intution is that instruments tend to be grouped for different song genres and perhaps the model learns this better when the instruments loss converges slower.
+
+
+Generative modeling is a fascinating area of research. A lot of academic effort has gone into generative models, but their validation is mostly limited to generating images. We can effortlessly classify an image as high quality or low quality by just looking at it. However other types of data, including Music need more effort. Even though FID scores can serve as a good metric to evaluate against, still music seems to be a process that may not conform to a particular distribution or reside on a particular manifold. The best quality music seem to be the one in outliers and these are really hard to find.
 
 
 \bibliography{project}

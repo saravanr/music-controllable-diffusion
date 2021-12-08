@@ -1,4 +1,4 @@
-\begin{thebibliography}{14}
+\begin{thebibliography}{16}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -15,12 +15,6 @@ Bazin, T., Hadjeres, G., Esling, P., and Malt, M.
 Choi, J., Kim, S., Jeong, Y., Gwon, Y., and Yoon, S.
 \newblock Ilvr: Conditioning method for denoising diffusion probabilistic
   models, 2021.
-
-\bibitem[for ML~Research()]{midi_note_seq_data_set}
-for ML~Research, M. N. S.~D.
-\newblock The largest midi note sequence encoded collection for ml researches.
-\newblock URL
-  \url{https://www.dropbox.com/s/rjp2rtvunrkkzuk/midi_magenta_note_seq_data_set_v1.0.npy?dl=0}.
 
 \bibitem[Google()]{magenta}
 Google.
@@ -63,6 +57,26 @@ Mittal, G., Engel, J.~H., Hawthorne, C., and Simon, I.
 Raffel, C.
 \newblock Motion sensors | andriod development.
 \newblock URL \url{https://colinraffel.com/projects/lmd/}.
+
+\bibitem[Rathinam({\natexlab{a}})]{generated_music}
+Rathinam, S.
+\newblock Vae generated music - winter planet.
+\newblock
+  \url{https://soundcloud.com/saravana-r-389436812/cs236-multi-instrument-music-generation-using-vae?si=53eaea6cb734413d80f88bcabc25d3c4
+  }, {\natexlab{a}}.
+
+\bibitem[Rathinam({\natexlab{b}})]{midi_note_seq_data_set}
+Rathinam, S.
+\newblock The largest midi note sequence encoded collection for ml researches,
+  {\natexlab{b}}.
+\newblock URL
+  \url{https://www.dropbox.com/s/rjp2rtvunrkkzuk/midi_magenta_note_seq_data_set_v1.0.npy?dl=0}.
+
+\bibitem[Rathinam({\natexlab{c}})]{vae_source}
+Rathinam, S.
+\newblock Multi instrument music generation using vaes source code.
+\newblock \url{https://github.com/saravanr/music-controllable-diffusion},
+  {\natexlab{c}}.
 
 \bibitem[Seitzer(2020)]{Seitzer2020FID}
 Seitzer, M.

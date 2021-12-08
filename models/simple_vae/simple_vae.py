@@ -514,9 +514,9 @@ class SimpleVae(BaseModel):
                     samples = samples.reshape((-1, 28, 28))
                     SimpleVae.plot_image_grid(samples)
                 else:
-                    rand_z = torch.randn(self._pitches_decoder.z_dim).to(device)
+                    rand_z = torch.randn(self._pitches_decoder.z_dim)
                     rand_z_np = rand_z.numpy()
-                    rand_z.to(device)
+                    rand_z = rand_z.to(device)
 
                     x_pitches, _ = self._pitches_decoder(rand_z)
                     x_velocity, _ = self._velocity_decoder(rand_z)
@@ -582,7 +582,7 @@ if __name__ == "__main__":
     batch_size = 2048
     train_mnist = False
 
-    _alpha = 10
+    _alpha = 15
 
     if train_mnist:
         _z_dim = 20

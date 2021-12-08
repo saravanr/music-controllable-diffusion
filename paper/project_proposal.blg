@@ -11,49 +11,51 @@ Warning--entry type for "midi_note_seq_data_set" isn't style-file defined
 --line 60 of file project.bib
 Warning--empty title in bazin2021
 Warning--empty journal in bazin2021
-Warning--empty year in midi_note_seq_data_set
 Warning--empty year in magenta
 Warning--empty year in midiman
 Warning--empty year in colinlmd
-You've used 14 entries,
+Warning--empty year in generated_music
+Warning--empty year in midi_note_seq_data_set
+Warning--empty year in vae_source
+You've used 16 entries,
             2773 wiz_defined-function locations,
-            652 strings with 7018 characters,
-and the built_in function-call counts, 5721 in all, are:
-= -- 454
-> -- 419
-< -- 6
-+ -- 143
-- -- 129
-* -- 439
-:= -- 893
-add.period$ -- 38
-call.type$ -- 14
-change.case$ -- 84
+            658 strings with 7308 characters,
+and the built_in function-call counts, 6325 in all, are:
+= -- 507
+> -- 439
+< -- 8
++ -- 153
+- -- 135
+* -- 474
+:= -- 983
+add.period$ -- 44
+call.type$ -- 16
+change.case$ -- 92
 chr.to.int$ -- 14
-cite$ -- 34
-duplicate$ -- 226
-empty$ -- 453
-format.name$ -- 145
-if$ -- 1175
-int.to.chr$ -- 1
+cite$ -- 40
+duplicate$ -- 256
+empty$ -- 517
+format.name$ -- 153
+if$ -- 1304
+int.to.chr$ -- 3
 int.to.str$ -- 1
 missing$ -- 2
-newline$ -- 74
-num.names$ -- 56
-pop$ -- 220
+newline$ -- 84
+num.names$ -- 64
+pop$ -- 245
 preamble$ -- 1
-purify$ -- 71
+purify$ -- 77
 quote$ -- 0
-skip$ -- 222
+skip$ -- 242
 stack$ -- 0
-substring$ -- 28
-swap$ -- 14
+substring$ -- 32
+swap$ -- 19
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 154
-warning$ -- 6
-while$ -- 42
+type$ -- 176
+warning$ -- 8
+while$ -- 48
 width$ -- 0
-write$ -- 163
-(There were 9 warnings)
+write$ -- 188
+(There were 11 warnings)
