@@ -129,8 +129,42 @@ In the first few implementations of the VAE we did the mistake of not normalizin
 
 The problem was with some of the inputs being categorical variables instead of continuous variables. This led us to consider alternative ways to encode the categorical variables. Initially we considered one-hot encoding, however this lead to a huge amount of memory consumption on GPU. Instead we used an embedding layer to encode these categorical variables into embedding space. The weights of the embedding layer were then used to translate back to the original categorical space. To do this we computed the $L2$ distance and then tried to find the index of lowest distance. $$ x_{categorical} = \arg \min || \mathrm{embedding.weight} - x_{decoder}||_2 $$. This approach worked much better in practice while not consuming too much memory.
 
-% In the unusual situation where you want a paper to appear in the
-% references without citing it in the main text, use \nocite
+
+\subsection{Model Architecture}
+
+A traditional VAE has a single encoder and a single decoder. We had some inputs that are categorical variables and some that are continuous. We also want to generate conditional output, where the VAE is able to fill in the rest of the music sequence given the beginning. 
+
+The reconstruction loss for categorical variables is best measured through categorical cross-entropy, while we use the $L2$ norm for continuous output. Thus our overall loss function becomes a combination sum of $KL$ divergence loss ($\mathbb{D}(q_{\phi}(z|x) || p(z))$), reconstruction losses (time and duration) and categorical cross-entropy loss (for pitch, velocity, instruments and program). 
+
+$$ \underbrace{\mathbb{E}_{q_{\phi}(z|x_{time})} [ \log(p_{\theta}(x_{time}|z))] + \mathbb{E}_{q_{\phi}(z|x_{duration})} [ \log(p_{\theta}(x_{duration}|z))]}_{\text{L2 Reconstruction Loss}}  \underbrace{- \mathbb{D}(q_{\phi}(z|x) || p(z)) }_{\text{KL Divergence}} + $$ 
+
+$$ \underbrace{ \mathbb{E}_{q_{\phi}(z|x,x_{partial})} [ \log(p_{\theta}(x|z, x_{partial}))]}_{\text{L2 Conditional Reconstruction Loss}} \underbrace{-\mathbb{D}(q_{\phi}(z|x, x_{partial}) || p(z))}_{\text{Conditional KL Divergence}} $$
+
+
+$$ \underbrace{-\sum_{i=1}^{128} x_{pitch} \cdot \mathrm{log}\; {\hat{x}}_{pitch}  - \sum_{i=1}^{128} x_{velocity} \cdot \mathrm{log}\; {\hat{x}}_{velocity} - \sum_{i=1}^{128} x_{instr} \cdot \mathrm{log}\; {\hat{x}}_{inst} -\sum_{i=1}^{128} x_{program} \cdot \mathrm{log}\; {\hat{x}}_{program}}_{\text{Categorical Cross Entropy Losses}} $$
+
+Initially we built the encoder using only Linear layers. However later we relalized that since music is inherently auto-regressive, a RNN network may be better suited. After experimenting with RNN, LSTMs and GRU layers, we finally settled with bi-directional GRU as one of the layers of the encoder. The encoder's output was finally passed through two additional linear layers to extract $\mu$ and $ \log(\sigma)$.
+
+\begin{center}
+\begin{figure}
+\includegraphics[width=1.0\linewidth]{encoder.png}
+\caption{Encoder Architecture}
+\end{figure}
+\end{center}
+
+\begin{center}
+\begin{figure}
+\includegraphics[width=1.0\linewidth]{decoder.png}
+\caption{Decoder Architecture}
+\end{figure}
+\end{center}
+
+\begin{center}
+\begin{figure}
+\includegraphics[width=1.0\linewidth]{midi_vae.png}
+\caption{Conditional VAE Architecture with different Decoders for Categorical and Continuous Variables}
+\end{figure}
+\end{center}
 
 \section{Approach}
 
@@ -142,14 +176,6 @@ The following architectures were tried for controllable generation:
 \item Beta VAE with $\beta \in [1, 100]$
 \item VAE with single Encoder and multiple Decoder sharing $Z$ space
 \end{itemize}
-
-\begin{center}
-
-\begin{figure}
-\includegraphics[width=1.0\linewidth]{midi_vae.png}
-\caption{Conditional VAE Architecture}
-\end{figure}
-\end{center}
 
 
 Considerations:
